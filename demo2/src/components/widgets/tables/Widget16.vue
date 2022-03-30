@@ -309,7 +309,7 @@ export default defineComponent({
           alert("Error");
         } else {
           this.datas = response.data;
-          localStorage.setItem("main-wrap", JSON.stringify(response.data));
+          localStorage.setItem("comfort", JSON.stringify(response.data));
         }
       });
       axios.defaults.baseURL = "http://localhost:8084/api/v1/";

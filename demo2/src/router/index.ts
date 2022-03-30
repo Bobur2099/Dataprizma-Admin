@@ -32,29 +32,40 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "/dataprizma/main/main-wrap",
         name: "main",
-        component: () => import("@/views/crafted/dataprizma/Main/MainWrap.vue"),
+        component: () => import("@/views/crafted/dataprizma/main/MainWrap.vue"),
       },
       {
         path: "/dataprizma/main/comfort",
         name: "comfort",
-        component: () => import("@/views/crafted/dataprizma/Main/Comfort.vue"),
-      },
-      {
-        path: "/dataprizma/main/short-service",
-        name: "Short Service",
-        component: () =>
-          import("@/views/crafted/dataprizma/Main/ShortService.vue"),
+        component: () => import("@/views/crafted/dataprizma/main/Comfort.vue"),
       },
       {
         path: "/dataprizma/main/advertise",
-        name: "Advertise",
+        name: "advertise",
         component: () =>
-          import("@/views/crafted/dataprizma/Main/Advertise.vue"),
+          import("@/views/crafted/dataprizma/main/Advertise.vue"),
       },
       {
-        path: "/dataprizma/main/review",
-        name: "review",
-        component: () => import("@/views/crafted/dataprizma/Main/Review.vue"),
+        path: "/dataprizma/main/services-header",
+        name: "services-header",
+        component: () =>
+          import("@/views/crafted/dataprizma/main/ServicesHeader.vue"),
+      },
+      {
+        path: "/dataprizma/main/services-carousel",
+        name: "services-carousel",
+        component: () =>
+          import("@/views/crafted/dataprizma/main/ServicesCarousel.vue"),
+      },
+      {
+        path: "/dataprizma/main/review-header",
+        name: "review-header",
+        component: () => import("@/views/crafted/dataprizma/main/ReviewHeader.vue"),
+      },
+      {
+        path: "/dataprizma/main/review-carousel",
+        name: "review-carousel",
+        component: () => import("@/views/crafted/dataprizma/main/ReviewCarousel.vue"),
       },
       {
         path: "/dataprizma/about",

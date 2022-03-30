@@ -13,15 +13,15 @@
     <!--    begin::Update User-->
     <KTModalCard
       button-text="Add New Card"
-      modal-id="kt_modal_advertise"
+      modal-id="kt_modal_service"
       style="display: none"
       class="modal-view"
     ></KTModalCard>
-    <AdvertiseModal
+    <ServiceModal
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
       :create="create"
-    ></AdvertiseModal>
+    ></ServiceModal>
     <!--    end::Update User-->
 
     <!--  start::Delete Role-->
@@ -59,7 +59,7 @@
           @click="
             fillUpdateInputs(-1);
             create = 1;
-            AdvertiseModal();
+            ServiceModal();
           "
         >
           <span class="svg-icon svg-icon-3">
@@ -97,10 +97,15 @@
                 </div>
               </th>
               <th class="min-w-150px">Image</th>
-              <th class="min-w-200px">Topic</th>
               <th class="min-w-200px">Header</th>
-              <th class="min-w-200px">Paragraph</th>
-              <th class="min-w-200px">Primary text</th>
+              <th class="min-w-200px">Primary</th>
+              <th class="min-w-200px">Text</th>
+              <th class="min-w-200px">Sphere text 1</th>
+              <th class="min-w-200px">Sphere text 2</th>
+              <th class="min-w-200px">Sphere text 3</th>
+              <th class="min-w-200px">Text 1</th>
+              <th class="min-w-200px">Text 2</th>
+              <th class="min-w-200px">Text 3</th>
               <th class="min-w-100px text-end">Actions</th>
             </tr>
           </thead>
@@ -147,21 +152,10 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                  >{{ item.topic }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.companySkills-->
-                  <!--                  }}</span>-->
-                </td>
-
-                <td>
-                  <a
-                    href="#"
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
                     >{{ item.header }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.companySkills-->
+                  <!--                    item.ServiceSkills-->
                   <!--                  }}</span>-->
                 </td>
 
@@ -169,10 +163,18 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.paragraph }}</a
+                    >{{ item.primary }}</a
+                  >
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.text }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.companySkills-->
+                  <!--                    item.ServiceSkills-->
                   <!--                  }}</span>-->
                 </td>
 
@@ -180,10 +182,65 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.primaryText }}</a
+                    >{{ item.sphereText1 }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.companySkills-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.sphereText2 }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.sphereText3 }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textFirst }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textSecond }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textThird }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
                   <!--                  }}</span>-->
                 </td>
 
@@ -231,7 +288,7 @@
                   <a
                     @click="
                       fillUpdateInputs(item.id);
-                      AdvertiseModal();
+                      ServiceModal();
                       create = 0;
                     "
                     class="
@@ -249,7 +306,7 @@
                       /*deleteUser(item.id, index)*/
                       fillUpdateInputs(item.id);
                       create = 2;
-                      AdvertiseModal();
+                      ServiceModal();
                     "
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
@@ -289,11 +346,11 @@ import axios from "axios";
 import KTModalCard from "@/components/cards/Card.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 // import CreateUserModal from "@/components/modals/forms/CreateUserModal.vue";
-import AdvertiseModal from "@/components/modals/dataprizma/main/AdvertiseModal.vue";
+import ServiceModal from "@/components/modals/dataprizma/service/ServiceModal.vue";
 // import DeleteUserModal from "@/components/modals/forms/DeleteUserModal.vue";
 
 export default defineComponent({
-  name: "kt-widget-17",
+  name: "kt-widget-23",
   data() {
     return {
       datas: [{ id: 1 }],
@@ -319,7 +376,7 @@ export default defineComponent({
   components: {
     KTModalCard,
     // CreateUserModal,
-    AdvertiseModal,
+    ServiceModal,
     // DeleteUserModal,
   },
   props: {
@@ -328,12 +385,12 @@ export default defineComponent({
   methods: {
     tableData() {
       axios.defaults.baseURL = "http://localhost:8084/api/v2/";
-      axios.get("advertise/list").then((response) => {
+      axios.get("service/list").then((response) => {
         if (response.status !== 200) {
           alert("Error");
         } else {
           this.datas = response.data;
-          localStorage.setItem("advertise", JSON.stringify(response.data));
+          localStorage.setItem("service", JSON.stringify(response.data));
         }
       });
       axios.defaults.baseURL = "http://localhost:8084/api/v1/";
@@ -341,7 +398,7 @@ export default defineComponent({
     fillUpdateInputs(id) {
       this.updateId = id;
     },
-    AdvertiseModal() {
+    ServiceModal() {
       let Element: HTMLElement = document.querySelector(
         ".modal-view button"
       ) as HTMLElement;
@@ -354,7 +411,7 @@ export default defineComponent({
   setup() {
     const checked = ref(false);
     onMounted(() => {
-      setCurrentPageBreadcrumbs("Advertise", ["Dataprizma", "Main"]);
+      setCurrentPageBreadcrumbs("Service", ["Dataprizma"]);
     });
 
     // const list = [
@@ -362,8 +419,8 @@ export default defineComponent({
     //     image: "media/avatars/150-11.jpg",
     //     name: "Ana Simmons",
     //     skills: "HTML, JS, ReactJS",
-    //     companyName: "Intertico",
-    //     companySkills: "Web, UI/UX Design",
+    //     ServiceName: "Intertico",
+    //     ServiceSkills: "Web, UI/UX Design",
     //     value: "50",
     //     color: "primary",
     //   },
@@ -371,8 +428,8 @@ export default defineComponent({
     //     image: "media/avatars/150-3.jpg",
     //     name: "Jessie Clarcson",
     //     skills: "C#, ASP.NET, MS SQL",
-    //     companyName: "Agoda",
-    //     companySkills: "Houses & Hotels",
+    //     ServiceName: "Agoda",
+    //     ServiceSkills: "Houses & Hotels",
     //     value: "70",
     //     color: "danger",
     //   },
@@ -380,8 +437,8 @@ export default defineComponent({
     //     image: "media/avatars/150-4.jpg",
     //     name: "Lebron Wayde",
     //     skills: "PHP, Laravel, VueJS",
-    //     companyName: "RoadGee",
-    //     companySkills: "Transportation",
+    //     ServiceName: "RoadGee",
+    //     ServiceSkills: "Transportation",
     //     value: "60",
     //     color: "success",
     //   },
@@ -389,8 +446,8 @@ export default defineComponent({
     //     image: "media/avatars/150-5.jpg",
     //     name: "Natali Goodwin",
     //     skills: "Python, PostgreSQL, ReactJS",
-    //     companyName: "The Hill",
-    //     companySkills: "Insurance",
+    //     ServiceName: "The Hill",
+    //     ServiceSkills: "Insurance",
     //     value: "50",
     //     color: "warning",
     //   },
@@ -398,8 +455,8 @@ export default defineComponent({
     //     image: "media/avatars/150-6.jpg",
     //     name: "Kevin Leonard",
     //     skills: "HTML, JS, ReactJS",
-    //     companyName: "RoadGee",
-    //     companySkills: "Art Director",
+    //     ServiceName: "RoadGee",
+    //     ServiceSkills: "Art Director",
     //     value: "90",
     //     color: "info",
     //   },
@@ -407,8 +464,8 @@ export default defineComponent({
     //     image: "media/avatars/150-6.jpg",
     //     name: "Kevin Leonard",
     //     skills: "HTML, JS, ReactJS",
-    //     companyName: "RoadGee",
-    //     companySkills: "Art Director",
+    //     ServiceName: "RoadGee",
+    //     ServiceSkills: "Art Director",
     //     value: "90",
     //     color: "info",
     //   },
@@ -416,8 +473,8 @@ export default defineComponent({
     //     image: "media/avatars/150-6.jpg",
     //     name: "Kevin Leonard",
     //     skills: "HTML, JS, ReactJS",
-    //     companyName: "RoadGee",
-    //     companySkills: "Art Director",
+    //     ServiceName: "RoadGee",
+    //     ServiceSkills: "Art Director",
     //     value: "90",
     //     color: "info",
     //   },

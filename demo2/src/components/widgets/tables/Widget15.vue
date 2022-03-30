@@ -319,7 +319,7 @@ export default defineComponent({
   setup() {
     const checked = ref(false);
     onMounted(() => {
-      setCurrentPageBreadcrumbs("Main Wrap", ["Dataprizma", "Main"]);
+      setCurrentPageBreadcrumbs("main Wrap", ["Dataprizma", "Main"]);
     });
 
     // const list = [

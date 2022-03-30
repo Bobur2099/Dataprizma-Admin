@@ -34,7 +34,7 @@ const DocMenuConfig = [
     route: "/dataprizma",
     pages: [
       {
-        sectionTitle: "main",
+        sectionTitle: "Main",
         route: "/main",
         svgIcon: "media/icons/duotune/general/gen022.svg",
         fontIcon: "bi-archive",
@@ -48,16 +48,24 @@ const DocMenuConfig = [
             route: "/dataprizma/main/comfort",
           },
           {
-            heading: "Short Service",
-            route: "/dataprizma/main/short-service",
-          },
-          {
             heading: "Advertise",
             route: "/dataprizma/main/advertise",
           },
           {
-            heading: "Review",
-            route: "/dataprizma/main/review",
+            heading: "Services Header",
+            route: "/dataprizma/main/services-header",
+          },
+          {
+            heading: "Services Carousel",
+            route: "/dataprizma/main/services-carousel",
+          },
+          {
+            heading: "Review Header",
+            route: "/dataprizma/main/review-header",
+          },
+          {
+            heading: "Review Carousel",
+            route: "/dataprizma/main/review-carousel",
           },
         ],
       },

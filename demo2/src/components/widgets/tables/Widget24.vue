@@ -13,15 +13,15 @@
     <!--    begin::Update User-->
     <KTModalCard
       button-text="Add New Card"
-      modal-id="kt_modal_advertise"
+      modal-id="kt_modal_portfolio"
       style="display: none"
       class="modal-view"
     ></KTModalCard>
-    <AdvertiseModal
+    <PortfolioModal
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
       :create="create"
-    ></AdvertiseModal>
+    ></PortfolioModal>
     <!--    end::Update User-->
 
     <!--  start::Delete Role-->
@@ -59,7 +59,7 @@
           @click="
             fillUpdateInputs(-1);
             create = 1;
-            AdvertiseModal();
+            PortfolioModal();
           "
         >
           <span class="svg-icon svg-icon-3">
@@ -97,10 +97,13 @@
                 </div>
               </th>
               <th class="min-w-150px">Image</th>
-              <th class="min-w-200px">Topic</th>
-              <th class="min-w-200px">Header</th>
-              <th class="min-w-200px">Paragraph</th>
-              <th class="min-w-200px">Primary text</th>
+              <th class="min-w-140px">Header</th>
+              <th class="min-w-200px">Text</th>
+              <th class="min-w-140px">Budget</th>
+              <th class="min-w-140px">Location</th>
+              <th class="min-w-150px">Client name</th>
+              <th class="min-w-150px">Start date</th>
+              <th class="min-w-150px">End date</th>
               <th class="min-w-100px text-end">Actions</th>
             </tr>
           </thead>
@@ -147,17 +150,6 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                  >{{ item.topic }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.companySkills-->
-                  <!--                  }}</span>-->
-                </td>
-
-                <td>
-                  <a
-                    href="#"
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
                     >{{ item.header }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -169,7 +161,7 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.paragraph }}</a
+                    >{{ item.text }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.companySkills-->
@@ -180,39 +172,56 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.primaryText }}</a
+                    >{{ item.budget }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.companySkills-->
                   <!--                  }}</span>-->
                 </td>
 
-                <!--                <td class="text-end">-->
-                <!--                  <div class="d-flex flex-column w-100 me-2">-->
-                <!--                    <div class="d-flex flex-stack mb-2">-->
-                <!--                      <span class="text-muted me-2 fs-7 fw-bold">-->
-                <!--                        &lt;!&ndash;                        {{ item.password }}&ndash;&gt;-->
-                <!--                      </span>-->
-                <!--                    </div>-->
-                <!--                    &lt;!&ndash;                    <div class="d-flex flex-stack mb-2">&ndash;&gt;-->
-                <!--                    &lt;!&ndash;                      <span class="text-muted me-2 fs-7 fw-bold">&ndash;&gt;-->
-                <!--                    &lt;!&ndash;                        {{ item.value }}%&ndash;&gt;-->
-                <!--                    &lt;!&ndash;                      </span>&ndash;&gt;-->
-                <!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.location }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.companySkills-->
+                  <!--                  }}</span>-->
+                </td>
 
-                <!--                    &lt;!&ndash;                    <div class="progress h-6px w-100">&ndash;&gt;-->
-                <!--                    &lt;!&ndash;                      <div&ndash;&gt;-->
-                <!--                    &lt;!&ndash;                        class="progress-bar"&ndash;&gt;-->
-                <!--                    &lt;!&ndash;                        :class="`bg-${item.color}`"&ndash;&gt;-->
-                <!--                    &lt;!&ndash;                        role="progressbar"&ndash;&gt;-->
-                <!--                    &lt;!&ndash;                        :style="{ width: item.value + '%' }"&ndash;&gt;-->
-                <!--                    &lt;!&ndash;                        :aria-valuenow="item.value"&ndash;&gt;-->
-                <!--                    &lt;!&ndash;                        aria-valuemin="0"&ndash;&gt;-->
-                <!--                    &lt;!&ndash;                        aria-valuemax="100"&ndash;&gt;-->
-                <!--                    &lt;!&ndash;                      ></div>&ndash;&gt;-->
-                <!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
-                <!--                  </div>-->
-                <!--                </td>-->
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.clientName }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.companySkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.startDate }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.companySkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.endDate }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.companySkills-->
+                  <!--                  }}</span>-->
+                </td>
 
                 <td class="text-end">
                   <!--                  <a-->
@@ -231,7 +240,7 @@
                   <a
                     @click="
                       fillUpdateInputs(item.id);
-                      AdvertiseModal();
+                      PortfolioModal();
                       create = 0;
                     "
                     class="
@@ -249,7 +258,7 @@
                       /*deleteUser(item.id, index)*/
                       fillUpdateInputs(item.id);
                       create = 2;
-                      AdvertiseModal();
+                      PortfolioModal();
                     "
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
@@ -289,11 +298,11 @@ import axios from "axios";
 import KTModalCard from "@/components/cards/Card.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 // import CreateUserModal from "@/components/modals/forms/CreateUserModal.vue";
-import AdvertiseModal from "@/components/modals/dataprizma/main/AdvertiseModal.vue";
+import PortfolioModal from "@/components/modals/dataprizma/portfolio/PortfolioModal.vue";
 // import DeleteUserModal from "@/components/modals/forms/DeleteUserModal.vue";
 
 export default defineComponent({
-  name: "kt-widget-17",
+  name: "kt-widget-24",
   data() {
     return {
       datas: [{ id: 1 }],
@@ -319,7 +328,7 @@ export default defineComponent({
   components: {
     KTModalCard,
     // CreateUserModal,
-    AdvertiseModal,
+    PortfolioModal,
     // DeleteUserModal,
   },
   props: {
@@ -328,12 +337,12 @@ export default defineComponent({
   methods: {
     tableData() {
       axios.defaults.baseURL = "http://localhost:8084/api/v2/";
-      axios.get("advertise/list").then((response) => {
+      axios.get("portfolio/list").then((response) => {
         if (response.status !== 200) {
           alert("Error");
         } else {
           this.datas = response.data;
-          localStorage.setItem("advertise", JSON.stringify(response.data));
+          localStorage.setItem("portfolio", JSON.stringify(response.data));
         }
       });
       axios.defaults.baseURL = "http://localhost:8084/api/v1/";
@@ -341,7 +350,7 @@ export default defineComponent({
     fillUpdateInputs(id) {
       this.updateId = id;
     },
-    AdvertiseModal() {
+    PortfolioModal() {
       let Element: HTMLElement = document.querySelector(
         ".modal-view button"
       ) as HTMLElement;
@@ -354,7 +363,7 @@ export default defineComponent({
   setup() {
     const checked = ref(false);
     onMounted(() => {
-      setCurrentPageBreadcrumbs("Advertise", ["Dataprizma", "Main"]);
+      setCurrentPageBreadcrumbs("Portfolio", ["Dataprizma"]);
     });
 
     // const list = [

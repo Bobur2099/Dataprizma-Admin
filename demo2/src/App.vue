@@ -18,7 +18,7 @@
 @import "~prism-themes/themes/prism-shades-of-purple.css";
 @import "~element-plus/lib/theme-chalk/index.css";
 
-// Main demo style scss
+// main demo style scss
 @import "assets/sass/plugins";
 @import "assets/sass/style";
 

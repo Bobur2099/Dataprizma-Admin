@@ -13,15 +13,15 @@
     <!--    begin::Update User-->
     <KTModalCard
       button-text="Add New Card"
-      modal-id="kt_modal_company"
+      modal-id="kt_modal_review_carousel"
       style="display: none"
       class="modal-view"
     ></KTModalCard>
-    <CompanyModal
+    <ReviewCarouselModal
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
       :create="create"
-    ></CompanyModal>
+    ></ReviewCarouselModal>
     <!--    end::Update User-->
 
     <!--  start::Delete Role-->
@@ -59,7 +59,7 @@
           @click="
             fillUpdateInputs(-1);
             create = 1;
-            CompanyModal();
+            ReviewCarouselModal();
           "
         >
           <span class="svg-icon svg-icon-3">
@@ -97,9 +97,9 @@
                 </div>
               </th>
               <th class="min-w-150px">Image</th>
-              <th class="min-w-140px">Email</th>
-              <th class="min-w-120px">Address</th>
-              <th class="min-w-120px">Phone</th>
+              <th class="min-w-200px">Author</th>
+              <th class="min-w-200px">Position</th>
+              <th class="min-w-200px">Text</th>
               <th class="min-w-100px text-end">Actions</th>
             </tr>
           </thead>
@@ -146,7 +146,7 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.email }}</a
+                    >{{ item.author }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.companySkills-->
@@ -157,47 +157,50 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.address }}</a
-                  >
-                </td>
-
-                <td>
-                  <a
-                    href="#"
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.phone }}</a
+                    >{{ item.position }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.companySkills-->
                   <!--                  }}</span>-->
                 </td>
 
-<!--                <td class="text-end">-->
-<!--                  <div class="d-flex flex-column w-100 me-2">-->
-<!--                    <div class="d-flex flex-stack mb-2">-->
-<!--                      <span class="text-muted me-2 fs-7 fw-bold">-->
-<!--                        &lt;!&ndash;                        {{ item.password }}&ndash;&gt;-->
-<!--                      </span>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash;                    <div class="d-flex flex-stack mb-2">&ndash;&gt;-->
-<!--                    &lt;!&ndash;                      <span class="text-muted me-2 fs-7 fw-bold">&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        {{ item.value }}%&ndash;&gt;-->
-<!--                    &lt;!&ndash;                      </span>&ndash;&gt;-->
-<!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.text }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.companySkills-->
+                  <!--                  }}</span>-->
+                </td>
 
-<!--                    &lt;!&ndash;                    <div class="progress h-6px w-100">&ndash;&gt;-->
-<!--                    &lt;!&ndash;                      <div&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        class="progress-bar"&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        :class="`bg-${item.color}`"&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        role="progressbar"&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        :style="{ width: item.value + '%' }"&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        :aria-valuenow="item.value"&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        aria-valuemin="0"&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        aria-valuemax="100"&ndash;&gt;-->
-<!--                    &lt;!&ndash;                      ></div>&ndash;&gt;-->
-<!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                  </div>-->
-<!--                </td>-->
+                <!--                <td class="text-end">-->
+                <!--                  <div class="d-flex flex-column w-100 me-2">-->
+                <!--                    <div class="d-flex flex-stack mb-2">-->
+                <!--                      <span class="text-muted me-2 fs-7 fw-bold">-->
+                <!--                        &lt;!&ndash;                        {{ item.password }}&ndash;&gt;-->
+                <!--                      </span>-->
+                <!--                    </div>-->
+                <!--                    &lt;!&ndash;                    <div class="d-flex flex-stack mb-2">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      <span class="text-muted me-2 fs-7 fw-bold">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        {{ item.value }}%&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      </span>&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+
+                <!--                    &lt;!&ndash;                    <div class="progress h-6px w-100">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      <div&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        class="progress-bar"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        :class="`bg-${item.color}`"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        role="progressbar"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        :style="{ width: item.value + '%' }"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        :aria-valuenow="item.value"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        aria-valuemin="0"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        aria-valuemax="100"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      ></div>&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+                <!--                  </div>-->
+                <!--                </td>-->
 
                 <td class="text-end">
                   <!--                  <a-->
@@ -216,7 +219,7 @@
                   <a
                     @click="
                       fillUpdateInputs(item.id);
-                      CompanyModal();
+                      ReviewCarouselModal();
                       create = 0;
                     "
                     class="
@@ -234,7 +237,7 @@
                       /*deleteUser(item.id, index)*/
                       fillUpdateInputs(item.id);
                       create = 2;
-                      CompanyModal();
+                      ReviewCarouselModal();
                     "
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
@@ -274,7 +277,7 @@ import axios from "axios";
 import KTModalCard from "@/components/cards/Card.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 // import CreateUserModal from "@/components/modals/forms/CreateUserModal.vue";
-import CompanyModal from "@/components/modals/dataprizma/company/CompanyModal.vue";
+import ReviewCarouselModal from "@/components/modals/dataprizma/main/ReviewCarouselModal.vue";
 // import DeleteUserModal from "@/components/modals/forms/DeleteUserModal.vue";
 
 export default defineComponent({
@@ -304,7 +307,7 @@ export default defineComponent({
   components: {
     KTModalCard,
     // CreateUserModal,
-    CompanyModal,
+    ReviewCarouselModal,
     // DeleteUserModal,
   },
   props: {
@@ -313,12 +316,12 @@ export default defineComponent({
   methods: {
     tableData() {
       axios.defaults.baseURL = "http://localhost:8084/api/v2/";
-      axios.get("company/list").then((response) => {
+      axios.get("revCarousel/list").then((response) => {
         if (response.status !== 200) {
           alert("Error");
         } else {
           this.datas = response.data;
-          localStorage.setItem("main-wrap", JSON.stringify(response.data));
+          localStorage.setItem("revCarousel", JSON.stringify(response.data));
         }
       });
       axios.defaults.baseURL = "http://localhost:8084/api/v1/";
@@ -326,7 +329,7 @@ export default defineComponent({
     fillUpdateInputs(id) {
       this.updateId = id;
     },
-    CompanyModal() {
+    ReviewCarouselModal() {
       let Element: HTMLElement = document.querySelector(
         ".modal-view button"
       ) as HTMLElement;
@@ -339,7 +342,7 @@ export default defineComponent({
   setup() {
     const checked = ref(false);
     onMounted(() => {
-      setCurrentPageBreadcrumbs("Company", ["Dataprizma"]);
+      setCurrentPageBreadcrumbs("Review Carousel", ["Dataprizma", "Main"]);
     });
 
     // const list = [

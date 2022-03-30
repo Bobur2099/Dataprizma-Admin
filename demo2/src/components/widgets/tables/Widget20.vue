@@ -13,15 +13,15 @@
     <!--    begin::Update User-->
     <KTModalCard
       button-text="Add New Card"
-      modal-id="kt_modal_about"
+      modal-id="kt_modal_review_header"
       style="display: none"
       class="modal-view"
     ></KTModalCard>
-    <AboutModal
+    <ReviewHeaderModal
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
       :create="create"
-    ></AboutModal>
+    ></ReviewHeaderModal>
     <!--    end::Update User-->
 
     <!--  start::Delete Role-->
@@ -59,7 +59,7 @@
           @click="
             fillUpdateInputs(-1);
             create = 1;
-            AboutModal();
+            ReviewHeaderModal();
           "
         >
           <span class="svg-icon svg-icon-3">
@@ -97,8 +97,9 @@
                 </div>
               </th>
               <th class="min-w-150px">Image</th>
-              <th class="min-w-140px">Text</th>
-              <th class="min-w-120px"></th>
+              <th class="min-w-200px">Topic</th>
+              <th class="min-w-200px">Header</th>
+              <th class="min-w-200px">Paragraph</th>
               <th class="min-w-100px text-end">Actions</th>
             </tr>
           </thead>
@@ -145,6 +146,28 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                  >{{ item.topic }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.companySkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.header }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.companySkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
                     >{{ item.paragraph }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -152,32 +175,32 @@
                   <!--                  }}</span>-->
                 </td>
 
-                <td class="text-end">
-                  <div class="d-flex flex-column w-100 me-2">
-                    <div class="d-flex flex-stack mb-2">
-                      <span class="text-muted me-2 fs-7 fw-bold">
-                        <!--                        {{ item.password }}-->
-                      </span>
-                    </div>
-                    <!--                    <div class="d-flex flex-stack mb-2">-->
-                    <!--                      <span class="text-muted me-2 fs-7 fw-bold">-->
-                    <!--                        {{ item.value }}%-->
-                    <!--                      </span>-->
-                    <!--                    </div>-->
+                <!--                <td class="text-end">-->
+                <!--                  <div class="d-flex flex-column w-100 me-2">-->
+                <!--                    <div class="d-flex flex-stack mb-2">-->
+                <!--                      <span class="text-muted me-2 fs-7 fw-bold">-->
+                <!--                        &lt;!&ndash;                        {{ item.password }}&ndash;&gt;-->
+                <!--                      </span>-->
+                <!--                    </div>-->
+                <!--                    &lt;!&ndash;                    <div class="d-flex flex-stack mb-2">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      <span class="text-muted me-2 fs-7 fw-bold">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        {{ item.value }}%&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      </span>&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
 
-                    <!--                    <div class="progress h-6px w-100">-->
-                    <!--                      <div-->
-                    <!--                        class="progress-bar"-->
-                    <!--                        :class="`bg-${item.color}`"-->
-                    <!--                        role="progressbar"-->
-                    <!--                        :style="{ width: item.value + '%' }"-->
-                    <!--                        :aria-valuenow="item.value"-->
-                    <!--                        aria-valuemin="0"-->
-                    <!--                        aria-valuemax="100"-->
-                    <!--                      ></div>-->
-                    <!--                    </div>-->
-                  </div>
-                </td>
+                <!--                    &lt;!&ndash;                    <div class="progress h-6px w-100">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      <div&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        class="progress-bar"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        :class="`bg-${item.color}`"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        role="progressbar"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        :style="{ width: item.value + '%' }"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        :aria-valuenow="item.value"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        aria-valuemin="0"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        aria-valuemax="100"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      ></div>&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+                <!--                  </div>-->
+                <!--                </td>-->
 
                 <td class="text-end">
                   <!--                  <a-->
@@ -196,7 +219,7 @@
                   <a
                     @click="
                       fillUpdateInputs(item.id);
-                      AboutModal();
+                      ReviewHeaderModal();
                       create = 0;
                     "
                     class="
@@ -214,7 +237,7 @@
                       /*deleteUser(item.id, index)*/
                       fillUpdateInputs(item.id);
                       create = 2;
-                      AboutModal();
+                      ReviewHeaderModal();
                     "
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
@@ -254,11 +277,11 @@ import axios from "axios";
 import KTModalCard from "@/components/cards/Card.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 // import CreateUserModal from "@/components/modals/forms/CreateUserModal.vue";
-import AboutModal from "@/components/modals/dataprizma/about/AboutModal.vue";
+import ReviewHeaderModal from "@/components/modals/dataprizma/main/ReviewHeaderModal.vue";
 // import DeleteUserModal from "@/components/modals/forms/DeleteUserModal.vue";
 
 export default defineComponent({
-  name: "kt-widget-16",
+  name: "kt-widget-20",
   data() {
     return {
       datas: [{ id: 1 }],
@@ -284,7 +307,7 @@ export default defineComponent({
   components: {
     KTModalCard,
     // CreateUserModal,
-    AboutModal,
+    ReviewHeaderModal,
     // DeleteUserModal,
   },
   props: {
@@ -293,12 +316,12 @@ export default defineComponent({
   methods: {
     tableData() {
       axios.defaults.baseURL = "http://localhost:8084/api/v2/";
-      axios.get("about/list").then((response) => {
+      axios.get("review/list").then((response) => {
         if (response.status !== 200) {
           alert("Error");
         } else {
           this.datas = response.data;
-          localStorage.setItem("main-wrap", JSON.stringify(response.data));
+          localStorage.setItem("revHeader", JSON.stringify(response.data));
         }
       });
       axios.defaults.baseURL = "http://localhost:8084/api/v1/";
@@ -306,7 +329,7 @@ export default defineComponent({
     fillUpdateInputs(id) {
       this.updateId = id;
     },
-    AboutModal() {
+    ReviewHeaderModal() {
       let Element: HTMLElement = document.querySelector(
         ".modal-view button"
       ) as HTMLElement;
@@ -319,7 +342,7 @@ export default defineComponent({
   setup() {
     const checked = ref(false);
     onMounted(() => {
-      setCurrentPageBreadcrumbs("About", ["Dataprizma"]);
+      setCurrentPageBreadcrumbs("Review Header", ["Dataprizma", "Main"]);
     });
 
     // const list = [

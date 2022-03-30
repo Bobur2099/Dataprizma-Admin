@@ -1,19 +1,19 @@
 <template>
   <!-- begin:: Body -->
   <div class="page d-flex flex-row flex-column-fluid">
-    <TableWidget24 class="col-xxl-12"></TableWidget24>
+    <TableWidget17 class="col-xxl-12"></TableWidget17>
   </div>
   <!-- end:: Body -->
 </template>
 
 <script lang="ts">
 // import router from "@/router";
-import TableWidget24 from "@/components/widgets/tables/Widget24.vue";
+import TableWidget17 from "@/components/widgets/tables/Widget17.vue";
 
 export default {
-  name: "Portfolio",
+  name: "Comfort",
   components: {
-    TableWidget24,
+    TableWidget17,
   },
 };
 </script>

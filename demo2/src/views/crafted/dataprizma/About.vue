@@ -8,7 +8,7 @@
 
 <script lang="ts">
 // import router from "@/router";
-import TableWidget16 from "@/components/widgets/tables/Widget20.vue";
+import TableWidget16 from "@/components/widgets/tables/Widget22.vue";
 
 export default {
   name: "About",
