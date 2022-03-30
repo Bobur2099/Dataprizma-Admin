@@ -1,5 +1,5 @@
 /**
- * Main file of webpack config for RTL.
+ * main file of webpack config for RTL.
  * Please do not modified unless you know what to do
  */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
