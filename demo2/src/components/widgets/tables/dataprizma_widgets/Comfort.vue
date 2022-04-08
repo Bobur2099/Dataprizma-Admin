@@ -13,15 +13,15 @@
     <!--    begin::Update User-->
     <KTModalCard
       button-text="Add New Card"
-      modal-id="kt_modal_services_carousel"
+      modal-id="kt_modal_comfort"
       style="display: none"
       class="modal-view"
     ></KTModalCard>
-    <ServicesCarouselModal
+    <ComfortModal
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
       :create="create"
-    ></ServicesCarouselModal>
+    ></ComfortModal>
     <!--    end::Update User-->
 
     <!--  start::Delete Role-->
@@ -40,7 +40,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bolder fs-3 mb-1">Members Statistics</span>
+        <span class="card-label fw-bolder fs-3 mb-1">Comfort section items</span>
 
         <!--        <span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>-->
       </h3>
@@ -59,7 +59,7 @@
           @click="
             fillUpdateInputs(-1);
             create = 1;
-            ServicesCarouselModal();
+            ComfortModal();
           "
         >
           <span class="svg-icon svg-icon-3">
@@ -98,7 +98,7 @@
               </th>
               <th class="min-w-150px">Image</th>
               <th class="min-w-200px">Header</th>
-              <th class="min-w-200px">Text</th>
+              <th class="min-w-200px">About</th>
               <th class="min-w-100px text-end">Actions</th>
             </tr>
           </thead>
@@ -117,7 +117,7 @@
                       form-check-solid
                     "
                   >
-                    {{ item.id }}
+                    {{ index + 1 }}
                   </div>
                 </td>
 
@@ -128,9 +128,10 @@
                     <!--                    </div>-->
                     <div class="d-flex justify-content-start flex-column">
                       <a
-                        href="#"
+                        :href="'http://site.dataprizma.uz/' + item.uploadPath"
                         class="text-dark fw-bolder text-hover-primary fs-6"
-                        >{{ item.uploadPath }}</a
+                        target="_blank"
+                        ><img :src="'http://site.dataprizma.uz/' + item.uploadPath" width="50" height="50"></a
                       >
 
                       <!--                      <span-->
@@ -207,7 +208,7 @@
                   <a
                     @click="
                       fillUpdateInputs(item.id);
-                      ServicesCarouselModal();
+                      ComfortModal();
                       create = 0;
                     "
                     class="
@@ -225,7 +226,7 @@
                       /*deleteUser(item.id, index)*/
                       fillUpdateInputs(item.id);
                       create = 2;
-                      ServicesCarouselModal();
+                      ComfortModal();
                     "
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
@@ -233,7 +234,7 @@
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg
-                        src="http://localhost:8080/media/icons/duotune/general/gen027.svg"
+                        src="/media/icons/duotune/general/gen027.svg"
                       />
                     </span>
                   </a>
@@ -265,11 +266,12 @@ import axios from "axios";
 import KTModalCard from "@/components/cards/Card.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 // import CreateUserModal from "@/components/modals/forms/CreateUserModal.vue";
-import ServicesCarouselModal from "@/components/modals/dataprizma/main/ServicesCarouselModal.vue";
+import ComfortModal from "@/components/modals/dataprizma/main/ComfortModal.vue";
+import requests from "@/request/dataprizma_request_links/request_links";
 // import DeleteUserModal from "@/components/modals/forms/DeleteUserModal.vue";
 
 export default defineComponent({
-  name: "kt-widget-19",
+  name: "kt-widget-16",
   data() {
     return {
       datas: [{ id: 1 }],
@@ -295,7 +297,7 @@ export default defineComponent({
   components: {
     KTModalCard,
     // CreateUserModal,
-    ServicesCarouselModal,
+    ComfortModal,
     // DeleteUserModal,
   },
   props: {
@@ -303,21 +305,21 @@ export default defineComponent({
   },
   methods: {
     tableData() {
-      axios.defaults.baseURL = "http://localhost:8084/api/v2/";
-      axios.get("serCarousel/list").then((response) => {
+      axios.defaults.baseURL = requests.dataprizma[0];
+      axios.get("comfort/list").then((response) => {
         if (response.status !== 200) {
           alert("Error");
         } else {
           this.datas = response.data;
-          localStorage.setItem("serCarousel", JSON.stringify(response.data));
+          localStorage.setItem("comfort", JSON.stringify(response.data));
         }
       });
-      axios.defaults.baseURL = "http://localhost:8084/api/v1/";
+      axios.defaults.baseURL = requests.dataprizma[1];
     },
     fillUpdateInputs(id) {
       this.updateId = id;
     },
-    ServicesCarouselModal() {
+    ComfortModal() {
       let Element: HTMLElement = document.querySelector(
         ".modal-view button"
       ) as HTMLElement;
@@ -330,7 +332,7 @@ export default defineComponent({
   setup() {
     const checked = ref(false);
     onMounted(() => {
-      setCurrentPageBreadcrumbs("Services Carousel", ["Dataprizma", "Main"]);
+      setCurrentPageBreadcrumbs("Comfort", ["Dataprizma", "Main"]);
     });
 
     // const list = [

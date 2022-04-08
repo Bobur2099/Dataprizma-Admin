@@ -8,7 +8,7 @@
 
 <script lang="ts">
 // import router from "@/router";
-import TableWidget23 from "@/components/widgets/tables/Widget23.vue";
+import TableWidget23 from "@/components/widgets/tables/dataprizma_widgets/Service.vue";
 
 export default {
   name: "Service",

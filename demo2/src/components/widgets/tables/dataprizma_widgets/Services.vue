@@ -13,15 +13,15 @@
     <!--    begin::Update User-->
     <KTModalCard
       button-text="Add New Card"
-      modal-id="kt_modal_company"
+      modal-id="kt_modal_services_header"
       style="display: none"
       class="modal-view"
     ></KTModalCard>
-    <CompanyModal
+    <ServicesHeaderModal
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
       :create="create"
-    ></CompanyModal>
+    ></ServicesHeaderModal>
     <!--    end::Update User-->
 
     <!--  start::Delete Role-->
@@ -40,7 +40,9 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bolder fs-3 mb-1">Members Statistics</span>
+        <span class="card-label fw-bolder fs-3 mb-1"
+          >Service section items</span
+        >
 
         <!--        <span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>-->
       </h3>
@@ -52,21 +54,21 @@
         data-bs-trigger="hover"
         title="Click to add a user"
       >
-        <a
-          class="btn btn-sm btn-light-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#kt_modal_invite_friends"
-          @click="
-            fillUpdateInputs(-1);
-            create = 1;
-            CompanyModal();
-          "
-        >
-          <span class="svg-icon svg-icon-3">
-            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />
-          </span>
-          New Item
-        </a>
+        <!--        <a-->
+        <!--          class="btn btn-sm btn-light-primary"-->
+        <!--          data-bs-toggle="modal"-->
+        <!--          data-bs-target="#kt_modal_invite_friends"-->
+        <!--          @click="-->
+        <!--            fillUpdateInputs(-1);-->
+        <!--            create = 1;-->
+        <!--            ServicesHeaderModal();-->
+        <!--          "-->
+        <!--        >-->
+        <!--          <span class="svg-icon svg-icon-3">-->
+        <!--            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />-->
+        <!--          </span>-->
+        <!--          New Item-->
+        <!--        </a>-->
       </div>
     </div>
     <!--end::Header-->
@@ -96,10 +98,9 @@
                   Id
                 </div>
               </th>
-              <th class="min-w-150px">Image</th>
-              <th class="min-w-140px">Email</th>
-              <th class="min-w-120px">Address</th>
-              <th class="min-w-120px">Phone</th>
+              <th class="min-w-150px"></th>
+              <th class="min-w-200px">Topic</th>
+              <th class="min-w-200px">Header</th>
               <th class="min-w-100px text-end">Actions</th>
             </tr>
           </thead>
@@ -118,7 +119,7 @@
                       form-check-solid
                     "
                   >
-                    {{ item.id }}
+                    {{ index + 1 }}
                   </div>
                 </td>
 
@@ -128,11 +129,11 @@
                     <!--                      <img :src="item.image" alt="" />-->
                     <!--                    </div>-->
                     <div class="d-flex justify-content-start flex-column">
-                      <a
-                        href="#"
-                        class="text-dark fw-bolder text-hover-primary fs-6"
-                        >{{ item.uploadPath }}</a
-                      >
+                      <!--                      <a-->
+                      <!--                        href="#"-->
+                      <!--                        class="text-dark fw-bolder text-hover-primary fs-6"-->
+                      <!--                        ><img :src="'http://site.dataprizma.uz/' + item.uploadPath"></a-->
+                      <!--                      >-->
 
                       <!--                      <span-->
                       <!--                        class="text-muted fw-bold text-muted d-block fs-7"-->
@@ -146,7 +147,7 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.email }}</a
+                    >{{ item.topic }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.companySkills-->
@@ -157,47 +158,39 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.address }}</a
-                  >
-                </td>
-
-                <td>
-                  <a
-                    href="#"
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.phone }}</a
+                    >{{ item.header }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.companySkills-->
                   <!--                  }}</span>-->
                 </td>
 
-<!--                <td class="text-end">-->
-<!--                  <div class="d-flex flex-column w-100 me-2">-->
-<!--                    <div class="d-flex flex-stack mb-2">-->
-<!--                      <span class="text-muted me-2 fs-7 fw-bold">-->
-<!--                        &lt;!&ndash;                        {{ item.password }}&ndash;&gt;-->
-<!--                      </span>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash;                    <div class="d-flex flex-stack mb-2">&ndash;&gt;-->
-<!--                    &lt;!&ndash;                      <span class="text-muted me-2 fs-7 fw-bold">&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        {{ item.value }}%&ndash;&gt;-->
-<!--                    &lt;!&ndash;                      </span>&ndash;&gt;-->
-<!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+                <!--                <td class="text-end">-->
+                <!--                  <div class="d-flex flex-column w-100 me-2">-->
+                <!--                    <div class="d-flex flex-stack mb-2">-->
+                <!--                      <span class="text-muted me-2 fs-7 fw-bold">-->
+                <!--                        &lt;!&ndash;                        {{ item.password }}&ndash;&gt;-->
+                <!--                      </span>-->
+                <!--                    </div>-->
+                <!--                    &lt;!&ndash;                    <div class="d-flex flex-stack mb-2">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      <span class="text-muted me-2 fs-7 fw-bold">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        {{ item.value }}%&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      </span>&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
 
-<!--                    &lt;!&ndash;                    <div class="progress h-6px w-100">&ndash;&gt;-->
-<!--                    &lt;!&ndash;                      <div&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        class="progress-bar"&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        :class="`bg-${item.color}`"&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        role="progressbar"&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        :style="{ width: item.value + '%' }"&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        :aria-valuenow="item.value"&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        aria-valuemin="0"&ndash;&gt;-->
-<!--                    &lt;!&ndash;                        aria-valuemax="100"&ndash;&gt;-->
-<!--                    &lt;!&ndash;                      ></div>&ndash;&gt;-->
-<!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                  </div>-->
-<!--                </td>-->
+                <!--                    &lt;!&ndash;                    <div class="progress h-6px w-100">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      <div&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        class="progress-bar"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        :class="`bg-${item.color}`"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        role="progressbar"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        :style="{ width: item.value + '%' }"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        :aria-valuenow="item.value"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        aria-valuemin="0"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        aria-valuemax="100"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      ></div>&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+                <!--                  </div>-->
+                <!--                </td>-->
 
                 <td class="text-end">
                   <!--                  <a-->
@@ -216,7 +209,7 @@
                   <a
                     @click="
                       fillUpdateInputs(item.id);
-                      CompanyModal();
+                      ServicesHeaderModal();
                       create = 0;
                     "
                     class="
@@ -229,23 +222,23 @@
                     </span>
                   </a>
 
-                  <a
-                    @click="
-                      /*deleteUser(item.id, index)*/
-                      fillUpdateInputs(item.id);
-                      create = 2;
-                      CompanyModal();
-                    "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                    "
-                  >
-                    <span class="svg-icon svg-icon-3">
-                      <inline-svg
-                        src="http://localhost:8080/media/icons/duotune/general/gen027.svg"
-                      />
-                    </span>
-                  </a>
+                  <!--                  <a-->
+                  <!--                    @click="-->
+                  <!--                      /*deleteUser(item.id, index)*/-->
+                  <!--                      fillUpdateInputs(item.id);-->
+                  <!--                      create = 2;-->
+                  <!--                      ServicesHeaderModal();-->
+                  <!--                    "-->
+                  <!--                    class="-->
+                  <!--                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm-->
+                  <!--                    "-->
+                  <!--                  >-->
+                  <!--                    <span class="svg-icon svg-icon-3">-->
+                  <!--                      <inline-svg-->
+                  <!--                        src="/media/icons/duotune/general/gen027.svg"-->
+                  <!--                      />-->
+                  <!--                    </span>-->
+                  <!--                  </a>-->
                 </td>
               </tr>
             </template>
@@ -274,11 +267,12 @@ import axios from "axios";
 import KTModalCard from "@/components/cards/Card.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 // import CreateUserModal from "@/components/modals/forms/CreateUserModal.vue";
-import CompanyModal from "@/components/modals/dataprizma/company/CompanyModal.vue";
+import ServicesHeaderModal from "@/components/modals/dataprizma/main/ServicesHeaderModal.vue";
+import requests from "@/request/dataprizma_request_links/request_links";
 // import DeleteUserModal from "@/components/modals/forms/DeleteUserModal.vue";
 
 export default defineComponent({
-  name: "kt-widget-21",
+  name: "kt-widget-18",
   data() {
     return {
       datas: [{ id: 1 }],
@@ -304,7 +298,7 @@ export default defineComponent({
   components: {
     KTModalCard,
     // CreateUserModal,
-    CompanyModal,
+    ServicesHeaderModal,
     // DeleteUserModal,
   },
   props: {
@@ -312,21 +306,21 @@ export default defineComponent({
   },
   methods: {
     tableData() {
-      axios.defaults.baseURL = "http://localhost:8084/api/v2/";
-      axios.get("company/list").then((response) => {
+      axios.defaults.baseURL = requests.dataprizma[0];
+      axios.get("services/list").then((response) => {
         if (response.status !== 200) {
           alert("Error");
         } else {
           this.datas = response.data;
-          localStorage.setItem("company", JSON.stringify(response.data));
+          localStorage.setItem("servicesHeader", JSON.stringify(response.data));
         }
       });
-      axios.defaults.baseURL = "http://localhost:8084/api/v1/";
+      axios.defaults.baseURL = requests.dataprizma[1];
     },
     fillUpdateInputs(id) {
       this.updateId = id;
     },
-    CompanyModal() {
+    ServicesHeaderModal() {
       let Element: HTMLElement = document.querySelector(
         ".modal-view button"
       ) as HTMLElement;
@@ -339,7 +333,7 @@ export default defineComponent({
   setup() {
     const checked = ref(false);
     onMounted(() => {
-      setCurrentPageBreadcrumbs("Company", ["Dataprizma"]);
+      setCurrentPageBreadcrumbs("Services Header", ["Dataprizma", "Main"]);
     });
 
     // const list = [

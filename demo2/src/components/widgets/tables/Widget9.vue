@@ -413,7 +413,6 @@ export default defineComponent({
         });
     },
     userPermissions() {
-      debugger;
       try {
         this.user_perms = JSON.parse(
           String(localStorage.getItem("user_perms"))

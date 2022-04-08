@@ -40,7 +40,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bolder fs-3 mb-1">Members Statistics</span>
+        <span class="card-label fw-bolder fs-3 mb-1">About page items</span>
 
         <!--        <span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>-->
       </h3>
@@ -52,21 +52,21 @@
         data-bs-trigger="hover"
         title="Click to add a user"
       >
-        <a
-          class="btn btn-sm btn-light-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#kt_modal_invite_friends"
-          @click="
-            fillUpdateInputs(-1);
-            create = 1;
-            AboutModal();
-          "
-        >
-          <span class="svg-icon svg-icon-3">
-            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />
-          </span>
-          New Item
-        </a>
+        <!--        <a-->
+        <!--          class="btn btn-sm btn-light-primary"-->
+        <!--          data-bs-toggle="modal"-->
+        <!--          data-bs-target="#kt_modal_invite_friends"-->
+        <!--          @click="-->
+        <!--            fillUpdateInputs(-1);-->
+        <!--            create = 1;-->
+        <!--            AboutModal();-->
+        <!--          "-->
+        <!--        >-->
+        <!--          <span class="svg-icon svg-icon-3">-->
+        <!--            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />-->
+        <!--          </span>-->
+        <!--          New Item-->
+        <!--        </a>-->
       </div>
     </div>
     <!--end::Header-->
@@ -117,7 +117,7 @@
                       form-check-solid
                     "
                   >
-                    {{ item.id }}
+                    {{ index + 1 }}
                   </div>
                 </td>
 
@@ -128,10 +128,14 @@
                     <!--                    </div>-->
                     <div class="d-flex justify-content-start flex-column">
                       <a
-                        href="#"
+                        :href="'http://site.dataprizma.uz/' + item.uploadPath"
                         class="text-dark fw-bolder text-hover-primary fs-6"
-                        >{{ item.uploadPath }}</a
-                      >
+                        target="_blank"
+                        ><img
+                          :src="'http://site.dataprizma.uz/' + item.uploadPath"
+                          width="50"
+                          height="50"
+                      /></a>
 
                       <!--                      <span-->
                       <!--                        class="text-muted fw-bold text-muted d-block fs-7"-->
@@ -209,23 +213,23 @@
                     </span>
                   </a>
 
-                  <a
-                    @click="
-                      /*deleteUser(item.id, index)*/
-                      fillUpdateInputs(item.id);
-                      create = 2;
-                      AboutModal();
-                    "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                    "
-                  >
-                    <span class="svg-icon svg-icon-3">
-                      <inline-svg
-                        src="http://localhost:8080/media/icons/duotune/general/gen027.svg"
-                      />
-                    </span>
-                  </a>
+                  <!--                  <a-->
+                  <!--                    @click="-->
+                  <!--                      /*deleteUser(item.id, index)*/-->
+                  <!--                      fillUpdateInputs(item.id);-->
+                  <!--                      create = 2;-->
+                  <!--                      AboutModal();-->
+                  <!--                    "-->
+                  <!--                    class="-->
+                  <!--                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm-->
+                  <!--                    "-->
+                  <!--                  >-->
+                  <!--                    <span class="svg-icon svg-icon-3">-->
+                  <!--                      <inline-svg-->
+                  <!--                        src="/media/icons/duotune/general/gen027.svg"-->
+                  <!--                      />-->
+                  <!--                    </span>-->
+                  <!--                  </a>-->
                 </td>
               </tr>
             </template>
@@ -255,6 +259,7 @@ import KTModalCard from "@/components/cards/Card.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 // import CreateUserModal from "@/components/modals/forms/CreateUserModal.vue";
 import AboutModal from "@/components/modals/dataprizma/about/AboutModal.vue";
+import requests from "@/request/dataprizma_request_links/request_links";
 // import DeleteUserModal from "@/components/modals/forms/DeleteUserModal.vue";
 
 export default defineComponent({
@@ -292,7 +297,7 @@ export default defineComponent({
   },
   methods: {
     tableData() {
-      axios.defaults.baseURL = "http://localhost:8084/api/v2/";
+      axios.defaults.baseURL = requests.dataprizma[0];
       axios.get("about/list").then((response) => {
         if (response.status !== 200) {
           alert("Error");
@@ -301,7 +306,7 @@ export default defineComponent({
           localStorage.setItem("main-wrap", JSON.stringify(response.data));
         }
       });
-      axios.defaults.baseURL = "http://localhost:8084/api/v1/";
+      axios.defaults.baseURL = requests.dataprizma[1];
     },
     fillUpdateInputs(id) {
       this.updateId = id;

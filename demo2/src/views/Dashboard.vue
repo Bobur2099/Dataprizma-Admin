@@ -137,18 +137,21 @@ export default defineComponent({
           }
         )
         .then((response) => {
-          localStorage.setItem("user_perms", JSON.stringify(response.data.list));
+          localStorage.setItem(
+            "user_perms",
+            JSON.stringify(response.data.list)
+          );
         })
         .catch((err) => {
           router.push({ name: "sign-in" });
         });
-    } catch (err){
+    } catch (err) {
       router.push({ name: "sign-in" });
     }
 
     onMounted(() => {
       console.log("Setup");
-      setCurrentPageTitle("Dashboard");
+      setCurrentPageTitle("Dashboard")
     });
   },
 });

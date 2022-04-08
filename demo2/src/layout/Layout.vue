@@ -192,7 +192,6 @@ export default defineComponent({
 
         let getPermissionDashBooleanByType = (type) => {
           let permissionDto = userData["permissionDtoList"];
-          debugger;
           for (let i = 0; i < permissionDto.length; i++) {
             if (
               permissionDto[i]["type"] === type &&
@@ -204,7 +203,6 @@ export default defineComponent({
           return 0;
         };
 
-        debugger;
         console.log(userData);
 
         if (token === "undefined" || token === "" || token === null) {

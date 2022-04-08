@@ -45,50 +45,50 @@
       </div>
       <!--end::Page title-->
 
-      <!--begin::Actions-->
-      <div class="d-flex align-items-center py-3 py-md-1">
-        <!--begin::Wrapper-->
-        <div class="me-4">
-          <!--begin::Menu-->
-          <a
-            href="#"
-            class="
-              btn
-              btn-custom
-              btn-active-white
-              btn-flex
-              btn-color-white
-              btn-active-color-primary
-              fw-bolder
-            "
-            data-kt-menu-trigger="click"
-            data-kt-menu-placement="bottom-end"
-            data-kt-menu-flip="top-end"
-          >
-            <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1">
-              <inline-svg src="media/icons/duotune/general/gen031.svg" />
-            </span>
-            Filter
-          </a>
+      <!--      &lt;!&ndash;begin::Actions&ndash;&gt;-->
+      <!--      <div class="d-flex align-items-center py-3 py-md-1">-->
+      <!--        &lt;!&ndash;begin::Wrapper&ndash;&gt;-->
+      <!--        <div class="me-4">-->
+      <!--          &lt;!&ndash;begin::Menu&ndash;&gt;-->
+      <!--          <a-->
+      <!--            href="#"-->
+      <!--            class="-->
+      <!--              btn-->
+      <!--              btn-custom-->
+      <!--              btn-active-white-->
+      <!--              btn-flex-->
+      <!--              btn-color-white-->
+      <!--              btn-active-color-primary-->
+      <!--              fw-bolder-->
+      <!--            "-->
+      <!--            data-kt-menu-trigger="click"-->
+      <!--            data-kt-menu-placement="bottom-end"-->
+      <!--            data-kt-menu-flip="top-end"-->
+      <!--          >-->
+      <!--            <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1">-->
+      <!--              <inline-svg src="media/icons/duotune/general/gen031.svg" />-->
+      <!--            </span>-->
+      <!--            Filter-->
+      <!--          </a>-->
 
-          <Dropdown1></Dropdown1>
-          <!--end::Menu-->
-        </div>
-        <!--end::Wrapper-->
+      <!--          <Dropdown1></Dropdown1>-->
+      <!--          &lt;!&ndash;end::Menu&ndash;&gt;-->
+      <!--        </div>-->
+      <!--        &lt;!&ndash;end::Wrapper&ndash;&gt;-->
 
-        <!--begin::Button-->
-        <a
-          href="#"
-          class="btn btn-bg-white btn-active-color-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#kt_modal_create_app"
-          id="kt_toolbar_primary_button"
-        >
-          Create
-        </a>
-        <!--end::Button-->
-      </div>
-      <!--end::Actions-->
+      <!--        &lt;!&ndash;begin::Button&ndash;&gt;-->
+      <!--        <a-->
+      <!--          href="#"-->
+      <!--          class="btn btn-bg-white btn-active-color-primary"-->
+      <!--          data-bs-toggle="modal"-->
+      <!--          data-bs-target="#kt_modal_create_app"-->
+      <!--          id="kt_toolbar_primary_button"-->
+      <!--        >-->
+      <!--          Create-->
+      <!--        </a>-->
+      <!--        &lt;!&ndash;end::Button&ndash;&gt;-->
+      <!--      </div>-->
+      <!--      &lt;!&ndash;end::Actions&ndash;&gt;-->
     </div>
     <!--end::Container-->
   </div>
@@ -107,7 +107,7 @@ export default defineComponent({
     title: String,
   },
   components: {
-    Dropdown1,
+    // Dropdown1,
   },
   setup() {
     return {

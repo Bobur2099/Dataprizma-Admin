@@ -40,7 +40,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bolder fs-3 mb-1">Members Statistics</span>
+        <span class="card-label fw-bolder fs-3 mb-1">Portfolio page items</span>
 
         <!--        <span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>-->
       </h3>
@@ -122,7 +122,7 @@
                       form-check-solid
                     "
                   >
-                    {{ item.id }}
+                    {{ index + 1 }}
                   </div>
                 </td>
 
@@ -133,9 +133,10 @@
                     <!--                    </div>-->
                     <div class="d-flex justify-content-start flex-column">
                       <a
-                        href="#"
+                        :href="'http://site.dataprizma.uz/' + item.uploadPath"
                         class="text-dark fw-bolder text-hover-primary fs-6"
-                        >{{ item.uploadPath }}</a
+                        target="_blank"
+                        ><img :src="'http://site.dataprizma.uz/' + item.uploadPath" width="50" height="50"></a
                       >
 
                       <!--                      <span-->
@@ -266,7 +267,7 @@
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg
-                        src="http://localhost:8080/media/icons/duotune/general/gen027.svg"
+                        src="/media/icons/duotune/general/gen027.svg"
                       />
                     </span>
                   </a>
@@ -299,6 +300,7 @@ import KTModalCard from "@/components/cards/Card.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 // import CreateUserModal from "@/components/modals/forms/CreateUserModal.vue";
 import PortfolioModal from "@/components/modals/dataprizma/portfolio/PortfolioModal.vue";
+import requests from "@/request/dataprizma_request_links/request_links";
 // import DeleteUserModal from "@/components/modals/forms/DeleteUserModal.vue";
 
 export default defineComponent({
@@ -336,7 +338,7 @@ export default defineComponent({
   },
   methods: {
     tableData() {
-      axios.defaults.baseURL = "http://localhost:8084/api/v2/";
+      axios.defaults.baseURL = requests.dataprizma[0];
       axios.get("portfolio/list").then((response) => {
         if (response.status !== 200) {
           alert("Error");
@@ -345,7 +347,7 @@ export default defineComponent({
           localStorage.setItem("portfolio", JSON.stringify(response.data));
         }
       });
-      axios.defaults.baseURL = "http://localhost:8084/api/v1/";
+      axios.defaults.baseURL = requests.dataprizma[1];
     },
     fillUpdateInputs(id) {
       this.updateId = id;

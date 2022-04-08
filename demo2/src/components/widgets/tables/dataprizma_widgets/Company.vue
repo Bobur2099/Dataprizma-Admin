@@ -13,15 +13,15 @@
     <!--    begin::Update User-->
     <KTModalCard
       button-text="Add New Card"
-      modal-id="kt_modal_review_header"
+      modal-id="kt_modal_company"
       style="display: none"
       class="modal-view"
     ></KTModalCard>
-    <ReviewHeaderModal
+    <CompanyModal
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
       :create="create"
-    ></ReviewHeaderModal>
+    ></CompanyModal>
     <!--    end::Update User-->
 
     <!--  start::Delete Role-->
@@ -40,7 +40,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bolder fs-3 mb-1">Members Statistics</span>
+        <span class="card-label fw-bolder fs-3 mb-1">Company datas</span>
 
         <!--        <span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>-->
       </h3>
@@ -52,21 +52,21 @@
         data-bs-trigger="hover"
         title="Click to add a user"
       >
-        <a
-          class="btn btn-sm btn-light-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#kt_modal_invite_friends"
-          @click="
-            fillUpdateInputs(-1);
-            create = 1;
-            ReviewHeaderModal();
-          "
-        >
-          <span class="svg-icon svg-icon-3">
-            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />
-          </span>
-          New Item
-        </a>
+        <!--        <a-->
+        <!--          class="btn btn-sm btn-light-primary"-->
+        <!--          data-bs-toggle="modal"-->
+        <!--          data-bs-target="#kt_modal_invite_friends"-->
+        <!--          @click="-->
+        <!--            fillUpdateInputs(-1);-->
+        <!--            create = 1;-->
+        <!--            CompanyModal();-->
+        <!--          "-->
+        <!--        >-->
+        <!--          <span class="svg-icon svg-icon-3">-->
+        <!--            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />-->
+        <!--          </span>-->
+        <!--          New Item-->
+        <!--        </a>-->
       </div>
     </div>
     <!--end::Header-->
@@ -97,9 +97,9 @@
                 </div>
               </th>
               <th class="min-w-150px">Image</th>
-              <th class="min-w-200px">Topic</th>
-              <th class="min-w-200px">Header</th>
-              <th class="min-w-200px">Paragraph</th>
+              <th class="min-w-140px">Email</th>
+              <th class="min-w-120px">Address</th>
+              <th class="min-w-120px">Phone</th>
               <th class="min-w-100px text-end">Actions</th>
             </tr>
           </thead>
@@ -118,7 +118,7 @@
                       form-check-solid
                     "
                   >
-                    {{ item.id }}
+                    {{ index + 1 }}
                   </div>
                 </td>
 
@@ -129,10 +129,14 @@
                     <!--                    </div>-->
                     <div class="d-flex justify-content-start flex-column">
                       <a
-                        href="#"
+                        :href="'http://site.dataprizma.uz/' + item.uploadPath"
                         class="text-dark fw-bolder text-hover-primary fs-6"
-                        >{{ item.uploadPath }}</a
-                      >
+                        target="_blank"
+                        ><img
+                          :src="'http://site.dataprizma.uz/' + item.uploadPath"
+                          width="50"
+                          height="50"
+                      /></a>
 
                       <!--                      <span-->
                       <!--                        class="text-muted fw-bold text-muted d-block fs-7"-->
@@ -146,7 +150,7 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                  >{{ item.topic }}</a
+                    >{{ item.email }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.companySkills-->
@@ -157,18 +161,15 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.header }}</a
+                    >{{ item.address }}</a
                   >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.companySkills-->
-                  <!--                  }}</span>-->
                 </td>
 
                 <td>
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.paragraph }}</a
+                    >{{ item.phone }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.companySkills-->
@@ -219,7 +220,7 @@
                   <a
                     @click="
                       fillUpdateInputs(item.id);
-                      ReviewHeaderModal();
+                      CompanyModal();
                       create = 0;
                     "
                     class="
@@ -232,23 +233,23 @@
                     </span>
                   </a>
 
-                  <a
-                    @click="
-                      /*deleteUser(item.id, index)*/
-                      fillUpdateInputs(item.id);
-                      create = 2;
-                      ReviewHeaderModal();
-                    "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                    "
-                  >
-                    <span class="svg-icon svg-icon-3">
-                      <inline-svg
-                        src="http://localhost:8080/media/icons/duotune/general/gen027.svg"
-                      />
-                    </span>
-                  </a>
+                  <!--                  <a-->
+                  <!--                    @click="-->
+                  <!--                      /*deleteUser(item.id, index)*/-->
+                  <!--                      fillUpdateInputs(item.id);-->
+                  <!--                      create = 2;-->
+                  <!--                      CompanyModal();-->
+                  <!--                    "-->
+                  <!--                    class="-->
+                  <!--                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm-->
+                  <!--                    "-->
+                  <!--                  >-->
+                  <!--                    <span class="svg-icon svg-icon-3">-->
+                  <!--                      <inline-svg-->
+                  <!--                        src="/media/icons/duotune/general/gen027.svg"-->
+                  <!--                      />-->
+                  <!--                    </span>-->
+                  <!--                  </a>-->
                 </td>
               </tr>
             </template>
@@ -277,11 +278,12 @@ import axios from "axios";
 import KTModalCard from "@/components/cards/Card.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 // import CreateUserModal from "@/components/modals/forms/CreateUserModal.vue";
-import ReviewHeaderModal from "@/components/modals/dataprizma/main/ReviewHeaderModal.vue";
+import CompanyModal from "@/components/modals/dataprizma/company/CompanyModal.vue";
+import requests from "@/request/dataprizma_request_links/request_links";
 // import DeleteUserModal from "@/components/modals/forms/DeleteUserModal.vue";
 
 export default defineComponent({
-  name: "kt-widget-20",
+  name: "kt-widget-21",
   data() {
     return {
       datas: [{ id: 1 }],
@@ -307,7 +309,7 @@ export default defineComponent({
   components: {
     KTModalCard,
     // CreateUserModal,
-    ReviewHeaderModal,
+    CompanyModal,
     // DeleteUserModal,
   },
   props: {
@@ -315,21 +317,21 @@ export default defineComponent({
   },
   methods: {
     tableData() {
-      axios.defaults.baseURL = "http://localhost:8084/api/v2/";
-      axios.get("review/list").then((response) => {
+      axios.defaults.baseURL = requests.dataprizma[0];
+      axios.get("company/list").then((response) => {
         if (response.status !== 200) {
           alert("Error");
         } else {
           this.datas = response.data;
-          localStorage.setItem("revHeader", JSON.stringify(response.data));
+          localStorage.setItem("company", JSON.stringify(response.data));
         }
       });
-      axios.defaults.baseURL = "http://localhost:8084/api/v1/";
+      axios.defaults.baseURL = requests.dataprizma[1];
     },
     fillUpdateInputs(id) {
       this.updateId = id;
     },
-    ReviewHeaderModal() {
+    CompanyModal() {
       let Element: HTMLElement = document.querySelector(
         ".modal-view button"
       ) as HTMLElement;
@@ -342,7 +344,7 @@ export default defineComponent({
   setup() {
     const checked = ref(false);
     onMounted(() => {
-      setCurrentPageBreadcrumbs("Review Header", ["Dataprizma", "Main"]);
+      setCurrentPageBreadcrumbs("Company", ["Dataprizma"]);
     });
 
     // const list = [

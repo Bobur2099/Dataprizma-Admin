@@ -8,7 +8,7 @@
 
 <script lang="ts">
 // import router from "@/router";
-import TableWidget15 from "@/components/widgets/tables/Widget15.vue";
+import TableWidget15 from "@/components/widgets/tables/dataprizma_widgets/MainWrap.vue";
 
 export default {
   name: "MainWrap",

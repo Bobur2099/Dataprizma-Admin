@@ -21,6 +21,8 @@ class ApiService {
     ApiService.vueInstance.use(VueAxios, axios);
     // ApiService.vueInstance.axios.defaults.baseURL =
     //   "http://192.168.6.4:8084/api/v1/";
+    // ApiService.vueInstance.axios.defaults.baseURL =
+    //   "http://siteapi.dataprizma.uz/api/v1/";
     ApiService.vueInstance.axios.defaults.baseURL =
       "http://localhost:8084/api/v1/";
   }

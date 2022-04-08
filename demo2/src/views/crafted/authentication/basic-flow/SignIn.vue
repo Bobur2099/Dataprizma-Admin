@@ -1,4 +1,4 @@
-    <template>
+<template>
   <!--begin::Wrapper-->
   <div class="w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
     <!--begin::Form-->
@@ -9,6 +9,13 @@
       :validation-schema="login"
       name="login"
     >
+      <div class="text-center">
+        <img
+          alt="Logo"
+          :src="'http://site.dataprizma.uz/' + logo"
+          class="h-75px"
+        />
+      </div>
       <!--begin::Heading-->
       <!--      <div class="text-center mb-10">-->
       <!--        &lt;!&ndash;begin::Title&ndash;&gt;-->
@@ -110,50 +117,50 @@
         </button>
         <!--end::Submit button-->
 
-        <!--begin::Separator-->
-        <div class="text-center text-muted text-uppercase fw-bolder mb-5">
-          or
-        </div>
-        <!--end::Separator-->
+        <!--        &lt;!&ndash;begin::Separator&ndash;&gt;-->
+        <!--        <div class="text-center text-muted text-uppercase fw-bolder mb-5">-->
+        <!--          or-->
+        <!--        </div>-->
+        <!--        &lt;!&ndash;end::Separator&ndash;&gt;-->
 
-        <!--begin::Google link-->
-        <a
-          href="#"
-          class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5"
-        >
-          <img
-            alt="Logo"
-            src="media/svg/brand-logos/google-icon.svg"
-            class="h-20px me-3"
-          />
-          Continue with Google
-        </a>
-        <!--end::Google link-->
+        <!--        &lt;!&ndash;begin::Google link&ndash;&gt;-->
+        <!--        <a-->
+        <!--          href="#"-->
+        <!--          class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5"-->
+        <!--        >-->
+        <!--          <img-->
+        <!--            alt="Logo"-->
+        <!--            src="media/svg/brand-logos/google-icon.svg"-->
+        <!--            class="h-20px me-3"-->
+        <!--          />-->
+        <!--          Continue with Google-->
+        <!--        </a>-->
+        <!--        &lt;!&ndash;end::Google link&ndash;&gt;-->
 
-        <!--begin::Google link-->
-        <a
-          href="#"
-          class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5"
-        >
-          <img
-            alt="Logo"
-            src="media/svg/brand-logos/facebook-4.svg"
-            class="h-20px me-3"
-          />
-          Continue with Facebook
-        </a>
-        <!--end::Google link-->
+        <!--        &lt;!&ndash;begin::Google link&ndash;&gt;-->
+        <!--        <a-->
+        <!--          href="#"-->
+        <!--          class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5"-->
+        <!--        >-->
+        <!--          <img-->
+        <!--            alt="Logo"-->
+        <!--            src="media/svg/brand-logos/facebook-4.svg"-->
+        <!--            class="h-20px me-3"-->
+        <!--          />-->
+        <!--          Continue with Facebook-->
+        <!--        </a>-->
+        <!--        &lt;!&ndash;end::Google link&ndash;&gt;-->
 
-        <!--begin::Google link-->
-        <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100">
-          <img
-            alt="Logo"
-            src="media/svg/brand-logos/apple-black.svg"
-            class="h-20px me-3"
-          />
-          Continue with Apple
-        </a>
-        <!--end::Google link-->
+        <!--        &lt;!&ndash;begin::Google link&ndash;&gt;-->
+        <!--        <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100">-->
+        <!--          <img-->
+        <!--            alt="Logo"-->
+        <!--            src="media/svg/brand-logos/apple-black.svg"-->
+        <!--            class="h-20px me-3"-->
+        <!--          />-->
+        <!--          Continue with Apple-->
+        <!--        </a>-->
+        <!--        &lt;!&ndash;end::Google link&ndash;&gt;-->
       </div>
       <!--end::Actions-->
     </Form>
@@ -171,6 +178,7 @@ import { useRouter } from "vue-router";
 import Swal from "sweetalert2/dist/sweetalert2.min.js";
 import * as Yup from "yup";
 import axios from "axios";
+import requests from "@/request/dataprizma_request_links/request_links";
 
 export default defineComponent({
   name: "sign-in",
@@ -179,9 +187,20 @@ export default defineComponent({
     Form,
     ErrorMessage,
   },
+  data() {
+    return {
+      logo: "",
+    };
+  },
   created() {
     localStorage.setItem("userData", '{"token": "123"}');
     localStorage.setItem("token", "");
+    axios.defaults.baseURL = requests.dataprizma[0];
+    axios.get("company/list").then((response) => {
+      localStorage.setItem("companyIcon", response.data[0]["uploadPath"]);
+      this.logo = localStorage.getItem("companyIcon") as string;
+    });
+    axios.defaults.baseURL = requests.dataprizma[1];
   },
   setup() {
     const store = useStore();
@@ -245,7 +264,10 @@ export default defineComponent({
 
             console.log(response);
             localStorage.setItem("userData", JSON.stringify(response["data"]));
-            localStorage.setItem("token", JSON.stringify(response["data"]["token"]));
+            localStorage.setItem(
+              "token",
+              JSON.stringify(response["data"]["token"])
+            );
             (function () {
               // Go to page after successfully login
               Swal.fire({

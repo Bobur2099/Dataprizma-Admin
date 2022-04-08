@@ -224,7 +224,6 @@ export default defineComponent({
         });
     },
     permissionsBooleanByName(name) {
-      debugger;
       for (const item of this.user_perms) {
         if (item["name"] === name) {
           return item["aboolean"];
@@ -270,7 +269,6 @@ export default defineComponent({
   watch: {
     typePermsName(newValue, oldValue) {
       console.log("New value", newValue);
-      debugger;
       this.permissionsByRole(newValue.toLowerCase());
       this.userPermissions();
       this.user_perms = this.userPermsCopy;

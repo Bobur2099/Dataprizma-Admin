@@ -13,15 +13,15 @@
     <!--    begin::Update User-->
     <KTModalCard
       button-text="Add New Card"
-      modal-id="kt_modal_service"
+      modal-id="kt_modal_review_header"
       style="display: none"
       class="modal-view"
     ></KTModalCard>
-    <ServiceModal
+    <ReviewHeaderModal
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
       :create="create"
-    ></ServiceModal>
+    ></ReviewHeaderModal>
     <!--    end::Update User-->
 
     <!--  start::Delete Role-->
@@ -40,7 +40,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bolder fs-3 mb-1">Members Statistics</span>
+        <span class="card-label fw-bolder fs-3 mb-1">Review section items</span>
 
         <!--        <span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>-->
       </h3>
@@ -52,21 +52,21 @@
         data-bs-trigger="hover"
         title="Click to add a user"
       >
-        <a
-          class="btn btn-sm btn-light-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#kt_modal_invite_friends"
-          @click="
-            fillUpdateInputs(-1);
-            create = 1;
-            ServiceModal();
-          "
-        >
-          <span class="svg-icon svg-icon-3">
-            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />
-          </span>
-          New Item
-        </a>
+        <!--        <a-->
+        <!--          class="btn btn-sm btn-light-primary"-->
+        <!--          data-bs-toggle="modal"-->
+        <!--          data-bs-target="#kt_modal_invite_friends"-->
+        <!--          @click="-->
+        <!--            fillUpdateInputs(-1);-->
+        <!--            create = 1;-->
+        <!--            ReviewHeaderModal();-->
+        <!--          "-->
+        <!--        >-->
+        <!--          <span class="svg-icon svg-icon-3">-->
+        <!--            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />-->
+        <!--          </span>-->
+        <!--          New Item-->
+        <!--        </a>-->
       </div>
     </div>
     <!--end::Header-->
@@ -97,15 +97,9 @@
                 </div>
               </th>
               <th class="min-w-150px">Image</th>
+              <th class="min-w-200px">Topic</th>
               <th class="min-w-200px">Header</th>
-              <th class="min-w-200px">Primary</th>
-              <th class="min-w-200px">Text</th>
-              <th class="min-w-200px">Sphere text 1</th>
-              <th class="min-w-200px">Sphere text 2</th>
-              <th class="min-w-200px">Sphere text 3</th>
-              <th class="min-w-200px">Text 1</th>
-              <th class="min-w-200px">Text 2</th>
-              <th class="min-w-200px">Text 3</th>
+              <th class="min-w-200px">Paragraph</th>
               <th class="min-w-100px text-end">Actions</th>
             </tr>
           </thead>
@@ -124,7 +118,7 @@
                       form-check-solid
                     "
                   >
-                    {{ item.id }}
+                    {{ index + 1 }}
                   </div>
                 </td>
 
@@ -135,10 +129,14 @@
                     <!--                    </div>-->
                     <div class="d-flex justify-content-start flex-column">
                       <a
-                        href="#"
+                        :href="'http://site.dataprizma.uz/' + item.uploadPath"
                         class="text-dark fw-bolder text-hover-primary fs-6"
-                        >{{ item.uploadPath }}</a
-                      >
+                        target="_blank"
+                        ><img
+                          :src="'http://site.dataprizma.uz/' + item.uploadPath"
+                          width="50"
+                          height="50"
+                      /></a>
 
                       <!--                      <span-->
                       <!--                        class="text-muted fw-bold text-muted d-block fs-7"-->
@@ -152,10 +150,21 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.topic }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.companySkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
                     >{{ item.header }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
+                  <!--                    item.companySkills-->
                   <!--                  }}</span>-->
                 </td>
 
@@ -163,84 +172,10 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.primary }}</a
-                  >
-                </td>
-
-                <td>
-                  <a
-                    href="#"
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.text }}</a
+                    >{{ item.paragraph }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
-
-                <td>
-                  <a
-                    href="#"
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.sphereText1 }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
-
-                <td>
-                  <a
-                    href="#"
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.sphereText2 }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
-
-                <td>
-                  <a
-                    href="#"
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.sphereText3 }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
-
-                <td>
-                  <a
-                    href="#"
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.textFirst }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
-
-                <td>
-                  <a
-                    href="#"
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.textSecond }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
-
-                <td>
-                  <a
-                    href="#"
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.textThird }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
+                  <!--                    item.companySkills-->
                   <!--                  }}</span>-->
                 </td>
 
@@ -288,7 +223,7 @@
                   <a
                     @click="
                       fillUpdateInputs(item.id);
-                      ServiceModal();
+                      ReviewHeaderModal();
                       create = 0;
                     "
                     class="
@@ -301,23 +236,23 @@
                     </span>
                   </a>
 
-                  <a
-                    @click="
-                      /*deleteUser(item.id, index)*/
-                      fillUpdateInputs(item.id);
-                      create = 2;
-                      ServiceModal();
-                    "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                    "
-                  >
-                    <span class="svg-icon svg-icon-3">
-                      <inline-svg
-                        src="http://localhost:8080/media/icons/duotune/general/gen027.svg"
-                      />
-                    </span>
-                  </a>
+                  <!--                  <a-->
+                  <!--                    @click="-->
+                  <!--                      /*deleteUser(item.id, index)*/-->
+                  <!--                      fillUpdateInputs(item.id);-->
+                  <!--                      create = 2;-->
+                  <!--                      ReviewHeaderModal();-->
+                  <!--                    "-->
+                  <!--                    class="-->
+                  <!--                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm-->
+                  <!--                    "-->
+                  <!--                  >-->
+                  <!--                    <span class="svg-icon svg-icon-3">-->
+                  <!--                      <inline-svg-->
+                  <!--                        src="/media/icons/duotune/general/gen027.svg"-->
+                  <!--                      />-->
+                  <!--                    </span>-->
+                  <!--                  </a>-->
                 </td>
               </tr>
             </template>
@@ -346,11 +281,12 @@ import axios from "axios";
 import KTModalCard from "@/components/cards/Card.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 // import CreateUserModal from "@/components/modals/forms/CreateUserModal.vue";
-import ServiceModal from "@/components/modals/dataprizma/service/ServiceModal.vue";
+import ReviewHeaderModal from "@/components/modals/dataprizma/main/ReviewHeaderModal.vue";
+import requests from "@/request/dataprizma_request_links/request_links";
 // import DeleteUserModal from "@/components/modals/forms/DeleteUserModal.vue";
 
 export default defineComponent({
-  name: "kt-widget-23",
+  name: "kt-widget-20",
   data() {
     return {
       datas: [{ id: 1 }],
@@ -376,7 +312,7 @@ export default defineComponent({
   components: {
     KTModalCard,
     // CreateUserModal,
-    ServiceModal,
+    ReviewHeaderModal,
     // DeleteUserModal,
   },
   props: {
@@ -384,21 +320,21 @@ export default defineComponent({
   },
   methods: {
     tableData() {
-      axios.defaults.baseURL = "http://localhost:8084/api/v2/";
-      axios.get("service/list").then((response) => {
+      axios.defaults.baseURL = requests.dataprizma[0];
+      axios.get("review/list").then((response) => {
         if (response.status !== 200) {
           alert("Error");
         } else {
           this.datas = response.data;
-          localStorage.setItem("service", JSON.stringify(response.data));
+          localStorage.setItem("revHeader", JSON.stringify(response.data));
         }
       });
-      axios.defaults.baseURL = "http://localhost:8084/api/v1/";
+      axios.defaults.baseURL = requests.dataprizma[1];
     },
     fillUpdateInputs(id) {
       this.updateId = id;
     },
-    ServiceModal() {
+    ReviewHeaderModal() {
       let Element: HTMLElement = document.querySelector(
         ".modal-view button"
       ) as HTMLElement;
@@ -411,7 +347,7 @@ export default defineComponent({
   setup() {
     const checked = ref(false);
     onMounted(() => {
-      setCurrentPageBreadcrumbs("Service", ["Dataprizma"]);
+      setCurrentPageBreadcrumbs("Review Header", ["Dataprizma", "Main"]);
     });
 
     // const list = [
@@ -419,8 +355,8 @@ export default defineComponent({
     //     image: "media/avatars/150-11.jpg",
     //     name: "Ana Simmons",
     //     skills: "HTML, JS, ReactJS",
-    //     ServiceName: "Intertico",
-    //     ServiceSkills: "Web, UI/UX Design",
+    //     companyName: "Intertico",
+    //     companySkills: "Web, UI/UX Design",
     //     value: "50",
     //     color: "primary",
     //   },
@@ -428,8 +364,8 @@ export default defineComponent({
     //     image: "media/avatars/150-3.jpg",
     //     name: "Jessie Clarcson",
     //     skills: "C#, ASP.NET, MS SQL",
-    //     ServiceName: "Agoda",
-    //     ServiceSkills: "Houses & Hotels",
+    //     companyName: "Agoda",
+    //     companySkills: "Houses & Hotels",
     //     value: "70",
     //     color: "danger",
     //   },
@@ -437,8 +373,8 @@ export default defineComponent({
     //     image: "media/avatars/150-4.jpg",
     //     name: "Lebron Wayde",
     //     skills: "PHP, Laravel, VueJS",
-    //     ServiceName: "RoadGee",
-    //     ServiceSkills: "Transportation",
+    //     companyName: "RoadGee",
+    //     companySkills: "Transportation",
     //     value: "60",
     //     color: "success",
     //   },
@@ -446,8 +382,8 @@ export default defineComponent({
     //     image: "media/avatars/150-5.jpg",
     //     name: "Natali Goodwin",
     //     skills: "Python, PostgreSQL, ReactJS",
-    //     ServiceName: "The Hill",
-    //     ServiceSkills: "Insurance",
+    //     companyName: "The Hill",
+    //     companySkills: "Insurance",
     //     value: "50",
     //     color: "warning",
     //   },
@@ -455,8 +391,8 @@ export default defineComponent({
     //     image: "media/avatars/150-6.jpg",
     //     name: "Kevin Leonard",
     //     skills: "HTML, JS, ReactJS",
-    //     ServiceName: "RoadGee",
-    //     ServiceSkills: "Art Director",
+    //     companyName: "RoadGee",
+    //     companySkills: "Art Director",
     //     value: "90",
     //     color: "info",
     //   },
@@ -464,8 +400,8 @@ export default defineComponent({
     //     image: "media/avatars/150-6.jpg",
     //     name: "Kevin Leonard",
     //     skills: "HTML, JS, ReactJS",
-    //     ServiceName: "RoadGee",
-    //     ServiceSkills: "Art Director",
+    //     companyName: "RoadGee",
+    //     companySkills: "Art Director",
     //     value: "90",
     //     color: "info",
     //   },
@@ -473,8 +409,8 @@ export default defineComponent({
     //     image: "media/avatars/150-6.jpg",
     //     name: "Kevin Leonard",
     //     skills: "HTML, JS, ReactJS",
-    //     ServiceName: "RoadGee",
-    //     ServiceSkills: "Art Director",
+    //     companyName: "RoadGee",
+    //     companySkills: "Art Director",
     //     value: "90",
     //     color: "info",
     //   },

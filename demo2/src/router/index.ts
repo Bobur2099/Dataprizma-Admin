@@ -30,60 +30,60 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import("@/views/crafted/administration/Users.vue"),
       },
       {
-        path: "/dataprizma/main/main-wrap",
+        path: "/dataprizma_widgets/main/main-wrap",
         name: "main",
         component: () => import("@/views/crafted/dataprizma/main/MainWrap.vue"),
       },
       {
-        path: "/dataprizma/main/comfort",
+        path: "/dataprizma_widgets/main/comfort",
         name: "comfort",
         component: () => import("@/views/crafted/dataprizma/main/Comfort.vue"),
       },
       {
-        path: "/dataprizma/main/advertise",
+        path: "/dataprizma_widgets/main/advertise",
         name: "advertise",
         component: () =>
           import("@/views/crafted/dataprizma/main/Advertise.vue"),
       },
       {
-        path: "/dataprizma/main/services-header",
+        path: "/dataprizma_widgets/main/services-header",
         name: "services-header",
         component: () =>
           import("@/views/crafted/dataprizma/main/ServicesHeader.vue"),
       },
       {
-        path: "/dataprizma/main/services-carousel",
+        path: "/dataprizma_widgets/main/services-carousel",
         name: "services-carousel",
         component: () =>
           import("@/views/crafted/dataprizma/main/ServicesCarousel.vue"),
       },
       {
-        path: "/dataprizma/main/review-header",
+        path: "/dataprizma_widgets/main/review-header",
         name: "review-header",
         component: () => import("@/views/crafted/dataprizma/main/ReviewHeader.vue"),
       },
       {
-        path: "/dataprizma/main/review-carousel",
+        path: "/dataprizma_widgets/main/review-carousel",
         name: "review-carousel",
         component: () => import("@/views/crafted/dataprizma/main/ReviewCarousel.vue"),
       },
       {
-        path: "/dataprizma/about",
+        path: "/dataprizma_widgets/about",
         name: "about",
         component: () => import("@/views/crafted/dataprizma/About.vue"),
       },
       {
-        path: "/dataprizma/company",
+        path: "/dataprizma_widgets/company",
         name: "company",
         component: () => import("@/views/crafted/dataprizma/Company.vue"),
       },
       {
-        path: "/dataprizma/portfolio",
+        path: "/dataprizma_widgets/portfolio",
         name: "portfolio",
         component: () => import("@/views/crafted/dataprizma/Portfolio.vue"),
       },
       {
-        path: "/dataprizma/service",
+        path: "/dataprizma_widgets/service",
         name: "service",
         component: () => import("@/views/crafted/dataprizma/Service.vue"),
       },
@@ -377,7 +377,8 @@ router.beforeEach((to, from, next) => {
   }
 
   if (loggedIn && onlyWhenloggedOut) {
-    return next("/");
+    router.push({ name: "/" });
+    return next();
   }
 
   next();

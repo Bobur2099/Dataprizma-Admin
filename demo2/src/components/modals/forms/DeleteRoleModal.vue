@@ -267,7 +267,6 @@ export default defineComponent({
             },
           })
           .then((response) => {
-            debugger;
             if (response.status !== 200) {
               // alert("Cant delete");
               Swal.fire({

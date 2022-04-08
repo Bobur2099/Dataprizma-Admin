@@ -270,7 +270,6 @@ export default defineComponent({
           if (response.status !== 200) {
             alert("It was not edited");
           } else {
-            debugger;
             // alert("It was edited");
             this.$emit("table-load");
           }

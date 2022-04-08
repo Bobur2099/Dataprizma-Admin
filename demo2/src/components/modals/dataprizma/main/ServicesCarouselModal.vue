@@ -258,6 +258,7 @@ import Swal from "sweetalert2/dist/sweetalert2.js";
 import { hideModal } from "@/core/helpers/dom";
 import * as Yup from "yup";
 import axios from "axios";
+import requests from "@/request/dataprizma_request_links/request_links";
 
 interface CardData {
   nameOnCard: string;
@@ -302,7 +303,6 @@ export default defineComponent({
           },
         })
         .then((response) => {
-          debugger;
           if (response.status !== 200) {
             alert("It was not edited");
           } else {
@@ -312,7 +312,6 @@ export default defineComponent({
         });
     },
     updateItem(id, datas) {
-      debugger;
       axios
         .put(`serCarousel/update/${id}`, datas, {
           headers: {
@@ -320,7 +319,6 @@ export default defineComponent({
           },
         })
         .then((response) => {
-          debugger;
           if (response.status !== 200) {
             alert("It was not edited");
           } else {
@@ -330,7 +328,6 @@ export default defineComponent({
         });
     },
     deleteItem(id) {
-      debugger;
       axios
         .delete(`serCarousel/delete/${id}`, {
           headers: {
@@ -342,7 +339,7 @@ export default defineComponent({
         });
     },
     doRequest(create, id) {
-      axios.defaults.baseURL = "http://localhost:8084/api/v2/";
+      axios.defaults.baseURL = requests.dataprizma[0];
       let datas = new FormData();
       console.log(datas, typeof this.updateFile[0]);
       datas.append("file", this.updateFile[0]);
@@ -355,7 +352,7 @@ export default defineComponent({
       } else {
         this.deleteItem(id);
       }
-      axios.defaults.baseURL = "http://localhost:8084/api/v1/";
+      axios.defaults.baseURL = requests.dataprizma[1];
     },
   },
   setup() {

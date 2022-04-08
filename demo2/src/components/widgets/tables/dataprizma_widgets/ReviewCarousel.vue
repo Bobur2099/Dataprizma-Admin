@@ -13,15 +13,15 @@
     <!--    begin::Update User-->
     <KTModalCard
       button-text="Add New Card"
-      modal-id="kt_modal_dmain"
+      modal-id="kt_modal_review_carousel"
       style="display: none"
       class="modal-view"
     ></KTModalCard>
-    <MainWrapModal
+    <ReviewCarouselModal
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
       :create="create"
-    ></MainWrapModal>
+    ></ReviewCarouselModal>
     <!--    end::Update User-->
 
     <!--  start::Delete Role-->
@@ -40,7 +40,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bolder fs-3 mb-1">Members Statistics</span>
+        <span class="card-label fw-bolder fs-3 mb-1">Review carousel items</span>
 
         <!--        <span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>-->
       </h3>
@@ -59,7 +59,7 @@
           @click="
             fillUpdateInputs(-1);
             create = 1;
-            MainWrapModal();
+            ReviewCarouselModal();
           "
         >
           <span class="svg-icon svg-icon-3">
@@ -97,8 +97,9 @@
                 </div>
               </th>
               <th class="min-w-150px">Image</th>
-              <th class="min-w-140px">Text</th>
-              <th class="min-w-120px"></th>
+              <th class="min-w-200px">Author</th>
+              <th class="min-w-200px">Position</th>
+              <th class="min-w-200px">Text</th>
               <th class="min-w-100px text-end">Actions</th>
             </tr>
           </thead>
@@ -117,7 +118,7 @@
                       form-check-solid
                     "
                   >
-                    {{ item.id }}
+                    {{ index + 1 }}
                   </div>
                 </td>
 
@@ -128,9 +129,10 @@
                     <!--                    </div>-->
                     <div class="d-flex justify-content-start flex-column">
                       <a
-                        href="#"
+                        :href="'http://site.dataprizma.uz/' + item.uploadPath"
                         class="text-dark fw-bolder text-hover-primary fs-6"
-                        >{{ item.uploadPath }}</a
+                        target="_blank"
+                        ><img :src="'http://site.dataprizma.uz/' + item.uploadPath" width="50" height="50"></a
                       >
 
                       <!--                      <span-->
@@ -145,6 +147,28 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.author }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.companySkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.position }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.companySkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
                     >{{ item.text }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -152,32 +176,32 @@
                   <!--                  }}</span>-->
                 </td>
 
-                <td class="text-end">
-                  <div class="d-flex flex-column w-100 me-2">
-                    <div class="d-flex flex-stack mb-2">
-                      <span class="text-muted me-2 fs-7 fw-bold">
-                        <!--                        {{ item.password }}-->
-                      </span>
-                    </div>
-                    <!--                    <div class="d-flex flex-stack mb-2">-->
-                    <!--                      <span class="text-muted me-2 fs-7 fw-bold">-->
-                    <!--                        {{ item.value }}%-->
-                    <!--                      </span>-->
-                    <!--                    </div>-->
+                <!--                <td class="text-end">-->
+                <!--                  <div class="d-flex flex-column w-100 me-2">-->
+                <!--                    <div class="d-flex flex-stack mb-2">-->
+                <!--                      <span class="text-muted me-2 fs-7 fw-bold">-->
+                <!--                        &lt;!&ndash;                        {{ item.password }}&ndash;&gt;-->
+                <!--                      </span>-->
+                <!--                    </div>-->
+                <!--                    &lt;!&ndash;                    <div class="d-flex flex-stack mb-2">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      <span class="text-muted me-2 fs-7 fw-bold">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        {{ item.value }}%&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      </span>&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
 
-                    <!--                    <div class="progress h-6px w-100">-->
-                    <!--                      <div-->
-                    <!--                        class="progress-bar"-->
-                    <!--                        :class="`bg-${item.color}`"-->
-                    <!--                        role="progressbar"-->
-                    <!--                        :style="{ width: item.value + '%' }"-->
-                    <!--                        :aria-valuenow="item.value"-->
-                    <!--                        aria-valuemin="0"-->
-                    <!--                        aria-valuemax="100"-->
-                    <!--                      ></div>-->
-                    <!--                    </div>-->
-                  </div>
-                </td>
+                <!--                    &lt;!&ndash;                    <div class="progress h-6px w-100">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      <div&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        class="progress-bar"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        :class="`bg-${item.color}`"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        role="progressbar"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        :style="{ width: item.value + '%' }"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        :aria-valuenow="item.value"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        aria-valuemin="0"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                        aria-valuemax="100"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                      ></div>&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+                <!--                  </div>-->
+                <!--                </td>-->
 
                 <td class="text-end">
                   <!--                  <a-->
@@ -196,7 +220,7 @@
                   <a
                     @click="
                       fillUpdateInputs(item.id);
-                      MainWrapModal();
+                      ReviewCarouselModal();
                       create = 0;
                     "
                     class="
@@ -214,7 +238,7 @@
                       /*deleteUser(item.id, index)*/
                       fillUpdateInputs(item.id);
                       create = 2;
-                      MainWrapModal();
+                      ReviewCarouselModal();
                     "
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
@@ -222,7 +246,7 @@
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg
-                        src="http://localhost:8080/media/icons/duotune/general/gen027.svg"
+                        src="/media/icons/duotune/general/gen027.svg"
                       />
                     </span>
                   </a>
@@ -254,11 +278,12 @@ import axios from "axios";
 import KTModalCard from "@/components/cards/Card.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 // import CreateUserModal from "@/components/modals/forms/CreateUserModal.vue";
-import MainWrapModal from "@/components/modals/dataprizma/main/MainWrapModal.vue";
+import ReviewCarouselModal from "@/components/modals/dataprizma/main/ReviewCarouselModal.vue";
+import requests from "@/request/dataprizma_request_links/request_links";
 // import DeleteUserModal from "@/components/modals/forms/DeleteUserModal.vue";
 
 export default defineComponent({
-  name: "kt-widget-15",
+  name: "kt-widget-21",
   data() {
     return {
       datas: [{ id: 1 }],
@@ -284,7 +309,7 @@ export default defineComponent({
   components: {
     KTModalCard,
     // CreateUserModal,
-    MainWrapModal,
+    ReviewCarouselModal,
     // DeleteUserModal,
   },
   props: {
@@ -292,21 +317,21 @@ export default defineComponent({
   },
   methods: {
     tableData() {
-      axios.defaults.baseURL = "http://localhost:8084/api/v2/";
-      axios.get("main-wrap/list").then((response) => {
+      axios.defaults.baseURL = requests.dataprizma[0];
+      axios.get("revCarousel/list").then((response) => {
         if (response.status !== 200) {
           alert("Error");
         } else {
           this.datas = response.data;
-          localStorage.setItem("main-wrap", JSON.stringify(response.data));
+          localStorage.setItem("revCarousel", JSON.stringify(response.data));
         }
       });
-      axios.defaults.baseURL = "http://localhost:8084/api/v1/";
+      axios.defaults.baseURL = requests.dataprizma[1];
     },
     fillUpdateInputs(id) {
       this.updateId = id;
     },
-    MainWrapModal() {
+    ReviewCarouselModal() {
       let Element: HTMLElement = document.querySelector(
         ".modal-view button"
       ) as HTMLElement;
@@ -319,7 +344,7 @@ export default defineComponent({
   setup() {
     const checked = ref(false);
     onMounted(() => {
-      setCurrentPageBreadcrumbs("main Wrap", ["Dataprizma", "Main"]);
+      setCurrentPageBreadcrumbs("Review Carousel", ["Dataprizma", "Main"]);
     });
 
     // const list = [

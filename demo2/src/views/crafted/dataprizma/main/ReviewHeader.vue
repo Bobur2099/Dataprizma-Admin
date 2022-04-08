@@ -8,7 +8,7 @@
 
 <script lang="ts">
 // import router from "@/router";
-import TableWidget20 from "@/components/widgets/tables/Widget20.vue";
+import TableWidget20 from "@/components/widgets/tables/dataprizma_widgets/Review.vue";
 
 export default {
   name: "ServicesCarousel",

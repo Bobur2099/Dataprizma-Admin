@@ -40,16 +40,8 @@
       <!--begin::Mobile logo-->
       <div class="header-logo me-5 me-md-10 flex-grow-1 flex-lg-grow-0">
         <a href="#">
-          <img
-            alt="Logo"
-            src="media/logos/logo-4.png"
-            class="logo-default h-25px"
-          />
-          <img
-            alt="Logo"
-            src="media/logos/logo-5.png"
-            class="logo-sticky h-25px"
-          />
+          <img alt="Logo" :src="'http://site.dataprizma.uz/' + logo" class="logo-default h-25px" />
+          <img alt="Logo" :src="'http://site.dataprizma.uz/' + logo" class="logo-sticky h-25px" />
         </a>
       </div>
       <!--end::Mobile logo-->
@@ -95,15 +87,30 @@ import {
   headerLeft,
   asideDisplay,
 } from "@/core/helpers/config";
+import axios from "axios";
+import requests from "@/request/dataprizma_request_links/request_links";
 
 export default defineComponent({
   name: "KTHeader",
+  data() {
+    return {
+      logo: "",
+    };
+  },
   props: {
     title: String,
   },
   components: {
     KTTopbar,
     KTMenu,
+  },
+  created() {
+    axios.defaults.baseURL = requests.dataprizma[0];
+    axios.get("company/list").then((response) => {
+      localStorage.setItem("companyIcon", response.data[0]["uploadPath"]);
+      this.logo = localStorage.getItem("companyIcon") as string;
+    });
+    axios.defaults.baseURL = requests.dataprizma[1];
   },
   setup() {
     onMounted(() => {
