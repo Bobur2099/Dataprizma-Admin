@@ -15,8 +15,8 @@
         <div class="modal-header">
           <!--begin::Modal title-->
           <h2>
-            <span v-if="create == 1">Create </span
-            ><span v-if="create == 0">Update </span>Services Header Main Content
+            <span v-if="create == 1">Create</span
+            ><span v-if="create == 0">Update</span> Services Header Main Content
           </h2>
           <!--end::Modal title-->
 
@@ -45,7 +45,7 @@
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row">
               <!--begin::Label-->
-              <label class="required fs-6 fw-bold form-label mb-2">Topic</label>
+              <label class="fs-6 fw-bold form-label mb-2">Topic</label>
               <!--end::Label-->
 
               <!--begin::Input wrapper-->
@@ -55,7 +55,7 @@
                   type="text"
                   class="form-control form-control-solid"
                   placeholder="Enter topic"
-                  name="header"
+                  name="topic"
                   v-model="updateTopic"
                 />
                 <div class="fv-plugins-message-container">
@@ -72,7 +72,7 @@
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row">
               <!--begin::Label-->
-              <label class="required fs-6 fw-bold form-label mb-2"
+              <label class="fs-6 fw-bold form-label mb-2"
                 >Header</label
               >
               <!--end::Label-->
@@ -84,7 +84,7 @@
                   type="text"
                   class="form-control form-control-solid"
                   placeholder="Enter header"
-                  name="about"
+                  name="header"
                   v-model="updateHeader"
                 />
                 <div class="fv-plugins-message-container">
@@ -102,8 +102,8 @@
             <div class="text-center pt-15">
               <button
                 type="reset"
-                id="kt_modal_new_card_cancel"
-                class="btn btn-white me-3"
+                id="kt_modal_new_card"
+                class="btn btn-white me-3 reset"
               >
                 Discard
               </button>
@@ -178,7 +178,7 @@
                 type="submit"
                 id="kt_modal_fail_submit"
                 class="btn btn-danger mx-5"
-                @click="submit()"
+                @click="submit(false)"
               >
                 <span class="indicator-label"> Cancel </span>
                 <span class="indicator-progress">
@@ -195,8 +195,8 @@
                 id="kt_modal_success_submit"
                 class="btn btn-primary"
                 @click="
-                  submit();
                   doRequest(create, updateId);
+                  submit();
                 "
               >
                 <span class="indicator-label"> Submit </span>
@@ -222,7 +222,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, getCurrentInstance, ref } from "vue";
 import { ErrorMessage, Field, Form } from "vee-validate";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import { hideModal } from "@/core/helpers/dom";
@@ -247,6 +247,7 @@ export default defineComponent({
       token: JSON.parse(String(localStorage.getItem("userData")))["token"],
       updateTopic: "",
       updateHeader: "",
+      error: 0,
     };
   },
   props: ["updateId", "create"],
@@ -267,9 +268,8 @@ export default defineComponent({
     createItem(datas) {
       axios.post(`services/create`, datas).then((response) => {
         if (response.status !== 200) {
-          alert("It was not edited");
+          alert("Error");
         } else {
-          alert("It was edited");
           this.$emit("table-load");
         }
       });
@@ -277,9 +277,8 @@ export default defineComponent({
     updateItem(id, datas) {
       axios.put(`services/update/${id}`, datas).then((response) => {
         if (response.status !== 200) {
-          alert("It was not edited");
+          alert("Error");
         } else {
-          alert("It was edited");
           this.$emit("table-load");
         }
       });
@@ -291,23 +290,42 @@ export default defineComponent({
     },
     doRequest(create, id) {
       axios.defaults.baseURL = requests.dataprizma[0];
+      const keys = ["header", "topic"];
+
       let datas = {};
-      console.log(datas, typeof this.updateTopic);
-      datas["topic"] = this.updateTopic;
-      datas["header"] = this.updateHeader;
-      if (create == 1) {
-        this.createItem(datas);
-      } else if (create == 0) {
-        this.updateItem(id, datas);
-      } else {
-        this.deleteItem(id);
+      datas[keys[0]] = this.updateHeader;
+      datas[keys[1]] = this.updateTopic;
+
+      for (let i of keys) {
+        if (
+          (datas[i] === "undefined" ||
+            datas[i] === "" ||
+            datas[i] === null) &&
+          create !== 2
+        ) {
+          this.error = 1;
+          return;
+        }
+      }
+      switch (create) {
+        case 1:
+          this.createItem(datas);
+          break;
+        case 0:
+          this.updateItem(id, datas);
+          break;
+        default:
+          this.deleteItem(id);
+          break;
       }
       axios.defaults.baseURL = requests.dataprizma[1];
+      this.error = 0;
     },
   },
   setup() {
     const submitButtonRef = ref<null | HTMLButtonElement>(null);
     const newCardModalRef = ref<null | HTMLElement>(null);
+    const instance = getCurrentInstance();
 
     const cardData = ref<CardData>({
       nameOnCard: "Max Doe",
@@ -325,9 +343,37 @@ export default defineComponent({
       cvv: Yup.string().required().label("CVV"),
     });
 
-    const submit = () => {
+    const submit = (shouldDelete) => {
       if (!submitButtonRef.value) {
         return;
+      }
+
+      function successAlert(text) {
+        Swal.fire({
+          text: text,
+          icon: "success",
+          buttonsStyling: false,
+          confirmButtonText: "Ok, got it!",
+          customClass: {
+            confirmButton: "btn btn-primary",
+          },
+        }).then(() => {
+          hideModal(newCardModalRef.value);
+        });
+      }
+
+      function errorAlert(text) {
+        Swal.fire({
+          text: text,
+          icon: "error",
+          buttonsStyling: false,
+          confirmButtonText: "Try again!",
+          customClass: {
+            confirmButton: "btn fw-bold btn-light-danger",
+          },
+        }).then(() => {
+          hideModal(newCardModalRef.value);
+        });
       }
 
       //Disable button
@@ -338,21 +384,29 @@ export default defineComponent({
       setTimeout(() => {
         if (submitButtonRef.value) {
           submitButtonRef.value.disabled = false;
-
           submitButtonRef.value?.removeAttribute("data-kt-indicator");
         }
 
-        Swal.fire({
-          text: "Form has been successfully submitted!",
-          icon: "success",
-          buttonsStyling: false,
-          confirmButtonText: "Ok, got it!",
-          customClass: {
-            confirmButton: "btn btn-primary",
-          },
-        }).then(() => {
-          hideModal(newCardModalRef.value);
-        });
+        const error = instance?.data.error;
+        const create = instance?.props.create;
+
+        if (shouldDelete === false) {
+          successAlert("Deletion is successfully canceled");
+        } else if (error === 0) {
+          if (create === 1) {
+            successAlert("Item has been successfully added!");
+          } else if (create === 0) {
+            successAlert("Item has been successfully edited!");
+          } else if (create === 2) {
+            successAlert("Item has been successfully deleted!");
+          }
+        } else {
+          if (error === 1) {
+            errorAlert("Inputs should not be empty");
+          } else if (error === 2) {
+            errorAlert("File is not an image");
+          }
+        }
       }, 2000);
     };
 
