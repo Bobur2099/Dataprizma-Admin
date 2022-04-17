@@ -1,112 +1,22 @@
 <template>
   <!--begin::Tables Widget 14-->
   <div class="card" :class="widgetClasses">
-    <!--    begin::Create User-->
-    <!--    <div class="modal-create" v-if="createModalShow">-->
-    <!--      <button class="close" @click="createModalShow = false">&times;</button>-->
-    <!--      <form name="create" @submit.prevent="createUser">-->
-    <!--        <h3>Create user</h3>-->
-    <!--        <label for="create-email">Name: </label>-->
-    <!--        <input type="text" id="create-email" name="email" v-model="email" />-->
-    <!--        <br />-->
-    <!--        <label for="create-password">Password: </label>-->
-    <!--        <input-->
-    <!--          type="text"-->
-    <!--          id="create-password"-->
-    <!--          name="password"-->
-    <!--          v-model="password"-->
-    <!--        />-->
-    <!--        <br />-->
-    <!--        <label>Choose role: </label>-->
-    <!--        <select id="roles" v-model="role">-->
-    <!--          <option value="0" disabled>Choose your role</option>-->
-    <!--          <option-->
-    <!--            v-for="(item, index) in roleDatas"-->
-    <!--            v-bind:value="item.id"-->
-    <!--            v-bind:key="index"-->
-    <!--          >-->
-    <!--            {{ item.name }}-->
-    <!--          </option>-->
-    <!--          &lt;!&ndash;          <option value="1">User</option>&ndash;&gt;-->
-    <!--          &lt;!&ndash;          <option value="2">Admin</option>&ndash;&gt;-->
-    <!--        </select>-->
-    <!--        <br />-->
-    <!--        <button>Create user</button>-->
-    <!--      </form>-->
-    <!--    </div>-->
-
     <KTModalCard
       button-text="Add New Card"
-      modal-id="kt_modal_create_user"
+      modal-id="kt_modal_user"
       style="display: none"
+      class="modal-view"
     ></KTModalCard>
-    <CreateUserModal v-on:table-load="tableData()"></CreateUserModal>
-    <!--    end::Create User-->
-
-    <!--    begin::Update User-->
-    <!--    <div class="modal-create" v-if="updateModalShow">-->
-    <!--      <button class="close" @click="updateModalShow = false">&times;</button>-->
-    <!--      <form name="create" @submit.prevent="updateUser(userIndex, userId)">-->
-    <!--        <h3>Update user</h3>-->
-    <!--        <label for="update-email">Name: </label>-->
-    <!--        <input-->
-    <!--          type="text"-->
-    <!--          id="update-email"-->
-    <!--          name="email"-->
-    <!--          v-model="updateEmail"-->
-    <!--        />-->
-    <!--        <br />-->
-    <!--        <label for="update-password">Password: </label>-->
-    <!--        <input-->
-    <!--          type="text"-->
-    <!--          id="update-password"-->
-    <!--          name="password"-->
-    <!--          v-model="updatePassword"-->
-    <!--        />-->
-    <!--        <br />-->
-    <!--        <label>Choose role: </label>-->
-    <!--        <select id="roles" v-model="updateRole">-->
-    <!--          <option value="0" disabled>Choose your role</option>-->
-    <!--          <option-->
-    <!--            v-for="(item, index) in roleDatas"-->
-    <!--            v-bind:value="item.id"-->
-    <!--            v-bind:key="index"-->
-    <!--          >-->
-    <!--            {{ item.name }}-->
-    <!--          </option>-->
-    <!--        </select>-->
-    <!--        <br />-->
-    <!--        <button>Update user</button>-->
-    <!--      </form>-->
-    <!--    </div>-->
-    <KTModalCard
-      button-text="Add New Card"
-      modal-id="kt_modal_update_user"
-      style="display: none"
-    ></KTModalCard>
-    <UpdateUserModal
-      v-bind:update-index="updateIndex"
+    <UserModal
+      v-bind:update-id="updateId"
       v-on:table-load="tableData()"
-    ></UpdateUserModal>
-    <!--    end::Update User-->
-
-    <!--  start::Delete Role-->
-    <KTModalCard
-      button-text="Add New Card"
-      modal-id="kt_modal_delete_user"
-      style="display: none"
-    ></KTModalCard>
-    <DeleteUserModal
-      v-bind:delete-id="deleteId"
-      v-bind:delete-index="deleteIndex"
-      v-on:splice="spliceDelete(deleteIndex, 1)"
-    ></DeleteUserModal>
-    <!--  end::Delete Role-->
+      :create="create"
+    ></UserModal>
 
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bolder fs-3 mb-1">Members Statistics</span>
+        <span class="card-label fw-bolder fs-3 mb-1">{{ $t("users") }}</span>
 
         <!--        <span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>-->
       </h3>
@@ -116,21 +26,21 @@
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         data-bs-trigger="hover"
-        title="Click to add a user"
       >
         <a
           class="btn btn-sm btn-light-primary"
           data-bs-toggle="modal"
           data-bs-target="#kt_modal_invite_friends"
           @click="
-            createModalShow = true;
-            createUserModal();
+            updateId = -1;
+            create = 1;
+            UserModal();
           "
         >
           <span class="svg-icon svg-icon-3">
-            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />
+            <inline-svg src="/media/icons/duotune/arrows/arr075.svg" />
           </span>
-          New Member
+          {{ $t("new_member") }}
         </a>
       </div>
     </div>
@@ -158,13 +68,13 @@
                     form-check form-check-sm form-check-custom form-check-solid
                   "
                 >
-                  Id
+                  №
                 </div>
               </th>
-              <th class="min-w-150px">Email</th>
-              <th class="min-w-140px">Role</th>
+              <th class="min-w-150px">{{ $t("email") }}</th>
+              <th class="min-w-140px">{{ $t("role") }}</th>
               <th class="min-w-120px"></th>
-              <th class="min-w-100px text-end">Actions</th>
+              <th class="min-w-100px text-end">{{ $t("actions") }}</th>
             </tr>
           </thead>
           <!--end::Table head-->
@@ -182,7 +92,7 @@
                       form-check-solid
                     "
                   >
-                    {{ item.id }}
+                    {{ index + 1 }}
                   </div>
                 </td>
 
@@ -253,16 +163,16 @@
                   <!--                  >-->
                   <!--                    <span class="svg-icon svg-icon-3">-->
                   <!--                      <inline-svg-->
-                  <!--                        src="media/icons/duotune/general/gen019.svg"-->
+                  <!--                        src="/media/icons/duotune/general/gen019.svg"-->
                   <!--                      />-->
                   <!--                    </span>-->
                   <!--                  </a>-->
 
                   <a
                     @click="
-                      fillUpdateInputs(index);
-                      updateModalShow = true;
-                      updateUserModal();
+                      fillUpdateInputs(item.id);
+                      UserModal();
+                      create = 0;
                     "
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
@@ -270,19 +180,24 @@
                     "
                   >
                     <span class="svg-icon svg-icon-3">
-                      <inline-svg src="media/icons/duotune/art/art005.svg" />
+                      <inline-svg src="/media/icons/duotune/art/art005.svg" />
                     </span>
                   </a>
 
                   <a
-                    @click="/*deleteUser(item.id, index)*/ deleteUserModal(item.id, index)"
+                    @click="
+                      /*deleteUser(item.id, index)*/
+                      fillUpdateInputs(item.id);
+                      create = 2;
+                      UserModal();
+                    "
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                     "
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg
-                        src="http://localhost:8080/media/icons/duotune/general/gen027.svg"
+                        src="/media/icons/duotune/general/gen027.svg"
                       />
                     </span>
                   </a>
@@ -290,7 +205,7 @@
               </tr>
             </template>
             <tr>
-              <td>Avarage {{ userDatas.length }}</td>
+              <td>{{ $t("total") }} {{ userDatas.length }}</td>
               <td></td>
               <td></td>
               <td></td>
@@ -311,11 +226,10 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
 import axios from "axios";
+import { useI18n } from "vue-i18n";
 import KTModalCard from "@/components/cards/Card.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
-import CreateUserModal from "@/components/modals/forms/CreateUserModal.vue";
-import UpdateUserModal from "@/components/modals/forms/UpdateUserModal.vue";
-import DeleteUserModal from "@/components/modals/forms/DeleteUserModal.vue";
+import UserModal from "@/components/modals/forms/UserModal.vue";
 
 export default defineComponent({
   name: "kt-widget-14",
@@ -337,13 +251,13 @@ export default defineComponent({
       updateIndex: -1,
       deleteId: 0,
       deleteIndex: 0,
+      updateId: -1,
+      create: 1,
     };
   },
   components: {
     KTModalCard,
-    CreateUserModal,
-    UpdateUserModal,
-    DeleteUserModal,
+    UserModal,
   },
   props: {
     widgetClasses: String,
@@ -360,7 +274,7 @@ export default defineComponent({
           if (response.status !== 200) {
             alert("Error");
           } else {
-            console.log(response.data);
+            localStorage.setItem("users", JSON.stringify(response.data));
             this.userDatas = response.data;
             for (let i = 0; i < this.userDatas.length; i++) {
               for (let j = 0; j < this.userDatas.length; j++) {
@@ -383,113 +297,47 @@ export default defineComponent({
           if (response.status !== 200) {
             alert("Error");
           } else {
-            console.log(response.data);
             this.roleDatas = response.data;
           }
         });
     },
-    fillUpdateInputs(index) {
-      this.updateIndex = index;
-      this.updateEmail = this.userDatas[index]["email"];
-      this.updatePassword = "";
-      this.updateRole = String(this.userDatas[index]["roleId"]);
-      this.userIndex = index;
-      this.userId = this.userDatas[index]["id"];
+    fillUpdateInputs(id) {
+      this.updateId = id;
     },
-    createUser() {
-      let userResponseDatas = {};
-      userResponseDatas["email"] = this.email;
-      userResponseDatas["password"] = this.password;
-      userResponseDatas["roleId"] = Number(this.role);
-      console.log(userResponseDatas);
-      axios
-        .post("/login/create", userResponseDatas, {
-          headers: {
-            Authorization: `Bearer ${this.token}`,
-          },
-        })
-        .then((response) => {
-          if (response.status !== 200) {
-            alert("It was not created");
-          } else {
-            alert("It was created");
-            this.tableData();
-            this.role = "0";
-            this.email = "";
-            this.password = "";
-            this.createModalShow = false;
-          }
-        });
-    },
-    updateUser(index, id) {
-      let userResponseDatas = {};
-      userResponseDatas["email"] = this.updateEmail;
-      userResponseDatas["password"] = this.updatePassword;
-      userResponseDatas["roleId"] = Number(this.updateRole);
-      console.log(userResponseDatas);
-      axios
-        .put("/login/update/" + id, userResponseDatas, {
-          headers: {
-            Authorization: `Bearer ${this.token}`,
-          },
-        })
-        .then((response) => {
-          if (response.status !== 200) {
-            alert("It was not edited");
-          } else {
-            alert("It was edited");
-            this.tableData();
-            this.updateModalShow = false;
-          }
-        });
-    },
-    deleteUser(id, row) {
-      axios
-        .delete("login/delete/" + id, {
-          headers: {
-            Authorization: `Bearer ${this.token}`,
-          },
-        })
-        .then((response) => {
-          if (response.status !== 200) {
-            alert("Cant delete");
-          } else {
-            alert("Successfully deleted");
-            this.userDatas.splice(row, 1);
-          }
-        });
-    },
-    spliceDelete(index, range){
-      this.userDatas.splice(index, range);
-    },
-    createUserModal() {
-      let Element: HTMLElement = document.querySelectorAll(
-        "button[data-bs-toggle='modal']"
-      )[0] as HTMLElement;
+    UserModal() {
+      let Element: HTMLElement = document.querySelector(
+        ".modal-view button"
+      ) as HTMLElement;
       Element.click();
-    },
-    updateUserModal() {
-      let Element: HTMLElement = document.querySelectorAll(
-        "button[data-bs-toggle='modal']"
-      )[1] as HTMLElement;
-      Element.click();
-    },
-    deleteUserModal(id, index) {
-      let Element: HTMLElement = document.querySelectorAll(
-        "button[data-bs-toggle='modal']"
-      )[2] as HTMLElement;
-      Element.click();
-      this.deleteId = id;
-      this.deleteIndex = index;
     },
   },
   created() {
+    const i18n = useI18n();
+
+    i18n.locale.value = localStorage.getItem("lang")
+      ? (localStorage.getItem("lang") as string)
+      : "en";
+
     this.tableData();
   },
   setup() {
     const checked = ref(false);
+    const i18n = useI18n();
+    const { t, te } = useI18n();
+
+    const translate = (text) => {
+      if (te(text)) {
+        return t(text);
+      } else {
+        return text;
+      }
+    };
+
+    i18n.locale.value = localStorage.getItem("lang")
+      ? (localStorage.getItem("lang") as string)
+      : "en";
     onMounted(() => {
-      setCurrentPageBreadcrumbs("Users", ["Administration"]);
+      setCurrentPageBreadcrumbs(translate("users"), ["Administration"]);
     });
 
     // const list = [

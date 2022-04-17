@@ -15,6 +15,8 @@ import ApiService from "@/core/services/ApiService";
 import { initApexCharts } from "@/core/plugins/apexcharts";
 import { initInlineSvg } from "@/core/plugins/inline-svg";
 import { initVeeValidate } from "@/core/plugins/vee-validate";
+import vue3PhotoPreview from "vue3-photo-preview";
+import "vue3-photo-preview/dist/index.css";
 
 import "@/core/plugins/keenthemes";
 import "@/core/plugins/prismjs";
@@ -33,5 +35,7 @@ initInlineSvg(app);
 initVeeValidate();
 
 app.use(i18n);
+
+app.use(vue3PhotoPreview);
 
 app.mount("#app");

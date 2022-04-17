@@ -6,102 +6,11 @@
     :class="widgetClasses"
     v-if="permissionsBooleanByName('role_table')"
   >
-    <!--    <div class="modal-create" v-if="createModalShow">-->
-    <!--      <button class="close" @click="createModalShow = false">&times;</button>-->
-    <!--      <form name="create-role" @submit.prevent="createRole">-->
-    <!--        <div>-->
-    <!--          <h3>Create role</h3>-->
-    <!--          <label for="role-name">Name: </label>-->
-    <!--          <input type="text" id="role-name" name="role-name" v-model="name" />-->
-    <!--          <br />-->
-    <!--          <label for="role-code">Code: </label>-->
-    <!--          <input type="text" id="role-code" name="role-code" v-model="code" />-->
-    <!--          <br />-->
-    <!--          <button>Create role</button>-->
-    <!--        </div>-->
-    <!--      </form>-->
-    <!--    </div>-->
-    <KTModalCard
-      button-text="Add New Card"
-      modal-id="kt_modal_create_role"
-      style="display: none"
-    ></KTModalCard>
-    <CreateRoleModal @table-load="tableData"></CreateRoleModal>
-    <!--  end::Create Role-->
-
-    <!--  begin::Update Role-->
-    <!--    <div class="modal-create" v-if="updateModalShow">-->
-    <!--      <button class="close" @click="updateModalShow = false">&times;</button>-->
-    <!--      <form name="update" @submit.prevent="updateUser(roleIndex, roleId)">-->
-    <!--        <div>-->
-    <!--          <h3>Update role</h3>-->
-    <!--          <label for="update-email">Name: </label>-->
-    <!--          <input-->
-    <!--            type="text"-->
-    <!--            id="update-email"-->
-    <!--            name="update-email"-->
-    <!--            v-model="updateName"-->
-    <!--          />-->
-    <!--          <br />-->
-    <!--          <label for="update-password">Code: </label>-->
-    <!--          <input-->
-    <!--            type="text"-->
-    <!--            id="update-password"-->
-    <!--            name="update-password"-->
-    <!--            v-model="updateCode"-->
-    <!--          />-->
-    <!--          <br />-->
-    <!--          <button>Update user</button>-->
-    <!--        </div>-->
-    <!--      </form>-->
-    <!--    </div>-->
-    <KTModalCard
-      button-text="Add New Card"
-      modal-id="kt_modal_update_role"
-      style="display: none"
-    ></KTModalCard>
-    <UpdateRoleModal
-      @table-load="tableData"
-      v-bind:role-data="roleData"
-      v-bind:index="updatingIndex"
-      v-bind:id="updatingId"
-      v-bind:checker-on="checkOn"
-    ></UpdateRoleModal>
-    <!--  end::Update Role-->
-
-    <!--  begin::Permissions Role-->
-    <!--    <div class="modal-create" v-if="permissionsModalShow">-->
-    <!--      <button class="close" @click="permissionsModalShow = false">-->
-    <!--        &times;-->
-    <!--      </button>-->
-    <!--      <form name="permissions" @submit.prevent="">-->
-    <!--        <div>-->
-    <!--          <h3>Permissions for role</h3>-->
-    <!--          <template-->
-    <!--            v-for="(item, index) in typePermissions"-->
-    <!--            v-bind:key="index"-->
-    <!--            v-bind:title="item['name']"-->
-    <!--          >-->
-    <!--            <label v-bind:for="'permission-' + item.name"-->
-    <!--              >{{ item.name.charAt(0).toUpperCase() + item.name.slice(1) }}:-->
-    <!--            </label>-->
-    <!--            <input-->
-    <!--              type="checkbox"-->
-    <!--              v-bind:id="'permission-' + item.name"-->
-    <!--              v-bind:name="'permission-' + item.name"-->
-    <!--              v-model="item.aboolean"-->
-    <!--            />-->
-    <!--            <br />-->
-    <!--          </template>-->
-    <!--          <button @click="updatePermissions()">Update permissions</button>-->
-    <!--        </div>-->
-    <!--      </form>-->
-    <!--    </div>-->
-
     <KTModalCard
       button-text="Add New Card"
       modal-id="kt_modal_permissions_role"
       style="display: none"
+      class="modal-view-permission"
     ></KTModalCard>
     <PermissionsRoleModal
       user-perms-copy="user_perms"
@@ -114,23 +23,24 @@
     ></PermissionsRoleModal>
     <!--  end::Permissions Role-->
 
-    <!--  start::Delete Role-->
+    <!--    start::Main-Wrap Modal-->
     <KTModalCard
       button-text="Add New Card"
-      modal-id="kt_modal_delete_role"
+      modal-id="kt_modal_role"
       style="display: none"
+      class="modal-view"
     ></KTModalCard>
-    <DeleteRoleModal
-      v-bind:delete-id="deleteId"
-      v-bind:delete-index="deleteIndex"
-      v-on:splice="spliceDelete(deleteIndex, 1)"
-    ></DeleteRoleModal>
-    <!--  end::Delete Role-->
+    <RoleModal
+      v-bind:update-id="updateId"
+      v-on:table-load="tableData()"
+      :create="create"
+    ></RoleModal>
+    <!--    end::Main-Wrap Modal-->
 
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bolder fs-3 mb-1">Role Statistics</span>
+        <span class="card-label fw-bolder fs-3 mb-1">{{ $t("roles") }}</span>
 
         <!--        <span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>-->
       </h3>
@@ -147,15 +57,16 @@
           data-bs-toggle="modal"
           data-bs-target="#kt_modal_invite_friends"
           @click="
-            createModalShow = true;
-            createRoleModal();
+            fillUpdateInputs(-1);
+            create = 1;
+            RoleModal();
           "
           v-if="permissionsBooleanByName('create')"
         >
           <span class="svg-icon svg-icon-3">
-            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />
+            <inline-svg src="/media/icons/duotune/arrows/arr075.svg" />
           </span>
-          New Role
+          {{ $t("new_role") }}
         </a>
       </div>
     </div>
@@ -183,13 +94,15 @@
                     form-check form-check-sm form-check-custom form-check-solid
                   "
                 >
-                  Id
+                  №
                 </div>
               </th>
-              <th class="min-w-150px">Name</th>
-              <th class="min-w-140px">Code</th>
-              <th class="min-w-120px"></th>
-              <th class="min-w-100px text-end">Actions</th>
+              <th class="min-w-150px">{{ $t("name") }}</th>
+              <!--              <th class="min-w-150px"></th>-->
+              <th class="min-w-150px"></th>
+              <th class="min-w-100px align-self-end text-end">
+                {{ $t("actions") }}
+              </th>
             </tr>
           </thead>
           <!--end::Table head-->
@@ -207,7 +120,7 @@
                       form-check-solid
                     "
                   >
-                    {{ item.id }}
+                    {{ index + 1 }}
                   </div>
                 </td>
 
@@ -231,16 +144,16 @@
                   </div>
                 </td>
 
-                <td>
-                  <a
-                    href="#"
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.code }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.companySkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    href="#"-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    >{{ item.code }}</a-->
+                <!--                  >-->
+                <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                <!--                    item.companySkills-->
+                <!--                  }}</span>-->
+                <!--                </td>-->
 
                 <td class="text-end">
                   <div class="d-flex flex-column w-100 me-2">
@@ -268,33 +181,32 @@
                 </td>
 
                 <td class="text-end">
-                  <a
-                    @click="
-                      // permissionsModalShow = true;
-                      userType = item.name;
-                      permissionsByRole(String(item.name).toLowerCase());
-                      permissionRoleModal();
-                    "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                      me-1
-                    "
-                    v-if="permissionsBooleanByName('perms')"
-                  >
-                    <span class="svg-icon svg-icon-3">
-                      <inline-svg
-                        src="http://localhost:8080/media/icons/duotune/general/gen019.svg"
-                      />
-                    </span>
-                  </a>
+                  <!--                  <a-->
+                  <!--                    @click="-->
+                  <!--                      // permissionsModalShow = true;-->
+                  <!--                      userType = item.name;-->
+                  <!--                      permissionsByRole(String(item.name).toLowerCase());-->
+                  <!--                      permissionRoleModal();-->
+                  <!--                    "-->
+                  <!--                    class="-->
+                  <!--                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm-->
+                  <!--                      me-1-->
+                  <!--                    "-->
+                  <!--                    v-if="permissionsBooleanByName('perms')"-->
+                  <!--                  >-->
+                  <!--                    <span class="svg-icon svg-icon-3">-->
+                  <!--                      <inline-svg-->
+                  <!--                        src="/media/icons/duotune/general/gen019.svg"-->
+                  <!--                      />-->
+                  <!--                    </span>-->
+                  <!--                  </a>-->
 
                   <a
                     @click="
                       // fillUpdateInputs(index);
-                      updatingIndex = index;
-                      updateModalShow = true;
-                      updateRoleModal();
-                      updatingId = item.id;
+                      fillUpdateInputs(item.id);
+                      RoleModal();
+                      create = 0;
                     "
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
@@ -303,12 +215,16 @@
                     v-if="permissionsBooleanByName('update')"
                   >
                     <span class="svg-icon svg-icon-3">
-                      <inline-svg src="media/icons/duotune/art/art005.svg" />
+                      <inline-svg src="/media/icons/duotune/art/art005.svg" />
                     </span>
                   </a>
 
                   <a
-                    @click="deleteRoleModal(item.id, index)"
+                    @click="
+                      fillUpdateInputs(item.id);
+                      create = 2;
+                      RoleModal();
+                    "
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                     "
@@ -316,7 +232,7 @@
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg
-                        src="http://localhost:8080/media/icons/duotune/general/gen027.svg"
+                        src="/media/icons/duotune/general/gen027.svg"
                       />
                     </span>
                   </a>
@@ -324,7 +240,7 @@
               </tr>
             </template>
             <tr>
-              <td>Avarage {{ roleData.length }}</td>
+              <td>{{ $t("total") }} {{ roleData.length }}</td>
               <td></td>
               <td></td>
               <td></td>
@@ -345,12 +261,11 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
 import axios from "axios";
+import { useI18n } from "vue-i18n";
 import KTModalCard from "@/components/cards/Card.vue";
 import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
-import CreateRoleModal from "@/components/modals/forms/CreateRoleModal.vue";
-import UpdateRoleModal from "@/components/modals/forms/UpdateRoleModal.vue";
 import PermissionsRoleModal from "@/components/modals/forms/PermissionsRoleModal.vue";
-import DeleteRoleModal from "@/components/modals/forms/DeleteRoleModal.vue";
+import RoleModal from "@/components/modals/forms/RoleModal.vue";
 
 export default defineComponent({
   name: "kt-widget-9",
@@ -374,14 +289,14 @@ export default defineComponent({
       checkOn: false,
       deleteId: 0,
       deleteIndex: 0,
+      updateId: -1,
+      create: 1,
     };
   },
   components: {
-    DeleteRoleModal,
-    UpdateRoleModal,
     KTModalCard,
-    CreateRoleModal,
     PermissionsRoleModal,
+    RoleModal,
   },
   props: {
     widgetClasses: String,
@@ -398,8 +313,8 @@ export default defineComponent({
           if (response.status !== 200) {
             alert("Error");
           } else {
-            console.log(response.data);
             this.roleData = response.data;
+            localStorage.setItem("roles", JSON.stringify(response.data));
             // for (let i = 0; i < this.roleData.length; i++) {
             //   for (let j = 0; j < this.roleData.length; j++) {
             //     if (this.roleData[i].id < this.roleData[j].id) {
@@ -417,9 +332,8 @@ export default defineComponent({
         this.user_perms = JSON.parse(
           String(localStorage.getItem("user_perms"))
         );
-        console.log("User_perms", this.user_perms);
       } catch (err) {
-        console.log("Cant find user perms");
+        // console.log("Cant find user perms");
       }
     },
     permissionsRefresh() {
@@ -445,7 +359,6 @@ export default defineComponent({
         });
     },
     permissionsByRole(role) {
-      console.log(role);
       axios
         .post(
           "permission/class/" + role.toLowerCase(),
@@ -458,7 +371,6 @@ export default defineComponent({
         )
         .then((response) => {
           this.typePermissions = response.data;
-          console.log("response data list ", this.typePermissions);
           // try {
           //   this.typePermissions = this.typePermissions.sort((a, b) => {
           //     if (a["id"] < b["id"]) return -1;
@@ -467,7 +379,6 @@ export default defineComponent({
           // } catch (err) {
           //   console.log("Cant sort type perms");
           // }
-          console.log("Permissions", response.data.list);
           this.type_perms_name = role;
         });
     },
@@ -517,48 +428,55 @@ export default defineComponent({
     spliceDelete(index, range) {
       this.roleData.splice(index, range);
     },
-    createRoleModal() {
-      let Element: HTMLElement = document.querySelectorAll(
-        "button[data-bs-toggle='modal']"
-      )[0] as HTMLElement;
+    RoleModal() {
+      let Element: HTMLElement = document.querySelector(
+        ".modal-view button"
+      ) as HTMLElement;
       Element.click();
-    },
-    updateRoleModal() {
-      let Element: HTMLElement = document.querySelectorAll(
-        "button[data-bs-toggle='modal']"
-      )[1] as HTMLElement;
-      console.log(Element);
-      Element.click();
-      this.checkOn = !this.checkOn;
     },
     permissionRoleModal() {
-      let Element: HTMLElement = document.querySelectorAll(
-        "button[data-bs-toggle='modal']"
-      )[2] as HTMLElement;
-      console.log(Element);
+      let Element: HTMLElement = document.querySelector(
+        ".modal-view-permission button"
+      ) as HTMLElement;
       Element.click();
     },
-    deleteRoleModal(id, index) {
-      let Element: HTMLElement = document.querySelectorAll(
-        "button[data-bs-toggle='modal']"
-      )[3] as HTMLElement;
-      console.log(Element);
-      Element.click();
-      this.deleteId = id;
-      this.deleteIndex = index;
+    fillUpdateInputs(id) {
+      this.updateId = id;
     },
     sendIndex(index) {
       return index;
     },
   },
   created() {
+    const i18n = useI18n();
+
+    i18n.locale.value = localStorage.getItem("lang")
+      ? (localStorage.getItem("lang") as string)
+      : "en";
+
     this.tableData();
     this.userPermissions();
   },
   setup() {
     const checked = ref(false);
+    const i18n = useI18n();
+    const { t, te } = useI18n();
+
+    const translate = (text) => {
+      if (te(text)) {
+        return t(text);
+      } else {
+        return text;
+      }
+    };
+
+    i18n.locale.value = localStorage.getItem("lang")
+      ? (localStorage.getItem("lang") as string)
+      : "en";
     onMounted(() => {
-      setCurrentPageBreadcrumbs("Roles", ["Administration"]);
+      setCurrentPageBreadcrumbs(translate("roles"), [
+        translate("administration"),
+      ]);
     });
 
     // const list = [

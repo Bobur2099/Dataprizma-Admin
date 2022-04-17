@@ -108,7 +108,7 @@
       <StatisticsWidget4
         widget-classes="card-xl-stretch mb-xl-8"
         :height="150"
-        svg-icon="media/icons/duotune/ecommerce/ecm002.svg"
+        svg-icon="/media/icons/duotune/ecommerce/ecm002.svg"
         color="info"
         description="Sales Change"
         change="+256"
@@ -119,7 +119,7 @@
       <StatisticsWidget4
         widget-classes="card-xl-stretch mb-xl-8"
         :height="150"
-        svg-icon="media/icons/duotune/general/gen025.svg"
+        svg-icon="/media/icons/duotune/general/gen025.svg"
         color="success"
         description="Weekly Income"
         change="750$"
@@ -131,7 +131,7 @@
       <StatisticsWidget4
         widget-classes="card-xl-stretch mb-5 mb-xl-8"
         :height="150"
-        svg-icon="media/icons/duotune/finance/fin006.svg"
+        svg-icon="/media/icons/duotune/finance/fin006.svg"
         color="primary"
         description="New Users"
         change="+6.6K"
@@ -145,7 +145,7 @@
     <div class="col-xl-4">
       <StatisticsWidget5
         widget-classes="card-xl-stretch mb-xl-8"
-        svg-icon="media/icons/duotune/ecommerce/ecm002.svg"
+        svg-icon="/media/icons/duotune/ecommerce/ecm002.svg"
         color="danger"
         icon-color="white"
         title="Shopping Chart"
@@ -156,7 +156,7 @@
     <div class="col-xl-4">
       <StatisticsWidget5
         widget-classes="card-xl-stretch mb-xl-8"
-        svg-icon="media/icons/duotune/ecommerce/ecm008.svg"
+        svg-icon="/media/icons/duotune/ecommerce/ecm008.svg"
         color="primary"
         icon-color="white"
         title="Appartments"
@@ -167,7 +167,7 @@
     <div class="col-xl-4">
       <StatisticsWidget5
         widget-classes="card-xl-stretch mb-5 mb-xl-8"
-        svg-icon="media/icons/duotune/graphs/gra005.svg"
+        svg-icon="/media/icons/duotune/graphs/gra005.svg"
         color="success"
         icon-color="white"
         title="Sales Stats"
@@ -182,7 +182,7 @@
     <div class="col-xl-3">
       <StatisticsWidget5
         widget-classes="card-xl-stretch mb-xl-8"
-        svg-icon="media/icons/duotune/general/gen032.svg"
+        svg-icon="/media/icons/duotune/general/gen032.svg"
         color="white"
         icon-color="primary"
         title="500M$"
@@ -193,7 +193,7 @@
     <div class="col-xl-3">
       <StatisticsWidget5
         widget-classes="card-xl-stretch mb-xl-8"
-        svg-icon="media/icons/duotune/ecommerce/ecm008.svg"
+        svg-icon="/media/icons/duotune/ecommerce/ecm008.svg"
         color="dark"
         icon-color="white"
         title="+3000"
@@ -204,7 +204,7 @@
     <div class="col-xl-3">
       <StatisticsWidget5
         widget-classes="card-xl-stretch mb-xl-8"
-        svg-icon="media/icons/duotune/finance/fin006.svg"
+        svg-icon="/media/icons/duotune/finance/fin006.svg"
         color="warning"
         icon-color="white"
         title="$50,000"
@@ -215,7 +215,7 @@
     <div class="col-xl-3">
       <StatisticsWidget5
         widget-classes="card-xl-stretch mb-xl-8"
-        svg-icon="media/icons/duotune/graphs/gra007.svg"
+        svg-icon="/media/icons/duotune/graphs/gra007.svg"
         color="info"
         icon-color="white"
         title="$50,000"

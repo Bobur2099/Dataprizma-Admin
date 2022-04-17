@@ -8,13 +8,13 @@
     aria-hidden="true"
   >
     <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-650px">
+    <div class="modal-dialog modal-dialog-centered mw-1000px">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
         <div class="modal-header">
           <!--begin::Modal title-->
-          <h2>Add New Role</h2>
+          <h2>{{ $t("add_new_role") }}</h2>
           <!--end::Modal title-->
 
           <!--begin::Close-->
@@ -23,7 +23,7 @@
             data-bs-dismiss="modal"
           >
             <span class="svg-icon svg-icon-1">
-              <inline-svg src="media/icons/duotune/arrows/arr061.svg" />
+              <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
             </span>
           </div>
           <!--end::Close-->
@@ -45,12 +45,7 @@
               <label
                 class="d-flex align-items-center fs-6 fw-bold form-label mb-2"
               >
-                <span class="required">Name</span>
-                <i
-                  class="fas fa-exclamation-circle ms-2 fs-7"
-                  data-bs-toggle="tooltip"
-                  title="Specify a card holder's name"
-                ></i>
+                <span>{{ $t("name") }}</span>
               </label>
               <!--end::Label-->
 
@@ -58,13 +53,13 @@
                 type="text"
                 class="form-control form-control-solid"
                 placeholder=""
-                name="nameOnCard"
+                name="name"
                 v-model="name"
               />
               <div class="fv-plugins-message-container">
-                <div class="fv-help-block">
-                  <ErrorMessage name="nameOnCard" />
-                </div>
+                <!--                <div class="fv-help-block">-->
+                <!--                  <ErrorMessage name="nameOnCard" />-->
+                <!--                </div>-->
               </div>
             </div>
             <!--end::Input group-->
@@ -72,7 +67,9 @@
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row">
               <!--begin::Label-->
-              <label class="required fs-6 fw-bold form-label mb-2">Code</label>
+              <label class="fs-6 fw-bold form-label mb-2">{{
+                $t("code")
+              }}</label>
               <!--end::Label-->
 
               <!--begin::Input wrapper-->
@@ -82,13 +79,13 @@
                   type="text"
                   class="form-control form-control-solid"
                   placeholder="Enter role code"
-                  name="cardNumber"
+                  name="code"
                   v-model="code"
                 />
                 <div class="fv-plugins-message-container">
-                  <div class="fv-help-block">
-                    <ErrorMessage name="cardNumber" />
-                  </div>
+                  <!--                  <div class="fv-help-block">-->
+                  <!--                    <ErrorMessage name="cardNumber" />-->
+                  <!--                  </div>-->
                 </div>
                 <!--end::Input-->
               </div>
@@ -103,7 +100,7 @@
                 id="kt_modal_new_card_cancel"
                 class="btn btn-white me-3 create-role-reset"
               >
-                Discard
+                {{ $t("discard") }}
               </button>
 
               <button
@@ -116,9 +113,9 @@
                   submit();
                 "
               >
-                <span class="indicator-label"> Submit </span>
+                <span class="indicator-label"> {{ $t("submit") }} </span>
                 <span class="indicator-progress">
-                  Please wait...
+                  {{ $t("please_wait") }}
                   <span
                     class="spinner-border spinner-border-sm align-middle ms-2"
                   ></span>
@@ -145,6 +142,7 @@ import Swal from "sweetalert2/dist/sweetalert2.js";
 import { hideModal } from "@/core/helpers/dom";
 import * as Yup from "yup";
 import axios from "axios";
+import { useI18n } from "vue-i18n";
 
 interface CardData {
   nameOnCard: string;
@@ -164,7 +162,7 @@ export default defineComponent({
     };
   },
   components: {
-    ErrorMessage,
+    // ErrorMessage,
     Field,
     Form,
   },
@@ -210,7 +208,9 @@ export default defineComponent({
                 // this.roleId = -1;
                 // this.email = "";
                 // this.password = "";
-                const Element: HTMLElement = document.querySelector("button[type=reset].create-role-reset") as HTMLElement;
+                const Element: HTMLElement = document.querySelector(
+                  "button[type=reset].create-role-reset"
+                ) as HTMLElement;
                 Element.click();
                 this.$emit("table-load");
               });
@@ -243,6 +243,20 @@ export default defineComponent({
       if (!submitButtonRef.value) {
         return;
       }
+      const i18n = useI18n();
+      const { t, te } = useI18n();
+
+      const translate = (text) => {
+        if (te(text)) {
+          return t(text);
+        } else {
+          return text;
+        }
+      };
+
+      i18n.locale.value = localStorage.getItem("lang")
+        ? (localStorage.getItem("lang") as string)
+        : "en";
 
       //Disable button
       submitButtonRef.value.disabled = true;
@@ -265,7 +279,7 @@ export default defineComponent({
         //     confirmButton: "btn btn-primary",
         //   },
         // }).then(() => {
-          hideModal(newCardModalRef.value);
+        hideModal(newCardModalRef.value);
         // });
       }, 2000);
     };

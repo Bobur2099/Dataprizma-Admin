@@ -40,7 +40,9 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bolder fs-3 mb-1">Comfort section items</span>
+        <span class="card-label fw-bolder fs-3 mb-1"
+          >{{ $t("comfort") }} {{ $t("section") }} {{ $t("items") }}</span
+        >
 
         <!--        <span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>-->
       </h3>
@@ -50,7 +52,6 @@
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         data-bs-trigger="hover"
-        title="Click to add a user"
       >
         <a
           class="btn btn-sm btn-light-primary"
@@ -63,9 +64,9 @@
           "
         >
           <span class="svg-icon svg-icon-3">
-            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />
+            <inline-svg src="/media/icons/duotune/arrows/arr075.svg" />
           </span>
-          New Item
+          {{ $t("new_item") }}
         </a>
       </div>
     </div>
@@ -93,13 +94,17 @@
                     form-check form-check-sm form-check-custom form-check-solid
                   "
                 >
-                  Id
+                  №
                 </div>
               </th>
-              <th class="min-w-150px">Image</th>
-              <th class="min-w-200px">Header</th>
-              <th class="min-w-200px">About</th>
-              <th class="min-w-100px text-end">Actions</th>
+              <th class="min-w-150px">{{ $t("image") }}</th>
+              <th class="min-w-150px">{{ $t("header_uz") }}</th>
+              <th class="min-w-150px">{{ $t("header_ru") }}</th>
+              <th class="min-w-150px">{{ $t("header_en") }}</th>
+              <th class="min-w-150px">{{ $t("text_uz") }}</th>
+              <th class="min-w-150px">{{ $t("text_ru") }}</th>
+              <th class="min-w-150px">{{ $t("text_en") }}</th>
+              <th class="min-w-100px text-end">{{ $t("actions") }}</th>
             </tr>
           </thead>
           <!--end::Table head-->
@@ -127,12 +132,23 @@
                     <!--                      <img :src="item.image" alt="" />-->
                     <!--                    </div>-->
                     <div class="d-flex justify-content-start flex-column">
-                      <a
-                        :href="'http://site.dataprizma.uz/' + item.uploadPath"
-                        class="text-dark fw-bolder text-hover-primary fs-6"
-                        target="_blank"
-                        ><img :src="'http://site.dataprizma.uz/' + item.uploadPath" width="50" height="50"></a
-                      >
+                      <photo-provider>
+                        <photo-consumer
+                          :intro="
+                            'http://site.dataprizma.uz/' + item.uploadPath
+                          "
+                          :src="'http://site.dataprizma.uz/' + item.uploadPath"
+                        >
+                          <img
+                            :src="
+                              'http://site.dataprizma.uz/' + item.uploadPath
+                            "
+                            width="50"
+                            height="50"
+                            class="view-box"
+                          />
+                        </photo-consumer>
+                      </photo-provider>
 
                       <!--                      <span-->
                       <!--                        class="text-muted fw-bold text-muted d-block fs-7"-->
@@ -146,7 +162,7 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.header }}</a
+                    >{{ item.headerUz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.companySkills-->
@@ -157,7 +173,51 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.text }}</a
+                    >{{ item.headerRu }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.companySkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.headerEn }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.companySkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textUz }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.companySkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textRu }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.companySkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textEn }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.companySkills-->
@@ -200,7 +260,7 @@
                   <!--                  >-->
                   <!--                    <span class="svg-icon svg-icon-3">-->
                   <!--                      <inline-svg-->
-                  <!--                        src="media/icons/duotune/general/gen019.svg"-->
+                  <!--                        src="/media/icons/duotune/general/gen019.svg"-->
                   <!--                      />-->
                   <!--                    </span>-->
                   <!--                  </a>-->
@@ -217,7 +277,7 @@
                     "
                   >
                     <span class="svg-icon svg-icon-3">
-                      <inline-svg src="media/icons/duotune/art/art005.svg" />
+                      <inline-svg src="/media/icons/duotune/art/art005.svg" />
                     </span>
                   </a>
 
@@ -242,7 +302,7 @@
               </tr>
             </template>
             <tr>
-              <td>Avarage {{ datas.length }}</td>
+              <td>{{ $t("total") }} {{ datas.length }}</td>
               <td></td>
               <td></td>
               <td></td>
@@ -268,6 +328,7 @@ import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 // import CreateUserModal from "@/components/modals/forms/CreateUserModal.vue";
 import ComfortModal from "@/components/modals/dataprizma/main/ComfortModal.vue";
 import requests from "@/request/dataprizma_request_links/request_links";
+import { useI18n } from "vue-i18n";
 // import DeleteUserModal from "@/components/modals/forms/DeleteUserModal.vue";
 
 export default defineComponent({
@@ -327,12 +388,36 @@ export default defineComponent({
     },
   },
   created() {
+    const i18n = useI18n();
+
+    i18n.locale.value = localStorage.getItem("lang")
+      ? (localStorage.getItem("lang") as string)
+      : "en";
+
     this.tableData();
   },
   setup() {
     const checked = ref(false);
+    const i18n = useI18n();
+    const { t, te } = useI18n();
+
+    const translate = (text) => {
+      if (te(text)) {
+        return t(text);
+      } else {
+        return text;
+      }
+    };
+
+    i18n.locale.value = localStorage.getItem("lang")
+      ? (localStorage.getItem("lang") as string)
+      : "en";
+
     onMounted(() => {
-      setCurrentPageBreadcrumbs("Comfort", ["Dataprizma", "Main"]);
+      setCurrentPageBreadcrumbs(translate("comfort"), [
+        "Dataprizma",
+        translate("main"),
+      ]);
     });
 
     // const list = [

@@ -42,7 +42,7 @@
   </div>
   <!-- end:: Body -->
   <KTScrollTop></KTScrollTop>
-  <KTExplore></KTExplore>
+  <!--  <KTExplore></KTExplore>-->
   <KTDrawerMessenger></KTDrawerMessenger>
   <KTUserMenu></KTUserMenu>
   <KTCreateApp></KTCreateApp>
@@ -93,7 +93,7 @@ export default defineComponent({
     KTScrollTop,
     KTCreateApp,
     KTUserMenu,
-    KTExplore,
+    // KTExplore,
     KTDrawerMessenger,
     KTLoader,
   },
@@ -184,7 +184,6 @@ export default defineComponent({
                 "user_perms",
                 JSON.stringify(response.data.list)
               );
-              console.log("User perms", response.data);
             });
         } catch (err) {
           router.push({ name: "sign-in" });
@@ -203,7 +202,6 @@ export default defineComponent({
           return 0;
         };
 
-        console.log(userData);
 
         if (token === "undefined" || token === "" || token === null) {
           localStorage.setItem("sign_in", "true");
@@ -215,9 +213,8 @@ export default defineComponent({
         ) {
           router.push({ name: "244" });
           localStorage.setItem("token", "");
-          console.log("Go to sign in");
         } else {
-          router.push({ name: "dashboard" });
+          router.push("/");
         }
       }
 

@@ -88,7 +88,6 @@ export default {
           if (response.status !== 200) {
             alert("Error");
           } else {
-            console.log(response.data);
             this.userData = response.data;
             for (let i = 0; i < this.userData.length; i++) {
               for (let j = 0; j < this.userData.length; j++) {

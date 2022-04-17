@@ -25,7 +25,7 @@
                 translate-middle-y
               "
             >
-              <inline-svg src="media/icons/duotune/general/gen021.svg" />
+              <inline-svg src="/media/icons/duotune/general/gen021.svg" />
             </span>
             <!--end::Icon-->
 

@@ -8,15 +8,16 @@
     aria-hidden="true"
   >
     <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-650px" v-if="create < 2">
+    <div class="modal-dialog modal-dialog-centered mw-1000px" v-if="create < 2">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
         <div class="modal-header">
           <!--begin::Modal title-->
           <h2>
-            <span v-if="create == 1">Create</span
-            ><span v-if="create == 0">Update</span> Dataprizma About Content
+            <span v-if="create == 1"> {{ $t("create") }}</span
+            ><span v-if="create == 0"> {{ $t("update") }}</span> Dataprizma
+            {{ $t("about") }} {{ $t("content") }}
           </h2>
           <!--end::Modal title-->
 
@@ -26,7 +27,7 @@
             data-bs-dismiss="modal"
           >
             <span class="svg-icon svg-icon-1">
-              <inline-svg src="media/icons/duotune/arrows/arr061.svg" />
+              <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
             </span>
           </div>
           <!--end::Close-->
@@ -38,17 +39,17 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
-            class="form"
+            class="form row"
             @submit="submit"
             :validation-schema="validationSchema"
           >
             <!--begin::Input group-->
-            <div class="d-flex flex-column mb-7 fv-row">
+            <div class="d-flex flex-column mb-7 fv-row col-6">
               <!--begin::Label-->
               <label
                 class="d-flex align-items-center fs-6 fw-bold form-label mb-2"
               >
-                <span>File</span>
+                <span> {{ $t("file") }}</span>
               </label>
               <!--end::Label-->
 
@@ -56,7 +57,6 @@
                 type="file"
                 class="form-control form-control-solid file"
                 ref="file-upload"
-                placeholder=""
                 name="file"
                 @change="fileChosen($event)"
               />
@@ -69,9 +69,11 @@
             <!--end::Input group-->
 
             <!--begin::Input group-->
-            <div class="d-flex flex-column mb-7 fv-row">
+            <div class="d-flex flex-column mb-7 fv-row col-6">
               <!--begin::Label-->
-              <label class="fs-6 fw-bold form-label mb-2">Text</label>
+              <label class="fs-6 fw-bold form-label mb-2">{{
+                $t("text_uz")
+              }}</label>
               <!--end::Label-->
 
               <!--begin::Input wrapper-->
@@ -80,15 +82,55 @@
                 <Field
                   type="text"
                   class="form-control form-control-solid"
-                  placeholder="Enter slider text"
-                  name="cardNumber"
-                  v-model="updateText"
+                  name="text-uz"
+                  v-model="updateTextUz"
                 />
-                <div class="fv-plugins-message-container">
-                  <div class="fv-help-block">
-                    <!--                    <ErrorMessage name="cardNumber" />-->
-                  </div>
-                </div>
+                <!--end::Input-->
+              </div>
+              <!--end::Input wrapper-->
+            </div>
+            <!--end::Input group-->
+
+            <!--begin::Input group-->
+            <div class="d-flex flex-column mb-7 fv-row col-6">
+              <!--begin::Label-->
+              <label class="fs-6 fw-bold form-label mb-2">{{
+                $t("text_ru")
+              }}</label>
+              <!--end::Label-->
+
+              <!--begin::Input wrapper-->
+              <div class="position-relative">
+                <!--begin::Input-->
+                <Field
+                  type="text"
+                  class="form-control form-control-solid"
+                  name="text-ru"
+                  v-model="updateTextRu"
+                />
+                <!--end::Input-->
+              </div>
+              <!--end::Input wrapper-->
+            </div>
+            <!--end::Input group-->
+
+            <!--begin::Input group-->
+            <div class="d-flex flex-column mb-7 fv-row col-6">
+              <!--begin::Label-->
+              <label class="fs-6 fw-bold form-label mb-2">{{
+                $t("text_en")
+              }}</label>
+              <!--end::Label-->
+
+              <!--begin::Input wrapper-->
+              <div class="position-relative">
+                <!--begin::Input-->
+                <Field
+                  type="text"
+                  class="form-control form-control-solid"
+                  name="text-en"
+                  v-model="updateTextEn"
+                />
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -102,7 +144,7 @@
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
               >
-                Discard
+                {{ $t("discard") }}
               </button>
 
               <button
@@ -115,9 +157,9 @@
                   submit();
                 "
               >
-                <span class="indicator-label"> Submit </span>
+                <span class="indicator-label"> {{ $t("submit") }} </span>
                 <span class="indicator-progress">
-                  Please wait...
+                  {{ $t("please_wait") }}
                   <span
                     class="spinner-border spinner-border-sm align-middle ms-2"
                   ></span>
@@ -135,7 +177,7 @@
     <!--end::Modal dialog-->
 
     <div
-      class="modal-dialog modal-dialog-centered mw-650px"
+      class="modal-dialog modal-dialog-centered mw-1000px"
       v-if="create === 2"
     >
       <!--begin::Modal content-->
@@ -143,7 +185,7 @@
         <!--begin::Modal header-->
         <div class="modal-header">
           <!--begin::Modal title-->
-          <h2>Are you sure?</h2>
+          <h2>{{ $t("are_you_sure") }}</h2>
           <!--end::Modal title-->
 
           <!--begin::Close-->
@@ -152,7 +194,7 @@
             data-bs-dismiss="modal"
           >
             <span class="svg-icon svg-icon-1">
-              <inline-svg src="media/icons/duotune/arrows/arr061.svg" />
+              <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
             </span>
           </div>
           <!--end::Close-->
@@ -175,11 +217,11 @@
                 type="submit"
                 id="kt_modal_fail_submit"
                 class="btn btn-danger mx-5"
-                @click="submit(false)"
+                @click="submit('cancel')"
               >
                 <span class="indicator-label"> Cancel </span>
                 <span class="indicator-progress">
-                  Please wait...
+                  {{ $t("please_wait") }}
                   <span
                     class="spinner-border spinner-border-sm align-middle ms-2"
                   ></span>
@@ -196,9 +238,9 @@
                   submit();
                 "
               >
-                <span class="indicator-label"> Submit </span>
+                <span class="indicator-label"> {{ $t("submit") }} </span>
                 <span class="indicator-progress">
-                  Please wait...
+                  {{ $t("please_wait") }}
                   <span
                     class="spinner-border spinner-border-sm align-middle ms-2"
                   ></span>
@@ -226,6 +268,7 @@ import { hideModal } from "@/core/helpers/dom";
 import * as Yup from "yup";
 import axios from "axios";
 import requests from "@/request/dataprizma_request_links/request_links";
+import { useI18n } from "vue-i18n";
 
 interface CardData {
   nameOnCard: string;
@@ -243,7 +286,9 @@ export default defineComponent({
       code: "",
       token: JSON.parse(String(localStorage.getItem("userData")))["token"],
       updateFile: new File([new Blob()], ""),
-      updateText: "",
+      updateTextUz: "",
+      updateTextRu: "",
+      updateTextEn: "",
       error: 0,
     };
   },
@@ -255,10 +300,24 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
-      console.log(newValue);
+      const about_items = JSON.parse(Object(localStorage.getItem("about")));
+      let about_item = {
+        uploadPath: "",
+        paragraphUz: "",
+        paragraphRu: "",
+        paragraphEn: "",
+      };
+      for (const item of about_items) {
+        if (item.id === newValue) {
+          about_item = Object(item);
+        }
+      }
+      this.updateTextUz = about_item.paragraphUz;
+      this.updateTextRu = about_item.paragraphRu;
+      this.updateTextEn = about_item.paragraphEn;
     },
     create(newValue) {
-      console.log(newValue);
+      newValue;
     },
   },
   methods: {
@@ -317,11 +376,13 @@ export default defineComponent({
     },
     doRequest(create, id) {
       axios.defaults.baseURL = requests.dataprizma[0];
-      const keys = ["file", "text"];
+      const keys = ["file", "textUz", "textRu", "textEn"];
 
       let datas = new FormData();
       datas.append(keys[0], this.updateFile[0]);
-      datas.append(keys[1], this.updateText);
+      datas.append(keys[1], this.updateTextUz.trim());
+      datas.append(keys[2], this.updateTextRu.trim());
+      datas.append(keys[3], this.updateTextEn.trim());
 
       for (let i of keys) {
         if (
@@ -334,7 +395,7 @@ export default defineComponent({
           return;
         }
       }
-      if (!this.isImage(this.updateFile[0])) {
+      if (!this.isImage(this.updateFile[0]) && create !== 2) {
         this.error = 2;
         return;
       }
@@ -357,6 +418,20 @@ export default defineComponent({
     const submitButtonRef = ref<null | HTMLButtonElement>(null);
     const newCardModalRef = ref<null | HTMLElement>(null);
     const instance = getCurrentInstance();
+    const i18n = useI18n();
+    const { t, te } = useI18n();
+
+    const translate = (text) => {
+      if (te(text)) {
+        return t(text);
+      } else {
+        return text;
+      }
+    };
+
+    i18n.locale.value = localStorage.getItem("lang")
+      ? (localStorage.getItem("lang") as string)
+      : "en";
 
     const cardData = ref<CardData>({
       nameOnCard: "Max Doe",
@@ -374,17 +449,17 @@ export default defineComponent({
       cvv: Yup.string().required().label("CVV"),
     });
 
-    const submit = (shouldDelete) => {
+    const submit = (text) => {
       if (!submitButtonRef.value) {
         return;
       }
 
       function successAlert(text) {
         Swal.fire({
-          text: text,
+          text: translate(text),
           icon: "success",
           buttonsStyling: false,
-          confirmButtonText: "Ok, got it!",
+          confirmButtonText: "OK",
           customClass: {
             confirmButton: "btn btn-primary",
           },
@@ -395,15 +470,13 @@ export default defineComponent({
 
       function errorAlert(text) {
         Swal.fire({
-          text: text,
+          text: translate(text),
           icon: "error",
           buttonsStyling: false,
-          confirmButtonText: "Try again!",
+          confirmButtonText: translate("try_again"),
           customClass: {
             confirmButton: "btn fw-bold btn-light-danger",
           },
-        }).then(() => {
-          hideModal(newCardModalRef.value);
         });
       }
 
@@ -411,6 +484,12 @@ export default defineComponent({
       submitButtonRef.value.disabled = true;
       // Activate indicator
       submitButtonRef.value.setAttribute("data-kt-indicator", "on");
+
+      if (text === "cancel") {
+        hideModal(newCardModalRef.value);
+        submitButtonRef.value.disabled = false;
+        submitButtonRef.value?.removeAttribute("data-kt-indicator");
+      }
 
       setTimeout(() => {
         if (submitButtonRef.value) {
@@ -421,21 +500,21 @@ export default defineComponent({
         const error = instance?.data.error;
         const create = instance?.props.create;
 
-        if (shouldDelete === false) {
-          successAlert("Deletion is successfully canceled");
-        } else if (error === 0) {
-          if (create === 1) {
-            successAlert("Item has been successfully added!");
-          } else if (create === 0) {
-            successAlert("Item has been successfully edited!");
-          } else if (create === 2) {
-            successAlert("Item has been successfully deleted!");
-          }
-        } else {
-          if (error === 1) {
-            errorAlert("Inputs should not be empty");
-          } else if (error === 2) {
-            errorAlert("File is not an image");
+        if (text !== "cancel") {
+          if (error === 0) {
+            if (create === 1) {
+              successAlert("item_added");
+            } else if (create === 0) {
+              successAlert("item_edited");
+            } else if (create === 2) {
+              successAlert("item_deleted");
+            }
+          } else {
+            if (error === 1) {
+              errorAlert("input_empty");
+            } else if (error === 2) {
+              errorAlert("file_not_image");
+            }
           }
         }
       }, 2000);

@@ -23,12 +23,12 @@
           v-if="breadcrumbs"
           class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1"
         >
-          <li class="breadcrumb-item text-white opacity-75">
-            <router-link to="/dashboard" class="text-white"> Home </router-link>
-          </li>
-          <li class="breadcrumb-item text-white opacity-75">
-            <span class="bullet bg-gray-200 w-5px h-2px"></span>
-          </li>
+          <!--          <li class="breadcrumb-item text-white opacity-75">-->
+          <!--            <router-link to="/dashboard" class="text-white"> Home </router-link>-->
+          <!--          </li>-->
+          <!--          <li class="breadcrumb-item text-white opacity-75">-->
+          <!--            <span class="bullet bg-gray-200 w-5px h-2px"></span>-->
+          <!--          </li>-->
           <template v-for="(item, index) in breadcrumbs" :key="index">
             <li class="breadcrumb-item text-white opacity-75">
               {{ item }}
@@ -66,7 +66,7 @@
       <!--            data-kt-menu-flip="top-end"-->
       <!--          >-->
       <!--            <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1">-->
-      <!--              <inline-svg src="media/icons/duotune/general/gen031.svg" />-->
+      <!--              <inline-svg src="/media/icons/duotune/general/gen031.svg" />-->
       <!--            </span>-->
       <!--            Filter-->
       <!--          </a>-->

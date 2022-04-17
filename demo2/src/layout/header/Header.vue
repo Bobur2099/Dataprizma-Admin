@@ -31,7 +31,7 @@
           id="kt_header_menu_mobile_toggle"
         >
           <span class="svg-icon svg-icon-2x">
-            <inline-svg src="media/icons/duotune/abstract/abs015.svg" />
+            <inline-svg src="/media/icons/duotune/abstract/abs015.svg" />
           </span>
         </div>
       </div>

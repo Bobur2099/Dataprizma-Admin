@@ -11,7 +11,7 @@ import JwtService from "@/core/services/JwtService";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    redirect: "/dashboard",
+    redirect: "/dataprizma_widgets/main/main-wrap",
     component: () => import("@/layout/Layout.vue"),
     children: [
       {
@@ -60,12 +60,14 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "/dataprizma_widgets/main/review-header",
         name: "review-header",
-        component: () => import("@/views/crafted/dataprizma/main/ReviewHeader.vue"),
+        component: () =>
+          import("@/views/crafted/dataprizma/main/ReviewHeader.vue"),
       },
       {
         path: "/dataprizma_widgets/main/review-carousel",
         name: "review-carousel",
-        component: () => import("@/views/crafted/dataprizma/main/ReviewCarousel.vue"),
+        component: () =>
+          import("@/views/crafted/dataprizma/main/ReviewCarousel.vue"),
       },
       {
         path: "/dataprizma_widgets/about",
@@ -313,6 +315,10 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "/password-reset",
         name: "password-reset",
+        meta: {
+          public: true,
+          onlyWhenLoggedOut: true,
+        },
         component: () =>
           import("@/views/crafted/authentication/basic-flow/PasswordReset.vue"),
       },
@@ -368,8 +374,12 @@ router.beforeEach((to, from, next) => {
   );
   const isPublic = to.matched.some((record) => record.meta.public);
 
-  if (!isPublic && !loggedIn && to.path !== "/sign-in") {
-    router.push({ name: "sign-in" });
+  if (
+    !isPublic &&
+    !loggedIn &&
+    to.path !== "/sign-in" &&
+    to.path !== "/password-reset"
+  ) {
     return next({
       path: "/sign-in",
       query: { redirect: to.fullPath },
@@ -377,8 +387,11 @@ router.beforeEach((to, from, next) => {
   }
 
   if (loggedIn && onlyWhenloggedOut) {
-    router.push({ name: "/" });
-    return next();
+    // return next("/");
+    return next({
+      path: "/",
+      query: { redirect: to.fullPath },
+    });
   }
 
   next();

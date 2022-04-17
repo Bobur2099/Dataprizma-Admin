@@ -18,7 +18,7 @@
           data-kt-menu-flip="top-end"
         >
           <span class="svg-icon svg-icon-2">
-            <inline-svg src="media/icons/duotune/general/gen024.svg" />
+            <inline-svg src="/media/icons/duotune/general/gen024.svg" />
           </span>
         </button>
         <Dropdown2></Dropdown2>
@@ -64,7 +64,7 @@
               <th class="min-w-120px">Company</th>
               <th class="min-w-120px">Total</th>
               <th class="min-w-120px">Status</th>
-              <th class="min-w-100px text-end">Actions</th>
+              <th class="min-w-100px text-end">{{ $t("actions") }}</th>
             </tr>
           </thead>
           <!--end::Table head-->
@@ -174,7 +174,7 @@
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg
-                        src="media/icons/duotune/general/gen019.svg"
+                        src="/media/icons/duotune/general/gen019.svg"
                       />
                     </span>
                   </a>
@@ -187,7 +187,7 @@
                     "
                   >
                     <span class="svg-icon svg-icon-3">
-                      <inline-svg src="media/icons/duotune/art/art005.svg" />
+                      <inline-svg src="/media/icons/duotune/art/art005.svg" />
                     </span>
                   </a>
 
@@ -199,7 +199,7 @@
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg
-                        src="media/icons/duotune/general/gen027.svg"
+                        src="/media/icons/duotune/general/gen027.svg"
                       />
                     </span>
                   </a>

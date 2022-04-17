@@ -150,8 +150,7 @@ export default defineComponent({
     }
 
     onMounted(() => {
-      console.log("Setup");
-      setCurrentPageTitle("Dashboard")
+      setCurrentPageTitle("Dashboard");
     });
   },
 });

@@ -172,7 +172,7 @@
             <!--begin::CVV icon-->
             <div class="position-absolute translate-middle-y top-50 end-0 me-3">
               <span class="svg-icon svg-icon-2hx">
-                <inline-svg src="media/icons/duotune/finance/fin002.svg" />
+                <inline-svg src="/media/icons/duotune/finance/fin002.svg" />
               </span>
             </div>
             <!--end::CVV icon-->

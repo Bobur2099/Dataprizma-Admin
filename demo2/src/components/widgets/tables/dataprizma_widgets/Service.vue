@@ -40,7 +40,9 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bolder fs-3 mb-1">Service page items</span>
+        <span class="card-label fw-bolder fs-3 mb-1"
+          >{{ $t("service") }} {{ $t("page") }} {{ $t("items") }}</span
+        >
 
         <!--        <span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>-->
       </h3>
@@ -50,7 +52,6 @@
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         data-bs-trigger="hover"
-        title="Click to add a user"
       >
         <!--        <a-->
         <!--          class="btn btn-sm btn-light-primary"-->
@@ -63,9 +64,9 @@
         <!--          "-->
         <!--        >-->
         <!--          <span class="svg-icon svg-icon-3">-->
-        <!--            <inline-svg src="media/icons/duotune/arrows/arr075.svg" />-->
+        <!--            <inline-svg src="/media/icons/duotune/arrows/arr075.svg" />-->
         <!--          </span>-->
-        <!--          New Item-->
+        <!--          {{ $t("new_item") }}-->
         <!--        </a>-->
       </div>
     </div>
@@ -93,20 +94,38 @@
                     form-check form-check-sm form-check-custom form-check-solid
                   "
                 >
-                  Id
+                  №
                 </div>
               </th>
-              <th class="min-w-100px">Image</th>
-              <th class="min-w-100px">Header</th>
-              <th class="min-w-100px">Primary</th>
-              <th class="min-w-100px">Text</th>
-              <th class="min-w-100px">Sphere text 1</th>
-              <th class="min-w-100px">Sphere text 2</th>
-              <th class="min-w-100px">Sphere text 3</th>
-              <th class="min-w-100px">Text 1</th>
-              <th class="min-w-100px">Text 2</th>
-              <th class="min-w-100px">Text 3</th>
-              <th class="min-w-100px text-end">Actions</th>
+              <th class="min-w-100px">{{ $t("image") }}</th>
+              <th class="min-w-100px">{{ $t("header_uz") }}</th>
+              <th class="min-w-100px">{{ $t("header_ru") }}</th>
+              <th class="min-w-100px">{{ $t("header_en") }}</th>
+              <th class="min-w-100px">{{ $t("primary_text_uz") }}</th>
+              <th class="min-w-100px">{{ $t("primary_text_ru") }}</th>
+              <th class="min-w-100px">{{ $t("primary_text_en") }}</th>
+              <th class="min-w-100px">{{ $t("text_uz") }}</th>
+              <th class="min-w-100px">{{ $t("text_ru") }}</th>
+              <th class="min-w-100px">{{ $t("text_en") }}</th>
+              <th class="min-w-100px">{{ $t("sphere_text_1_uz") }}</th>
+              <th class="min-w-100px">{{ $t("sphere_text_1_ru") }}</th>
+              <th class="min-w-100px">{{ $t("sphere_text_1_en") }}</th>
+              <th class="min-w-100px">{{ $t("sphere_text_2_uz") }}</th>
+              <th class="min-w-100px">{{ $t("sphere_text_2_ru") }}</th>
+              <th class="min-w-100px">{{ $t("sphere_text_2_en") }}</th>
+              <th class="min-w-100px">{{ $t("sphere_text_3_uz") }}</th>
+              <th class="min-w-100px">{{ $t("sphere_text_3_ru") }}</th>
+              <th class="min-w-100px">{{ $t("sphere_text_3_en") }}</th>
+              <th class="min-w-100px">{{ $t("text_1_uz") }}</th>
+              <th class="min-w-100px">{{ $t("text_1_ru") }}</th>
+              <th class="min-w-100px">{{ $t("text_1_en") }}</th>
+              <th class="min-w-100px">{{ $t("text_2_uz") }}</th>
+              <th class="min-w-100px">{{ $t("text_2_ru") }}</th>
+              <th class="min-w-100px">{{ $t("text_2_en") }}</th>
+              <th class="min-w-100px">{{ $t("text_3_uz") }}</th>
+              <th class="min-w-100px">{{ $t("text_3_ru") }}</th>
+              <th class="min-w-100px">{{ $t("text_3_en") }}</th>
+              <th class="min-w-100px text-end">{{ $t("actions") }}</th>
             </tr>
           </thead>
           <!--end::Table head-->
@@ -134,15 +153,23 @@
                     <!--                      <img :src="item.image" alt="" />-->
                     <!--                    </div>-->
                     <div class="d-flex justify-content-start flex-column">
-                      <a
-                        :href="'http://site.dataprizma.uz/' + item.uploadPath"
-                        class="text-dark fw-bolder text-hover-primary fs-6"
-                        target="_blank"
-                        ><img
+                      <photo-provider>
+                        <photo-consumer
+                          :intro="
+                            'http://site.dataprizma.uz/' + item.uploadPath
+                          "
                           :src="'http://site.dataprizma.uz/' + item.uploadPath"
-                          width="50"
-                          height="50"
-                      /></a>
+                        >
+                          <img
+                            :src="
+                              'http://site.dataprizma.uz/' + item.uploadPath
+                            "
+                            width="50"
+                            height="50"
+                            class="view-box"
+                          />
+                        </photo-consumer>
+                      </photo-provider>
 
                       <!--                      <span-->
                       <!--                        class="text-muted fw-bold text-muted d-block fs-7"-->
@@ -156,7 +183,7 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.header }}</a
+                    >{{ item.headerUz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.ServiceSkills-->
@@ -167,15 +194,7 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.primary }}</a
-                  >
-                </td>
-
-                <td>
-                  <a
-                    href="#"
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.text }}</a
+                    >{{ item.headerRu }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.ServiceSkills-->
@@ -186,7 +205,7 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.sphereText1 }}</a
+                    >{{ item.headerEn }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.ServiceSkills-->
@@ -197,7 +216,31 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.sphereText2 }}</a
+                    >{{ item.primaryUz }}</a
+                  >
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.primaryRu }}</a
+                  >
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.primaryEn }}</a
+                  >
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textUz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.ServiceSkills-->
@@ -208,7 +251,7 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.sphereText3 }}</a
+                    >{{ item.textRu }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.ServiceSkills-->
@@ -219,7 +262,7 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.textFirst }}</a
+                    >{{ item.textEn }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.ServiceSkills-->
@@ -230,7 +273,7 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.textSecond }}</a
+                    >{{ item.sphereText1Uz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.ServiceSkills-->
@@ -241,7 +284,183 @@
                   <a
                     href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    >{{ item.textThird }}</a
+                    >{{ item.sphereText1Ru }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.sphereText1En }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.sphereText2Uz }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.sphereText2Ru }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.sphereText2En }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.sphereText3Uz }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.sphereText3Ru }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.sphereText3En }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textFirstUz }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textFirstRu }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textFirstEn }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textSecondUz }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textSecondRu }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textSecondEn }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textThirdUz }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textThirdRu }}</a
+                  >
+                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                  <!--                    item.ServiceSkills-->
+                  <!--                  }}</span>-->
+                </td>
+
+                <td>
+                  <a
+                    href="#"
+                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    >{{ item.textThirdEn }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
                   <!--                    item.ServiceSkills-->
@@ -284,7 +503,7 @@
                   <!--                  >-->
                   <!--                    <span class="svg-icon svg-icon-3">-->
                   <!--                      <inline-svg-->
-                  <!--                        src="media/icons/duotune/general/gen019.svg"-->
+                  <!--                        src="/media/icons/duotune/general/gen019.svg"-->
                   <!--                      />-->
                   <!--                    </span>-->
                   <!--                  </a>-->
@@ -301,7 +520,7 @@
                     "
                   >
                     <span class="svg-icon svg-icon-3">
-                      <inline-svg src="media/icons/duotune/art/art005.svg" />
+                      <inline-svg src="/media/icons/duotune/art/art005.svg" />
                     </span>
                   </a>
 
@@ -326,7 +545,7 @@
               </tr>
             </template>
             <tr>
-              <td>Avarage {{ datas.length }}</td>
+              <td>{{ $t("total") }} {{ datas.length }}</td>
               <td></td>
               <td></td>
               <td></td>
@@ -352,6 +571,7 @@ import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 // import CreateUserModal from "@/components/modals/forms/CreateUserModal.vue";
 import ServiceModal from "@/components/modals/dataprizma/service/ServiceModal.vue";
 import requests from "@/request/dataprizma_request_links/request_links";
+import { useI18n } from "vue-i18n";
 // import DeleteUserModal from "@/components/modals/forms/DeleteUserModal.vue";
 
 export default defineComponent({
@@ -411,12 +631,33 @@ export default defineComponent({
     },
   },
   created() {
+    const i18n = useI18n();
+
+    i18n.locale.value = localStorage.getItem("lang")
+      ? (localStorage.getItem("lang") as string)
+      : "en";
+
     this.tableData();
   },
   setup() {
     const checked = ref(false);
+    const i18n = useI18n();
+    const { t, te } = useI18n();
+
+    const translate = (text) => {
+      if (te(text)) {
+        return t(text);
+      } else {
+        return text;
+      }
+    };
+
+    i18n.locale.value = localStorage.getItem("lang")
+      ? (localStorage.getItem("lang") as string)
+      : "en";
+
     onMounted(() => {
-      setCurrentPageBreadcrumbs("Service", ["Dataprizma"]);
+      setCurrentPageBreadcrumbs(translate("service"), ["Dataprizma"]);
     });
 
     // const list = [

@@ -164,156 +164,196 @@
     <!--    <div class="separator my-2"></div>-->
     <!--    &lt;!&ndash;end::Menu separator&ndash;&gt;-->
 
-    <!--    &lt;!&ndash;begin::Menu item&ndash;&gt;-->
-    <!--    <div-->
-    <!--      class="menu-item px-5"-->
-    <!--      data-kt-menu-trigger="hover"-->
-    <!--      data-kt-menu-placement="left-start"-->
-    <!--      data-kt-menu-flip="center, top"-->
-    <!--    >-->
-    <!--      <router-link to="/pages/profile/overview" class="menu-link px-5">-->
-    <!--        <span class="menu-title position-relative">-->
-    <!--          Language-->
-    <!--          <span-->
-    <!--            class="-->
-    <!--              fs-8-->
-    <!--              rounded-->
-    <!--              bg-light-->
-    <!--              px-3-->
-    <!--              py-2-->
-    <!--              position-absolute-->
-    <!--              translate-middle-y-->
-    <!--              top-50-->
-    <!--              end-0-->
-    <!--            "-->
-    <!--          >-->
-    <!--            {{ currentLangugeLocale.name }}-->
-    <!--            <img-->
-    <!--              class="w-15px h-15px rounded-1 ms-2"-->
-    <!--              :src="currentLangugeLocale.flag"-->
-    <!--              alt="metronic"-->
-    <!--            />-->
-    <!--          </span>-->
-    <!--        </span>-->
-    <!--      </router-link>-->
+    <!--begin::Menu item-->
+    <div
+      class="menu-item px-5"
+      data-kt-menu-trigger="hover"
+      data-kt-menu-placement="left-start"
+      data-kt-menu-flip="center, top"
+    >
+      <!--      <router-link to="/pages/profile/overview" class="menu-link px-5">-->
+      <div class="menu-link px-5">
+        <span class="menu-title position-relative">
+          {{ $t("Language") }}
+          <span
+            class="
+              fs-8
+              rounded
+              bg-light
+              px-3
+              py-2
+              position-absolute
+              translate-middle-y
+              top-50
+              end-0
+            "
+          >
+            {{ currentLangugeLocale.name }}
+            <img
+              class="w-15px h-15px rounded-1 ms-2"
+              :src="currentLangugeLocale.flag"
+              alt="metronic"
+            />
+          </span>
+        </span>
+      </div>
+      <!--begin::Menu sub-->
+      <div class="menu-sub menu-sub-dropdown w-175px py-4">
+        <!--begin::Menu item-->
+        <div class="menu-item px-3">
+          <a
+            @click="setLang('uz')"
+            href="#"
+            class="menu-link d-flex px-5"
+            :class="{ active: currentLanguage('uz') }"
+          >
+            <span class="symbol symbol-20px me-4">
+              <img
+                class="rounded-1"
+                src="/media/flags/uzbekistan.svg"
+                alt="metronic"
+              />
+            </span>
+            {{ $t("Uzbek") }}
+          </a>
+        </div>
+        <!--end::Menu item-->
 
-    <!--      &lt;!&ndash;begin::Menu sub&ndash;&gt;-->
-    <!--      <div class="menu-sub menu-sub-dropdown w-175px py-4">-->
-    <!--        &lt;!&ndash;begin::Menu item&ndash;&gt;-->
-    <!--        <div class="menu-item px-3">-->
-    <!--          <a-->
-    <!--            @click="setLang('en')"-->
-    <!--            href="#"-->
-    <!--            class="menu-link d-flex px-5"-->
-    <!--            :class="{ active: currentLanguage('en') }"-->
-    <!--          >-->
-    <!--            <span class="symbol symbol-20px me-4">-->
-    <!--              <img-->
-    <!--                class="rounded-1"-->
-    <!--                src="media/flags/united-states.svg"-->
-    <!--                alt="metronic"-->
-    <!--              />-->
-    <!--            </span>-->
-    <!--            English-->
-    <!--          </a>-->
-    <!--        </div>-->
-    <!--        &lt;!&ndash;end::Menu item&ndash;&gt;-->
+        <!--begin::Menu item-->
+        <div class="menu-item px-3">
+          <a
+            @click="setLang('ru')"
+            href="#"
+            class="menu-link d-flex px-5"
+            :class="{ active: currentLanguage('ru') }"
+          >
+            <span class="symbol symbol-20px me-4">
+              <img
+                class="rounded-1"
+                src="/media/flags/russia.svg"
+                alt="metronic"
+              />
+            </span>
+            {{ $t("Russian") }}
+          </a>
+        </div>
+        <!--end::Menu item-->
 
-    <!--        &lt;!&ndash;begin::Menu item&ndash;&gt;-->
-    <!--        <div class="menu-item px-3">-->
-    <!--          <a-->
-    <!--            @click="setLang('es')"-->
-    <!--            href="#"-->
-    <!--            class="menu-link d-flex px-5"-->
-    <!--            :class="{ active: currentLanguage('es') }"-->
-    <!--          >-->
-    <!--            <span class="symbol symbol-20px me-4">-->
-    <!--              <img-->
-    <!--                class="rounded-1"-->
-    <!--                src="media/flags/spain.svg"-->
-    <!--                alt="metronic"-->
-    <!--              />-->
-    <!--            </span>-->
-    <!--            Spanish-->
-    <!--          </a>-->
-    <!--        </div>-->
-    <!--        &lt;!&ndash;end::Menu item&ndash;&gt;-->
+        <!--begin::Menu item-->
+        <div class="menu-item px-3">
+          <a
+            @click="setLang('en')"
+            href="#"
+            class="menu-link d-flex px-5"
+            :class="{ active: currentLanguage('en') }"
+          >
+            <span class="symbol symbol-20px me-4">
+              <img
+                class="rounded-1"
+                src="/media/flags/united-states.svg"
+                alt="metronic"
+              />
+            </span>
+            {{ $t("English") }}
+          </a>
+        </div>
+        <!--end::Menu item-->
 
-    <!--        &lt;!&ndash;begin::Menu item&ndash;&gt;-->
-    <!--        <div class="menu-item px-3">-->
-    <!--          <a-->
-    <!--            @click="setLang('de')"-->
-    <!--            href="#"-->
-    <!--            class="menu-link d-flex px-5"-->
-    <!--            :class="{ active: currentLanguage('de') }"-->
-    <!--          >-->
-    <!--            <span class="symbol symbol-20px me-4">-->
-    <!--              <img-->
-    <!--                class="rounded-1"-->
-    <!--                src="media/flags/germany.svg"-->
-    <!--                alt="metronic"-->
-    <!--              />-->
-    <!--            </span>-->
-    <!--            German-->
-    <!--          </a>-->
-    <!--        </div>-->
-    <!--        &lt;!&ndash;end::Menu item&ndash;&gt;-->
+        <!--        &lt;!&ndash;begin::Menu item&ndash;&gt;-->
+        <!--        <div class="menu-item px-3">-->
+        <!--          <a-->
+        <!--            @click="setLang('es')"-->
+        <!--            href="#"-->
+        <!--            class="menu-link d-flex px-5"-->
+        <!--            :class="{ active: currentLanguage('es') }"-->
+        <!--          >-->
+        <!--            <span class="symbol symbol-20px me-4">-->
+        <!--              <img-->
+        <!--                class="rounded-1"-->
+        <!--                src="media/flags/spain.svg"-->
+        <!--                alt="metronic"-->
+        <!--              />-->
+        <!--            </span>-->
+        <!--            Spanish-->
+        <!--          </a>-->
+        <!--        </div>-->
+        <!--        &lt;!&ndash;end::Menu item&ndash;&gt;-->
 
-    <!--        &lt;!&ndash;begin::Menu item&ndash;&gt;-->
-    <!--        <div class="menu-item px-3">-->
-    <!--          <a-->
-    <!--            @click="setLang('ja')"-->
-    <!--            href="#"-->
-    <!--            class="menu-link d-flex px-5"-->
-    <!--            :class="{ active: currentLanguage('ja') }"-->
-    <!--          >-->
-    <!--            <span class="symbol symbol-20px me-4">-->
-    <!--              <img-->
-    <!--                class="rounded-1"-->
-    <!--                src="media/flags/japan.svg"-->
-    <!--                alt="metronic"-->
-    <!--              />-->
-    <!--            </span>-->
-    <!--            Japanese-->
-    <!--          </a>-->
-    <!--        </div>-->
-    <!--        &lt;!&ndash;end::Menu item&ndash;&gt;-->
+        <!--        &lt;!&ndash;begin::Menu item&ndash;&gt;-->
+        <!--        <div class="menu-item px-3">-->
+        <!--          <a-->
+        <!--            @click="setLang('de')"-->
+        <!--            href="#"-->
+        <!--            class="menu-link d-flex px-5"-->
+        <!--            :class="{ active: currentLanguage('de') }"-->
+        <!--          >-->
+        <!--            <span class="symbol symbol-20px me-4">-->
+        <!--              <img-->
+        <!--                class="rounded-1"-->
+        <!--                src="media/flags/germany.svg"-->
+        <!--                alt="metronic"-->
+        <!--              />-->
+        <!--            </span>-->
+        <!--            German-->
+        <!--          </a>-->
+        <!--        </div>-->
+        <!--        &lt;!&ndash;end::Menu item&ndash;&gt;-->
 
-    <!--        &lt;!&ndash;begin::Menu item&ndash;&gt;-->
-    <!--        <div class="menu-item px-3">-->
-    <!--          <a-->
-    <!--            @click="setLang('fr')"-->
-    <!--            href="#"-->
-    <!--            class="menu-link d-flex px-5"-->
-    <!--            :class="{ active: currentLanguage('fr') }"-->
-    <!--          >-->
-    <!--            <span class="symbol symbol-20px me-4">-->
-    <!--              <img-->
-    <!--                class="rounded-1"-->
-    <!--                src="media/flags/france.svg"-->
-    <!--                alt="metronic"-->
-    <!--              />-->
-    <!--            </span>-->
-    <!--            French-->
-    <!--          </a>-->
-    <!--        </div>-->
-    <!--        &lt;!&ndash;end::Menu item&ndash;&gt;-->
+        <!--        &lt;!&ndash;begin::Menu item&ndash;&gt;-->
+        <!--        <div class="menu-item px-3">-->
+        <!--          <a-->
+        <!--            @click="setLang('ja')"-->
+        <!--            href="#"-->
+        <!--            class="menu-link d-flex px-5"-->
+        <!--            :class="{ active: currentLanguage('ja') }"-->
+        <!--          >-->
+        <!--            <span class="symbol symbol-20px me-4">-->
+        <!--              <img-->
+        <!--                class="rounded-1"-->
+        <!--                src="media/flags/japan.svg"-->
+        <!--                alt="metronic"-->
+        <!--              />-->
+        <!--            </span>-->
+        <!--            Japanese-->
+        <!--          </a>-->
+        <!--        </div>-->
+        <!--        &lt;!&ndash;end::Menu item&ndash;&gt;-->
+
+        <!--        &lt;!&ndash;begin::Menu item&ndash;&gt;-->
+        <!--        <div class="menu-item px-3">-->
+        <!--          <a-->
+        <!--            @click="setLang('fr')"-->
+        <!--            href="#"-->
+        <!--            class="menu-link d-flex px-5"-->
+        <!--            :class="{ active: currentLanguage('fr') }"-->
+        <!--          >-->
+        <!--            <span class="symbol symbol-20px me-4">-->
+        <!--              <img-->
+        <!--                class="rounded-1"-->
+        <!--                src="media/flags/france.svg"-->
+        <!--                alt="metronic"-->
+        <!--              />-->
+        <!--            </span>-->
+        <!--            French-->
+        <!--          </a>-->
+        <!--        </div>-->
+        <!--        &lt;!&ndash;end::Menu item&ndash;&gt;-->
+      </div>
+      <!--end::Menu sub-->
+    </div>
+    <!--end::Menu item-->
+
+    <!--      &lt;!&ndash;begin::Menu item&ndash;&gt;-->
+    <!--      <div class="menu-item px-5 my-1">-->
+    <!--        <router-link to="/pages/profile/overview" class="menu-link px-5">-->
+    <!--          Account Settings-->
+    <!--        </router-link>-->
     <!--      </div>-->
-    <!--      &lt;!&ndash;end::Menu sub&ndash;&gt;-->
-    <!--    </div>-->
-    <!--    &lt;!&ndash;end::Menu item&ndash;&gt;-->
-
-    <!--    &lt;!&ndash;begin::Menu item&ndash;&gt;-->
-    <!--    <div class="menu-item px-5 my-1">-->
-    <!--      <router-link to="/pages/profile/overview" class="menu-link px-5">-->
-    <!--        Account Settings-->
-    <!--      </router-link>-->
-    <!--    </div>-->
-    <!--    &lt;!&ndash;end::Menu item&ndash;&gt;-->
+    <!--      &lt;!&ndash;end::Menu item&ndash;&gt;-->
 
     <!--begin::Menu item-->
     <div class="menu-item px-5">
-      <a @click="signOut()" class="menu-link px-5"> Sign Out </a>
+      <a @click="signOut()" class="menu-link px-5"> {{ $t("Sign out") }} </a>
     </div>
     <!--end::Menu item-->
   </div>
@@ -353,7 +393,7 @@ export default defineComponent({
 
     const countries = {
       en: {
-        flag: "media/flags/united-states.svg",
+        flag: "/media/flags/united-states.svg",
         name: "English",
       },
       es: {
@@ -371,6 +411,14 @@ export default defineComponent({
       fr: {
         flag: "media/flags/france.svg",
         name: "French",
+      },
+      uz: {
+        flag: "/media/flags/uzbekistan.svg",
+        name: "O'zbek",
+      },
+      ru: {
+        flag: "/media/flags/russia.svg",
+        name: "Русский",
       },
     };
 

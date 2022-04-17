@@ -8,7 +8,7 @@
     aria-hidden="true"
   >
     <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-650px">
+    <div class="modal-dialog modal-dialog-centered mw-1000px">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
@@ -23,7 +23,7 @@
             data-bs-dismiss="modal"
           >
             <span class="svg-icon svg-icon-1">
-              <inline-svg src="media/icons/duotune/arrows/arr061.svg" />
+              <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
             </span>
           </div>
           <!--end::Close-->
@@ -102,9 +102,9 @@
                     submit();
                   "
                 >
-                  <span class="indicator-label"> Submit </span>
+                  <span class="indicator-label"> {{ $t("submit") }} </span>
                   <span class="indicator-progress">
-                    Please wait...
+                    {{ $t("please_wait") }}
                     <span
                       class="spinner-border spinner-border-sm align-middle ms-2"
                     ></span>
@@ -132,6 +132,7 @@ import Swal from "sweetalert2/dist/sweetalert2.js";
 import { hideModal } from "@/core/helpers/dom";
 import * as Yup from "yup";
 import axios from "axios";
+import { useI18n } from "vue-i18n";
 
 interface CardData {
   nameOnCard: string;
@@ -165,7 +166,7 @@ export default defineComponent({
           String(localStorage.getItem("user_perms"))
         );
       } catch (err) {
-        console.log("Cant find user perms");
+        // console.log("Cant find user perms");
       }
     },
     permissionsRefresh() {
@@ -203,15 +204,6 @@ export default defineComponent({
         )
         .then((response) => {
           this.typePermissions = response.data;
-          console.log("Type permission role", this.typePermissions);
-          for (const responseKey in this.typePermissions) {
-            console.log(
-              "Key",
-              responseKey,
-              this.typePermissions,
-              this.typePermissions["Page"]
-            );
-          }
           // try {
           //   this.typePermissions = this.typePermissions.sort((a, b) => {
           //     if (a["id"] < b["id"]) return -1;
@@ -220,7 +212,6 @@ export default defineComponent({
           // } catch (err) {
           //   console.log("Cant sort type perms");
           // }
-          console.log("Permissions", response.data.list);
         });
     },
     permissionsBooleanByName(name) {
@@ -235,7 +226,6 @@ export default defineComponent({
       // debugger;
       for (const item in this.typePermissions) {
         for (const value of this.typePermissions[item]) {
-          console.log("type", item, "\nvalue", value);
           axios.post(
             "permission/update",
             {
@@ -268,7 +258,6 @@ export default defineComponent({
   },
   watch: {
     typePermsName(newValue, oldValue) {
-      console.log("New value", newValue);
       this.permissionsByRole(newValue.toLowerCase());
       this.userPermissions();
       this.user_perms = this.userPermsCopy;
@@ -300,6 +289,20 @@ export default defineComponent({
       if (!submitButtonRef.value) {
         return;
       }
+      const i18n = useI18n();
+      const { t, te } = useI18n();
+
+      const translate = (text) => {
+        if (te(text)) {
+          return t(text);
+        } else {
+          return text;
+        }
+      };
+
+      i18n.locale.value = localStorage.getItem("lang")
+        ? (localStorage.getItem("lang") as string)
+        : "en";
 
       //Disable button
       submitButtonRef.value.disabled = true;

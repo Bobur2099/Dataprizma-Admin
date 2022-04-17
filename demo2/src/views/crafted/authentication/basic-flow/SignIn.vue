@@ -44,7 +44,9 @@
       <!--begin::Input group-->
       <div class="fv-row mb-10">
         <!--begin::Label-->
-        <label class="form-label fs-6 fw-bolder text-dark">Email</label>
+        <label class="form-label fs-6 fw-bolder text-dark">{{
+          $t("email")
+        }}</label>
         <!--end::Label-->
 
         <!--begin::Input-->
@@ -68,14 +70,14 @@
         <!--begin::Wrapper-->
         <div class="d-flex flex-stack mb-2">
           <!--begin::Label-->
-          <label class="form-label fw-bolder text-dark fs-6 mb-0"
-            >Password</label
-          >
+          <label class="form-label fw-bolder text-dark fs-6 mb-0">{{
+            $t("password")
+          }}</label>
           <!--end::Label-->
 
           <!--begin::Link-->
           <router-link to="/password-reset" class="link-primary fs-6 fw-bolder">
-            Forgot Password ?
+            {{ $t("forgot_password") }}
           </router-link>
           <!--end::Link-->
         </div>
@@ -106,10 +108,10 @@
           id="kt_sign_in_submit"
           class="btn btn-lg btn-primary w-100 mb-5"
         >
-          <span class="indicator-label"> Continue </span>
+          <span class="indicator-label"> {{ $t("continue") }} </span>
 
           <span class="indicator-progress">
-            Please wait...
+            {{ $t("please_wait") }}
             <span
               class="spinner-border spinner-border-sm align-middle ms-2"
             ></span>
@@ -122,6 +124,47 @@
         <!--          or-->
         <!--        </div>-->
         <!--        &lt;!&ndash;end::Separator&ndash;&gt;-->
+
+        <!--begin::Google link-->
+        <a
+          href="#"
+          class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5"
+          @click="setLang('uz')"
+        >
+          <img
+            alt="Logo"
+            src="/media/flags/uzbekistan.svg"
+            class="h-20px me-3"
+          />
+          {{ $t("change_uz") }}
+        </a>
+        <!--end::Google link-->
+
+        <!--begin::Google link-->
+        <a
+          href="#"
+          class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5"
+          @click="setLang('ru')"
+        >
+          <img alt="Logo" src="media/flags/russia.svg" class="h-20px me-3" />
+          {{ $t("change_ru") }}
+        </a>
+        <!--end::Google link-->
+
+        <!--begin::Google link-->
+        <a
+          href="#"
+          class="btn btn-flex flex-center btn-light btn-lg w-100"
+          @click="setLang('en')"
+        >
+          <img
+            alt="Logo"
+            src="/media/flags/united-states.svg"
+            class="h-20px me-3"
+          />
+          {{ $t("change_en") }}
+        </a>
+        <!--end::Google link-->
 
         <!--        &lt;!&ndash;begin::Google link&ndash;&gt;-->
         <!--        <a-->
@@ -170,7 +213,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { computed, defineComponent, ref } from "vue";
 import { ErrorMessage, Field, Form } from "vee-validate";
 import { Actions } from "@/store/enums/StoreEnums";
 import { useStore } from "vuex";
@@ -179,6 +222,7 @@ import Swal from "sweetalert2/dist/sweetalert2.min.js";
 import * as Yup from "yup";
 import axios from "axios";
 import requests from "@/request/dataprizma_request_links/request_links";
+import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   name: "sign-in",
@@ -205,6 +249,51 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const router = useRouter();
+    const i18n = useI18n();
+    const { t, te } = useI18n();
+
+    const translate = (text) => {
+      if (te(text)) {
+        return t(text);
+      } else {
+        return text;
+      }
+    };
+
+    i18n.locale.value = localStorage.getItem("lang")
+      ? (localStorage.getItem("lang") as string)
+      : "en";
+
+    const countries = {
+      en: {
+        flag: "media/flags/united-states.svg",
+        name: "English",
+      },
+      es: {
+        flag: "media/flags/spain.svg",
+        name: "Spanish",
+      },
+      de: {
+        flag: "media/flags/germany.svg",
+        name: "German",
+      },
+      ja: {
+        flag: "media/flags/japan.svg",
+        name: "Japanese",
+      },
+      fr: {
+        flag: "media/flags/france.svg",
+        name: "French",
+      },
+      uz: {
+        flag: "media/flags/uzbekistan.svg",
+        name: "Uzbek",
+      },
+      ru: {
+        flag: "media/flags/russia.svg",
+        name: "Russian",
+      },
+    };
     // const requestLink = "http://192.168.6.4:8083/api/v1/";
 
     const submitButton = ref<HTMLElement | null>(null);
@@ -232,7 +321,6 @@ export default defineComponent({
         let login = document.forms["login"];
         let email = login["email"].value;
         let password = login["password"].value;
-        console.log(email, password);
 
         let request = {
           email: `${email}`,
@@ -244,9 +332,6 @@ export default defineComponent({
 
         axios.post("login/tokenizer", request).then((response) => {
           if (response.status !== 200) {
-            console.log(
-              "Looks like there was a problem. Status Code: " + response.status
-            );
             throw response.status;
           }
         });
@@ -255,46 +340,40 @@ export default defineComponent({
           .post("login/tokenizer", request)
           .then((response) => {
             if (response.status !== 200) {
-              console.log(
-                "Looks like there was a problem. Status Code: " +
-                  response.status
-              );
               throw response.status;
             }
 
-            console.log(response);
             localStorage.setItem("userData", JSON.stringify(response["data"]));
             localStorage.setItem(
               "token",
               JSON.stringify(response["data"]["token"])
             );
-            (function () {
-              // Go to page after successfully login
-              Swal.fire({
-                text: "All is cool! Now you submit this form",
-                icon: "success",
-                buttonsStyling: false,
-                confirmButtonText: "Ok, got it!",
-                customClass: {
-                  confirmButton: "btn fw-bold btn-light-primary",
-                },
-              });
-            })();
+            // (function () {
+            //   // Go to page after successfully login
+            //   Swal.fire({
+            //     text: "All is cool! Now you submit this form",
+            //     icon: "success",
+            //     buttonsStyling: false,
+            //     confirmButtonText: "Ok, got it!",
+            //     customClass: {
+            //       confirmButton: "btn fw-bold btn-light-primary",
+            //     },
+            //   });
+            // })();
           })
           .then(() => {
             router.push("/");
           })
           .catch(() => {
             Swal.fire({
-              text: "The login detail is incorrect",
+              text: translate("incorrect_data"),
               icon: "error",
               buttonsStyling: false,
-              confirmButtonText: "Try again!",
+              confirmButtonText: translate("try_again"),
               customClass: {
                 confirmButton: "btn fw-bold btn-light-danger",
               },
             });
-            console.log("Error happened");
           });
 
         //Deactivate indicator
@@ -302,10 +381,26 @@ export default defineComponent({
       }, 2000);
     };
 
+    const setLang = (lang) => {
+      localStorage.setItem("lang", lang);
+      i18n.locale.value = lang;
+    };
+
+    const currentLanguage = (lang) => {
+      return i18n.locale.value === lang;
+    };
+
+    const currentLangugeLocale = computed(() => {
+      return countries[i18n.locale.value];
+    });
+
     return {
       onSubmitLogin,
       login,
       submitButton,
+      currentLanguage,
+      currentLangugeLocale,
+      setLang,
     };
   },
 });

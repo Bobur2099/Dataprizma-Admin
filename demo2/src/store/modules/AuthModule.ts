@@ -2,6 +2,8 @@ import ApiService from "@/core/services/ApiService";
 import JwtService from "@/core/services/JwtService";
 import { Actions, Mutations } from "@/store/enums/StoreEnums";
 import { Module, Action, Mutation, VuexModule } from "vuex-module-decorators";
+import request_links from "@/request/dataprizma_request_links/request_links";
+import axios from "axios";
 
 export interface User {
   name: string;
@@ -116,18 +118,43 @@ export default class AuthModule extends VuexModule implements UserAuthInfo {
   @Action
   [Actions.FORGOT_PASSWORD](payload) {
     return new Promise<void>((resolve, reject) => {
-      ApiService.post("forgot_password", payload)
+      ApiService.vueInstance.axios.defaults.baseURL =
+        request_links.dataprizma[0];
+      const config = payload.config;
+      delete payload.config;
+      const formData = new FormData();
+      formData.append("to", payload.to);
+      axios
+        .post("password/send-email", formData, config)
         .then(({ data }) => {
           this.context.commit(Mutations.SET_AUTH, data);
           resolve();
+          console.log("Resolved", data);
         })
         .catch(({ response }) => {
           console.log(response.data.errors);
           this.context.commit(Mutations.SET_ERROR, response.data.errors);
           reject();
+          console.log("Rejected", response);
         });
+      ApiService.vueInstance.axios.defaults.baseURL =
+        request_links.dataprizma[1];
     });
   }
+  // [Actions.FORGOT_PASSWORD](payload) {
+  //   return new Promise<void>((resolve, reject) => {
+  //     ApiService.post("forgot_password", payload)
+  //       .then(({ data }) => {
+  //         this.context.commit(Mutations.SET_AUTH, data);
+  //         resolve();
+  //       })
+  //       .catch(({ response }) => {
+  //         console.log(response.data.errors);
+  //         this.context.commit(Mutations.SET_ERROR, response.data.errors);
+  //         reject();
+  //       });
+  //   });
+  // }
 
   @Action
   [Actions.VERIFY_AUTH]() {

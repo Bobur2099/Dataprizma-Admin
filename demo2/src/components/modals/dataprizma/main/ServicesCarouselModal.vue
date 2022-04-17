@@ -8,16 +8,17 @@
     aria-hidden="true"
   >
     <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-650px" v-if="create < 2">
+    <div class="modal-dialog modal-dialog-centered mw-1000px" v-if="create < 2">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
         <div class="modal-header">
           <!--begin::Modal title-->
           <h2>
-            <span v-if="create == 1">Create</span
-            ><span v-if="create == 0">Update</span> Services Carousel Main
-            Content
+            <span v-if="create == 1"> {{ $t("create") }}</span
+            ><span v-if="create == 0"> {{ $t("update") }}</span>
+            {{ $t("service") }} {{ $t("carousel") }} {{ $t("main") }}
+            {{ $t("content") }}
           </h2>
           <!--end::Modal title-->
 
@@ -27,7 +28,7 @@
             data-bs-dismiss="modal"
           >
             <span class="svg-icon svg-icon-1">
-              <inline-svg src="media/icons/duotune/arrows/arr061.svg" />
+              <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
             </span>
           </div>
           <!--end::Close-->
@@ -39,14 +40,16 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
-            class="form"
+            class="form row"
             @submit="submit"
             :validation-schema="validationSchema"
           >
             <!--begin::Input group-->
-            <div class="d-flex flex-column mb-7 fv-row">
+            <div class="d-flex flex-column mb-7 fv-row col-6">
               <!--begin::Label-->
-              <label class="fs-6 fw-bold form-label mb-2">File</label>
+              <label class="fs-6 fw-bold form-label mb-2">
+                {{ $t("file") }}</label
+              >
               <!--end::Label-->
 
               <!--begin::Input wrapper-->
@@ -56,7 +59,6 @@
                   type="file"
                   class="form-control form-control-solid file"
                   ref="file-upload"
-                  placeholder=""
                   name="file"
                   @change="fileChosen($event)"
                 />
@@ -72,9 +74,11 @@
             <!--end::Input group-->
 
             <!--begin::Input group-->
-            <div class="d-flex flex-column mb-7 fv-row">
+            <div class="d-flex flex-column mb-7 fv-row col-6">
               <!--begin::Label-->
-              <label class="fs-6 fw-bold form-label mb-2">Header</label>
+              <label class="fs-6 fw-bold form-label mb-2">{{
+                $t("header_uz")
+              }}</label>
               <!--end::Label-->
 
               <!--begin::Input wrapper-->
@@ -83,15 +87,9 @@
                 <Field
                   type="text"
                   class="form-control form-control-solid"
-                  placeholder="Enter header"
-                  name="header"
-                  v-model="updateHeader"
+                  name="header-uz"
+                  v-model="updateHeaderUz"
                 />
-                <div class="fv-plugins-message-container">
-                  <div class="fv-help-block">
-                    <!--                    <ErrorMessage name="cardNumber" />-->
-                  </div>
-                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -99,9 +97,11 @@
             <!--end::Input group-->
 
             <!--begin::Input group-->
-            <div class="d-flex flex-column mb-7 fv-row">
+            <div class="d-flex flex-column mb-7 fv-row col-6">
               <!--begin::Label-->
-              <label class="fs-6 fw-bold form-label mb-2">Text</label>
+              <label class="fs-6 fw-bold form-label mb-2">{{
+                $t("header_ru")
+              }}</label>
               <!--end::Label-->
 
               <!--begin::Input wrapper-->
@@ -110,15 +110,101 @@
                 <Field
                   type="text"
                   class="form-control form-control-solid"
-                  placeholder="Enter text"
-                  name="text"
-                  v-model="updateText"
+                  name="header-ru"
+                  v-model="updateHeaderRu"
                 />
-                <div class="fv-plugins-message-container">
-                  <div class="fv-help-block">
-                    <!--                    <ErrorMessage name="cardNumber" />-->
-                  </div>
-                </div>
+                <!--end::Input-->
+              </div>
+              <!--end::Input wrapper-->
+            </div>
+            <!--end::Input group-->
+
+            <!--begin::Input group-->
+            <div class="d-flex flex-column mb-7 fv-row col-6">
+              <!--begin::Label-->
+              <label class="fs-6 fw-bold form-label mb-2">{{
+                $t("header_en")
+              }}</label>
+              <!--end::Label-->
+
+              <!--begin::Input wrapper-->
+              <div class="position-relative">
+                <!--begin::Input-->
+                <Field
+                  type="text"
+                  class="form-control form-control-solid"
+                  name="header-en"
+                  v-model="updateHeaderEn"
+                />
+                <!--end::Input-->
+              </div>
+              <!--end::Input wrapper-->
+            </div>
+            <!--end::Input group-->
+
+            <!--begin::Input group-->
+            <div class="d-flex flex-column mb-7 fv-row col-6">
+              <!--begin::Label-->
+              <label class="fs-6 fw-bold form-label mb-2">{{
+                $t("text_uz")
+              }}</label>
+              <!--end::Label-->
+
+              <!--begin::Input wrapper-->
+              <div class="position-relative">
+                <!--begin::Input-->
+                <Field
+                  type="text"
+                  class="form-control form-control-solid"
+                  name="text-uz"
+                  v-model="updateTextUz"
+                />
+                <!--end::Input-->
+              </div>
+              <!--end::Input wrapper-->
+            </div>
+            <!--end::Input group-->
+
+            <!--begin::Input group-->
+            <div class="d-flex flex-column mb-7 fv-row col-6">
+              <!--begin::Label-->
+              <label class="fs-6 fw-bold form-label mb-2">{{
+                $t("text_ru")
+              }}</label>
+              <!--end::Label-->
+
+              <!--begin::Input wrapper-->
+              <div class="position-relative">
+                <!--begin::Input-->
+                <Field
+                  type="text"
+                  class="form-control form-control-solid"
+                  name="text-ru"
+                  v-model="updateTextRu"
+                />
+                <!--end::Input-->
+              </div>
+              <!--end::Input wrapper-->
+            </div>
+            <!--end::Input group-->
+
+            <!--begin::Input group-->
+            <div class="d-flex flex-column mb-7 fv-row col-6">
+              <!--begin::Label-->
+              <label class="fs-6 fw-bold form-label mb-2">{{
+                $t("text_en")
+              }}</label>
+              <!--end::Label-->
+
+              <!--begin::Input wrapper-->
+              <div class="position-relative">
+                <!--begin::Input-->
+                <Field
+                  type="text"
+                  class="form-control form-control-solid"
+                  name="text-en"
+                  v-model="updateTextEn"
+                />
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -132,7 +218,7 @@
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
               >
-                Discard
+                {{ $t("discard") }}
               </button>
 
               <button
@@ -145,9 +231,9 @@
                   submit();
                 "
               >
-                <span class="indicator-label"> Submit </span>
+                <span class="indicator-label"> {{ $t("submit") }} </span>
                 <span class="indicator-progress">
-                  Please wait...
+                  {{ $t("please_wait") }}
                   <span
                     class="spinner-border spinner-border-sm align-middle ms-2"
                   ></span>
@@ -165,7 +251,7 @@
     <!--end::Modal dialog-->
 
     <div
-      class="modal-dialog modal-dialog-centered mw-650px"
+      class="modal-dialog modal-dialog-centered mw-1000px"
       v-if="create === 2"
     >
       <!--begin::Modal content-->
@@ -173,7 +259,7 @@
         <!--begin::Modal header-->
         <div class="modal-header">
           <!--begin::Modal title-->
-          <h2>Are you sure?</h2>
+          <h2>{{ $t("are_you_sure") }}</h2>
           <!--end::Modal title-->
 
           <!--begin::Close-->
@@ -182,7 +268,7 @@
             data-bs-dismiss="modal"
           >
             <span class="svg-icon svg-icon-1">
-              <inline-svg src="media/icons/duotune/arrows/arr061.svg" />
+              <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
             </span>
           </div>
           <!--end::Close-->
@@ -205,11 +291,11 @@
                 type="submit"
                 id="kt_modal_fail_submit"
                 class="btn btn-danger mx-5"
-                @click="submit(false)"
+                @click="submit('cancel')"
               >
                 <span class="indicator-label"> Cancel </span>
                 <span class="indicator-progress">
-                  Please wait...
+                  {{ $t("please_wait") }}
                   <span
                     class="spinner-border spinner-border-sm align-middle ms-2"
                   ></span>
@@ -226,9 +312,9 @@
                   submit();
                 "
               >
-                <span class="indicator-label"> Submit </span>
+                <span class="indicator-label"> {{ $t("submit") }} </span>
                 <span class="indicator-progress">
-                  Please wait...
+                  {{ $t("please_wait") }}
                   <span
                     class="spinner-border spinner-border-sm align-middle ms-2"
                   ></span>
@@ -256,6 +342,7 @@ import { hideModal } from "@/core/helpers/dom";
 import * as Yup from "yup";
 import axios from "axios";
 import requests from "@/request/dataprizma_request_links/request_links";
+import { useI18n } from "vue-i18n";
 
 interface CardData {
   nameOnCard: string;
@@ -273,8 +360,12 @@ export default defineComponent({
       code: "",
       token: JSON.parse(String(localStorage.getItem("userData")))["token"],
       updateFile: new File([new Blob()], ""),
-      updateHeader: "",
-      updateText: "",
+      updateHeaderUz: "",
+      updateHeaderRu: "",
+      updateHeaderEn: "",
+      updateTextUz: "",
+      updateTextRu: "",
+      updateTextEn: "",
       error: 0,
     };
   },
@@ -286,10 +377,29 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
-      console.log(newValue);
+      const service_carousel_items = JSON.parse(Object(localStorage.getItem("serCarousel")));
+      let service_carousel_item = {
+        headerEn: "",
+        headerRu: "",
+        headerUz: "",
+        textEn: "",
+        textRu: "",
+        textUz: "",
+      };
+      for (const item of service_carousel_items) {
+        if (item.id === newValue) {
+          service_carousel_item = Object(item);
+        }
+      }
+      this.updateHeaderEn = service_carousel_item.headerEn;
+      this.updateHeaderRu = service_carousel_item.headerRu;
+      this.updateHeaderUz = service_carousel_item.headerUz;
+      this.updateTextEn = service_carousel_item.textEn;
+      this.updateTextRu = service_carousel_item.textRu;
+      this.updateTextUz = service_carousel_item.textUz;
     },
     create(newValue) {
-      console.log(newValue);
+      newValue;
     },
   },
   methods: {
@@ -316,6 +426,7 @@ export default defineComponent({
         .post(`serCarousel/create`, datas, {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${this.token}`,
           },
         })
         .then((response) => {
@@ -331,6 +442,7 @@ export default defineComponent({
         .put(`serCarousel/update/${id}`, datas, {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${this.token}`,
           },
         })
         .then((response) => {
@@ -345,7 +457,7 @@ export default defineComponent({
       axios
         .delete(`serCarousel/delete/${id}`, {
           headers: {
-            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${this.token}`,
           },
         })
         .then(() => {
@@ -354,13 +466,24 @@ export default defineComponent({
     },
     doRequest(create, id) {
       axios.defaults.baseURL = requests.dataprizma[0];
-      const keys = ["file", "header", "text"];
+      const keys = [
+        "file",
+        "headerUz",
+        "headerRu",
+        "headerEn",
+        "textUz",
+        "textRu",
+        "textEn",
+      ];
 
       let datas = new FormData();
-      console.log(datas, typeof this.updateFile[0]);
       datas.append(keys[0], this.updateFile[0]);
-      datas.append(keys[1], this.updateHeader);
-      datas.append(keys[2], this.updateText);
+      datas.append(keys[1], this.updateHeaderUz.trim());
+      datas.append(keys[2], this.updateHeaderRu.trim());
+      datas.append(keys[3], this.updateHeaderEn.trim());
+      datas.append(keys[4], this.updateTextUz.trim());
+      datas.append(keys[5], this.updateTextRu.trim());
+      datas.append(keys[6], this.updateTextEn.trim());
 
       for (let i of keys) {
         if (
@@ -373,7 +496,7 @@ export default defineComponent({
           return;
         }
       }
-      if (!this.isImage(this.updateFile[0])) {
+      if (!this.isImage(this.updateFile[0]) && create !== 2) {
         this.error = 2;
         return;
       }
@@ -396,6 +519,20 @@ export default defineComponent({
     const submitButtonRef = ref<null | HTMLButtonElement>(null);
     const newCardModalRef = ref<null | HTMLElement>(null);
     const instance = getCurrentInstance();
+    const i18n = useI18n();
+    const { t, te } = useI18n();
+
+    const translate = (text) => {
+      if (te(text)) {
+        return t(text);
+      } else {
+        return text;
+      }
+    };
+
+    i18n.locale.value = localStorage.getItem("lang")
+      ? (localStorage.getItem("lang") as string)
+      : "en";
 
     const cardData = ref<CardData>({
       nameOnCard: "Max Doe",
@@ -413,17 +550,17 @@ export default defineComponent({
       cvv: Yup.string().required().label("CVV"),
     });
 
-    const submit = (shouldDelete) => {
+    const submit = (text) => {
       if (!submitButtonRef.value) {
         return;
       }
 
       function successAlert(text) {
         Swal.fire({
-          text: text,
+          text: translate(text),
           icon: "success",
           buttonsStyling: false,
-          confirmButtonText: "Ok, got it!",
+          confirmButtonText: "OK",
           customClass: {
             confirmButton: "btn btn-primary",
           },
@@ -434,15 +571,13 @@ export default defineComponent({
 
       function errorAlert(text) {
         Swal.fire({
-          text: text,
+          text: translate(text),
           icon: "error",
           buttonsStyling: false,
-          confirmButtonText: "Try again!",
+          confirmButtonText: translate("try_again"),
           customClass: {
             confirmButton: "btn fw-bold btn-light-danger",
           },
-        }).then(() => {
-          hideModal(newCardModalRef.value);
         });
       }
 
@@ -450,6 +585,12 @@ export default defineComponent({
       submitButtonRef.value.disabled = true;
       // Activate indicator
       submitButtonRef.value.setAttribute("data-kt-indicator", "on");
+
+      if (text === "cancel") {
+        hideModal(newCardModalRef.value);
+        submitButtonRef.value.disabled = false;
+        submitButtonRef.value?.removeAttribute("data-kt-indicator");
+      }
 
       setTimeout(() => {
         if (submitButtonRef.value) {
@@ -460,21 +601,21 @@ export default defineComponent({
         const error = instance?.data.error;
         const create = instance?.props.create;
 
-        if (shouldDelete === false) {
-          successAlert("Deletion is successfully canceled");
-        } else if (error === 0) {
-          if (create === 1) {
-            successAlert("Item has been successfully added!");
-          } else if (create === 0) {
-            successAlert("Item has been successfully edited!");
-          } else if (create === 2) {
-            successAlert("Item has been successfully deleted!");
-          }
-        } else {
-          if (error === 1) {
-            errorAlert("Inputs should not be empty");
-          } else if (error === 2) {
-            errorAlert("File is not an image");
+        if (text !== "cancel") {
+          if (error === 0) {
+            if (create === 1) {
+              successAlert("item_added");
+            } else if (create === 0) {
+              successAlert("item_edited");
+            } else if (create === 2) {
+              successAlert("item_deleted");
+            }
+          } else {
+            if (error === 1) {
+              errorAlert("input_empty");
+            } else if (error === 2) {
+              errorAlert("file_not_image");
+            }
           }
         }
       }, 2000);

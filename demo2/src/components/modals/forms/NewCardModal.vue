@@ -23,7 +23,7 @@
             data-bs-dismiss="modal"
           >
             <span class="svg-icon svg-icon-1">
-              <inline-svg src="media/icons/duotune/arrows/arr061.svg" />
+              <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
             </span>
           </div>
           <!--end::Close-->
@@ -227,7 +227,7 @@
                   >
                     <span class="svg-icon svg-icon-2hx">
                       <inline-svg
-                        src="media/icons/duotune/finance/fin002.svg"
+                        src="/media/icons/duotune/finance/fin002.svg"
                       />
                     </span>
                   </div>

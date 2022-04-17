@@ -43,7 +43,7 @@
                 <div class="fs-4 fw-bolder text-gray-700">
                   <span class="w-75px">6,900</span>
                   <span class="svg-icon svg-icon-3 svg-icon-success">
-                    <inline-svg src="media/icons/duotune/arrows/arr066.svg" />
+                    <inline-svg src="/media/icons/duotune/arrows/arr066.svg" />
                   </span>
                 </div>
                 <div class="fw-bold text-muted">Earnings</div>
@@ -64,7 +64,7 @@
                 <div class="fs-4 fw-bolder text-gray-700">
                   <span class="w-50px">130</span>
                   <span class="svg-icon svg-icon-3 svg-icon-danger">
-                    <inline-svg src="media/icons/duotune/arrows/arr065.svg" />
+                    <inline-svg src="/media/icons/duotune/arrows/arr065.svg" />
                   </span>
                 </div>
                 <div class="fw-bold text-muted">Tasks</div>
@@ -84,7 +84,7 @@
                 <div class="fs-4 fw-bolder text-gray-700">
                   <span class="w-50px">500</span>
                   <span class="svg-icon svg-icon-3 svg-icon-success">
-                    <inline-svg src="media/icons/duotune/arrows/arr066.svg" />
+                    <inline-svg src="/media/icons/duotune/arrows/arr066.svg" />
                   </span>
                 </div>
                 <div class="fw-bold text-muted">Hours</div>
@@ -108,7 +108,7 @@
               Details
               <span class="ms-2 rotate-180">
                 <span class="svg-icon svg-icon-3">
-                  <inline-svg src="media/icons/duotune/arrows/arr072.svg" />
+                  <inline-svg src="/media/icons/duotune/arrows/arr072.svg" />
                 </span>
               </span>
             </div>
@@ -200,7 +200,7 @@
             "
           >
             <span class="svg-icon svg-icon-2tx svg-icon-primary me-4">
-              <inline-svg src="media/icons/duotune/art/art006.svg" />
+              <inline-svg src="/media/icons/duotune/art/art006.svg" />
             </span>
             <!--begin::Wrapper-->
             <div class="d-flex flex-stack flex-grow-1">
@@ -458,7 +458,7 @@
           >
             Actions
             <span class="svg-icon svg-icon-2 me-0">
-              <inline-svg src="media/icons/duotune/arrows/arr072.svg" />
+              <inline-svg src="/media/icons/duotune/arrows/arr072.svg" />
             </span>
           </a>
           <Dropdown3></Dropdown3>

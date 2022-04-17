@@ -20,7 +20,7 @@
           data-kt-menu-flip="top-end"
         >
           <span class="svg-icon svg-icon-2">
-            <inline-svg src="media/icons/duotune/general/gen024.svg" />
+            <inline-svg src="/media/icons/duotune/general/gen024.svg" />
           </span>
         </button>
         <Dropdown1></Dropdown1>
@@ -97,7 +97,7 @@
                     "
                   >
                     <span class="svg-icon svg-icon-2">
-                      <inline-svg src="media/icons/duotune/arrows/arr064.svg" />
+                      <inline-svg src="/media/icons/duotune/arrows/arr064.svg" />
                     </span>
                   </a>
                 </td>

@@ -4,27 +4,27 @@ const DocMenuConfig = [
   //     {
   //       heading: "dashboard",
   //       route: "/dashboard",
-  //       svgIcon: "media/icons/duotune/art/art002.svg",
+  //       svgIcon: "/media/icons/duotune/art/art002.svg",
   //       fontIcon: "bi-app-indicator",
   //     },
   //     {
   //       heading: "layoutBuilder",
   //       route: "/builder",
-  //       svgIcon: "media/icons/duotune/general/gen019.svg",
+  //       svgIcon: "/media/icons/duotune/general/gen019.svg",
   //       fontIcon: "bi-layers",
   //     },
   //   ],
   // },
   {
-    heading: "Administration",
+    heading: "administration",
     route: "/administration",
     pages: [
       {
-        heading: "Roles",
+        heading: "roles",
         route: "/administration/roles",
       },
       {
-        heading: "Users",
+        heading: "users",
         route: "/administration/users",
       },
     ],
@@ -34,55 +34,55 @@ const DocMenuConfig = [
     route: "/dataprizma_widgets",
     pages: [
       {
-        sectionTitle: "Main",
+        sectionTitle: "main",
         route: "/main",
-        svgIcon: "media/icons/duotune/general/gen022.svg",
+        svgIcon: "/media/icons/duotune/general/gen022.svg",
         fontIcon: "bi-archive",
         sub: [
           {
-            heading: "Main-Wrap",
+            heading: "main_wrap",
             route: "/dataprizma_widgets/main/main-wrap",
           },
           {
-            heading: "Comfort",
+            heading: "comfort",
             route: "/dataprizma_widgets/main/comfort",
           },
           {
-            heading: "Advertise",
+            heading: "advertise",
             route: "/dataprizma_widgets/main/advertise",
           },
           {
-            heading: "Services Header",
+            heading: "service_header",
             route: "/dataprizma_widgets/main/services-header",
           },
           {
-            heading: "Services Carousel",
+            heading: "service_carousel",
             route: "/dataprizma_widgets/main/services-carousel",
           },
           {
-            heading: "Review Header",
+            heading: "review_header",
             route: "/dataprizma_widgets/main/review-header",
           },
           {
-            heading: "Review Carousel",
+            heading: "review_carousel",
             route: "/dataprizma_widgets/main/review-carousel",
           },
         ],
       },
       {
-        heading: "About",
+        heading: "about",
         route: "/dataprizma_widgets/about",
       },
       {
-        heading: "Service",
+        heading: "service",
         route: "/dataprizma_widgets/service",
       },
       {
-        heading: "Portfolio",
+        heading: "portfolio",
         route: "/dataprizma_widgets/portfolio",
       },
       {
-        heading: "Company",
+        heading: "company",
         route: "/dataprizma_widgets/company",
       },
     ],
@@ -94,7 +94,7 @@ const DocMenuConfig = [
   //     {
   //       sectionTitle: "pages",
   //       route: "/pages",
-  //       svgIcon: "media/icons/duotune/general/gen022.svg",
+  //       svgIcon: "/media/icons/duotune/general/gen022.svg",
   //       fontIcon: "bi-archive",
   //       sub: [
   //         {
@@ -146,7 +146,7 @@ const DocMenuConfig = [
   //     {
   //       sectionTitle: "account",
   //       route: "/account",
-  //       svgIcon: "media/icons/duotune/communication/com006.svg",
+  //       svgIcon: "/media/icons/duotune/communication/com006.svg",
   //       fontIcon: "bi-person",
   //       sub: [
   //         {
@@ -161,7 +161,7 @@ const DocMenuConfig = [
   //     },
   //     {
   //       sectionTitle: "authentication",
-  //       svgIcon: "media/icons/duotune/technology/teh004.svg",
+  //       svgIcon: "/media/icons/duotune/technology/teh004.svg",
   //       fontIcon: "bi-sticky",
   //       sub: [
   //         {
@@ -194,7 +194,7 @@ const DocMenuConfig = [
   //     {
   //       sectionTitle: "modals",
   //       route: "/modals",
-  //       svgIcon: "media/icons/duotune/art/art009.svg",
+  //       svgIcon: "/media/icons/duotune/art/art009.svg",
   //       fontIcon: "bi-shield-check",
   //       sub: [
   //         {
@@ -264,7 +264,7 @@ const DocMenuConfig = [
   //     {
   //       sectionTitle: "widgets",
   //       route: "/widgets",
-  //       svgIcon: "media/icons/duotune/general/gen025.svg",
+  //       svgIcon: "/media/icons/duotune/general/gen025.svg",
   //       fontIcon: "bi-layers",
   //       sub: [
   //         {
@@ -302,7 +302,7 @@ const DocMenuConfig = [
   //     {
   //       sectionTitle: "customers",
   //       route: "/customers",
-  //       svgIcon: "media/icons/duotune/finance/fin006.svg",
+  //       svgIcon: "/media/icons/duotune/finance/fin006.svg",
   //       fontIcon: "bi-printer",
   //       sub: [
   //         {
@@ -322,13 +322,13 @@ const DocMenuConfig = [
   //     {
   //       heading: "calendarApp",
   //       route: "/apps/calendar",
-  //       svgIcon: "media/icons/duotune/general/gen014.svg",
+  //       svgIcon: "/media/icons/duotune/general/gen014.svg",
   //       fontIcon: "bi-calendar3-event",
   //     },
   //     {
   //       sectionTitle: "chat",
   //       route: "/chat",
-  //       svgIcon: "media/icons/duotune/communication/com012.svg",
+  //       svgIcon: "/media/icons/duotune/communication/com012.svg",
   //       fontIcon: "bi-chat-left",
   //       sub: [
   //         {

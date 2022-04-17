@@ -8,7 +8,7 @@
     aria-hidden="true"
   >
     <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-650px">
+    <div class="modal-dialog modal-dialog-centered mw-1000px">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
@@ -23,7 +23,7 @@
             data-bs-dismiss="modal"
           >
             <span class="svg-icon svg-icon-1">
-              <inline-svg src="media/icons/duotune/arrows/arr061.svg" />
+              <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
             </span>
           </div>
           <!--end::Close-->
@@ -141,7 +141,7 @@
               >
                 <span class="indicator-label"> Cancel </span>
                 <span class="indicator-progress">
-                  Please wait...
+                  {{ $t("please_wait") }}
                   <span
                     class="spinner-border spinner-border-sm align-middle ms-2"
                   ></span>
@@ -158,9 +158,9 @@
                   deleteRole(deleteId, deleteIndex, true);
                 "
               >
-                <span class="indicator-label"> Submit </span>
+                <span class="indicator-label"> {{ $t("submit") }} </span>
                 <span class="indicator-progress">
-                  Please wait...
+                  {{ $t("please_wait") }}
                   <span
                     class="spinner-border spinner-border-sm align-middle ms-2"
                   ></span>
@@ -187,6 +187,7 @@ import Swal from "sweetalert2/dist/sweetalert2.js";
 import { hideModal } from "@/core/helpers/dom";
 import * as Yup from "yup";
 import axios from "axios";
+import { useI18n } from "vue-i18n";
 
 interface CardData {
   nameOnCard: string;
@@ -230,7 +231,6 @@ export default defineComponent({
           if (response.status !== 200) {
             alert("Error");
           } else {
-            console.log(response.data);
             this.userDatas = response.data;
             for (let i = 0; i < this.userDatas.length; i++) {
               for (let j = 0; j < this.userDatas.length; j++) {
@@ -326,10 +326,10 @@ export default defineComponent({
   },
   watch: {
     deleteId(newValue, oldValue) {
-      console.log("This is new id:", newValue);
+      // console.log("This is new id:", newValue);
     },
     deleteIndex(newValue, oldValue) {
-      console.log("This is new index:", newValue);
+      // console.log("This is new index:", newValue);
     },
   },
   created() {
@@ -359,6 +359,20 @@ export default defineComponent({
       if (!submitButtonRef.value) {
         return;
       }
+      const i18n = useI18n();
+      const { t, te } = useI18n();
+
+      const translate = (text) => {
+        if (te(text)) {
+          return t(text);
+        } else {
+          return text;
+        }
+      };
+
+      i18n.locale.value = localStorage.getItem("lang")
+        ? (localStorage.getItem("lang") as string)
+        : "en";
 
       //Disable button
       submitButtonRef.value.disabled = true;
