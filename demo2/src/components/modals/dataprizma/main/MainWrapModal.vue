@@ -48,7 +48,6 @@
               <!--begin::Label-->
               <label
                 class="d-flex align-items-center fs-6 fw-bold form-label mb-2"
-                for="file"
               >
                 <span>{{ $t("file") }}</span>
               </label>
@@ -510,7 +509,7 @@ export default defineComponent({
     // });
 
     const validationSchema = Yup.object().shape({
-      file: Yup.string()
+      file: Yup.array()
         .required(translate("forms_validation_file"))
         .label("File"),
       textEn: Yup.string().required().label("Text En"),
@@ -574,7 +573,6 @@ export default defineComponent({
         const create = instance?.props.create;
         const responseError = instance?.data.responseError;
 
-        console.log(responseError);
         if (responseError === 500) {
           errorAlert("Too much text was given to input");
         } else if (responseError === 401) {

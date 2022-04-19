@@ -64,7 +64,7 @@
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
-                    <!--                    <ErrorMessage name="cardNumber" />-->
+                    <ErrorMessage name="file" />
                   </div>
                 </div>
                 <!--end::Input-->
@@ -87,9 +87,14 @@
                 <Field
                   v-model="updateHeaderUz"
                   class="form-control form-control-solid"
-                  name="header-uz"
+                  name="headerUz"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="headerUz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -110,9 +115,14 @@
                 <Field
                   v-model="updateHeaderRu"
                   class="form-control form-control-solid"
-                  name="header-ru"
+                  name="headerRu"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="headerRu" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -133,9 +143,14 @@
                 <Field
                   v-model="updateHeaderEn"
                   class="form-control form-control-solid"
-                  name="header-en"
+                  name="headerEn"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="headerEn" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -156,9 +171,14 @@
                 <Field
                   v-model="updateTextUz"
                   class="form-control form-control-solid"
-                  name="text-uz"
+                  name="textUz"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textUz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -179,9 +199,14 @@
                 <Field
                   v-model="updateTextRu"
                   class="form-control form-control-solid"
-                  name="text-ru"
+                  name="textRu"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textRu" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -202,9 +227,14 @@
                 <Field
                   v-model="updateTextEn"
                   class="form-control form-control-solid"
-                  name="text-en"
+                  name="textEn"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textEn" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -345,14 +375,6 @@ import requests from "@/request/dataprizma_request_links/request_links";
 import { useI18n } from "vue-i18n";
 import { setLocale } from "yup";
 
-interface CardData {
-  nameOnCard: string;
-  cardNumber: string;
-  expirationMonth: string;
-  expirationYear: string;
-  cvv: string;
-}
-
 export default defineComponent({
   name: "service-carousel",
   data: function () {
@@ -373,7 +395,7 @@ export default defineComponent({
   },
   props: ["updateId", "create"],
   components: {
-    // ErrorMessage,
+    ErrorMessage,
     Field,
     Form,
   },
@@ -552,20 +574,16 @@ export default defineComponent({
       },
     });
 
-    const cardData = ref<CardData>({
-      nameOnCard: "Max Doe",
-      cardNumber: "4111 1111 1111 1111",
-      expirationMonth: "",
-      expirationYear: "",
-      cvv: "",
-    });
-
     const validationSchema = Yup.object().shape({
-      nameOnCard: Yup.string().required().label("Name"),
-      cardNumber: Yup.string().required().label("Card number"),
-      expirationMonth: Yup.string().required().label("Month"),
-      expirationYear: Yup.string().required().label("Year"),
-      cvv: Yup.string().required().label("CVV"),
+      file: Yup.array()
+        .required(translate("forms_validation_file"))
+        .label("File"),
+      headerUz: Yup.string().required(),
+      headerRu: Yup.string().required(),
+      headerEn: Yup.string().required(),
+      textUz: Yup.string().required(),
+      textRu: Yup.string().required(),
+      textEn: Yup.string().required(),
     });
 
     const submit = (text) => {
@@ -651,7 +669,6 @@ export default defineComponent({
     };
 
     return {
-      cardData,
       validationSchema,
       submit,
       submitButtonRef,

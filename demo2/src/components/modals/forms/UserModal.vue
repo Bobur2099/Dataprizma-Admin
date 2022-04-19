@@ -60,9 +60,9 @@
                 type="text"
               />
               <div class="fv-plugins-message-container">
-                <!--                <div class="fv-help-block">-->
-                <!--                  <ErrorMessage name="nameOnCard" />-->
-                <!--                </div>-->
+                <div class="fv-help-block">
+                  <ErrorMessage name="email" />
+                </div>
               </div>
             </div>
             <!--end::Input group-->
@@ -85,9 +85,9 @@
                   type="text"
                 />
                 <div class="fv-plugins-message-container">
-                  <!--                  <div class="fv-help-block">-->
-                  <!--                    <ErrorMessage name="cardNumber" />-->
-                  <!--                  </div>-->
+                  <div class="fv-help-block">
+                    <ErrorMessage name="password" />
+                  </div>
                 </div>
                 <!--end::Input-->
               </div>
@@ -105,7 +105,7 @@
                   data-control="select2"
                   data-hide-search="true"
                   data-placeholder="Month"
-                  name="expirationMonth"
+                  name="roleId"
                 >
                   <option selected v-bind:value="-1">
                     {{ $t("choose_the_role") }}
@@ -119,9 +119,9 @@
                   </option>
                 </Field>
                 <div class="fv-plugins-message-container">
-                  <!--                  <div class="fv-help-block">-->
-                  <!--                    <ErrorMessage name="expirationMonth" />-->
-                  <!--                  </div>-->
+                  <div class="fv-help-block">
+                    <ErrorMessage name="roleId" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -259,14 +259,6 @@ import requests from "@/request/dataprizma_request_links/request_links";
 import { useI18n } from "vue-i18n";
 import { setLocale } from "yup";
 
-interface CardData {
-  nameOnCard: string;
-  cardNumber: string;
-  expirationMonth: string;
-  expirationYear: string;
-  cvv: string;
-}
-
 export default defineComponent({
   name: "user-modal",
   data: function () {
@@ -283,7 +275,7 @@ export default defineComponent({
   },
   props: ["updateId", "create"],
   components: {
-    // ErrorMessage,
+    ErrorMessage,
     Field,
     Form,
   },
@@ -456,20 +448,10 @@ export default defineComponent({
       },
     });
 
-    const cardData = ref<CardData>({
-      nameOnCard: "Max Doe",
-      cardNumber: "4111 1111 1111 1111",
-      expirationMonth: "",
-      expirationYear: "",
-      cvv: "",
-    });
-
     const validationSchema = Yup.object().shape({
-      nameOnCard: Yup.string().required().label("Name"),
-      cardNumber: Yup.string().required().label("Card number"),
-      expirationMonth: Yup.string().required().label("Month"),
-      expirationYear: Yup.string().required().label("Year"),
-      cvv: Yup.string().required().label("CVV"),
+      email: Yup.string().email().required(),
+      password: Yup.string().required(),
+      roleId: Yup.string().required(),
     });
 
     const submit = (text) => {
@@ -551,7 +533,6 @@ export default defineComponent({
     };
 
     return {
-      cardData,
       validationSchema,
       submit,
       submitButtonRef,

@@ -482,7 +482,7 @@ export default defineComponent({
     });
 
     const validationSchema = Yup.object().shape({
-      file: Yup.string()
+      file: Yup.array()
         .required(translate("forms_validation_file"))
         .label("File"),
       textEn: Yup.string().required().label("Text En"),

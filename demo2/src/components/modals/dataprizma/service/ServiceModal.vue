@@ -62,7 +62,7 @@
               />
               <div class="fv-plugins-message-container">
                 <div class="fv-help-block">
-                  <!--                  <ErrorMessage name="nameOnCard" />-->
+                  <ErrorMessage name="file" />
                 </div>
               </div>
             </div>
@@ -82,9 +82,14 @@
                 <Field
                   v-model="updateHeaderUz"
                   class="form-control form-control-solid"
-                  name="header-uz"
+                  name="headerUz"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="headerUz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -105,9 +110,14 @@
                 <Field
                   v-model="updateHeaderRu"
                   class="form-control form-control-solid"
-                  name="header-ru"
+                  name="headerRu"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="headerRu" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -128,9 +138,14 @@
                 <Field
                   v-model="updateHeaderEn"
                   class="form-control form-control-solid"
-                  name="header-en"
+                  name="headerEn"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="headerEn" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -151,9 +166,14 @@
                 <Field
                   v-model="updatePrimaryUz"
                   class="form-control form-control-solid"
-                  name="primary-uz"
+                  name="primaryUz"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="primaryUz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -174,9 +194,14 @@
                 <Field
                   v-model="updatePrimaryRu"
                   class="form-control form-control-solid"
-                  name="primary-ru"
+                  name="primaryRu"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="primaryRu" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -197,9 +222,14 @@
                 <Field
                   v-model="updatePrimaryEn"
                   class="form-control form-control-solid"
-                  name="primary-en"
+                  name="primaryEn"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="primaryEn" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -220,9 +250,14 @@
                 <Field
                   v-model="updateTextUz"
                   class="form-control form-control-solid"
-                  name="text-uz"
+                  name="textUz"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textUz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -243,9 +278,14 @@
                 <Field
                   v-model="updateTextRu"
                   class="form-control form-control-solid"
-                  name="text-ru"
+                  name="textRu"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textRu" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -266,9 +306,14 @@
                 <Field
                   v-model="updateTextEn"
                   class="form-control form-control-solid"
-                  name="text-en"
+                  name="textEn"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textEn" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -289,9 +334,14 @@
                 <Field
                   v-model="updateSphereText1Uz"
                   class="form-control form-control-solid"
-                  name="sphere-text-1-uz"
+                  name="sphereText1Uz"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="sphereText1Uz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -312,9 +362,14 @@
                 <Field
                   v-model="updateSphereText1Ru"
                   class="form-control form-control-solid"
-                  name="sphere-text-1-ru"
+                  name="sphereText1Ru"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="sphereText1Ru" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -335,9 +390,14 @@
                 <Field
                   v-model="updateSphereText1En"
                   class="form-control form-control-solid"
-                  name="sphere-text-1-en"
+                  name="sphereText1En"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="sphereText1En" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -358,9 +418,14 @@
                 <Field
                   v-model="updateSphereText2Uz"
                   class="form-control form-control-solid"
-                  name="sphere-text-2-uz"
+                  name="sphereText2Uz"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="sphereText2Uz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -381,9 +446,14 @@
                 <Field
                   v-model="updateSphereText2Ru"
                   class="form-control form-control-solid"
-                  name="sphere-text-2-ru"
+                  name="sphereText2Ru"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="sphereText2Ru" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -404,9 +474,14 @@
                 <Field
                   v-model="updateSphereText2En"
                   class="form-control form-control-solid"
-                  name="sphere-text-2-en"
+                  name="sphereText2En"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="sphereText2En" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -427,9 +502,14 @@
                 <Field
                   v-model="updateSphereText3Uz"
                   class="form-control form-control-solid"
-                  name="sphere-text-3-uz"
+                  name="sphereText3Uz"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="sphereText3Uz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -450,9 +530,14 @@
                 <Field
                   v-model="updateSphereText3Ru"
                   class="form-control form-control-solid"
-                  name="sphere-text-3-ru"
+                  name="sphereText3Ru"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="sphereText3Ru" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -473,9 +558,14 @@
                 <Field
                   v-model="updateSphereText3En"
                   class="form-control form-control-solid"
-                  name="sphere-text-3-en"
+                  name="sphereText3En"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="sphereText3En" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -496,9 +586,14 @@
                 <Field
                   v-model="updateTextFirstUz"
                   class="form-control form-control-solid"
-                  name="text-1-uz"
+                  name="textFirstUz"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textFirstUz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -519,9 +614,14 @@
                 <Field
                   v-model="updateTextFirstRu"
                   class="form-control form-control-solid"
-                  name="text-1-ru"
+                  name="textFirstRu"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textFirstRu" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -542,9 +642,14 @@
                 <Field
                   v-model="updateTextFirstEn"
                   class="form-control form-control-solid"
-                  name="text-1-en"
+                  name="textFirstEn"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textFirstEn" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -565,9 +670,14 @@
                 <Field
                   v-model="updateTextSecondUz"
                   class="form-control form-control-solid"
-                  name="text-2-uz"
+                  name="textSecondUz"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textSecondUz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -588,9 +698,14 @@
                 <Field
                   v-model="updateTextSecondRu"
                   class="form-control form-control-solid"
-                  name="text-2-ru"
+                  name="textSecondRu"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textSecondRu" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -611,9 +726,14 @@
                 <Field
                   v-model="updateTextSecondEn"
                   class="form-control form-control-solid"
-                  name="text-2-en"
+                  name="textSecondEn"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textSecondEn" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -634,9 +754,14 @@
                 <Field
                   v-model="updateTextThirdUz"
                   class="form-control form-control-solid"
-                  name="text-3-uz"
+                  name="textThirdUz"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textThirdUz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -657,9 +782,14 @@
                 <Field
                   v-model="updateTextThirdRu"
                   class="form-control form-control-solid"
-                  name="text-3-ru"
+                  name="textThirdRu"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textThirdRu" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -680,9 +810,14 @@
                 <Field
                   v-model="updateTextThirdEn"
                   class="form-control form-control-solid"
-                  name="text-3-en"
+                  name="textThirdEn"
                   type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textThirdEn" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -823,14 +958,6 @@ import requests from "@/request/dataprizma_request_links/request_links";
 import { useI18n } from "vue-i18n";
 import { setLocale } from "yup";
 
-interface CardData {
-  nameOnCard: string;
-  cardNumber: string;
-  expirationMonth: string;
-  expirationYear: string;
-  cvv: string;
-}
-
 export default defineComponent({
   name: "about-modal",
   data: function () {
@@ -872,7 +999,7 @@ export default defineComponent({
   },
   props: ["updateId", "create"],
   components: {
-    // ErrorMessage,
+    ErrorMessage,
     Field,
     Form,
   },
@@ -1133,20 +1260,37 @@ export default defineComponent({
       },
     });
 
-    const cardData = ref<CardData>({
-      nameOnCard: "Max Doe",
-      cardNumber: "4111 1111 1111 1111",
-      expirationMonth: "",
-      expirationYear: "",
-      cvv: "",
-    });
-
     const validationSchema = Yup.object().shape({
-      nameOnCard: Yup.string().required().label("Name"),
-      cardNumber: Yup.string().required().label("Card number"),
-      expirationMonth: Yup.string().required().label("Month"),
-      expirationYear: Yup.string().required().label("Year"),
-      cvv: Yup.string().required().label("CVV"),
+      file: Yup.array()
+        .required(translate("forms_validation_file"))
+        .label("File"),
+      headerEn: Yup.string().required(),
+      headerRu: Yup.string().required(),
+      headerUz: Yup.string().required(),
+      primaryEn: Yup.string().required(),
+      primaryRu: Yup.string().required(),
+      primaryUz: Yup.string().required(),
+      sphereText1En: Yup.string().required(),
+      sphereText1Ru: Yup.string().required(),
+      sphereText1Uz: Yup.string().required(),
+      sphereText2En: Yup.string().required(),
+      sphereText2Ru: Yup.string().required(),
+      sphereText2Uz: Yup.string().required(),
+      sphereText3En: Yup.string().required(),
+      sphereText3Ru: Yup.string().required(),
+      sphereText3Uz: Yup.string().required(),
+      textEn: Yup.string().required(),
+      textFirstEn: Yup.string().required(),
+      textFirstRu: Yup.string().required(),
+      textFirstUz: Yup.string().required(),
+      textRu: Yup.string().required(),
+      textSecondEn: Yup.string().required(),
+      textSecondRu: Yup.string().required(),
+      textSecondUz: Yup.string().required(),
+      textThirdEn: Yup.string().required(),
+      textThirdRu: Yup.string().required(),
+      textThirdUz: Yup.string().required(),
+      textUz: Yup.string().required(),
     });
 
     const submit = (text) => {
@@ -1232,7 +1376,6 @@ export default defineComponent({
     };
 
     return {
-      cardData,
       validationSchema,
       submit,
       submitButtonRef,
