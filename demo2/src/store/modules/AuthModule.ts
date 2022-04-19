@@ -129,18 +129,17 @@ export default class AuthModule extends VuexModule implements UserAuthInfo {
         .then(({ data }) => {
           this.context.commit(Mutations.SET_AUTH, data);
           resolve();
-          console.log("Resolved", data);
         })
         .catch(({ response }) => {
           console.log(response.data.errors);
           this.context.commit(Mutations.SET_ERROR, response.data.errors);
           reject();
-          console.log("Rejected", response);
         });
       ApiService.vueInstance.axios.defaults.baseURL =
         request_links.dataprizma[1];
     });
   }
+
   // [Actions.FORGOT_PASSWORD](payload) {
   //   return new Promise<void>((resolve, reject) => {
   //     ApiService.post("forgot_password", payload)

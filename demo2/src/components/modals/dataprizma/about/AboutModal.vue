@@ -1,14 +1,14 @@
 <template>
   <!--begin::Modal - New Card-->
   <div
-    class="modal fade"
-    ref="newCardModalRef"
     id="kt_modal_about"
-    tabindex="-1"
+    ref="newCardModalRef"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-1000px" v-if="create < 2">
+    <div v-if="create < 2" class="modal-dialog modal-dialog-centered mw-1000px">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
@@ -39,9 +39,9 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form row"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row col-6">
@@ -54,15 +54,15 @@
               <!--end::Label-->
 
               <Field
-                type="file"
-                class="form-control form-control-solid file"
                 ref="file-upload"
+                class="form-control form-control-solid file"
                 name="file"
+                type="file"
                 @change="fileChosen($event)"
               />
               <div class="fv-plugins-message-container">
                 <div class="fv-help-block">
-                  <!--                  <ErrorMessage name="nameOnCard" />-->
+                  <ErrorMessage name="file" />
                 </div>
               </div>
             </div>
@@ -80,11 +80,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="text-uz"
                   v-model="updateTextUz"
+                  class="form-control form-control-solid"
+                  name="textUz"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textUz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -103,11 +108,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="text-ru"
                   v-model="updateTextRu"
+                  class="form-control form-control-solid"
+                  name="textRu"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textRu" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -126,11 +136,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="text-en"
                   v-model="updateTextEn"
+                  class="form-control form-control-solid"
+                  name="textEn"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="textEn" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -140,18 +155,18 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                type="reset"
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
+                type="reset"
               >
                 {{ $t("discard") }}
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_new_card_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -177,8 +192,8 @@
     <!--end::Modal dialog-->
 
     <div
-      class="modal-dialog modal-dialog-centered mw-1000px"
       v-if="create === 2"
+      class="modal-dialog modal-dialog-centered mw-1000px"
     >
       <!--begin::Modal content-->
       <div class="modal-content">
@@ -206,17 +221,17 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_fail_submit"
+                ref="submitButtonRef"
                 class="btn btn-danger mx-5"
+                type="submit"
                 @click="submit('cancel')"
               >
                 <span class="indicator-label"> Cancel </span>
@@ -229,10 +244,10 @@
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_success_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -269,6 +284,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import requests from "@/request/dataprizma_request_links/request_links";
 import { useI18n } from "vue-i18n";
+import { setLocale } from "yup";
 
 interface CardData {
   nameOnCard: string;
@@ -289,12 +305,13 @@ export default defineComponent({
       updateTextUz: "",
       updateTextRu: "",
       updateTextEn: "",
+      responseError: 200,
       error: 0,
     };
   },
   props: ["updateId", "create"],
   components: {
-    // ErrorMessage,
+    ErrorMessage,
     Field,
     Form,
   },
@@ -310,6 +327,12 @@ export default defineComponent({
       for (const item of about_items) {
         if (item.id === newValue) {
           about_item = Object(item);
+          for (let property in about_item) {
+            if (about_item[property] === null) {
+              about_item[property] = "";
+            }
+          }
+          break;
         }
       }
       this.updateTextUz = about_item.paragraphUz;
@@ -324,10 +347,12 @@ export default defineComponent({
     fileChosen(e) {
       this.updateFile = e.target.files;
       const formCleaner = document.querySelectorAll(".reset")[0];
+
       function func() {
         e.target.value = "";
         formCleaner.removeEventListener("click", func);
       }
+
       formCleaner.addEventListener("click", func);
     },
     isImage(file) {
@@ -344,6 +369,7 @@ export default defineComponent({
         .post(`about/create`, datas, {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${this.token}`,
           },
         })
         .then((response) => {
@@ -359,6 +385,7 @@ export default defineComponent({
         .put(`about/update/${id}`, datas, {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${this.token}`,
           },
         })
         .then((response) => {
@@ -370,9 +397,16 @@ export default defineComponent({
         });
     },
     deleteItem(id) {
-      axios.delete(`about/delete/${id}`).then(() => {
-        this.$emit("table-load");
-      });
+      axios
+        .delete(`about/delete/${id}`, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${this.token}`,
+          },
+        })
+        .then(() => {
+          this.$emit("table-load");
+        });
     },
     doRequest(create, id) {
       axios.defaults.baseURL = requests.dataprizma[0];
@@ -433,6 +467,12 @@ export default defineComponent({
       ? (localStorage.getItem("lang") as string)
       : "en";
 
+    setLocale({
+      mixed: {
+        required: i18n.t("forms_validation_required"),
+      },
+    });
+
     const cardData = ref<CardData>({
       nameOnCard: "Max Doe",
       cardNumber: "4111 1111 1111 1111",
@@ -442,11 +482,12 @@ export default defineComponent({
     });
 
     const validationSchema = Yup.object().shape({
-      nameOnCard: Yup.string().required().label("Name"),
-      cardNumber: Yup.string().required().label("Card number"),
-      expirationMonth: Yup.string().required().label("Month"),
-      expirationYear: Yup.string().required().label("Year"),
-      cvv: Yup.string().required().label("CVV"),
+      file: Yup.string()
+        .required(translate("forms_validation_file"))
+        .label("File"),
+      textEn: Yup.string().required().label("Text En"),
+      textRu: Yup.string().required().label("Text Ru"),
+      textUz: Yup.string().required().label("Text Uz"),
     });
 
     const submit = (text) => {
@@ -468,7 +509,7 @@ export default defineComponent({
         });
       }
 
-      function errorAlert(text) {
+      function errorAlert(text, doThen = false) {
         Swal.fire({
           text: translate(text),
           icon: "error",
@@ -477,6 +518,10 @@ export default defineComponent({
           customClass: {
             confirmButton: "btn fw-bold btn-light-danger",
           },
+        }).then(() => {
+          if (doThen) {
+            location.reload();
+          }
         });
       }
 
@@ -499,8 +544,15 @@ export default defineComponent({
 
         const error = instance?.data.error;
         const create = instance?.props.create;
+        const responseError = instance?.data.responseError;
 
-        if (text !== "cancel") {
+        if (responseError === 500) {
+          errorAlert("Too much text was given to input");
+        } else if (responseError === 401) {
+          errorAlert("You are not authorized", true);
+        }
+
+        if (text !== "cancel" && responseError === 200) {
           if (error === 0) {
             if (create === 1) {
               successAlert("item_added");

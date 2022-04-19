@@ -1,14 +1,14 @@
 <template>
   <!--begin::Modal - New Card-->
   <div
-    class="modal fade"
-    ref="newCardModalRef"
     id="kt_modal_dmain"
-    tabindex="-1"
+    ref="newCardModalRef"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-1000px" v-if="create < 2">
+    <div v-if="create < 2" class="modal-dialog modal-dialog-centered mw-1000px">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
@@ -39,31 +39,32 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form row"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row col-6">
               <!--begin::Label-->
               <label
                 class="d-flex align-items-center fs-6 fw-bold form-label mb-2"
+                for="file"
               >
                 <span>{{ $t("file") }}</span>
               </label>
               <!--end::Label-->
 
               <Field
-                type="file"
-                class="form-control form-control-solid file"
                 ref="file-upload"
-                placeholder=""
+                class="form-control form-control-solid file"
                 name="file"
+                placeholder=""
+                type="file"
                 @change="fileChosen($event)"
               />
               <div class="fv-plugins-message-container">
                 <div class="fv-help-block">
-                  <!--                  <ErrorMessage name="nameOnCard" />-->
+                  <ErrorMessage name="file" />
                 </div>
               </div>
             </div>
@@ -72,7 +73,7 @@
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row col-6">
               <!--begin::Label-->
-              <label class="fs-6 fw-bold form-label mb-2">{{
+              <label class="fs-6 fw-bold form-label mb-2" id="textUz">{{
                 $t("text_uz")
               }}</label>
               <!--end::Label-->
@@ -81,14 +82,14 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="text-uz"
                   v-model="updateTextUz"
+                  class="form-control form-control-solid"
+                  name="textUz"
+                  type="text"
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
-                    <!--                    <ErrorMessage name="cardNumber" />-->
+                    <ErrorMessage name="textUz" />
                   </div>
                 </div>
                 <!--end::Input-->
@@ -100,7 +101,7 @@
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row col-6">
               <!--begin::Label-->
-              <label class="fs-6 fw-bold form-label mb-2">{{
+              <label class="fs-6 fw-bold form-label mb-2" id="textRu">{{
                 $t("text_ru")
               }}</label>
               <!--end::Label-->
@@ -109,14 +110,14 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="text-ru"
                   v-model="updateTextRu"
+                  class="form-control form-control-solid"
+                  name="textRu"
+                  type="text"
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
-                    <!--                    <ErrorMessage name="cardNumber" />-->
+                    <ErrorMessage name="textRu" />
                   </div>
                 </div>
                 <!--end::Input-->
@@ -128,7 +129,7 @@
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row col-6">
               <!--begin::Label-->
-              <label class="fs-6 fw-bold form-label mb-2">{{
+              <label class="fs-6 fw-bold form-label mb-2" id="textEn">{{
                 $t("text_en")
               }}</label>
               <!--end::Label-->
@@ -137,14 +138,15 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="text-en"
                   v-model="updateTextEn"
+                  class="form-control form-control-solid"
+                  name="textEn"
+                  id="required"
+                  type="text"
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
-                    <!--                    <ErrorMessage name="cardNumber" />-->
+                    <ErrorMessage name="textEn" />
                   </div>
                 </div>
                 <!--end::Input-->
@@ -156,18 +158,18 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                type="reset"
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
+                type="reset"
               >
                 {{ $t("discard") }}
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_new_card_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -193,8 +195,8 @@
     <!--end::Modal dialog-->
 
     <div
-      class="modal-dialog modal-dialog-centered mw-1000px"
       v-if="create === 2"
+      class="modal-dialog modal-dialog-centered mw-1000px"
     >
       <!--begin::Modal content-->
       <div class="modal-content">
@@ -222,17 +224,17 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_fail_submit"
+                ref="submitButtonRef"
                 class="btn btn-danger mx-5"
+                type="submit"
                 @click="submit('cancel')"
               >
                 <span class="indicator-label"> {{ $t("cancel") }} </span>
@@ -245,10 +247,10 @@
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_success_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -285,6 +287,20 @@ import * as Yup from "yup";
 import axios from "axios";
 import requests from "@/request/dataprizma_request_links/request_links";
 import { useI18n } from "vue-i18n";
+import { defineRule, configure } from "vee-validate";
+import { required } from "@vee-validate/rules";
+import { localize } from "@vee-validate/i18n";
+import { setLocale } from "yup";
+// Define the rule globally
+defineRule("required", required);
+configure({
+  // Generates an English message locale generator
+  generateMessage: localize("en", {
+    messages: {
+      required: "This field is required",
+    },
+  }),
+});
 
 interface CardData {
   nameOnCard: string;
@@ -305,12 +321,13 @@ export default defineComponent({
       updateTextUz: "",
       updateTextRu: "",
       updateTextEn: "",
+      responseError: 200,
       error: 0,
     };
   },
   props: ["updateId", "create"],
   components: {
-    // ErrorMessage,
+    ErrorMessage,
     Field,
     Form,
   },
@@ -327,6 +344,12 @@ export default defineComponent({
       for (const item of main_wrap_items) {
         if (item.id === newValue) {
           main_wrap_item = Object(item);
+          for (let property in main_wrap_item) {
+            if (main_wrap_item[property] === null) {
+              main_wrap_item[property] = "";
+            }
+          }
+          break;
         }
       }
       this.updateTextEn = main_wrap_item.textEn;
@@ -341,10 +364,12 @@ export default defineComponent({
     fileChosen(e) {
       this.updateFile = e.target.files;
       const formCleaner = document.querySelectorAll(".reset")[0];
+
       function func() {
         e.target.value = "";
         formCleaner.removeEventListener("click", func);
       }
+
       formCleaner.addEventListener("click", func);
     },
     isImage(file) {
@@ -386,6 +411,9 @@ export default defineComponent({
           } else {
             this.$emit("table-load");
           }
+        })
+        .catch((err) => {
+          this.responseError = err.response.status;
         });
     },
     deleteItem(id) {
@@ -400,6 +428,7 @@ export default defineComponent({
         });
     },
     doRequest(create, id) {
+      this.responseError = 200;
       axios.defaults.baseURL = requests.dataprizma[0];
       const keys = ["file", "textUz", "textRu", "textEn"];
 
@@ -458,20 +487,35 @@ export default defineComponent({
       ? (localStorage.getItem("lang") as string)
       : "en";
 
-    const cardData = ref<CardData>({
-      nameOnCard: "Max Doe",
-      cardNumber: "4111 1111 1111 1111",
-      expirationMonth: "",
-      expirationYear: "",
-      cvv: "",
+    setLocale({
+      mixed: {
+        required: i18n.t("forms_validation_required"),
+      },
     });
 
+    // const cardData = ref<CardData>({
+    //   nameOnCard: "Max Doe",
+    //   cardNumber: "4111 1111 1111 1111",
+    //   expirationMonth: "",
+    //   expirationYear: "",
+    //   cvv: "",
+    // });
+
+    // const validationSchema = Yup.object().shape({
+    //   nameOnCard: Yup.string().required().label("Name"),
+    //   cardNumber: Yup.string().required().label("Card number"),
+    //   expirationMonth: Yup.string().required().label("Month"),
+    //   expirationYear: Yup.string().required().label("Year"),
+    //   cvv: Yup.string().required().label("CVV"),
+    // });
+
     const validationSchema = Yup.object().shape({
-      nameOnCard: Yup.string().required().label("Name"),
-      cardNumber: Yup.string().required().label("Card number"),
-      expirationMonth: Yup.string().required().label("Month"),
-      expirationYear: Yup.string().required().label("Year"),
-      cvv: Yup.string().required().label("CVV"),
+      file: Yup.string()
+        .required(translate("forms_validation_file"))
+        .label("File"),
+      textEn: Yup.string().required().label("Text En"),
+      textRu: Yup.string().required().label("Text Ru"),
+      textUz: Yup.string().required().label("Text Uz"),
     });
 
     const submit = (text) => {
@@ -493,7 +537,7 @@ export default defineComponent({
         });
       }
 
-      function errorAlert(text) {
+      function errorAlert(text, doThen = false) {
         Swal.fire({
           text: translate(text),
           icon: "error",
@@ -502,6 +546,10 @@ export default defineComponent({
           customClass: {
             confirmButton: "btn fw-bold btn-light-danger",
           },
+        }).then(() => {
+          if (doThen) {
+            location.reload();
+          }
         });
       }
 
@@ -524,8 +572,16 @@ export default defineComponent({
 
         const error = instance?.data.error;
         const create = instance?.props.create;
+        const responseError = instance?.data.responseError;
 
-        if (text !== "cancel") {
+        console.log(responseError);
+        if (responseError === 500) {
+          errorAlert("Too much text was given to input");
+        } else if (responseError === 401) {
+          errorAlert("You are not authorized", true);
+        }
+
+        if (text !== "cancel" && responseError === 200) {
           if (error === 0) {
             if (create === 1) {
               successAlert("item_added");
@@ -546,7 +602,7 @@ export default defineComponent({
     };
 
     return {
-      cardData,
+      // cardData,
       validationSchema,
       submit,
       submitButtonRef,

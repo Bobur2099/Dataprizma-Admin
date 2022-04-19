@@ -21,10 +21,10 @@
 
       <!--begin::Chart-->
       <apexchart
-        class="statistics-widget-4-chart card-rounded-bottom"
+        :height="height"
         :options="chartOptions"
         :series="series"
-        :height="height"
+        class="statistics-widget-4-chart card-rounded-bottom"
         type="area"
       ></apexchart>
       <!--end::Chart-->

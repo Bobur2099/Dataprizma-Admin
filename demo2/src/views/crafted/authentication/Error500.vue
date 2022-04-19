@@ -3,8 +3,8 @@
     <!--begin::Content-->
     <div class="d-flex flex-column flex-column-fluid text-center p-10 py-lg-15">
       <!--begin::Logo-->
-      <router-link to="/dashboard" class="mb-10 pt-lg-10">
-        <img alt="Logo" src="/media/logos/logo-1.svg" class="h-40px mb-5" />
+      <router-link class="mb-10 pt-lg-10" to="/dashboard">
+        <img alt="Logo" class="h-40px mb-5" src="/media/logos/logo-1.svg" />
       </router-link>
       <!--end::Logo-->
 
@@ -23,8 +23,9 @@
 
         <!--begin::Action-->
         <div class="text-center">
-          <router-link to="/dashboard" class="btn btn-lg btn-primary fw-bolder"
-            >Go to homepage</router-link
+          <router-link class="btn btn-lg btn-primary fw-bolder" to="/dashboard"
+          >Go to homepage
+          </router-link
           >
         </div>
         <!--end::Action-->
@@ -53,21 +54,21 @@
       <!--begin::Links-->
       <div class="d-flex align-items-center fw-bold fs-6">
         <a
+          class="text-muted text-hover-primary px-2"
           href="https://keenthemes.com"
-          class="text-muted text-hover-primary px-2"
-          >About</a
+        >About</a
         >
 
         <a
+          class="text-muted text-hover-primary px-2"
           href="mailto:support@keenthemes.com"
-          class="text-muted text-hover-primary px-2"
-          >Contact</a
+        >Contact</a
         >
 
         <a
-          href="https://1.envato.market/EA4JP"
           class="text-muted text-hover-primary px-2"
-          >Contact Us</a
+          href="https://1.envato.market/EA4JP"
+        >Contact Us</a
         >
       </div>
       <!--end::Links-->
@@ -94,6 +95,6 @@ export default defineComponent({
     onUnmounted(() => {
       store.dispatch(Actions.REMOVE_BODY_CLASSNAME, "bg-body");
     });
-  },
+  }
 });
 </script>

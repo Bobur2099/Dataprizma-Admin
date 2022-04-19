@@ -11,11 +11,11 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -66,8 +66,8 @@
                 </td>
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                    href="#"
                   >
                     {{ item.title }}
                   </a>

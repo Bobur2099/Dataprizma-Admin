@@ -5,9 +5,9 @@
     <div class="card-body">
       <!--begin::Stepper-->
       <div
-        class="stepper stepper-links d-flex flex-column"
         id="kt_create_account_stepper"
         ref="horizontalWizardRef"
+        class="stepper stepper-links d-flex flex-column"
       >
         <!--begin::Nav-->
         <div class="stepper-nav py-5 mt-5">
@@ -45,9 +45,9 @@
 
         <!--begin::Form-->
         <form
+          id="kt_create_account_form"
           class="mx-auto mw-600px w-100 pt-15 pb-10"
           novalidate="novalidate"
-          id="kt_create_account_form"
           @submit="handleStep"
         >
           <!--begin::Step 1-->
@@ -85,9 +85,9 @@
             <!--begin::Wrapper-->
             <div class="mr-2">
               <button
-                type="button"
                 class="btn btn-lg btn-light-primary me-3"
                 data-kt-stepper-action="previous"
+                type="button"
                 @click="previousStep"
               >
                 <span class="svg-icon svg-icon-4 me-1">
@@ -101,10 +101,10 @@
             <!--begin::Wrapper-->
             <div>
               <button
-                type="button"
+                v-if="currentStepIndex === totalSteps - 1"
                 class="btn btn-lg btn-primary me-3"
                 data-kt-stepper-action="submit"
-                v-if="currentStepIndex === totalSteps - 1"
+                type="button"
                 @click="formSubmit()"
               >
                 <span class="indicator-label">
@@ -121,7 +121,7 @@
                 </span>
               </button>
 
-              <button v-else type="submit" class="btn btn-lg btn-primary">
+              <button v-else class="btn btn-lg btn-primary" type="submit">
                 Continue
                 <span class="svg-icon svg-icon-4 ms-1 me-0">
                   <inline-svg src="/media/icons/duotune/arrows/arr064.svg" />

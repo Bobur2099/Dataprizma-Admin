@@ -12,11 +12,11 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -39,8 +39,8 @@
           <!--begin::Symbol-->
           <div class="symbol symbol-60px symbol-2by3 me-4">
             <div
-              class="symbol-label"
               :style="`background-image: url(${item.image})`"
+              class="symbol-label"
             ></div>
           </div>
           <!--end::Symbol-->
@@ -59,8 +59,8 @@
             <!--begin::Title-->
             <div class="flex-grow-1 my-lg-0 my-2 me-2">
               <a
-                href="#"
                 class="text-gray-800 fw-bolder text-hover-primary fs-6"
+                href="#"
                 >{{ item.title }}</a
               >
 
@@ -78,7 +78,7 @@
                 <span class="text-gray-800 fw-bolder">{{ item.rate }}</span>
               </div>
 
-              <a href="#" class="btn btn-icon btn-light btn-sm border-0">
+              <a class="btn btn-icon btn-light btn-sm border-0" href="#">
                 <span class="svg-icon-2 svg-icon-primary">
                   <inline-svg src="/media/icons/duotune/arrows/arr064.svg" />
                 </span>

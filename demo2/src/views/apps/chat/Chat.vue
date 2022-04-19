@@ -12,9 +12,9 @@
       <!--begin::Contacts-->
       <div class="card card-flush">
         <!--begin::Card header-->
-        <div class="card-header pt-7" id="kt_chat_contacts_header">
+        <div id="kt_chat_contacts_header" class="card-header pt-7">
           <!--begin::Form-->
-          <form class="w-100 position-relative" autocomplete="off">
+          <form autocomplete="off" class="w-100 position-relative">
             <!--begin::Icon-->
             <span
               class="
@@ -31,11 +31,11 @@
 
             <!--begin::Input-->
             <input
-              type="text"
               class="form-control form-control-solid px-15"
               name="search"
-              value=""
               placeholder="Search by username or email..."
+              type="text"
+              value=""
             />
             <!--end::Input-->
           </form>
@@ -44,16 +44,16 @@
         <!--end::Card header-->
 
         <!--begin::Card body-->
-        <div class="card-body pt-5" id="kt_chat_contacts_body">
+        <div id="kt_chat_contacts_body" class="card-body pt-5">
           <!--begin::List-->
           <div
             class="scroll-y me-n5 pe-5 h-200px h-lg-auto"
             data-kt-scroll="true"
             data-kt-scroll-activate="{default: false, lg: true}"
-            data-kt-scroll-max-height="auto"
             data-kt-scroll-dependencies="#kt_header, #kt_toolbar, #kt_footer, #kt_chat_contacts_header"
-            data-kt-scroll-wrappers="#kt_content, #kt_chat_contacts_body"
+            data-kt-scroll-max-height="auto"
             data-kt-scroll-offset="0px"
+            data-kt-scroll-wrappers="#kt_content, #kt_chat_contacts_body"
           >
             <template v-for="(item, index) in contacts" :key="index">
               <div class="d-flex flex-stack py-4">
@@ -66,7 +66,7 @@
                       v-else
                       :class="`bg-light-${item.color} text-${item.color}`"
                       class="symbol-label fs-6 fw-bolder"
-                      >{{ item.name.charAt(0) }}</span
+                    >{{ item.name.charAt(0) }}</span
                     >
                     <div
                       v-if="item.online"
@@ -87,14 +87,14 @@
                   <!--begin::Details-->
                   <div class="ms-5">
                     <a
-                      href="#"
                       class="
                         fs-5
                         fw-bolder
                         text-gray-900 text-hover-primary
                         mb-2
                       "
-                      >{{ item.name }}</a
+                      href="#"
+                    >{{ item.name }}</a
                     >
                     <div class="fw-bold text-gray-400">{{ item.email }}</div>
                   </div>
@@ -121,9 +121,9 @@
     <!--begin::Content-->
     <div class="flex-lg-row-fluid ms-lg-7 ms-xl-10">
       <!--begin::Messenger-->
-      <div class="card" id="kt_chat_messenger">
+      <div id="kt_chat_messenger" class="card">
         <!--begin::Card header-->
-        <div class="card-header" id="kt_chat_messenger_header">
+        <div id="kt_chat_messenger_header" class="card-header">
           <!--begin::Title-->
           <div class="card-title">
             <!--begin::User-->
@@ -137,7 +137,7 @@
                 </div>
                 <div class="symbol symbol-35px symbol-circle">
                   <span class="symbol-label bg-light-warning text-warning 40px"
-                    >M</span
+                  >M</span
                   >
                 </div>
                 <div class="symbol symbol-35px symbol-circle">
@@ -145,37 +145,36 @@
                 </div>
                 <div class="symbol symbol-35px symbol-circle">
                   <span class="symbol-label bg-light-danger text-danger 40px"
-                    >O</span
+                  >O</span
                   >
                 </div>
                 <div class="symbol symbol-35px symbol-circle">
                   <span class="symbol-label bg-light-primary text-primary 40px"
-                    >N</span
+                  >N</span
                   >
                 </div>
                 <div class="symbol symbol-35px symbol-circle">
                   <img alt="Pic" src="media/avatars/150-6.jpg" />
                 </div>
                 <a
-                  href="#"
                   class="symbol symbol-35px symbol-circle"
-                  data-bs-toggle="modal"
                   data-bs-target="#kt_modal_view_users"
+                  data-bs-toggle="modal"
+                  href="#"
                 >
                   <span
                     class="symbol-label fs-8 fw-bolder"
+                    data-bs-original-title="View more users"
                     data-bs-toggle="tooltip"
                     data-bs-trigger="hover"
                     title=""
-                    data-bs-original-title="View more users"
-                    >+42</span
+                  >+42</span
                   >
                 </a>
                 <!--end::All users-->
               </div>
               <template v-else>
                 <a
-                  href="#"
                   class="
                     fs-4
                     fw-bolder
@@ -184,7 +183,8 @@
                     mb-2
                     lh-1
                   "
-                  >Brian Cox</a
+                  href="#"
+                >Brian Cox</a
                 >
 
                 <!--begin::Info-->
@@ -207,9 +207,9 @@
             <div class="me-n3">
               <button
                 class="btn btn-sm btn-icon btn-active-light-primary"
-                data-kt-menu-trigger="click"
-                data-kt-menu-placement="bottom-end"
                 data-kt-menu-flip="top-end"
+                data-kt-menu-placement="bottom-end"
+                data-kt-menu-trigger="click"
               >
                 <i class="bi bi-three-dots fs-2"></i>
               </button>
@@ -222,34 +222,34 @@
         <!--end::Card header-->
 
         <!--begin::Card body-->
-        <div class="card-body" id="kt_chat_messenger_body">
+        <div id="kt_chat_messenger_body" class="card-body">
           <!--begin::Messages-->
           <div
-            class="scroll-y me-n5 pe-5 h-800px"
             ref="messagesRef"
+            class="scroll-y me-n5 pe-5 h-800px"
             data-kt-element="messages"
             data-kt-scroll="true"
             data-kt-scroll-activate="{default: false, lg: true}"
-            data-kt-scroll-max-height="auto"
             data-kt-scroll-dependencies="#kt_header, #kt_toolbar, #kt_footer, #kt_chat_messenger_header, #kt_chat_messenger_footer"
-            data-kt-scroll-wrappers="#kt_content, #kt_chat_messenger_body"
+            data-kt-scroll-max-height="auto"
             data-kt-scroll-offset="-2px"
+            data-kt-scroll-wrappers="#kt_content, #kt_chat_messenger_body"
           >
             <template v-for="(item, index) in messages" :key="index">
               <MessageIn
-                ref="messagesInRef"
                 v-if="item.type === 'in'"
-                :name="item.name"
+                ref="messagesInRef"
                 :image="item.image"
-                :time="item.time"
+                :name="item.name"
                 :text="item.text"
+                :time="item.time"
               ></MessageIn>
               <MessageOut
-                ref="messagesOutRef"
                 v-if="item.type === 'out'"
+                ref="messagesOutRef"
                 :image="item.image"
-                :time="item.time"
                 :text="item.text"
+                :time="item.time"
               ></MessageOut>
             </template>
           </div>
@@ -258,14 +258,14 @@
         <!--end::Card body-->
 
         <!--begin::Card footer-->
-        <div class="card-footer pt-4" id="kt_chat_messenger_footer">
+        <div id="kt_chat_messenger_footer" class="card-footer pt-4">
           <!--begin::Input-->
           <input
             v-model="newMessageText"
-            @keydown.enter="addNewMessage"
             class="form-control form-control-flush mb-3"
             data-kt-element="input"
             placeholder="Type a message"
+            @keydown.enter="addNewMessage"
           />
           <!--end::Input-->
 
@@ -275,17 +275,17 @@
             <div class="d-flex align-items-center me-2">
               <button
                 class="btn btn-sm btn-icon btn-active-light-primary me-1"
-                type="button"
                 data-bs-toggle="tooltip"
                 title="Coming soon"
+                type="button"
               >
                 <i class="bi bi-paperclip fs-3"></i>
               </button>
               <button
                 class="btn btn-sm btn-icon btn-active-light-primary me-1"
-                type="button"
                 data-bs-toggle="tooltip"
                 title="Coming soon"
+                type="button"
               >
                 <i class="bi bi-upload fs-3"></i>
               </button>
@@ -294,10 +294,10 @@
 
             <!--begin::Send-->
             <button
-              @click="addNewMessage"
               class="btn btn-primary"
-              type="button"
               data-kt-element="send"
+              type="button"
+              @click="addNewMessage"
             >
               Send
             </button>
@@ -337,7 +337,7 @@ export default defineComponent({
   components: {
     MessageIn,
     MessageOut,
-    Dropdown4,
+    Dropdown4
   },
   setup() {
     const messagesRef = ref<null | HTMLElement>(null);
@@ -352,47 +352,47 @@ export default defineComponent({
         name: "Brian Cox",
         image: "media/avatars/150-15.jpg",
         time: "5 Hours",
-        text: "How likely are you to recommend our company to your friends and family ?",
+        text: "How likely are you to recommend our company to your friends and family ?"
       },
       {
         type: "out",
         image: "media/avatars/150-2.jpg",
         time: "2 Hours",
-        text: "Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on GitHub.",
+        text: "Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on GitHub."
       },
       {
         type: "in",
         name: "Brian Cox",
         image: "media/avatars/150-15.jpg",
         time: "2 Hour",
-        text: "Ok, Understood!",
+        text: "Ok, Understood!"
       },
       {
         type: "out",
         image: "media/avatars/150-2.jpg",
         time: "2 Hours",
-        text: "You’ll receive notifications for all issues, pull requests!",
+        text: "You’ll receive notifications for all issues, pull requests!"
       },
       {
         type: "in",
         name: "Brian Cox",
         image: "media/avatars/150-15.jpg",
         time: "1 Hour",
-        text: "You can unwatch this repository immediately by clicking here: Keenthemes.com",
+        text: "You can unwatch this repository immediately by clicking here: Keenthemes.com"
       },
       {
         type: "out",
         image: "media/avatars/150-2.jpg",
         time: "4 mins",
-        text: "Most purchased Business courses during this sale!",
+        text: "Most purchased Business courses during this sale!"
       },
       {
         type: "in",
         name: "Brian Cox",
         image: "media/avatars/150-15.jpg",
         time: "2 mins",
-        text: "Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided",
-      },
+        text: "Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided"
+      }
     ]);
 
     const newMessageText = ref("");
@@ -405,7 +405,7 @@ export default defineComponent({
         type: "out",
         image: "media/avatars/150-2.jpg",
         time: "Just now",
-        text: newMessageText.value,
+        text: newMessageText.value
       });
 
       setTimeout(() => {
@@ -421,7 +421,7 @@ export default defineComponent({
           name: "Ja Morant",
           image: "media/avatars/150-15.jpg",
           time: "Just now",
-          text: "Thank you for your awesome support!",
+          text: "Thank you for your awesome support!"
         });
 
         setTimeout(() => {
@@ -457,8 +457,8 @@ export default defineComponent({
       messagesInRef,
       messagesOutRef,
       contacts,
-      isGroupChat,
+      isGroupChat
     };
-  },
+  }
 });
 </script>

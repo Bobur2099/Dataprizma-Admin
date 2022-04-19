@@ -11,11 +11,11 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -51,10 +51,10 @@
                 >
                   <input
                     class="form-check-input"
-                    type="checkbox"
-                    value="1"
                     data-kt-check="true"
                     data-kt-check-target=".widget-13-check"
+                    type="checkbox"
+                    value="1"
                   />
                 </div>
               </th>
@@ -92,15 +92,14 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary fs-6"
+                    href="#"
                     >{{ item.orderid }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="
                       text-dark
                       fw-bolder
@@ -109,6 +108,7 @@
                       mb-1
                       fs-6
                     "
+                    href="#"
                     >{{ item.company.name }}</a
                   >
                   <span class="text-muted fw-bold text-muted d-block fs-7"
@@ -118,7 +118,6 @@
 
                 <td>
                   <a
-                    href="#"
                     class="
                       text-dark
                       fw-bolder
@@ -127,6 +126,7 @@
                       mb-1
                       fs-6
                     "
+                    href="#"
                     >{{ item.date.value }}</a
                   >
                   <span class="text-muted fw-bold text-muted d-block fs-7"
@@ -136,7 +136,6 @@
 
                 <td>
                   <a
-                    href="#"
                     class="
                       text-dark
                       fw-bolder
@@ -145,6 +144,7 @@
                       mb-1
                       fs-6
                     "
+                    href="#"
                     >{{ item.company.name }}</a
                   >
                   <span class="text-muted fw-bold text-muted d-block fs-7">{{
@@ -166,11 +166,11 @@
 
                 <td class="text-end">
                   <a
-                    href="#"
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                       me-1
                     "
+                    href="#"
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg
@@ -180,11 +180,11 @@
                   </a>
 
                   <a
-                    href="#"
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                       me-1
                     "
+                    href="#"
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg src="/media/icons/duotune/art/art005.svg" />
@@ -192,10 +192,10 @@
                   </a>
 
                   <a
-                    href="#"
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                     "
+                    href="#"
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg

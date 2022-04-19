@@ -13,10 +13,10 @@
       <div class="card-toolbar">
         <!--begin::Filter-->
         <button
-          type="button"
           class="btn btn-sm btn-flex btn-light-primary"
-          data-bs-toggle="modal"
           data-bs-target="#kt_modal_add_payment"
+          data-bs-toggle="modal"
+          type="button"
         >
           <span class="svg-icon svg-icon-3">
             <inline-svg src="/media/icons/duotune/general/gen035.svg" />
@@ -32,10 +32,10 @@
     <!--begin::Card body-->
     <div class="card-body pt-0 pb-5">
       <Datatable
-        :table-header="tableHeader"
-        :table-data="tableData"
-        :rows-per-page="5"
         :enable-items-per-page-dropdown="false"
+        :rows-per-page="5"
+        :table-data="tableData"
+        :table-header="tableHeader"
       >
         <template v-slot:cell-invoice="{ row: payment }">
           {{ payment.invoice }}
@@ -53,11 +53,11 @@
         </template>
         <template v-slot:cell-actions="{ row: payment }">
           <a
-            href="#"
             class="btn btn-sm btn-light btn-active-light-primary"
-            data-kt-menu-trigger="click"
-            data-kt-menu-placement="bottom-end"
             data-kt-menu-flip="top-end"
+            data-kt-menu-placement="bottom-end"
+            data-kt-menu-trigger="click"
+            href="#"
             >Actions
             <span class="svg-icon svg-icon-5 m-0">
               <inline-svg src="/media/icons/duotune/arrows/arr072.svg" />
@@ -83,15 +83,15 @@
             <!--begin::Menu item-->
             <div class="menu-item px-3">
               <router-link
-                to="/apps/customers/customer-details"
                 class="menu-link px-3"
-                >View</router-link
-              >
+                to="/apps/customers/customer-details"
+                >View
+              </router-link>
             </div>
             <!--end::Menu item-->
             <!--begin::Menu item-->
             <div class="menu-item px-3">
-              <a @click="deleteRecord(payment.invoice)" class="menu-link px-3"
+              <a class="menu-link px-3" @click="deleteRecord(payment.invoice)"
                 >Delete</a
               >
             </div>

@@ -11,9 +11,9 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "/dashboard",
         name: "dashboard",
-        component: () => import("@/views/Dashboard.vue"),
-      },
-    ],
+        component: () => import("@/views/Dashboard.vue")
+      }
+    ]
   },
   {
     path: "/",
@@ -23,37 +23,37 @@ const routes: Array<RouteRecordRaw> = [
         path: "/sign-in",
         name: "sign-in",
         component: () =>
-          import("@/views/crafted/authentication/basic-flow/SignIn.vue"),
+          import("@/views/crafted/authentication/basic-flow/SignIn.vue")
       },
       {
         path: "/sign-up",
         name: "sign-up",
         component: () =>
-          import("@/views/crafted/authentication/basic-flow/SignUp.vue"),
+          import("@/views/crafted/authentication/basic-flow/SignUp.vue")
       },
       {
         path: "/password-reset",
         name: "password-reset",
         component: () =>
-          import("@/views/crafted/authentication/basic-flow/PasswordReset.vue"),
-      },
-    ],
+          import("@/views/crafted/authentication/basic-flow/PasswordReset.vue")
+      }
+    ]
   },
   {
     // the 404 route, when none of the above matches
     path: "/404",
     name: "404",
-    component: () => import("@/views/crafted/authentication/Error404.vue"),
+    component: () => import("@/views/crafted/authentication/Error404.vue")
   },
   {
     path: "/:pathMatch(.*)*",
-    redirect: "/404",
-  },
+    redirect: "/404"
+  }
 ];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes,
+  routes
 });
 
 router.beforeEach(() => {

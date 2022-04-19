@@ -67,9 +67,9 @@
         <template v-for="(item, index) in items" :key="index">
           <!--begin::Tap pane-->
           <div
+            :id="`kt_table_widget_4_tab_${index + 1}`"
             :class="[index === 0 && 'show active']"
             class="tab-pane fade"
-            :id="`kt_table_widget_4_tab_${index + 1}`"
           >
             <!--begin::Table container-->
             <div class="table-responsive">
@@ -97,7 +97,6 @@
                       </td>
                       <td>
                         <a
-                          href="#"
                           class="
                             text-dark
                             fw-bolder
@@ -105,6 +104,7 @@
                             mb-1
                             fs-6
                           "
+                          href="#"
                           >{{ item1.user.name }}</a
                         >
                         <span class="text-muted fw-bold d-block fs-7">{{
@@ -129,14 +129,14 @@
                       </td>
                       <td class="text-end">
                         <a
-                          href="#"
                           class="btn btn-icon btn-light-twitter btn-sm me-3"
+                          href="#"
                         >
                           <i class="bi bi-twitter fs-4"></i>
                         </a>
                         <a
-                          href="#"
                           class="btn btn-icon btn-light-facebook btn-sm"
+                          href="#"
                         >
                           <i class="bi bi-facebook fs-4"></i>
                         </a>

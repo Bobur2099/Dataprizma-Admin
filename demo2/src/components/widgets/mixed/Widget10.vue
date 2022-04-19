@@ -20,17 +20,17 @@
           <span class="text-gray-400 fw-bold">Oct 8 - Oct 26 21</span>
         </div>
 
-        <div class="fw-bolder fs-3" :class="`text-${chartColor}`">$15,300</div>
+        <div :class="`text-${chartColor}`" class="fw-bolder fs-3">$15,300</div>
       </div>
       <!--end::Hidden-->
 
       <!--begin::Chart-->
       <apexchart
-        class="mixed-widget-10-chart"
+        :height="chartHeight"
         :options="chartOptions"
         :series="series"
+        class="mixed-widget-10-chart"
         type="bar"
-        :height="chartHeight"
       ></apexchart>
       <!--end::Chart-->
     </div>

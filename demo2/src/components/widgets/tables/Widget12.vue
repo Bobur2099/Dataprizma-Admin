@@ -11,11 +11,11 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -56,16 +56,16 @@
                       <span class="symbol-label bg-light">
                         <img
                           :src="item.agent.image"
-                          class="h-75 align-self-end"
                           alt=""
+                          class="h-75 align-self-end"
                         />
                       </span>
                     </div>
 
                     <div class="d-flex justify-content-start flex-column">
                       <a
-                        href="#"
                         class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                        href="#"
                         >{{ item.agent.name }}</a
                       >
                       <span
@@ -78,7 +78,6 @@
 
                 <td>
                   <a
-                    href="#"
                     class="
                       text-dark
                       fw-bolder
@@ -87,6 +86,7 @@
                       mb-1
                       fs-6
                     "
+                    href="#"
                     >{{ item.earnings.value }}</a
                   >
                   <span class="text-muted fw-bold text-muted d-block fs-7"
@@ -96,7 +96,6 @@
 
                 <td>
                   <a
-                    href="#"
                     class="
                       text-dark
                       fw-bolder
@@ -105,6 +104,7 @@
                       mb-1
                       fs-6
                     "
+                    href="#"
                     >{{ item.comission.value }}</a
                   >
                   <span class="text-muted fw-bold text-muted d-block fs-7">{{
@@ -114,7 +114,6 @@
 
                 <td>
                   <a
-                    href="#"
                     class="
                       text-dark
                       fw-bolder
@@ -123,6 +122,7 @@
                       mb-1
                       fs-6
                     "
+                    href="#"
                     >{{ item.company.name }}</a
                   >
                   <span class="text-muted fw-bold text-muted d-block fs-7">{{
@@ -150,7 +150,6 @@
 
                 <td class="text-end">
                   <a
-                    href="#"
                     class="
                       btn
                       btn-bg-light
@@ -160,12 +159,12 @@
                       px-4
                       me-2
                     "
+                    href="#"
                   >
                     View
                   </a>
 
                   <a
-                    href="#"
                     class="
                       btn
                       btn-bg-light
@@ -174,6 +173,7 @@
                       btn-sm
                       px-4
                     "
+                    href="#"
                   >
                     Edit
                   </a>

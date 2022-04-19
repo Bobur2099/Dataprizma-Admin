@@ -17,17 +17,17 @@
       <!-- begin:: Content -->
       <div
         id="kt_content"
-        class="d-flex flex-column-fluid align-items-start"
         :class="{
           'container-fluid': contentWidthFluid,
           'container-xxl': !contentWidthFluid,
         }"
+        class="d-flex flex-column-fluid align-items-start"
       >
         <!-- begin:: Aside Left -->
         <KTAside
           v-if="asideEnabled"
-          :lightLogo="themeLightLogo"
           :darkLogo="themeDarkLogo"
+          :lightLogo="themeLightLogo"
         ></KTAside>
         <!-- end:: Aside Left -->
         <!-- begin:: Content Body -->
@@ -67,7 +67,7 @@ import { Actions } from "@/store/enums/StoreEnums";
 import {
   MenuComponent,
   DrawerComponent,
-  ScrollComponent,
+  ScrollComponent
 } from "@/assets/ts/components/index";
 import { removeModalBackdrop } from "@/core/helpers/dom";
 import {
@@ -78,7 +78,7 @@ import {
   asideEnabled,
   subheaderDisplay,
   themeLightLogo,
-  themeDarkLogo,
+  themeDarkLogo
 } from "@/core/helpers/config";
 import axios from "axios";
 // import router from "@/router";
@@ -95,7 +95,7 @@ export default defineComponent({
     KTUserMenu,
     // KTExplore,
     KTDrawerMessenger,
-    KTLoader,
+    KTLoader
   },
   setup() {
     const store = useStore();
@@ -151,8 +151,8 @@ export default defineComponent({
             {},
             {
               headers: {
-                Authorization: `Bearer ${token}`,
-              },
+                Authorization: `Bearer ${token}`
+              }
             }
           )
           .then((response) => {
@@ -175,8 +175,8 @@ export default defineComponent({
               {},
               {
                 headers: {
-                  Authorization: `Bearer ${token}`,
-                },
+                  Authorization: `Bearer ${token}`
+                }
               }
             )
             .then((response) => {
@@ -208,7 +208,7 @@ export default defineComponent({
           router.push({ name: "sign-in" });
         } else if (
           getPermissionDashBooleanByType(userData["name"].toLowerCase()) ===
-            false &&
+          false &&
           userData["name"] !== "Admin"
         ) {
           router.push({ name: "244" });
@@ -256,8 +256,8 @@ export default defineComponent({
       pageTitle,
       breadcrumbs,
       themeLightLogo,
-      themeDarkLogo,
+      themeDarkLogo
     };
-  },
+  }
 });
 </script>

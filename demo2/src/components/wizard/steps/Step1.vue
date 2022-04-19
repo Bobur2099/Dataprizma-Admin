@@ -17,7 +17,7 @@
       <!--begin::Notice-->
       <div class="text-gray-400 fw-bold fs-6">
         If you need more info, please check out
-        <a href="#" class="link-primary fw-bolder">Help Page</a>.
+        <a class="link-primary fw-bolder" href="#">Help Page</a>.
       </div>
       <!--end::Notice-->
     </div>
@@ -31,11 +31,11 @@
         <div class="col-lg-6">
           <!--begin::Option-->
           <Field
-            type="radio"
+            id="kt_create_account_form_account_type_personal"
             class="btn-check"
             name="accountType"
+            type="radio"
             value="personal"
-            id="kt_create_account_form_account_type_personal"
           />
           <label
             class="
@@ -70,11 +70,11 @@
         <div class="col-lg-6">
           <!--begin::Option-->
           <Field
-            type="radio"
+            id="kt_create_account_form_account_type_corporate"
             class="btn-check"
             name="accountType"
+            type="radio"
             value="corporate"
-            id="kt_create_account_form_account_type_corporate"
           />
           <label
             class="

@@ -11,29 +11,29 @@
       <ul class="nav nav-pills" role="tablist">
         <li class="nav-item">
           <a
+            :href="`#kt_highlight_${htmlId}`"
+            aria-selected="true"
             class="nav-link active"
             data-bs-toggle="tab"
-            :href="`#kt_highlight_${htmlId}`"
             role="tab"
-            aria-selected="true"
             >HTML</a
           >
         </li>
         <li class="nav-item">
           <a
+            :href="`#kt_highlight_${jsId}`"
+            aria-selected="false"
             class="nav-link"
             data-bs-toggle="tab"
-            :href="`#kt_highlight_${jsId}`"
             role="tab"
-            aria-selected="false"
             >JAVASCRIPT</a
           >
         </li>
       </ul>
       <div class="tab-content">
         <div
-          class="tab-pane fade active show"
           :id="`kt_highlight_${htmlId}`"
+          class="tab-pane fade active show"
           role="tabpanel"
         >
           <div class="highlight-code">
@@ -42,7 +42,7 @@
             ><code class="language-html"><slot name="html"></slot></code></pre>
           </div>
         </div>
-        <div class="tab-pane fade" :id="`kt_highlight_${jsId}`" role="tabpanel">
+        <div :id="`kt_highlight_${jsId}`" class="tab-pane fade" role="tabpanel">
           <div class="highlight-code">
             <pre
               class="language-js"

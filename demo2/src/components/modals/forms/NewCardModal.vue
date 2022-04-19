@@ -1,11 +1,11 @@
 <template>
   <!--begin::Modal - New Card-->
   <div
-    class="modal fade"
-    ref="newCardModalRef"
     id="kt_modal_new_card"
-    tabindex="-1"
+    ref="newCardModalRef"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
@@ -35,9 +35,9 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row">
@@ -55,11 +55,11 @@
               <!--end::Label-->
 
               <Field
-                type="text"
-                class="form-control form-control-solid"
-                placeholder=""
-                name="nameOnCard"
                 v-model="cardData.nameOnCard"
+                class="form-control form-control-solid"
+                name="nameOnCard"
+                placeholder=""
+                type="text"
               />
               <div class="fv-plugins-message-container">
                 <div class="fv-help-block">
@@ -81,11 +81,11 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  placeholder="Enter card number"
-                  name="cardNumber"
                   v-model="cardData.cardNumber"
+                  class="form-control form-control-solid"
+                  name="cardNumber"
+                  placeholder="Enter card number"
+                  type="text"
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
@@ -99,19 +99,19 @@
                   class="position-absolute translate-middle-y top-50 end-0 me-5"
                 >
                   <img
+                    alt=""
+                    class="h-25px"
                     src="media/svg/card-logos/visa.svg"
-                    alt=""
-                    class="h-25px"
                   />
                   <img
+                    alt=""
+                    class="h-25px"
                     src="media/svg/card-logos/mastercard.svg"
-                    alt=""
-                    class="h-25px"
                   />
                   <img
-                    src="media/svg/card-logos/american-express.svg"
                     alt=""
                     class="h-25px"
+                    src="media/svg/card-logos/american-express.svg"
                   />
                 </div>
                 <!--end::Card logos-->
@@ -136,12 +136,12 @@
                   <div class="col-6">
                     <Field
                       v-model="cardData.expirationMonth"
-                      name="expirationMonth"
+                      as="select"
                       class="form-select form-select-solid"
                       data-control="select2"
                       data-hide-search="true"
                       data-placeholder="Month"
-                      as="select"
+                      name="expirationMonth"
                     >
                       <option></option>
                       <template v-for="i in 12" :key="i">
@@ -160,12 +160,12 @@
                   <div class="col-6">
                     <Field
                       v-model="cardData.expirationYear"
-                      name="expirationYear"
+                      as="select"
                       class="form-select form-select-solid"
                       data-control="select2"
                       data-hide-search="true"
                       data-placeholder="Year"
-                      as="select"
+                      name="expirationYear"
                     >
                       <option></option>
                       <template v-for="i in 10" :key="i">
@@ -206,12 +206,12 @@
                   <!--begin::Input-->
                   <Field
                     v-model="cardData.cvv"
-                    type="text"
                     class="form-control form-control-solid"
-                    minlength="3"
                     maxlength="4"
-                    placeholder="CVV"
+                    minlength="3"
                     name="cvv"
+                    placeholder="CVV"
+                    type="text"
                   />
                   <!--end::Input-->
 
@@ -264,10 +264,10 @@
                 "
               >
                 <input
+                  checked="checked"
                   class="form-check-input"
                   type="checkbox"
                   value="1"
-                  checked="checked"
                 />
                 <span class="form-check-label fw-bold text-gray-400">
                   Save Card
@@ -280,18 +280,18 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                type="reset"
                 id="kt_modal_new_card_cancel"
                 class="btn btn-white me-3"
+                type="reset"
               >
                 Discard
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_new_card_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
               >
                 <span class="indicator-label"> Submit </span>
                 <span class="indicator-progress">

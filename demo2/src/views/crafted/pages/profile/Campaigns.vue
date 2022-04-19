@@ -14,12 +14,12 @@
       <div class="w-100px me-5">
         <!--begin::Select-->
         <select
-          name="status"
+          class="form-select form-select-white form-select-sm"
           data-control="select2"
           data-hide-search="true"
-          class="form-select form-select-white form-select-sm"
+          name="status"
         >
-          <option value="1" selected>30 Days</option>
+          <option selected value="1">30 Days</option>
           <option value="2">90 Days</option>
           <option value="3">6 Months</option>
           <option value="4">1 Year</option>
@@ -43,128 +43,128 @@
     <div class="col-sm-6 col-xl-4">
       <div class="card h-100">
         <Card2
-          card-classes="h-100"
-          title="Twitch Posts"
-          icon="media/svg/brand-logos/twitch.svg"
-          content="$500.00"
-          color="success"
           arrow="Up-right"
+          card-classes="h-100"
+          color="success"
+          content="$500.00"
           footer-data="+40.5%"
           footer-text="more impressions"
-          indicator-value="0.5%"
+          icon="media/svg/brand-logos/twitch.svg"
           indicator-label="MRR"
+          indicator-value="0.5%"
+          title="Twitch Posts"
         ></Card2>
       </div>
     </div>
     <div class="col-sm-6 col-xl-4">
       <div class="card h-100">
         <Card2
-          card-classes="h-100"
-          title="Twitter Followers"
-          icon="media/svg/brand-logos/twitter.svg"
-          content="807k"
-          color="success"
           arrow="Up-right"
+          card-classes="h-100"
+          color="success"
+          content="807k"
           footer-data="+17.62%"
           footer-text="Followers growth"
+          icon="media/svg/brand-logos/twitter.svg"
           indicator-label="New trials"
           indicator-value="5%"
+          title="Twitter Followers"
         ></Card2>
       </div>
     </div>
     <div class="col-sm-6 col-xl-4">
       <div class="card h-100">
         <Card2
-          card-classes="h-100"
-          title="Spotify Listeners"
-          icon="media/svg/brand-logos/spotify.svg"
-          content="1,073"
-          color="danger"
           arrow="Down-left"
+          card-classes="h-100"
+          color="danger"
+          content="1,073"
           footer-data="+10.45%"
           footer-text="Less comments than usual"
+          icon="media/svg/brand-logos/spotify.svg"
           indicator-label="Impressions"
           indicator-value="40%"
+          title="Spotify Listeners"
         ></Card2>
       </div>
     </div>
     <div class="col-sm-6 col-xl-4">
       <div class="card h-100">
         <Card2
-          card-classes="h-100"
-          title="Pinterest Posts"
-          icon="media/svg/brand-logos/pinterest-p.svg"
-          content="97"
-          color="success"
           arrow="Up-right"
+          card-classes="h-100"
+          color="success"
+          content="97"
           footer-data="+26.1%"
           footer-text="More posts"
+          icon="media/svg/brand-logos/pinterest-p.svg"
           indicator-label="Spend"
           indicator-value="10%"
+          title="Pinterest Posts"
         ></Card2>
       </div>
     </div>
     <div class="col-sm-6 col-xl-4">
       <div class="card h-100">
         <Card2
-          card-classes="h-100"
-          title="Github Contributes"
-          icon="media/svg/brand-logos/github.svg"
-          content="4,109"
-          color="danger"
           arrow="Down-left"
+          card-classes="h-100"
+          color="danger"
+          content="4,109"
           footer-data="+32.8%"
           footer-text="Less contributions"
+          icon="media/svg/brand-logos/github.svg"
           indicator-label="Dispute"
           indicator-value="40%"
+          title="Github Contributes"
         ></Card2>
       </div>
     </div>
     <div class="col-sm-6 col-xl-4">
       <div class="card h-100">
         <Card2
-          card-classes="h-100"
-          title="Youtube Subscribers"
-          icon="media/svg/brand-logos/youtube-3.svg"
-          content="354"
-          color="success"
           arrow="Up-right"
+          card-classes="h-100"
+          color="success"
+          content="354"
           footer-data="+29.45%"
           footer-text="Subscribers growth"
+          icon="media/svg/brand-logos/youtube-3.svg"
           indicator-label="Subscribers"
           indicator-value="40%"
+          title="Youtube Subscribers"
         ></Card2>
       </div>
     </div>
     <div class="col-sm-6 col-xl-4">
       <div class="card h-100">
         <Card2
-          card-classes="h-100"
-          title="Telegram Posts"
-          icon="media/svg/brand-logos/telegram.svg"
-          content="566"
-          color="success"
           arrow="Up-right"
+          card-classes="h-100"
+          color="success"
+          content="566"
           footer-data="+11.4%"
           footer-text="more clicks"
+          icon="media/svg/brand-logos/telegram.svg"
           indicator-label="Profit"
           indicator-value="40%"
+          title="Telegram Posts"
         ></Card2>
       </div>
     </div>
     <div class="col-sm-6 col-xl-4">
       <div class="card h-100">
         <Card2
-          card-classes="h-100"
-          title="Reddit Awards"
-          icon="media/svg/brand-logos/reddit.svg"
-          content="2.1M"
-          color="success"
           arrow="Up-right"
+          card-classes="h-100"
+          color="success"
+          content="2.1M"
           footer-data="-46.7%"
           footer-text="more adds"
+          icon="media/svg/brand-logos/reddit.svg"
           indicator-label="Retention"
           indicator-value="0.0%"
+          title="Reddit Awards"
         ></Card2>
       </div>
     </div>
@@ -177,35 +177,35 @@
     <!--begin::Pages-->
     <ul class="pagination">
       <li class="page-item previous">
-        <a href="#" class="page-link"><i class="previous"></i></a>
+        <a class="page-link" href="#"><i class="previous"></i></a>
       </li>
 
       <li class="page-item active">
-        <a href="#" class="page-link">1</a>
+        <a class="page-link" href="#">1</a>
       </li>
 
       <li class="page-item">
-        <a href="#" class="page-link">2</a>
+        <a class="page-link" href="#">2</a>
       </li>
 
       <li class="page-item">
-        <a href="#" class="page-link">3</a>
+        <a class="page-link" href="#">3</a>
       </li>
 
       <li class="page-item">
-        <a href="#" class="page-link">4</a>
+        <a class="page-link" href="#">4</a>
       </li>
 
       <li class="page-item">
-        <a href="#" class="page-link">5</a>
+        <a class="page-link" href="#">5</a>
       </li>
 
       <li class="page-item">
-        <a href="#" class="page-link">6</a>
+        <a class="page-link" href="#">6</a>
       </li>
 
       <li class="page-item next">
-        <a href="#" class="page-link"><i class="next"></i></a>
+        <a class="page-link" href="#"><i class="next"></i></a>
       </li>
     </ul>
     <!--end::Pages-->
@@ -221,12 +221,12 @@ import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 export default defineComponent({
   name: "campaigns",
   components: {
-    Card2,
+    Card2
   },
   setup() {
     onMounted(() => {
       setCurrentPageBreadcrumbs("Campaigns", ["Pages", "Profile"]);
     });
-  },
+  }
 });
 </script>

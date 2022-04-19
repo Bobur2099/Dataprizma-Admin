@@ -113,8 +113,8 @@
 
       <!--begin::User-->
       <div
-        class="d-flex align-items-center me-n3 ms-1 ms-lg-3"
         id="kt_header_user_menu_toggle"
+        class="d-flex align-items-center me-n3 ms-1 ms-lg-3"
       >
         <!--begin::Menu-->
         <div
@@ -125,10 +125,10 @@
             w-md-40px
             h-md-40px
           "
-          data-kt-menu-trigger="click"
           data-kt-menu-attach="parent"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="bottom"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
         >
           <img
             :src="`/media/avatars/blank.png`"
@@ -156,7 +156,7 @@ export default defineComponent({
   components: {
     // KTNotificationsMenu,
     // KTQuickLinksMenu,
-    KTUserMenu,
-  },
+    KTUserMenu
+  }
 });
 </script>

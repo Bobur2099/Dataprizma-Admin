@@ -3,32 +3,32 @@
   <div class="row g-5 g-xl-8">
     <div class="col-xl-4">
       <StatisticsWidget1
-        widget-classes="card-xl-stretch mb-xl-8"
         background="abstract-4.svg"
-        title="Meeting Schedule"
-        time="3:30PM - 4:20PM"
         description="Create a headline that is informative<br/>
       and will capture readers"
-      ></StatisticsWidget1>
-    </div>
-
-    <div class="col-xl-4">
-      <StatisticsWidget1
-        widget-classes="card-xl-stretch mb-xl-8"
-        background="abstract-2.svg"
+        time="3:30PM - 4:20PM"
         title="Meeting Schedule"
-        time="03 May 2020"
-        description="Great blog posts don’t just happen Even the best bloggers need it"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></StatisticsWidget1>
     </div>
 
     <div class="col-xl-4">
       <StatisticsWidget1
-        widget-classes="card-xl-stretch mb-5 mb-xl-8"
+        background="abstract-2.svg"
+        description="Great blog posts don’t just happen Even the best bloggers need it"
+        time="03 May 2020"
+        title="Meeting Schedule"
+        widget-classes="card-xl-stretch mb-xl-8"
+      ></StatisticsWidget1>
+    </div>
+
+    <div class="col-xl-4">
+      <StatisticsWidget1
         background="abstract-1.svg"
-        title="UI Conference"
-        time="10AM Jan, 2021"
         description="AirWays A Front-end solution for airlines build with ReactJS"
+        time="10AM Jan, 2021"
+        title="UI Conference"
+        widget-classes="card-xl-stretch mb-5 mb-xl-8"
       ></StatisticsWidget1>
     </div>
   </div>
@@ -38,28 +38,28 @@
   <div class="row g-5 g-xl-8">
     <div class="col-xl-4">
       <StatisticsWidget2
-        widget-classes="card-xl-stretch mb-xl-8"
         avatar="media/svg/avatars/029-boy-11.svg"
-        title="Arthur Goldstain"
         description="System & Software Architect"
-      ></StatisticsWidget2>
-    </div>
-
-    <div class="col-xl-4">
-      <StatisticsWidget2
+        title="Arthur Goldstain"
         widget-classes="card-xl-stretch mb-xl-8"
-        avatar="media/svg/avatars/014-girl-7.svg"
-        title="Lisa Bold"
-        description="Marketing & Fanance Manager"
       ></StatisticsWidget2>
     </div>
 
     <div class="col-xl-4">
       <StatisticsWidget2
-        widget-classes="card-xl-stretch mb-5 mb-xl-8"
+        avatar="media/svg/avatars/014-girl-7.svg"
+        description="Marketing & Fanance Manager"
+        title="Lisa Bold"
+        widget-classes="card-xl-stretch mb-xl-8"
+      ></StatisticsWidget2>
+    </div>
+
+    <div class="col-xl-4">
+      <StatisticsWidget2
         avatar="media/svg/avatars/004-boy-1.svg"
-        title="Nick Stone"
         description="Customer Support Team"
+        title="Nick Stone"
+        widget-classes="card-xl-stretch mb-5 mb-xl-8"
       ></StatisticsWidget2>
     </div>
   </div>
@@ -69,34 +69,34 @@
   <div class="row g-5 g-xl-8">
     <div class="col-xl-4">
       <StatisticsWidget3
-        widget-classes="card-xl-stretch mb-xl-8"
         :height="150"
-        color="success"
-        title="Weekly Sales"
-        description="Your Weekly Sales Chart"
         change="+100"
-      ></StatisticsWidget3>
-    </div>
-
-    <div class="col-xl-4">
-      <StatisticsWidget3
+        color="success"
+        description="Your Weekly Sales Chart"
+        title="Weekly Sales"
         widget-classes="card-xl-stretch mb-xl-8"
-        :height="150"
-        color="danger"
-        title="Authors Progress"
-        description="Marketplace Authors Chart"
-        change="-260"
       ></StatisticsWidget3>
     </div>
 
     <div class="col-xl-4">
       <StatisticsWidget3
-        widget-classes="card-xl-stretch mb-5 mb-xl-8"
         :height="150"
-        color="primary"
-        title="Sales Progress"
-        description="Marketplace Sales Chart"
+        change="-260"
+        color="danger"
+        description="Marketplace Authors Chart"
+        title="Authors Progress"
+        widget-classes="card-xl-stretch mb-xl-8"
+      ></StatisticsWidget3>
+    </div>
+
+    <div class="col-xl-4">
+      <StatisticsWidget3
+        :height="150"
         change="+180"
+        color="primary"
+        description="Marketplace Sales Chart"
+        title="Sales Progress"
+        widget-classes="card-xl-stretch mb-5 mb-xl-8"
       ></StatisticsWidget3>
     </div>
   </div>
@@ -106,35 +106,36 @@
   <div class="row g-5 g-xl-8">
     <div class="col-xl-4">
       <StatisticsWidget4
-        widget-classes="card-xl-stretch mb-xl-8"
         :height="150"
-        svg-icon="/media/icons/duotune/ecommerce/ecm002.svg"
+        change="+256"
         color="info"
         description="Sales Change"
-        change="+256"
+        svg-icon="/media/icons/duotune/ecommerce/ecm002.svg"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></StatisticsWidget4>
     </div>
 
     <div class="col-xl-4">
       <StatisticsWidget4
-        widget-classes="card-xl-stretch mb-xl-8"
         :height="150"
-        svg-icon="/media/icons/duotune/general/gen025.svg"
+        change="750$"
         color="success"
         description="Weekly Income"
-        change="750$"
+        svg-icon="/media/icons/duotune/general/gen025.svg"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></StatisticsWidget4
-      >->
+      >
+      ->
     </div>
 
     <div class="col-xl-4">
       <StatisticsWidget4
-        widget-classes="card-xl-stretch mb-5 mb-xl-8"
         :height="150"
-        svg-icon="/media/icons/duotune/finance/fin006.svg"
+        change="+6.6K"
         color="primary"
         description="New Users"
-        change="+6.6K"
+        svg-icon="/media/icons/duotune/finance/fin006.svg"
+        widget-classes="card-xl-stretch mb-5 mb-xl-8"
       ></StatisticsWidget4>
     </div>
   </div>
@@ -144,34 +145,34 @@
   <div class="row g-5 g-xl-8">
     <div class="col-xl-4">
       <StatisticsWidget5
-        widget-classes="card-xl-stretch mb-xl-8"
-        svg-icon="/media/icons/duotune/ecommerce/ecm002.svg"
         color="danger"
-        icon-color="white"
-        title="Shopping Chart"
         description="Lands, Houses"
-      ></StatisticsWidget5>
-    </div>
-
-    <div class="col-xl-4">
-      <StatisticsWidget5
+        icon-color="white"
+        svg-icon="/media/icons/duotune/ecommerce/ecm002.svg"
+        title="Shopping Chart"
         widget-classes="card-xl-stretch mb-xl-8"
-        svg-icon="/media/icons/duotune/ecommerce/ecm008.svg"
-        color="primary"
-        icon-color="white"
-        title="Appartments"
-        description="Flats, Shared Rooms, Duplex"
       ></StatisticsWidget5>
     </div>
 
     <div class="col-xl-4">
       <StatisticsWidget5
-        widget-classes="card-xl-stretch mb-5 mb-xl-8"
-        svg-icon="/media/icons/duotune/graphs/gra005.svg"
-        color="success"
+        color="primary"
+        description="Flats, Shared Rooms, Duplex"
         icon-color="white"
-        title="Sales Stats"
+        svg-icon="/media/icons/duotune/ecommerce/ecm008.svg"
+        title="Appartments"
+        widget-classes="card-xl-stretch mb-xl-8"
+      ></StatisticsWidget5>
+    </div>
+
+    <div class="col-xl-4">
+      <StatisticsWidget5
+        color="success"
         description="50% Increased for FY20"
+        icon-color="white"
+        svg-icon="/media/icons/duotune/graphs/gra005.svg"
+        title="Sales Stats"
+        widget-classes="card-xl-stretch mb-5 mb-xl-8"
       ></StatisticsWidget5>
     </div>
   </div>
@@ -181,45 +182,45 @@
   <div class="row g-5 g-xl-8">
     <div class="col-xl-3">
       <StatisticsWidget5
-        widget-classes="card-xl-stretch mb-xl-8"
-        svg-icon="/media/icons/duotune/general/gen032.svg"
         color="white"
-        icon-color="primary"
-        title="500M$"
         description="SAP UI Progress"
+        icon-color="primary"
+        svg-icon="/media/icons/duotune/general/gen032.svg"
+        title="500M$"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></StatisticsWidget5>
     </div>
 
     <div class="col-xl-3">
       <StatisticsWidget5
-        widget-classes="card-xl-stretch mb-xl-8"
-        svg-icon="/media/icons/duotune/ecommerce/ecm008.svg"
         color="dark"
-        icon-color="white"
-        title="+3000"
         description="New Customers"
+        icon-color="white"
+        svg-icon="/media/icons/duotune/ecommerce/ecm008.svg"
+        title="+3000"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></StatisticsWidget5>
     </div>
 
     <div class="col-xl-3">
       <StatisticsWidget5
-        widget-classes="card-xl-stretch mb-xl-8"
-        svg-icon="/media/icons/duotune/finance/fin006.svg"
         color="warning"
-        icon-color="white"
-        title="$50,000"
         description="Milestone Reached"
+        icon-color="white"
+        svg-icon="/media/icons/duotune/finance/fin006.svg"
+        title="$50,000"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></StatisticsWidget5>
     </div>
 
     <div class="col-xl-3">
       <StatisticsWidget5
-        widget-classes="card-xl-stretch mb-xl-8"
-        svg-icon="/media/icons/duotune/graphs/gra007.svg"
         color="info"
-        icon-color="white"
-        title="$50,000"
         description="Milestone Reached"
+        icon-color="white"
+        svg-icon="/media/icons/duotune/graphs/gra007.svg"
+        title="$50,000"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></StatisticsWidget5>
     </div>
   </div>
@@ -229,31 +230,31 @@
   <div class="row g-5 g-xl-8">
     <div class="col-xl-4">
       <StatisticsWidget6
-        widget-classes="card-xl-stretch mb-xl-8"
         color="success"
-        title="Avarage"
         description="Project Progress"
         progress="50%"
+        title="Avarage"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></StatisticsWidget6>
     </div>
 
     <div class="col-xl-4">
       <StatisticsWidget6
-        widget-classes="card-xl-stretch mb-xl-8"
         color="warning"
-        title="48k Goal"
         description="Company Finance"
         progress="15%"
+        title="48k Goal"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></StatisticsWidget6>
     </div>
 
     <div class="col-xl-4">
       <StatisticsWidget6
-        widget-classes="card-xl-stretch mb-xl-8"
         color="primary"
-        title="400k Impressions"
         description="Marketing Analysis"
         progress="76%"
+        title="400k Impressions"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></StatisticsWidget6>
     </div>
   </div>
@@ -279,7 +280,7 @@ export default defineComponent({
     StatisticsWidget3,
     StatisticsWidget4,
     StatisticsWidget5,
-    StatisticsWidget6,
+    StatisticsWidget6
   },
   setup() {
     onMounted(() => {
@@ -287,6 +288,6 @@ export default defineComponent({
 
       MenuComponent.reinitialization();
     });
-  },
+  }
 });
 </script>

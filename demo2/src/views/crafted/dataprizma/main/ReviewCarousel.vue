@@ -13,7 +13,7 @@ import TableWidget21 from "@/components/widgets/tables/dataprizma_widgets/Review
 export default {
   name: "ServicesCarousel",
   components: {
-    TableWidget21,
-  },
+    TableWidget21
+  }
 };
 </script>

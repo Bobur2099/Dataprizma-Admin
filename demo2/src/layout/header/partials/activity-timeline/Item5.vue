@@ -34,12 +34,12 @@
           <!--begin::User-->
           <div
             class="symbol symbol-circle symbol-25px"
-            data-bs-toggle="tooltip"
             data-bs-boundary="window"
             data-bs-placement="top"
+            data-bs-toggle="tooltip"
             title="Marcus Dotson"
           >
-            <img src="media/avatars/150-3.jpg" alt="img" />
+            <img alt="img" src="media/avatars/150-3.jpg" />
           </div>
           <!--end::User-->
         </div>
@@ -73,7 +73,7 @@
 
             <!--begin::Link-->
             <div class="overlay-layer bg-dark bg-opacity-10 rounded">
-              <a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+              <a class="btn btn-sm btn-primary btn-shadow" href="#">Explore</a>
             </div>
             <!--end::Link-->
           </div>
@@ -93,7 +93,7 @@
 
             <!--begin::Link-->
             <div class="overlay-layer bg-dark bg-opacity-10 rounded">
-              <a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+              <a class="btn btn-sm btn-primary btn-shadow" href="#">Explore</a>
             </div>
             <!--end::Link-->
           </div>
@@ -113,7 +113,7 @@
 
             <!--begin::Link-->
             <div class="overlay-layer bg-dark bg-opacity-10 rounded">
-              <a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+              <a class="btn btn-sm btn-primary btn-shadow" href="#">Explore</a>
             </div>
             <!--end::Link-->
           </div>
@@ -132,6 +132,6 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "",
-  components: {},
+  components: {}
 });
 </script>

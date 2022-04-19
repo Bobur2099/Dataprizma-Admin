@@ -1,16 +1,16 @@
 <template>
   <!--begin::Tables Widget 14-->
-  <div class="card" :class="widgetClasses">
+  <div :class="widgetClasses" class="card">
     <KTModalCard
       button-text="Add New Card"
+      class="modal-view"
       modal-id="kt_modal_user"
       style="display: none"
-      class="modal-view"
     ></KTModalCard>
     <UserModal
+      :create="create"
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
-      :create="create"
     ></UserModal>
 
     <!--begin::Header-->
@@ -23,14 +23,14 @@
 
       <div
         class="card-toolbar"
-        data-bs-toggle="tooltip"
         data-bs-placement="top"
+        data-bs-toggle="tooltip"
         data-bs-trigger="hover"
       >
         <a
           class="btn btn-sm btn-light-primary"
-          data-bs-toggle="modal"
           data-bs-target="#kt_modal_invite_friends"
+          data-bs-toggle="modal"
           @click="
             updateId = -1;
             create = 1;
@@ -103,8 +103,8 @@
                     <!--                    </div>-->
                     <div class="d-flex justify-content-start flex-column">
                       <a
-                        href="#"
                         class="text-dark fw-bolder text-hover-primary fs-6"
+                        href="#"
                         >{{ item.email }}</a
                       >
 
@@ -118,8 +118,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.name }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -169,14 +169,14 @@
                   <!--                  </a>-->
 
                   <a
+                    class="
+                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                      me-1
+                    "
                     @click="
                       fillUpdateInputs(item.id);
                       UserModal();
                       create = 0;
-                    "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                      me-1
                     "
                   >
                     <span class="svg-icon svg-icon-3">
@@ -185,14 +185,14 @@
                   </a>
 
                   <a
+                    class="
+                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                    "
                     @click="
                       /*deleteUser(item.id, index)*/
                       fillUpdateInputs(item.id);
                       create = 2;
                       UserModal();
-                    "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                     "
                   >
                     <span class="svg-icon svg-icon-3">

@@ -1,6 +1,6 @@
 <template>
   <!--begin::Feeds Widget 1-->
-  <div class="card" :class="widgetClasses">
+  <div :class="widgetClasses" class="card">
     <!--begin::Body-->
     <div class="card-body pb-0">
       <!--begin::Header-->
@@ -9,13 +9,13 @@
         <div class="d-flex align-items-center flex-grow-1">
           <!--begin::Avatar-->
           <div class="symbol symbol-45px me-5">
-            <img src="media/avatars/150-1.jpg" alt="" />
+            <img alt="" src="media/avatars/150-1.jpg" />
           </div>
           <!--end::Avatar-->
 
           <!--begin::Info-->
           <div class="d-flex flex-column">
-            <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bolder"
+            <a class="text-gray-800 text-hover-primary fs-6 fw-bolder" href="#"
               >Grace Green</a
             >
 
@@ -28,13 +28,13 @@
         <!--begin::Menu-->
         <div class="my-0">
           <button
-            type="button"
             class="
               btn btn-sm btn-icon btn-color-primary btn-active-light-primary
             "
-            data-kt-menu-trigger="click"
-            data-kt-menu-placement="bottom-end"
             data-kt-menu-flip="top-end"
+            data-kt-menu-placement="bottom-end"
+            data-kt-menu-trigger="click"
+            type="button"
           >
             <span class="svg-icon svg-icon-2">
               <inline-svg src="/media/icons/duotune/general/gen024.svg" />

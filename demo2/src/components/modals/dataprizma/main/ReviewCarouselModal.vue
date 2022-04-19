@@ -1,23 +1,24 @@
 <template>
   <!--begin::Modal - New Card-->
   <div
-    class="modal fade"
-    ref="newCardModalRef"
     id="kt_modal_review_carousel"
-    tabindex="-1"
+    ref="newCardModalRef"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-1000px" v-if="create < 2">
+    <div v-if="create < 2" class="modal-dialog modal-dialog-centered mw-1000px">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
         <div class="modal-header">
           <!--begin::Modal title-->
           <h2>
-            <span v-if="create == 1"> {{ $t("create") }}</span
-            ><span v-if="create == 0"> {{ $t("update") }}</span>
-            {{ $t("review") }} {{ $t("carousel") }} {{ $t("main") }} {{ $t("content") }}
+            <span v-if="create === 1"> {{ $t("create") }}</span
+            ><span v-if="create === 0"> {{ $t("update") }}</span>
+            {{ $t("review") }} {{ $t("carousel") }} {{ $t("main") }}
+            {{ $t("content") }}
           </h2>
           <!--end::Modal title-->
 
@@ -39,9 +40,9 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form row"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row col-6">
@@ -55,10 +56,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="file"
-                  class="form-control form-control-solid file"
                   ref="file-upload"
+                  class="form-control form-control-solid file"
                   name="file"
+                  type="file"
                   @change="fileChosen($event)"
                 />
                 <div class="fv-plugins-message-container">
@@ -84,10 +85,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateAuthorUz"
                   class="form-control form-control-solid"
                   name="author-uz"
-                  v-model="updateAuthorUz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -107,10 +108,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateAuthorRu"
                   class="form-control form-control-solid"
                   name="author-ru"
-                  v-model="updateAuthorRu"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -130,10 +131,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateAuthorEn"
                   class="form-control form-control-solid"
                   name="author-en"
-                  v-model="updateAuthorEn"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -153,10 +154,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updatePositionUz"
                   class="form-control form-control-solid"
                   name="position-uz"
-                  v-model="updatePositionUz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -176,10 +177,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updatePositionRu"
                   class="form-control form-control-solid"
                   name="position-ru"
-                  v-model="updatePositionRu"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -199,10 +200,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updatePositionEn"
                   class="form-control form-control-solid"
                   name="position-en"
-                  v-model="updatePositionEn"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -222,10 +223,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextUz"
                   class="form-control form-control-solid"
                   name="text-uz"
-                  v-model="updateTextUz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -245,10 +246,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextRu"
                   class="form-control form-control-solid"
                   name="text-ru"
-                  v-model="updateTextRu"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -268,10 +269,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextEn"
                   class="form-control form-control-solid"
                   name="text-en"
-                  v-model="updateTextEn"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -282,18 +283,18 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                type="reset"
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
+                type="reset"
               >
                 {{ $t("discard") }}
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_new_card_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -319,8 +320,8 @@
     <!--end::Modal dialog-->
 
     <div
-      class="modal-dialog modal-dialog-centered mw-1000px"
       v-if="create === 2"
+      class="modal-dialog modal-dialog-centered mw-1000px"
     >
       <!--begin::Modal content-->
       <div class="modal-content">
@@ -348,17 +349,17 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_fail_submit"
+                ref="submitButtonRef"
                 class="btn btn-danger mx-5"
+                type="submit"
                 @click="submit('cancel')"
               >
                 <span class="indicator-label"> Cancel </span>
@@ -371,10 +372,10 @@
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_success_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -411,6 +412,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import requests from "@/request/dataprizma_request_links/request_links";
 import { useI18n } from "vue-i18n";
+import { setLocale } from "yup";
 
 interface CardData {
   nameOnCard: string;
@@ -437,6 +439,7 @@ export default defineComponent({
       updateTextUz: "",
       updateTextRu: "",
       updateTextEn: "",
+      responseError: 200,
       error: 0,
     };
   },
@@ -448,7 +451,9 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
-      const review_carousel_items = JSON.parse(Object(localStorage.getItem("revCarousel")));
+      const review_carousel_items = JSON.parse(
+        Object(localStorage.getItem("revCarousel"))
+      );
       let review_carousel_item = {
         authorEn: "",
         authorRu: "",
@@ -463,6 +468,12 @@ export default defineComponent({
       for (const item of review_carousel_items) {
         if (item.id === newValue) {
           review_carousel_item = Object(item);
+          for (let property in review_carousel_item) {
+            if (review_carousel_item[property] === null) {
+              review_carousel_item[property] = "";
+            }
+          }
+          break;
         }
       }
       this.updateAuthorEn = review_carousel_item.authorEn;
@@ -483,10 +494,12 @@ export default defineComponent({
     fileChosen(e) {
       this.updateFile = e.target.files;
       const formCleaner = document.querySelectorAll(".reset")[0];
+
       function func() {
         e.target.value = "";
         formCleaner.removeEventListener("click", func);
       }
+
       formCleaner.addEventListener("click", func);
     },
     isImage(file) {
@@ -617,6 +630,12 @@ export default defineComponent({
       ? (localStorage.getItem("lang") as string)
       : "en";
 
+    setLocale({
+      mixed: {
+        required: i18n.t("forms_validation_required"),
+      },
+    });
+
     const cardData = ref<CardData>({
       nameOnCard: "Max Doe",
       cardNumber: "4111 1111 1111 1111",
@@ -652,7 +671,7 @@ export default defineComponent({
         });
       }
 
-      function errorAlert(text) {
+      function errorAlert(text, doThen = false) {
         Swal.fire({
           text: translate(text),
           icon: "error",
@@ -661,6 +680,10 @@ export default defineComponent({
           customClass: {
             confirmButton: "btn fw-bold btn-light-danger",
           },
+        }).then(() => {
+          if (doThen) {
+            location.reload();
+          }
         });
       }
 
@@ -683,8 +706,15 @@ export default defineComponent({
 
         const error = instance?.data.error;
         const create = instance?.props.create;
+        const responseError = instance?.data.responseError;
 
-        if (text !== "cancel") {
+        if (responseError === 500) {
+          errorAlert("Too much text was given to input");
+        } else if (responseError === 401) {
+          errorAlert("You are not authorized", true);
+        }
+
+        if (text !== "cancel" && responseError === 200) {
           if (error === 0) {
             if (create === 1) {
               successAlert("item_added");

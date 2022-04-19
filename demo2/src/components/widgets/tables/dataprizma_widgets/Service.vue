@@ -1,6 +1,6 @@
 <template>
   <!--begin::Tables Widget 14-->
-  <div class="card" :class="widgetClasses">
+  <div :class="widgetClasses" class="card">
     <!--    begin::Create User-->
     <!--    <KTModalCard-->
     <!--      button-text="Add New Card"-->
@@ -13,14 +13,14 @@
     <!--    begin::Update User-->
     <KTModalCard
       button-text="Add New Card"
+      class="modal-view"
       modal-id="kt_modal_service"
       style="display: none"
-      class="modal-view"
     ></KTModalCard>
     <ServiceModal
+      :create="create"
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
-      :create="create"
     ></ServiceModal>
     <!--    end::Update User-->
 
@@ -49,8 +49,8 @@
 
       <div
         class="card-toolbar"
-        data-bs-toggle="tooltip"
         data-bs-placement="top"
+        data-bs-toggle="tooltip"
         data-bs-trigger="hover"
       >
         <!--        <a-->
@@ -164,9 +164,9 @@
                             :src="
                               'http://site.dataprizma.uz/' + item.uploadPath
                             "
-                            width="50"
-                            height="50"
                             class="view-box"
+                            height="50"
+                            width="50"
                           />
                         </photo-consumer>
                       </photo-provider>
@@ -181,8 +181,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.headerUz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -192,8 +192,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.headerRu }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -203,8 +203,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.headerEn }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -214,32 +214,32 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.primaryUz }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.primaryRu }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.primaryEn }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textUz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -249,8 +249,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textRu }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -260,8 +260,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textEn }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -271,8 +271,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.sphereText1Uz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -282,8 +282,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.sphereText1Ru }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -293,8 +293,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.sphereText1En }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -304,8 +304,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.sphereText2Uz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -315,8 +315,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.sphereText2Ru }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -326,8 +326,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.sphereText2En }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -337,8 +337,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.sphereText3Uz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -348,8 +348,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.sphereText3Ru }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -359,8 +359,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.sphereText3En }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -370,8 +370,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textFirstUz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -381,8 +381,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textFirstRu }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -392,8 +392,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textFirstEn }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -403,8 +403,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textSecondUz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -414,8 +414,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textSecondRu }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -425,8 +425,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textSecondEn }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -436,8 +436,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textThirdUz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -447,8 +447,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textThirdRu }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -458,8 +458,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textThirdEn }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -509,14 +509,14 @@
                   <!--                  </a>-->
 
                   <a
+                    class="
+                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                      me-1
+                    "
                     @click="
                       fillUpdateInputs(item.id);
                       ServiceModal();
                       create = 0;
-                    "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                      me-1
                     "
                   >
                     <span class="svg-icon svg-icon-3">

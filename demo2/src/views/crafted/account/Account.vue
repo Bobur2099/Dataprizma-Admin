@@ -12,7 +12,7 @@
               position-relative
             "
           >
-            <img src="media/avatars/150-2.jpg" alt="image" />
+            <img alt="image" src="media/avatars/150-2.jpg" />
             <div
               class="
                 position-absolute
@@ -48,9 +48,9 @@
               <!--begin::Name-->
               <div class="d-flex align-items-center mb-2">
                 <a
-                  href="#"
                   class="text-gray-800 text-hover-primary fs-2 fw-bolder me-1"
-                  >Max Smith</a
+                  href="#"
+                >Max Smith</a
                 >
                 <a href="#">
                   <span class="svg-icon svg-icon-1 svg-icon-primary">
@@ -59,7 +59,6 @@
                 </a>
 
                 <a
-                  href="#"
                   class="
                     btn btn-sm btn-light-success
                     fw-bolder
@@ -68,9 +67,10 @@
                     py-1
                     px-3
                   "
-                  data-bs-toggle="modal"
                   data-bs-target="#kt_modal_upgrade_plan"
-                  >Upgrade to Pro</a
+                  data-bs-toggle="modal"
+                  href="#"
+                >Upgrade to Pro</a
                 >
               </div>
               <!--end::Name-->
@@ -78,7 +78,6 @@
               <!--begin::Info-->
               <div class="d-flex flex-wrap fw-bold fs-6 mb-4 pe-2">
                 <a
-                  href="#"
                   class="
                     d-flex
                     align-items-center
@@ -86,6 +85,7 @@
                     me-5
                     mb-2
                   "
+                  href="#"
                 >
                   <span class="svg-icon svg-icon-4 me-1">
                     <inline-svg
@@ -95,7 +95,6 @@
                   Developer
                 </a>
                 <a
-                  href="#"
                   class="
                     d-flex
                     align-items-center
@@ -103,6 +102,7 @@
                     me-5
                     mb-2
                   "
+                  href="#"
                 >
                   <span class="svg-icon svg-icon-4 me-1">
                     <inline-svg src="/media/icons/duotune/general/gen018.svg" />
@@ -110,13 +110,13 @@
                   SF, Bay Area
                 </a>
                 <a
-                  href="#"
                   class="
                     d-flex
                     align-items-center
                     text-gray-400 text-hover-primary
                     mb-2
                   "
+                  href="#"
                 >
                   <span class="svg-icon svg-icon-4 me-1">
                     <inline-svg
@@ -133,9 +133,9 @@
             <!--begin::Actions-->
             <div class="d-flex my-4">
               <a
-                href="#"
-                class="btn btn-sm btn-light me-2"
                 id="kt_user_follow_button"
+                class="btn btn-sm btn-light me-2"
+                href="#"
               >
                 <span class="svg-icon svg-icon-3 d-none">
                   <inline-svg src="/media/icons/duotune/arrows/arr012.svg" />
@@ -144,11 +144,11 @@
               </a>
 
               <a
-                href="#"
                 class="btn btn-sm btn-primary me-3"
-                data-bs-toggle="modal"
                 data-bs-target="#kt_modal_offer_a_deal"
-                >Hire Me</a
+                data-bs-toggle="modal"
+                href="#"
+              >Hire Me</a
               >
 
               <!--begin::Menu-->
@@ -157,9 +157,9 @@
                   class="
                     btn btn-sm btn-icon btn-bg-light btn-active-color-primary
                   "
-                  data-kt-menu-trigger="click"
-                  data-kt-menu-placement="bottom-end"
                   data-kt-menu-flip="top-end"
+                  data-kt-menu-placement="bottom-end"
+                  data-kt-menu-trigger="click"
                 >
                   <i class="bi bi-three-dots fs-3"></i>
                 </button>
@@ -197,8 +197,8 @@
                     <div
                       class="fs-2 fw-bolder"
                       data-kt-countup="true"
-                      data-kt-countup-value="4500"
                       data-kt-countup-prefix="$"
+                      data-kt-countup-value="4500"
                     >
                       4500$
                     </div>
@@ -264,8 +264,8 @@
                     <div
                       class="fs-2 fw-bolder"
                       data-kt-countup="true"
-                      data-kt-countup-value="60"
                       data-kt-countup-prefix="%"
+                      data-kt-countup-value="60"
                     >
                       60%
                     </div>
@@ -294,19 +294,19 @@
             >
               <div class="d-flex justify-content-between w-100 mt-auto mb-2">
                 <span class="fw-bold fs-6 text-gray-400"
-                  >Profile Compleation</span
+                >Profile Compleation</span
                 >
                 <span class="fw-bolder fs-6">50%</span>
               </div>
 
               <div class="h-5px mx-3 w-100 bg-light mb-3">
                 <div
+                  aria-valuemax="100"
+                  aria-valuemin="0"
+                  aria-valuenow="50"
                   class="bg-success rounded h-5px"
                   role="progressbar"
                   style="width: 50%"
-                  aria-valuenow="50"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
                 ></div>
               </div>
             </div>
@@ -332,9 +332,9 @@
           <!--begin::Nav item-->
           <li class="nav-item">
             <router-link
-              to="/crafted/account/overview"
-              class="nav-link text-active-primary me-6"
               active-class="active"
+              class="nav-link text-active-primary me-6"
+              to="/crafted/account/overview"
             >
               Overview
             </router-link>
@@ -343,9 +343,9 @@
           <!--begin::Nav item-->
           <li class="nav-item">
             <router-link
-              to="/crafted/account/settings"
-              class="nav-link text-active-primary me-6"
               active-class="active"
+              class="nav-link text-active-primary me-6"
+              to="/crafted/account/settings"
             >
               Settings
             </router-link>
@@ -367,7 +367,7 @@ import Dropdown3 from "@/components/dropdown/Dropdown3.vue";
 export default defineComponent({
   name: "kt-account",
   components: {
-    Dropdown3,
-  },
+    Dropdown3
+  }
 });
 </script>

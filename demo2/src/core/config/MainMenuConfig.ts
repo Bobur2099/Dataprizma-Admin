@@ -21,13 +21,13 @@ const DocMenuConfig = [
     pages: [
       {
         heading: "roles",
-        route: "/administration/roles",
+        route: "/administration/roles"
       },
       {
         heading: "users",
-        route: "/administration/users",
-      },
-    ],
+        route: "/administration/users"
+      }
+    ]
   },
   {
     heading: "Dataprizma",
@@ -41,52 +41,52 @@ const DocMenuConfig = [
         sub: [
           {
             heading: "main_wrap",
-            route: "/dataprizma_widgets/main/main-wrap",
+            route: "/dataprizma_widgets/main/main-wrap"
           },
           {
             heading: "comfort",
-            route: "/dataprizma_widgets/main/comfort",
+            route: "/dataprizma_widgets/main/comfort"
           },
           {
             heading: "advertise",
-            route: "/dataprizma_widgets/main/advertise",
+            route: "/dataprizma_widgets/main/advertise"
           },
           {
             heading: "service_header",
-            route: "/dataprizma_widgets/main/services-header",
+            route: "/dataprizma_widgets/main/services-header"
           },
           {
             heading: "service_carousel",
-            route: "/dataprizma_widgets/main/services-carousel",
+            route: "/dataprizma_widgets/main/services-carousel"
           },
           {
             heading: "review_header",
-            route: "/dataprizma_widgets/main/review-header",
+            route: "/dataprizma_widgets/main/review-header"
           },
           {
             heading: "review_carousel",
-            route: "/dataprizma_widgets/main/review-carousel",
-          },
-        ],
+            route: "/dataprizma_widgets/main/review-carousel"
+          }
+        ]
       },
       {
         heading: "about",
-        route: "/dataprizma_widgets/about",
+        route: "/dataprizma_widgets/about"
       },
       {
         heading: "service",
-        route: "/dataprizma_widgets/service",
+        route: "/dataprizma_widgets/service"
       },
       {
         heading: "portfolio",
-        route: "/dataprizma_widgets/portfolio",
+        route: "/dataprizma_widgets/portfolio"
       },
       {
         heading: "company",
-        route: "/dataprizma_widgets/company",
-      },
-    ],
-  },
+        route: "/dataprizma_widgets/company"
+      }
+    ]
+  }
   // {
   //   heading: "craft",
   //   route: "/crafted",

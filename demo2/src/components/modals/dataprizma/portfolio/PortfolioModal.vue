@@ -1,14 +1,14 @@
 <template>
   <!--begin::Modal - New Card-->
   <div
-    class="modal fade"
-    ref="newCardModalRef"
     id="kt_modal_portfolio"
-    tabindex="-1"
+    ref="newCardModalRef"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-1000px" v-if="create < 2">
+    <div v-if="create < 2" class="modal-dialog modal-dialog-centered mw-1000px">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
@@ -39,9 +39,9 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form row"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row col-6">
@@ -54,10 +54,10 @@
               <!--end::Label-->
 
               <Field
-                type="file"
-                class="form-control form-control-solid file"
                 ref="file-upload"
+                class="form-control form-control-solid file"
                 name="file"
+                type="file"
                 @change="fileChosen($event)"
               />
               <div class="fv-plugins-message-container">
@@ -80,10 +80,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateHeaderUz"
                   class="form-control form-control-solid"
                   name="header-uz"
-                  v-model="updateHeaderUz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -103,10 +103,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateHeaderRu"
                   class="form-control form-control-solid"
                   name="header-ru"
-                  v-model="updateHeaderRu"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -126,10 +126,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateHeaderEn"
                   class="form-control form-control-solid"
                   name="header-en"
-                  v-model="updateHeaderEn"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -149,10 +149,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextUz"
                   class="form-control form-control-solid"
                   name="text-uz"
-                  v-model="updateTextUz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -172,10 +172,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextRu"
                   class="form-control form-control-solid"
                   name="text-ru"
-                  v-model="updateTextRu"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -195,10 +195,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextEn"
                   class="form-control form-control-solid"
                   name="text-en"
-                  v-model="updateTextEn"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -218,10 +218,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateBudget"
                   class="form-control form-control-solid"
                   name="budget"
-                  v-model="updateBudget"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -241,10 +241,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateLocation"
                   class="form-control form-control-solid"
                   name="location"
-                  v-model="updateLocation"
+                  type="text"
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
@@ -269,10 +269,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateClientNameUz"
                   class="form-control form-control-solid"
                   name="client-name-uz"
-                  v-model="updateClientNameUz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -292,10 +292,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateClientNameRu"
                   class="form-control form-control-solid"
                   name="client-name-ru"
-                  v-model="updateClientNameRu"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -315,10 +315,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateClientNameEn"
                   class="form-control form-control-solid"
                   name="client-name-en"
-                  v-model="updateClientNameEn"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -338,10 +338,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateStartDate"
                   class="form-control form-control-solid"
                   name="start-date"
-                  v-model="updateStartDate"
+                  type="date"
                 />
                 <!--end::Input-->
               </div>
@@ -361,10 +361,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateEndDate"
                   class="form-control form-control-solid"
                   name="end-date"
-                  v-model="updateEndDate"
+                  type="date"
                 />
                 <!--end::Input-->
               </div>
@@ -372,21 +372,20 @@
             </div>
             <!--end::Input group-->
 
-            <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                type="reset"
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
+                type="reset"
               >
                 {{ $t("discard") }}
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_new_card_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -412,8 +411,8 @@
     <!--end::Modal dialog-->
 
     <div
-      class="modal-dialog modal-dialog-centered mw-1000px"
       v-if="create === 2"
+      class="modal-dialog modal-dialog-centered mw-1000px"
     >
       <!--begin::Modal content-->
       <div class="modal-content">
@@ -441,17 +440,17 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_fail_submit"
+                ref="submitButtonRef"
                 class="btn btn-danger mx-5"
+                type="submit"
                 @click="submit('cancel')"
               >
                 <span class="indicator-label"> Cancel </span>
@@ -464,10 +463,10 @@
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_success_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -504,6 +503,8 @@ import * as Yup from "yup";
 import axios from "axios";
 import requests from "@/request/dataprizma_request_links/request_links";
 import { useI18n } from "vue-i18n";
+import { start } from "@popperjs/core";
+import { setLocale } from "yup";
 
 interface CardData {
   nameOnCard: string;
@@ -534,6 +535,7 @@ export default defineComponent({
       updateClientNameEn: "",
       updateStartDate: "",
       updateEndDate: "",
+      responseError: 200,
       error: 0,
     };
   },
@@ -545,7 +547,54 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
-      newValue;
+      const portfolio_items = JSON.parse(
+        Object(localStorage.getItem("portfolio"))
+      );
+      let portfolio_item = {
+        budget: "",
+        clientNameEn: "",
+        clientNameRu: "",
+        clientNameUz: "",
+        endDate: "",
+        headerEn: "",
+        headerRu: "",
+        headerUz: "",
+        location: "",
+        startDate: "",
+        textEn: "",
+        textRu: "",
+        textUz: "",
+      };
+      for (const item of portfolio_items) {
+        if (item.id === newValue) {
+          portfolio_item = Object(item);
+          for (let property in portfolio_item) {
+            if (portfolio_item[property] === null) {
+              portfolio_item[property] = "";
+            }
+          }
+          break;
+        }
+      }
+      let startDate = portfolio_item.startDate.split(".");
+      let endDate = portfolio_item.endDate.split(".");
+      let updateStartDate =
+        startDate[2] + "-" + startDate[1] + "-" + startDate[0];
+      let updateEndDate = endDate[2] + "-" + endDate[1] + "-" + endDate[0];
+
+      this.updateBudget = portfolio_item.budget;
+      this.updateClientNameEn = portfolio_item.clientNameEn;
+      this.updateClientNameRu = portfolio_item.clientNameRu;
+      this.updateClientNameUz = portfolio_item.clientNameUz;
+      this.updateEndDate = updateEndDate;
+      this.updateHeaderEn = portfolio_item.headerEn;
+      this.updateHeaderRu = portfolio_item.headerRu;
+      this.updateHeaderUz = portfolio_item.headerUz;
+      this.updateLocation = portfolio_item.location;
+      this.updateStartDate = updateStartDate;
+      this.updateTextEn = portfolio_item.textEn;
+      this.updateTextRu = portfolio_item.textRu;
+      this.updateTextUz = portfolio_item.textUz;
     },
     create(newValue) {
       newValue;
@@ -555,10 +604,12 @@ export default defineComponent({
     fileChosen(e) {
       this.updateFile = e.target.files;
       const formCleaner = document.querySelectorAll(".reset")[0];
+
       function func() {
         e.target.value = "";
         formCleaner.removeEventListener("click", func);
       }
+
       formCleaner.addEventListener("click", func);
     },
     isImage(file) {
@@ -632,6 +683,12 @@ export default defineComponent({
         "endDate",
       ];
 
+      let startDate = this.updateStartDate.split("-");
+      let endDate = this.updateEndDate.split("-");
+      let updateStartDate =
+        startDate[2] + "." + startDate[1] + "." + startDate[0];
+      let updateEndDate = endDate[2] + "." + endDate[1] + "." + endDate[0];
+
       let datas = new FormData();
       datas.append(keys[0], this.updateFile[0]);
       datas.append(keys[1], this.updateHeaderUz.trim());
@@ -645,8 +702,8 @@ export default defineComponent({
       datas.append(keys[9], this.updateClientNameUz.trim());
       datas.append(keys[10], this.updateClientNameRu.trim());
       datas.append(keys[11], this.updateClientNameEn.trim());
-      datas.append(keys[12], this.updateStartDate.trim());
-      datas.append(keys[13], this.updateEndDate.trim());
+      datas.append(keys[12], updateStartDate);
+      datas.append(keys[13], updateEndDate);
 
       for (let i of keys) {
         if (
@@ -697,6 +754,12 @@ export default defineComponent({
       ? (localStorage.getItem("lang") as string)
       : "en";
 
+    setLocale({
+      mixed: {
+        required: i18n.t("forms_validation_required"),
+      },
+    });
+
     const cardData = ref<CardData>({
       nameOnCard: "Max Doe",
       cardNumber: "4111 1111 1111 1111",
@@ -732,7 +795,7 @@ export default defineComponent({
         });
       }
 
-      function errorAlert(text) {
+      function errorAlert(text, doThen = false) {
         Swal.fire({
           text: translate(text),
           icon: "error",
@@ -741,6 +804,10 @@ export default defineComponent({
           customClass: {
             confirmButton: "btn fw-bold btn-light-danger",
           },
+        }).then(() => {
+          if (doThen) {
+            location.reload();
+          }
         });
       }
 
@@ -763,8 +830,15 @@ export default defineComponent({
 
         const error = instance?.data.error;
         const create = instance?.props.create;
+        const responseError = instance?.data.responseError;
 
-        if (text !== "cancel") {
+        if (responseError === 500) {
+          errorAlert("Too much text was given to input");
+        } else if (responseError === 401) {
+          errorAlert("You are not authorized", true);
+        }
+
+        if (text !== "cancel" && responseError === 200) {
           if (error === 0) {
             if (create === 1) {
               successAlert("item_added");

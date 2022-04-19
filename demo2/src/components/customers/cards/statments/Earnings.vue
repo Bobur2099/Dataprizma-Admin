@@ -34,8 +34,8 @@
             <span class="fs-1 fw-bolder text-gray-800 lh-1">
               <span
                 data-kt-countup="true"
-                data-kt-countup-value="6,840"
                 data-kt-countup-prefix="$"
+                data-kt-countup-value="6,840"
                 >6,840$</span
               >
               <span class="svg-icon svg-icon-1 svg-icon-success">
@@ -87,8 +87,8 @@
             <span class="fs-1 fw-bolder text-gray-800 lh-1">
               <span
                 data-kt-countup="true"
-                data-kt-countup-value="1,240"
                 data-kt-countup-prefix="$"
+                data-kt-countup-value="1,240"
                 >1,240$</span
               >
               <span class="text-primary">--</span>
@@ -99,7 +99,7 @@
         </div>
         <!--end::Row-->
 
-        <a href="#" class="btn btn-sm btn-light-primary flex-shrink-0"
+        <a class="btn btn-sm btn-light-primary flex-shrink-0" href="#"
           >Withdraw Earnings</a
         >
       </div>

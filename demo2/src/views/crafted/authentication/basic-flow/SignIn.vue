@@ -3,16 +3,16 @@
   <div class="w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
     <!--begin::Form-->
     <Form
-      class="form w-100"
       id="kt_login_signin_form"
-      @submit="onSubmitLogin"
       :validation-schema="login"
+      class="form w-100"
       name="login"
+      @submit="onSubmitLogin"
     >
       <div class="text-center">
         <img
-          alt="Logo"
           :src="'http://site.dataprizma.uz/' + logo"
+          alt="Logo"
           class="h-75px"
         />
       </div>
@@ -51,10 +51,10 @@
 
         <!--begin::Input-->
         <Field
-          class="form-control form-control-lg form-control-solid"
-          type="text"
-          name="email"
           autocomplete="off"
+          class="form-control form-control-lg form-control-solid"
+          name="email"
+          type="text"
         />
         <!--end::Input-->
         <div class="fv-plugins-message-container">
@@ -76,7 +76,7 @@
           <!--end::Label-->
 
           <!--begin::Link-->
-          <router-link to="/password-reset" class="link-primary fs-6 fw-bolder">
+          <router-link class="link-primary fs-6 fw-bolder" to="/password-reset">
             {{ $t("forgot_password") }}
           </router-link>
           <!--end::Link-->
@@ -85,10 +85,10 @@
 
         <!--begin::Input-->
         <Field
-          class="form-control form-control-lg form-control-solid"
-          type="password"
-          name="password"
           autocomplete="off"
+          class="form-control form-control-lg form-control-solid"
+          name="password"
+          type="password"
         />
         <!--end::Input-->
         <div class="fv-plugins-message-container">
@@ -103,10 +103,10 @@
       <div class="text-center">
         <!--begin::Submit button-->
         <button
-          type="submit"
-          ref="submitButton"
           id="kt_sign_in_submit"
+          ref="submitButton"
           class="btn btn-lg btn-primary w-100 mb-5"
+          type="submit"
         >
           <span class="indicator-label"> {{ $t("continue") }} </span>
 
@@ -127,14 +127,14 @@
 
         <!--begin::Google link-->
         <a
-          href="#"
           class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5"
+          href="#"
           @click="setLang('uz')"
         >
           <img
             alt="Logo"
-            src="/media/flags/uzbekistan.svg"
             class="h-20px me-3"
+            src="/media/flags/uzbekistan.svg"
           />
           {{ $t("change_uz") }}
         </a>
@@ -142,25 +142,25 @@
 
         <!--begin::Google link-->
         <a
-          href="#"
           class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5"
+          href="#"
           @click="setLang('ru')"
         >
-          <img alt="Logo" src="media/flags/russia.svg" class="h-20px me-3" />
+          <img alt="Logo" class="h-20px me-3" src="media/flags/russia.svg" />
           {{ $t("change_ru") }}
         </a>
         <!--end::Google link-->
 
         <!--begin::Google link-->
         <a
-          href="#"
           class="btn btn-flex flex-center btn-light btn-lg w-100"
+          href="#"
           @click="setLang('en')"
         >
           <img
             alt="Logo"
-            src="/media/flags/united-states.svg"
             class="h-20px me-3"
+            src="/media/flags/united-states.svg"
           />
           {{ $t("change_en") }}
         </a>

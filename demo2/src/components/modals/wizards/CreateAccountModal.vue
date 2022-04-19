@@ -1,11 +1,11 @@
 <template>
   <!--begin::Modal - Create account-->
   <div
-    class="modal fade"
     id="kt_modal_create_account"
     ref="createAccountModalRef"
-    tabindex="-1"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
     <div class="modal-dialog mw-1000px">
@@ -34,9 +34,9 @@
         <div class="modal-body scroll-y m-5">
           <!--begin::Stepper-->
           <div
+            id="kt_create_account_stepper"
             ref="createAccountRef"
             class="stepper stepper-links d-flex flex-column"
-            id="kt_create_account_stepper"
           >
             <!--begin::Nav-->
             <div class="stepper-nav py-5">
@@ -74,9 +74,9 @@
 
             <!--begin::Form-->
             <form
+              id="kt_create_account_form"
               class="mx-auto mw-600px w-100 py-10"
               novalidate="novalidate"
-              id="kt_create_account_form"
               @submit="handleStep"
             >
               <!--begin::Step 1-->
@@ -99,7 +99,7 @@
                     <!--begin::Notice-->
                     <div class="text-gray-400 fw-bold fs-6">
                       If you need more info, please check out
-                      <a href="#" class="link-primary fw-bolder">Help Page</a>.
+                      <a class="link-primary fw-bolder" href="#">Help Page</a>.
                     </div>
                     <!--end::Notice-->
                   </div>
@@ -113,13 +113,13 @@
                       <div class="col-lg-6">
                         <!--begin::Option-->
                         <input
-                          type="radio"
-                          class="btn-check"
-                          name="accountType"
-                          value="personal"
-                          checked="checked"
                           id="kt_create_account_form_account_type_personal"
                           v-model="formData.accountType"
+                          checked="checked"
+                          class="btn-check"
+                          name="accountType"
+                          type="radio"
+                          value="personal"
                         />
                         <label
                           class="
@@ -146,7 +146,7 @@
                               Personal Account
                             </span>
                             <span class="text-gray-400 fw-bold fs-6"
-                              >If you need more info, please check it out</span
+                            >If you need more info, please check it out</span
                             >
                           </span>
                           <!--end::Info-->
@@ -159,12 +159,12 @@
                       <div class="col-lg-6">
                         <!--begin::Option-->
                         <input
-                          type="radio"
-                          class="btn-check"
-                          name="accountType"
-                          value="corporate"
                           id="kt_create_account_form_account_type_corporate"
                           v-model="formData.accountType"
+                          class="btn-check"
+                          name="accountType"
+                          type="radio"
+                          value="corporate"
                         />
                         <label
                           class="
@@ -187,10 +187,10 @@
                           <!--begin::Info-->
                           <span class="d-block fw-bold text-start">
                             <span class="text-dark fw-bolder d-block fs-4 mb-2"
-                              >Corporate Account</span
+                            >Corporate Account</span
                             >
                             <span class="text-gray-400 fw-bold fs-6"
-                              >Create corporate account to mane users</span
+                            >Create corporate account to mane users</span
                             >
                           </span>
                           <!--end::Info-->
@@ -220,7 +220,7 @@
                     <!--begin::Notice-->
                     <div class="text-gray-400 fw-bold fs-6">
                       If you need more info, please check out
-                      <a href="#" class="link-primary fw-bolder">Help Page</a>.
+                      <a class="link-primary fw-bolder" href="#">Help Page</a>.
                     </div>
                     <!--end::Notice-->
                   </div>
@@ -245,13 +245,13 @@
                       <div class="col">
                         <!--begin::Option-->
                         <input
-                          type="radio"
-                          class="btn-check"
-                          checked="checked"
-                          name="teamSize"
-                          value="1-1"
                           id="kt_one_one_select"
                           v-model="formData.teamSize"
+                          checked="checked"
+                          class="btn-check"
+                          name="teamSize"
+                          type="radio"
+                          value="1-1"
                         />
                         <label
                           class="
@@ -274,12 +274,12 @@
                       <div class="col">
                         <!--begin::Option-->
                         <input
-                          type="radio"
-                          class="btn-check"
-                          name="teamSize"
-                          value="2-10"
                           id="kt_two_ten_select"
                           v-model="formData.teamSize"
+                          class="btn-check"
+                          name="teamSize"
+                          type="radio"
+                          value="2-10"
                         />
                         <label
                           class="
@@ -302,12 +302,12 @@
                       <div class="col">
                         <!--begin::Option-->
                         <input
-                          type="radio"
-                          class="btn-check"
-                          name="teamSize"
-                          value="10-50"
                           id="kt_ten_fifty_select"
                           v-model="formData.teamSize"
+                          class="btn-check"
+                          name="teamSize"
+                          type="radio"
+                          value="10-50"
                         />
                         <label
                           class="
@@ -330,12 +330,12 @@
                       <div class="col">
                         <!--begin::Option-->
                         <input
-                          type="radio"
-                          class="btn-check"
-                          name="teamSize"
-                          value="50+"
                           id="kt_fifty_select"
                           v-model="formData.teamSize"
+                          class="btn-check"
+                          name="teamSize"
+                          type="radio"
+                          value="50+"
                         />
                         <label
                           class="
@@ -373,10 +373,10 @@
 
                     <!--begin::Input-->
                     <Field
-                      type="text"
                       class="form-control form-control-lg form-control-solid"
                       name="teamAccountName"
                       placeholder=""
+                      type="text"
                       value=""
                     />
                     <ErrorMessage
@@ -428,10 +428,10 @@
                                 text-gray-800 text-hover-primary
                                 fs-5
                               "
-                              >Company Account</span
+                            >Company Account</span
                             >
                             <span class="fs-6 fw-bold text-gray-400"
-                              >Use images to enhance your post flow</span
+                            >Use images to enhance your post flow</span
                             >
                           </span>
                           <!--end:Description-->
@@ -443,11 +443,11 @@
                           class="form-check form-check-custom form-check-solid"
                         >
                           <input
-                            class="form-check-input"
-                            type="radio"
-                            name="accountPlan"
-                            value="1"
                             v-model="formData.accountPlan"
+                            class="form-check-input"
+                            name="accountPlan"
+                            type="radio"
+                            value="1"
                           />
                         </span>
                         <!--end:Input-->
@@ -480,10 +480,10 @@
                                 text-gray-800 text-hover-primary
                                 fs-5
                               "
-                              >Developer Account</span
+                            >Developer Account</span
                             >
                             <span class="fs-6 fw-bold text-gray-400"
-                              >Use images to your post time</span
+                            >Use images to your post time</span
                             >
                           </span>
                           <!--end:Description-->
@@ -495,12 +495,12 @@
                           class="form-check form-check-custom form-check-solid"
                         >
                           <input
-                            class="form-check-input"
-                            type="radio"
-                            checked
-                            name="accountPlan"
-                            value="2"
                             v-model="formData.accountPlan"
+                            checked
+                            class="form-check-input"
+                            name="accountPlan"
+                            type="radio"
+                            value="2"
                           />
                         </span>
                         <!--end:Input-->
@@ -533,10 +533,10 @@
                                 text-gray-800 text-hover-primary
                                 fs-5
                               "
-                              >Testing Account</span
+                            >Testing Account</span
                             >
                             <span class="fs-6 fw-bold text-gray-400"
-                              >Use images to enhance time travel rivers</span
+                            >Use images to enhance time travel rivers</span
                             >
                           </span>
                           <!--end:Description-->
@@ -548,11 +548,11 @@
                           class="form-check form-check-custom form-check-solid"
                         >
                           <input
-                            class="form-check-input"
-                            type="radio"
-                            name="accountPlan"
-                            value="3"
                             v-model="formData.accountPlan"
+                            class="form-check-input"
+                            name="accountPlan"
+                            type="radio"
+                            value="3"
                           />
                         </span>
                         <!--end:Input-->
@@ -580,7 +580,7 @@
                     <!--begin::Notice-->
                     <div class="text-gray-400 fw-bold fs-6">
                       If you need more info, please check out
-                      <a href="#" class="link-primary fw-bolder">Help Page</a>.
+                      <a class="link-primary fw-bolder" href="#">Help Page</a>.
                     </div>
                     <!--end::Notice-->
                   </div>
@@ -594,8 +594,8 @@
 
                     <!--begin::Input-->
                     <Field
-                      name="businessName"
                       class="form-control form-control-lg form-control-solid"
+                      name="businessName"
                       value="Keenthemes Inc."
                     />
                     <ErrorMessage
@@ -614,9 +614,6 @@
 
                       <i
                         class="fas fa-exclamation-circle ms-2 fs-7"
-                        data-bs-toggle="popover"
-                        data-bs-trigger="hover"
-                        data-bs-html="true"
                         data-bs-content="
                     <div class='p-4 rounded bg-light'>
                         <div class='d-flex flex-stack text-muted mb-4'>
@@ -648,6 +645,9 @@
                         </div>
                     </div>
                 "
+                        data-bs-html="true"
+                        data-bs-toggle="popover"
+                        data-bs-trigger="hover"
                       >
                       </i>
                     </label>
@@ -655,8 +655,8 @@
 
                     <!--begin::Input-->
                     <Field
-                      name="shortenedDescriptor"
                       class="form-control form-control-lg form-control-solid"
+                      name="shortenedDescriptor"
                       value="KEENTHEMES"
                     />
                     <ErrorMessage
@@ -682,9 +682,9 @@
 
                     <!--begin::Input-->
                     <Field
-                      name="corporationType"
-                      class="form-select form-select-lg form-select-solid"
                       as="select"
+                      class="form-select form-select-lg form-select-solid"
+                      name="corporationType"
                     >
                       <option></option>
                       <option label="Corporation" value="1">Corporation</option>
@@ -715,10 +715,10 @@
 
                     <!--begin::Input-->
                     <Field
-                      type="text"
-                      name="businessDescription"
                       class="form-control form-control-lg form-control-solid"
+                      name="businessDescription"
                       rows="3"
+                      type="text"
                     />
                     <ErrorMessage
                       class="fv-plugins-message-container invalid-feedback"
@@ -732,14 +732,14 @@
                   <div class="fv-row mb-0">
                     <!--begin::Label-->
                     <label class="fs-6 fw-bold form-label required"
-                      >Contact Email</label
+                    >Contact Email</label
                     >
                     <!--end::Label-->
 
                     <!--begin::Input-->
                     <Field
-                      name="contactEmail"
                       class="form-control form-control-lg form-control-solid"
+                      name="contactEmail"
                       value="corp@support.com"
                     />
                     <ErrorMessage
@@ -767,7 +767,7 @@
                     <!--begin::Notice-->
                     <div class="text-gray-400 fw-bold fs-6">
                       If you need more info, please check out
-                      <a href="#" class="text-primary fw-bolder">Help Page</a>.
+                      <a class="text-primary fw-bolder" href="#">Help Page</a>.
                     </div>
                     <!--end::Notice-->
                   </div>
@@ -796,10 +796,10 @@
                     <!--end::Label-->
 
                     <Field
-                      type="text"
                       class="form-control form-control-solid"
-                      placeholder=""
                       name="nameOnCard"
+                      placeholder=""
+                      type="text"
                     />
                     <div class="fv-plugins-message-container">
                       <div class="fv-help-block">
@@ -813,7 +813,7 @@
                   <div class="d-flex flex-column mb-7 fv-row">
                     <!--begin::Label-->
                     <label class="required fs-6 fw-bold form-label mb-2"
-                      >Card Number</label
+                    >Card Number</label
                     >
                     <!--end::Label-->
 
@@ -821,10 +821,10 @@
                     <div class="position-relative">
                       <!--begin::Input-->
                       <Field
-                        type="text"
                         class="form-control form-control-solid"
-                        placeholder="Enter card number"
                         name="cardNumber"
+                        placeholder="Enter card number"
+                        type="text"
                       />
                       <div class="fv-plugins-message-container">
                         <div class="fv-help-block">
@@ -844,19 +844,19 @@
                         "
                       >
                         <img
+                          alt=""
+                          class="h-25px"
                           src="media/svg/card-logos/visa.svg"
-                          alt=""
-                          class="h-25px"
                         />
                         <img
+                          alt=""
+                          class="h-25px"
                           src="media/svg/card-logos/mastercard.svg"
-                          alt=""
-                          class="h-25px"
                         />
                         <img
-                          src="media/svg/card-logos/american-express.svg"
                           alt=""
                           class="h-25px"
+                          src="media/svg/card-logos/american-express.svg"
                         />
                       </div>
                       <!--end::Card logos-->
@@ -871,7 +871,7 @@
                     <div class="col-md-8 fv-row">
                       <!--begin::Label-->
                       <label class="required fs-6 fw-bold form-label mb-2"
-                        >Expiration Date</label
+                      >Expiration Date</label
                       >
                       <!--end::Label-->
 
@@ -880,12 +880,12 @@
                         <!--begin::Col-->
                         <div class="col-6">
                           <Field
-                            name="expirationMonth"
+                            as="select"
                             class="form-select form-select-solid"
                             data-control="select2"
                             data-hide-search="true"
                             data-placeholder="Month"
-                            as="select"
+                            name="expirationMonth"
                           >
                             <option></option>
                             <template v-for="i in 12" :key="i">
@@ -903,12 +903,12 @@
                         <!--begin::Col-->
                         <div class="col-6">
                           <Field
-                            name="expirationYear"
+                            as="select"
                             class="form-select form-select-solid"
                             data-control="select2"
                             data-hide-search="true"
                             data-placeholder="Year"
-                            as="select"
+                            name="expirationYear"
                           >
                             <option></option>
                             <template v-for="i in 10" :key="i">
@@ -958,12 +958,12 @@
                       <div class="position-relative">
                         <!--begin::Input-->
                         <Field
-                          type="text"
                           class="form-control form-control-solid"
-                          minlength="3"
                           maxlength="4"
-                          placeholder="CVV"
+                          minlength="3"
                           name="cvv"
+                          placeholder="CVV"
+                          type="text"
                         />
                         <!--end::Input-->
 
@@ -1001,7 +1001,7 @@
                     <!--begin::Label-->
                     <div class="me-5">
                       <label class="fs-6 fw-bold form-label"
-                        >Save Card for further billing?</label
+                      >Save Card for further billing?</label
                       >
                       <div class="fs-7 fw-bold text-gray-400">
                         If you need more info, please check budget planning
@@ -1019,10 +1019,10 @@
                       "
                     >
                       <input
+                        checked="checked"
                         class="form-check-input"
                         type="checkbox"
                         value="1"
-                        checked="checked"
                       />
                       <span class="form-check-label fw-bold text-gray-400">
                         Save Card
@@ -1049,9 +1049,11 @@
                     <!--begin::Notice-->
                     <div class="text-gray-400 fw-bold fs-6">
                       If you need more info, please
-                      <router-link to="/sign-in" class="link-primary fw-bolder"
-                        >Sign In</router-link
-                      >.
+                      <router-link class="link-primary fw-bolder" to="/sign-in"
+                      >Sign In
+                      </router-link
+                      >
+                      .
                     </div>
                     <!--end::Notice-->
                   </div>
@@ -1095,8 +1097,8 @@
                           </h4>
                           <div class="fs-6 text-gray-600">
                             To start using great tools, please, please
-                            <a href="#" class="fw-bolder"
-                              >Create Team Platform</a
+                            <a class="fw-bolder" href="#"
+                            >Create Team Platform</a
                             >
                           </div>
                         </div>
@@ -1117,9 +1119,9 @@
                 <!--begin::Wrapper-->
                 <div class="me-2">
                   <button
-                    type="button"
                     class="btn btn-lg btn-light-primary me-3"
                     data-kt-stepper-action="previous"
+                    type="button"
                     @click="previousStep()"
                   >
                     <span class="svg-icon svg-icon-3 me-1">
@@ -1133,9 +1135,9 @@
                 <!--begin::Wrapper-->
                 <div>
                   <button
-                    type="submit"
-                    class="btn btn-lg btn-primary"
                     v-if="currentStepIndex === totalSteps - 1"
+                    class="btn btn-lg btn-primary"
+                    type="submit"
                     @click="formSubmit()"
                   >
                     <span class="indicator-label">
@@ -1156,7 +1158,7 @@
                     </span>
                   </button>
 
-                  <button type="submit" class="btn btn-lg btn-primary" v-else>
+                  <button v-else class="btn btn-lg btn-primary" type="submit">
                     Continue
                     <span class="svg-icon svg-icon-3 ms-1 me-0">
                       <inline-svg src="/media/icons/duotune/arrows/arr064.svg" />
@@ -1215,13 +1217,14 @@ interface Step4 {
   cvv: string;
 }
 
-interface KTCreateApp extends Step1, Step2, Step3, Step4 {}
+interface KTCreateApp extends Step1, Step2, Step3, Step4 {
+}
 
 export default defineComponent({
   name: "create-account-modal",
   components: {
     Field,
-    ErrorMessage,
+    ErrorMessage
   },
   setup() {
     const _stepperObj = ref<StepperComponent | null>(null);
@@ -1243,7 +1246,7 @@ export default defineComponent({
       cardNumber: "4111 1111 1111 1111",
       expirationMonth: "1",
       expirationYear: "2022",
-      cvv: "123",
+      cvv: "123"
     });
 
     onMounted(() => {
@@ -1255,7 +1258,7 @@ export default defineComponent({
     const createAppSchema = [
       Yup.object({}),
       Yup.object({
-        teamAccountName: Yup.string().required().label("Team account name"),
+        teamAccountName: Yup.string().required().label("Team account name")
       }),
       Yup.object({
         businessName: Yup.string().required().label("Business name"),
@@ -1266,15 +1269,15 @@ export default defineComponent({
         businessDescription: Yup.string()
           .required()
           .label("Business description"),
-        contactEmail: Yup.string().required().label("Contact email"),
+        contactEmail: Yup.string().required().label("Contact email")
       }),
       Yup.object({
         nameOnCard: Yup.string().required().label("Name"),
         cardNumber: Yup.string().required().label("Card number"),
         expirationMonth: Yup.string().required().label("Month"),
         expirationYear: Yup.string().required().label("Year"),
-        cvv: Yup.string().required().label("CVV"),
-      }),
+        cvv: Yup.string().required().label("CVV")
+      })
     ];
 
     // extracts the individual step schema
@@ -1291,7 +1294,7 @@ export default defineComponent({
     });
 
     const { resetForm, handleSubmit } = useForm<Step1 | Step2 | Step3 | Step4>({
-      validationSchema: currentSchema,
+      validationSchema: currentSchema
     });
 
     const previousStep = () => {
@@ -1330,8 +1333,8 @@ export default defineComponent({
         buttonsStyling: false,
         confirmButtonText: "Ok, got it!",
         customClass: {
-          confirmButton: "btn fw-bold btn-light-primary",
-        },
+          confirmButton: "btn fw-bold btn-light-primary"
+        }
       }).then(() => {
         hideModal(createAccountModalRef.value);
       });
@@ -1339,8 +1342,8 @@ export default defineComponent({
 
     resetForm({
       values: {
-        ...formData.value,
-      },
+        ...formData.value
+      }
     });
 
     return {
@@ -1351,8 +1354,8 @@ export default defineComponent({
       formSubmit,
       currentStepIndex,
       formData,
-      createAccountModalRef,
+      createAccountModalRef
     };
-  },
+  }
 });
 </script>

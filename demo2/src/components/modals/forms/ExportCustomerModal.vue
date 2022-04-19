@@ -1,9 +1,9 @@
 <template>
   <div
-    class="modal fade"
     id="kt_customers_export_modal"
-    tabindex="-1"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
@@ -18,8 +18,8 @@
           <!--begin::Close-->
           <div
             id="kt_customers_export_close"
-            data-bs-dismiss="modal"
             class="btn btn-icon btn-sm btn-active-icon-primary"
+            data-bs-dismiss="modal"
           >
             <span class="svg-icon svg-icon-1">
               <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
@@ -33,22 +33,22 @@
         <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
           <!--begin::Form-->
           <el-form
-            @submit.prevent="submit()"
+            ref="formRef"
             :model="formData"
             :rules="rules"
-            ref="formRef"
+            @submit.prevent="submit()"
           >
             <!--begin::Input group-->
             <div class="fv-row mb-10">
               <!--begin::Label-->
               <label class="fs-5 fw-bold form-label mb-5"
-                >Select Date Range:</label
+              >Select Date Range:</label
               >
               <!--end::Label-->
 
               <!--begin::Input-->
               <el-form-item prop="name">
-                <el-date-picker type="daterange" v-model="formData.dateRange">
+                <el-date-picker v-model="formData.dateRange" type="daterange">
                 </el-date-picker>
               </el-form-item>
               <!--end::Input-->
@@ -59,16 +59,16 @@
             <div class="fv-row mb-10">
               <!--begin::Label-->
               <label class="fs-5 fw-bold form-label mb-5"
-                >Select Export Format:</label
+              >Select Export Format:</label
               >
               <!--end::Label-->
 
               <!--begin::Input-->
               <el-select v-model="formData.exportFormat" class="d-block">
-                <el-option value="excel" key="excel" label="Excel" />
-                <el-option value="pdf" key="pdf" label="PDF" />
-                <el-option value="cvs" key="cvs" label="CVS" />
-                <el-option value="zip" key="zip" label="ZIP" />
+                <el-option key="excel" label="Excel" value="excel" />
+                <el-option key="pdf" label="PDF" value="pdf" />
+                <el-option key="cvs" label="CVS" value="cvs" />
+                <el-option key="zip" label="ZIP" value="zip" />
               </el-select>
               <!--end::Input-->
             </div>
@@ -83,18 +83,18 @@
               <!--begin::Radio group-->
               <div class="d-flex flex-column">
                 <el-radio
-                  class="mb-5"
                   v-model="formData.paymentType"
+                  class="mb-5"
                   label="All"
                 ></el-radio>
                 <el-radio
-                  class="mb-5"
                   v-model="formData.paymentType"
+                  class="mb-5"
                   label="Visa"
                 ></el-radio>
                 <el-radio
-                  class="mb-5"
                   v-model="formData.paymentType"
+                  class="mb-5"
                   label="Mastercard"
                 ></el-radio>
                 <el-radio
@@ -109,9 +109,9 @@
             <!--begin::Actions-->
             <div class="text-center">
               <button
-                type="reset"
                 id="kt_customers_export_cancel"
                 class="btn btn-light me-3"
+                type="reset"
               >
                 Discard
               </button>
@@ -119,8 +119,8 @@
               <!--begin::Button-->
               <button
                 :data-kt-indicator="loading ? 'on' : null"
-                type="submit"
                 class="btn btn-lg btn-primary"
+                type="submit"
               >
                 <span v-if="!loading" class="indicator-label">
                   Submit
@@ -174,7 +174,7 @@ export default defineComponent({
             const start = new Date();
             start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
             return [start, end];
-          },
+          }
         },
         {
           text: "Last month",
@@ -183,7 +183,7 @@ export default defineComponent({
             const start = new Date();
             start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
             return [start, end];
-          },
+          }
         },
         {
           text: "Last 3 months",
@@ -192,15 +192,15 @@ export default defineComponent({
             const start = new Date();
             start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
             return [start, end];
-          },
-        },
-      ],
+          }
+        }
+      ]
     });
 
     const formData = ref({
       dateRange: [],
       exportFormat: "",
-      paymentType: "",
+      paymentType: ""
     });
 
     const rules = ref({
@@ -208,9 +208,9 @@ export default defineComponent({
         {
           required: true,
           message: "Date range is required",
-          trigger: "change",
-        },
-      ],
+          trigger: "change"
+        }
+      ]
     });
 
     const submit = () => {
@@ -231,8 +231,8 @@ export default defineComponent({
               buttonsStyling: false,
               confirmButtonText: "Ok, got it!",
               customClass: {
-                confirmButton: "btn btn-primary",
-              },
+                confirmButton: "btn btn-primary"
+              }
             }).then(() => {
               window.location.reload();
             });
@@ -244,8 +244,8 @@ export default defineComponent({
             buttonsStyling: false,
             confirmButtonText: "Ok, got it!",
             customClass: {
-              confirmButton: "btn btn-primary",
-            },
+              confirmButton: "btn btn-primary"
+            }
           });
           return false;
         }
@@ -258,8 +258,8 @@ export default defineComponent({
       rules,
       submit,
       formRef,
-      loading,
+      loading
     };
-  },
+  }
 });
 </script>

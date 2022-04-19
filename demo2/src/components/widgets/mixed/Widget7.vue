@@ -7,7 +7,7 @@
       <div class="flex-grow-1 card-p pb-0">
         <div class="d-flex flex-stack flex-wrap">
           <div class="me-2">
-            <a href="#" class="text-dark text-hover-primary fw-bolder fs-3"
+            <a class="text-dark text-hover-primary fw-bolder fs-3" href="#"
               >Generate Reports</a
             >
 
@@ -25,11 +25,11 @@
 
       <!--begin::Chart-->
       <apexchart
-        class="mixed-widget-7-chart card-rounded-bottom"
+        :height="chartHeight"
         :options="chartOptions"
         :series="series"
+        class="mixed-widget-7-chart card-rounded-bottom"
         type="area"
-        :height="chartHeight"
       ></apexchart>
       <!--end::Chart-->
     </div>

@@ -4,7 +4,7 @@
     <!--begin::Body-->
     <div class="card-body d-flex align-items-center pt-3 pb-0">
       <div class="d-flex flex-column flex-grow-1 py-2 py-lg-13 me-2">
-        <a href="#" class="fw-bolder text-dark fs-4 mb-2 text-hover-primary">{{
+        <a class="fw-bolder text-dark fs-4 mb-2 text-hover-primary" href="#">{{
           title
         }}</a>
 

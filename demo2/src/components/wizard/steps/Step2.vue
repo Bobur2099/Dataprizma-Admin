@@ -10,7 +10,7 @@
       <!--begin::Notice-->
       <div class="text-gray-400 fw-bold fs-6">
         If you need more info, please check out
-        <a href="#" class="link-primary fw-bolder">Help Page</a>.
+        <a class="link-primary fw-bolder" href="#">Help Page</a>.
       </div>
       <!--end::Notice-->
     </div>
@@ -42,9 +42,9 @@
             "
           >
             <Field
-              type="radio"
               class="btn-check"
               name="accountTeamSize"
+              type="radio"
               value="1-1"
             />
             <span class="fw-bolder fs-3">1-1</span>
@@ -65,9 +65,9 @@
             "
           >
             <Field
-              type="radio"
               class="btn-check"
               name="accountTeamSize"
+              type="radio"
               value="2-10"
             />
             <span class="fw-bolder fs-3">2-10</span>
@@ -87,9 +87,9 @@
             "
           >
             <Field
-              type="radio"
               class="btn-check"
               name="accountTeamSize"
+              type="radio"
               value="10-50"
             />
             <span class="fw-bolder fs-3">10-50</span>
@@ -109,10 +109,10 @@
             "
           >
             <Field
-              type="radio"
+              checked
               class="btn-check"
               name="accountTeamSize"
-              checked
+              type="radio"
               value="50+"
             />
             <span class="fw-bolder fs-3">50+</span>
@@ -139,15 +139,15 @@
 
       <!--begin::Input-->
       <Field
-        type="text"
         class="form-control form-control-lg form-control-solid"
         name="accountName"
         placeholder=""
+        type="text"
         value=""
       />
       <ErrorMessage
-        name="accountName"
         class="fv-plugins-message-container invalid-feedback"
+        name="accountName"
       ></ErrorMessage>
       <!--end::Input-->
     </div>
@@ -199,8 +199,8 @@
           <span class="form-check form-check-custom form-check-solid">
             <Field
               class="form-check-input"
-              type="radio"
               name="accountPlan"
+              type="radio"
               value="1"
             />
           </span>
@@ -238,10 +238,10 @@
           <!--begin:Input-->
           <span class="form-check form-check-custom form-check-solid">
             <Field
-              class="form-check-input"
-              type="radio"
               checked
+              class="form-check-input"
               name="accountPlan"
+              type="radio"
               value="2"
             />
           </span>
@@ -280,8 +280,8 @@
           <span class="form-check form-check-custom form-check-solid">
             <Field
               class="form-check-input"
-              type="radio"
               name="accountPlan"
+              type="radio"
               value="3"
             />
           </span>

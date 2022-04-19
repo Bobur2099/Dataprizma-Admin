@@ -13,7 +13,7 @@ import TableWidget18 from "@/components/widgets/tables/dataprizma_widgets/Servic
 export default {
   name: "ServicesHeader",
   components: {
-    TableWidget18,
-  },
+    TableWidget18
+  }
 };
 </script>

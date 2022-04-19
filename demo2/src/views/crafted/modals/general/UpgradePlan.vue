@@ -1,10 +1,10 @@
 <template>
   <KTModalCard
-    title="Upgrade Plan Modal Example"
+    button-text="Upgrade Plan"
     description="Click on the below buttons to launch <br/>a upgrade plan example."
     image="media/illustrations/sketchy-1/8.png"
-    button-text="Upgrade Plan"
     modal-id="kt_modal_upgrade_plan"
+    title="Upgrade Plan Modal Example"
   ></KTModalCard>
   <KTUpgradePlanModal></KTUpgradePlanModal>
 </template>
@@ -19,12 +19,12 @@ export default defineComponent({
   name: "upgrade-plan",
   components: {
     KTModalCard,
-    KTUpgradePlanModal,
+    KTUpgradePlanModal
   },
   setup() {
     onMounted(() => {
       setCurrentPageBreadcrumbs("Upgrade Plan", ["Modals", "General"]);
     });
-  },
+  }
 });
 </script>

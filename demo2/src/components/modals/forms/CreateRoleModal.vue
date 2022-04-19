@@ -1,11 +1,11 @@
 <template>
   <!--begin::Modal - New Card-->
   <div
-    class="modal fade"
-    ref="newCardModalRef"
     id="kt_modal_create_role"
-    tabindex="-1"
+    ref="newCardModalRef"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-1000px">
@@ -35,9 +35,9 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row">
@@ -50,11 +50,11 @@
               <!--end::Label-->
 
               <Field
-                type="text"
-                class="form-control form-control-solid"
-                placeholder=""
-                name="name"
                 v-model="name"
+                class="form-control form-control-solid"
+                name="name"
+                placeholder=""
+                type="text"
               />
               <div class="fv-plugins-message-container">
                 <!--                <div class="fv-help-block">-->
@@ -68,19 +68,19 @@
             <div class="d-flex flex-column mb-7 fv-row">
               <!--begin::Label-->
               <label class="fs-6 fw-bold form-label mb-2">{{
-                $t("code")
-              }}</label>
+                  $t("code")
+                }}</label>
               <!--end::Label-->
 
               <!--begin::Input wrapper-->
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  placeholder="Enter role code"
-                  name="code"
                   v-model="code"
+                  class="form-control form-control-solid"
+                  name="code"
+                  placeholder="Enter role code"
+                  type="text"
                 />
                 <div class="fv-plugins-message-container">
                   <!--                  <div class="fv-help-block">-->
@@ -96,18 +96,18 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                type="reset"
                 id="kt_modal_new_card_cancel"
                 class="btn btn-white me-3 create-role-reset"
+                type="reset"
               >
                 {{ $t("discard") }}
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_new_card_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   createRole();
                   submit();
@@ -154,17 +154,17 @@ interface CardData {
 
 export default defineComponent({
   name: "create-role-modal",
-  data: function () {
+  data: function() {
     return {
       name: "",
       code: "",
-      token: JSON.parse(String(localStorage.getItem("userData")))["token"],
+      token: JSON.parse(String(localStorage.getItem("userData")))["token"]
     };
   },
   components: {
     // ErrorMessage,
     Field,
-    Form,
+    Form
   },
   methods: {
     createRole() {
@@ -174,8 +174,8 @@ export default defineComponent({
       axios
         .post("/role/create", roleResponseDatas, {
           headers: {
-            Authorization: `Bearer ${this.token}`,
-          },
+            Authorization: `Bearer ${this.token}`
+          }
         })
         .then((response) => {
           if (response.status !== 200) {
@@ -186,8 +186,8 @@ export default defineComponent({
               buttonsStyling: false,
               confirmButtonText: "Ok, got it!",
               customClass: {
-                confirmButton: "btn btn-danger",
-              },
+                confirmButton: "btn btn-danger"
+              }
             });
           } else {
             // alert("It was created");
@@ -201,8 +201,8 @@ export default defineComponent({
                 buttonsStyling: false,
                 confirmButtonText: "Ok, got it!",
                 customClass: {
-                  confirmButton: "btn btn-primary",
-                },
+                  confirmButton: "btn btn-primary"
+                }
               }).then(() => {
                 // hideModal(cardModel);
                 // this.roleId = -1;
@@ -217,7 +217,7 @@ export default defineComponent({
             }, 2000);
           }
         });
-    },
+    }
   },
   setup() {
     const submitButtonRef = ref<null | HTMLButtonElement>(null);
@@ -228,7 +228,7 @@ export default defineComponent({
       cardNumber: "4111 1111 1111 1111",
       expirationMonth: "",
       expirationYear: "",
-      cvv: "",
+      cvv: ""
     });
 
     const validationSchema = Yup.object().shape({
@@ -236,7 +236,7 @@ export default defineComponent({
       cardNumber: Yup.string().required().label("Card number"),
       expirationMonth: Yup.string().required().label("Month"),
       expirationYear: Yup.string().required().label("Year"),
-      cvv: Yup.string().required().label("CVV"),
+      cvv: Yup.string().required().label("CVV")
     });
 
     const submit = () => {
@@ -289,8 +289,8 @@ export default defineComponent({
       validationSchema,
       submit,
       submitButtonRef,
-      newCardModalRef,
+      newCardModalRef
     };
-  },
+  }
 });
 </script>

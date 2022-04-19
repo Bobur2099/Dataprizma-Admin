@@ -1,10 +1,10 @@
 <template>
   <KTModalCard
-    title="Create API Key Modal Example"
+    button-text="Create API Key"
     description="Click on the below buttons to launch <br/>a new API Key creation example."
     image="media/illustrations/sketchy-1/16.png"
-    button-text="Create API Key"
     modal-id="kt_modal_create_api_key"
+    title="Create API Key Modal Example"
   ></KTModalCard>
 
   <KTCreateAPIKeyModal></KTCreateAPIKeyModal>
@@ -20,12 +20,12 @@ export default defineComponent({
   name: "create-api-key",
   components: {
     KTModalCard,
-    KTCreateAPIKeyModal,
+    KTCreateAPIKeyModal
   },
   setup() {
     onMounted(() => {
       setCurrentPageBreadcrumbs("Create API Key", ["Modals", "Forms"]);
     });
-  },
+  }
 });
 </script>

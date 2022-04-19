@@ -67,9 +67,9 @@
         <template v-for="(item, index) in items" :key="index">
           <!--begin::Tap pane-->
           <div
+            :id="`kt_table_widget_7_tab_${index + 1}`"
             :class="[index === 0 && 'active show']"
             class="tab-pane fade"
-            :id="`kt_table_widget_7_tab_${index + 1}`"
           >
             <!--begin::Table container-->
             <div class="table-responsive">
@@ -107,7 +107,6 @@
                       </td>
                       <td>
                         <a
-                          href="#"
                           class="
                             text-dark
                             fw-bolder
@@ -115,6 +114,7 @@
                             mb-1
                             fs-6
                           "
+                          href="#"
                           >{{ item1.info.title }}</a
                         >
                         <span class="text-muted fw-bold d-block fs-7">{{
@@ -139,7 +139,6 @@
                       </td>
                       <td class="text-end">
                         <a
-                          href="#"
                           class="
                             btn
                             btn-sm
@@ -147,6 +146,7 @@
                             btn-bg-light
                             btn-active-color-primary
                           "
+                          href="#"
                         >
                           <i class="bi bi-three-dots fs-5"></i>
                         </a>

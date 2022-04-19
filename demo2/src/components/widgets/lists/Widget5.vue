@@ -1,6 +1,6 @@
 <template>
   <!--begin::List Widget 5-->
-  <div class="card" :class="widgetClasses">
+  <div :class="widgetClasses" class="card">
     <!--begin::Header-->
     <div class="card-header align-items-center border-0 mt-4">
       <h3 class="card-title align-items-start flex-column">
@@ -11,11 +11,11 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -86,7 +86,7 @@
           <!--begin::Desc-->
           <div class="timeline-content fw-bolder text-gray-800 ps-3">
             Make deposit
-            <a href="#" class="text-primary">USD 700</a>. to ESL
+            <a class="text-primary" href="#">USD 700</a>. to ESL
           </div>
           <!--end::Desc-->
         </div>
@@ -126,7 +126,7 @@
 
           <!--begin::Desc-->
           <div class="timeline-content fw-bold text-gray-800 ps-3">
-            New order placed <a href="#" class="text-primary">#XF-2356</a>.
+            New order placed <a class="text-primary" href="#">#XF-2356</a>.
           </div>
           <!--end::Desc-->
         </div>
@@ -166,7 +166,7 @@
 
           <!--begin::Desc-->
           <div class="timeline-content fw-bold text-gray-800 ps-3">
-            New order placed <a href="#" class="text-primary">#XF-2356</a>.
+            New order placed <a class="text-primary" href="#">#XF-2356</a>.
           </div>
           <!--end::Desc-->
         </div>

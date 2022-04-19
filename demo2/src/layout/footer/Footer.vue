@@ -1,18 +1,18 @@
 <template>
   <!--begin::Footer-->
-  <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+  <div id="kt_footer" class="footer py-4 d-flex flex-lg-column">
     <!--begin::Container-->
     <div
+      :class="{
+        'container-fluid': footerWidthFluid,
+        'container-xxl': !footerWidthFluid,
+      }"
       class="
         d-flex
         flex-column flex-md-row
         align-items-center
         justify-content-between
       "
-      :class="{
-        'container-fluid': footerWidthFluid,
-        'container-xxl': !footerWidthFluid,
-      }"
     >
       <!--begin::Copyright-->
       <div class="text-dark order-2 order-md-1">
@@ -63,8 +63,8 @@ export default defineComponent({
   name: "KTFooter",
   setup() {
     return {
-      footerWidthFluid,
+      footerWidthFluid
     };
-  },
+  }
 });
 </script>

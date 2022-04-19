@@ -1,10 +1,10 @@
 <template>
   <KTModalCard
-    title="New Card Modal Example"
+    button-text="Add New Card"
     description="Click on the below buttons to launch <br/>a new card example."
     image="media/illustrations/sketchy-1/6.png"
-    button-text="Add New Card"
     modal-id="kt_modal_new_card"
+    title="New Card Modal Example"
   ></KTModalCard>
 
   <KTNewCardModal></KTNewCardModal>
@@ -20,12 +20,12 @@ export default defineComponent({
   name: "new-card",
   components: {
     KTModalCard,
-    KTNewCardModal,
+    KTNewCardModal
   },
   setup() {
     onMounted(() => {
       setCurrentPageBreadcrumbs("New Card", ["Modals", "Forms"]);
     });
-  },
+  }
 });
 </script>

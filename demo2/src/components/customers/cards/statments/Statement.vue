@@ -26,8 +26,8 @@
             <a
               class="nav-link text-active-primary active"
               data-bs-toggle="tab"
-              role="tab"
               href="#kt_customer_view_statement_1"
+              role="tab"
             >
               This Year
             </a>
@@ -37,8 +37,8 @@
             <a
               class="nav-link text-active-primary ms-3"
               data-bs-toggle="tab"
-              role="tab"
               href="#kt_customer_view_statement_2"
+              role="tab"
             >
               2020
             </a>
@@ -48,8 +48,8 @@
             <a
               class="nav-link text-active-primary ms-3"
               data-bs-toggle="tab"
-              role="tab"
               href="#kt_customer_view_statement_3"
+              role="tab"
             >
               2019
             </a>
@@ -59,8 +59,8 @@
             <a
               class="nav-link text-active-primary ms-3"
               data-bs-toggle="tab"
-              role="tab"
               href="#kt_customer_view_statement_4"
+              role="tab"
             >
               2018
             </a>
@@ -82,10 +82,10 @@
           role="tabpanel"
         >
           <Datatable
-            :table-header="tableHeader"
-            :table-data="tableData1"
-            :rows-per-page="10"
             :enable-items-per-page-dropdown="false"
+            :rows-per-page="10"
+            :table-data="tableData1"
+            :table-header="tableHeader"
           >
             <template v-slot:cell-date="{ row: invoice }">
               {{ invoice.date }}
@@ -114,9 +114,9 @@
           role="tabpanel"
         >
           <Datatable
-            :table-header="tableHeader"
-            :table-data="tableData2"
             :rows-per-page="10"
+            :table-data="tableData2"
+            :table-header="tableHeader"
             enable-items-per-page-dropdown="false"
           >
             <template v-slot:cell-date="{ row: invoice }">
@@ -146,10 +146,10 @@
           role="tabpanel"
         >
           <Datatable
-            :table-header="tableHeader"
-            :table-data="tableData3"
-            :rows-per-page="10"
             :enable-items-per-page-dropdown="false"
+            :rows-per-page="10"
+            :table-data="tableData3"
+            :table-header="tableHeader"
           >
             <template v-slot:cell-date="{ row: invoice }">
               {{ invoice.date }}
@@ -178,10 +178,10 @@
           role="tabpanel"
         >
           <Datatable
-            :table-header="tableHeader"
-            :table-data="tableData4"
-            :rows-per-page="10"
             :enable-items-per-page-dropdown="false"
+            :rows-per-page="10"
+            :table-data="tableData4"
+            :table-header="tableHeader"
           >
             <template v-slot:cell-date="{ row: invoice }">
               {{ invoice.date }}

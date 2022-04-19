@@ -11,14 +11,14 @@
           <div class="d-flex flex-center flex-column mb-5">
             <!--begin::Avatar-->
             <div class="symbol symbol-100px symbol-circle mb-7">
-              <img src="media/avatars/150-26.jpg" alt="image" />
+              <img alt="image" src="media/avatars/150-26.jpg" />
             </div>
             <!--end::Avatar-->
 
             <!--begin::Name-->
             <a
-              href="#"
               class="fs-3 text-gray-800 text-hover-primary fw-bolder mb-1"
+              href="#"
             >
               Max Smith
             </a>
@@ -98,12 +98,12 @@
           <!--begin::Details toggle-->
           <div class="d-flex flex-stack fs-4 py-3">
             <div
+              aria-controls="kt_customer_view_details"
+              aria-expanded="false"
               class="fw-bolder rotate collapsible"
               data-bs-toggle="collapse"
               href="#kt_customer_view_details"
               role="button"
-              aria-expanded="false"
-              aria-controls="kt_customer_view_details"
             >
               Details
               <span class="ms-2 rotate-180">
@@ -119,10 +119,10 @@
               title="Edit customer details"
             >
               <a
-                href="#"
                 class="btn btn-sm btn-light-primary"
-                data-bs-toggle="modal"
                 data-bs-target="#kt_modal_update_customer"
+                data-bs-toggle="modal"
+                href="#"
               >
                 Edit
               </a>
@@ -145,8 +145,8 @@
               <!--begin::Details item-->
               <div class="fw-bolder mt-5">Billing Email</div>
               <div class="text-gray-600">
-                <a href="#" class="text-gray-600 text-hover-primary"
-                  >info@keenthemes.com</a
+                <a class="text-gray-600 text-hover-primary" href="#"
+                >info@keenthemes.com</a
                 >
               </div>
               <!--begin::Details item-->
@@ -208,7 +208,7 @@
               <div class="fw-bold">
                 <div class="fs-6 text-gray-700">
                   By connecting an account, you hereby agree to our
-                  <a href="#" class="me-1">privacy policy</a>and
+                  <a class="me-1" href="#">privacy policy</a>and
                   <a href="#">terms of use</a>.
                 </div>
               </div>
@@ -223,16 +223,16 @@
             <div class="d-flex flex-stack">
               <div class="d-flex">
                 <img
-                  src="media/svg/brand-logos/google-icon.svg"
-                  class="w-30px me-6"
                   alt=""
+                  class="w-30px me-6"
+                  src="media/svg/brand-logos/google-icon.svg"
                 />
 
                 <div class="d-flex flex-column">
                   <a
-                    href="#"
                     class="fs-5 text-dark text-hover-primary fw-bolder"
-                    >Google</a
+                    href="#"
+                  >Google</a
                   >
                   <div class="fs-6 fw-bold text-muted">
                     Plan properly your workflow
@@ -253,12 +253,12 @@
                 >
                   <!--begin::Input-->
                   <input
+                    id="kt_modal_connected_accounts_google"
+                    checked="checked"
                     class="form-check-input"
                     name="google"
                     type="checkbox"
                     value="1"
-                    id="kt_modal_connected_accounts_google"
-                    checked="checked"
                   />
                   <!--end::Input-->
 
@@ -280,16 +280,16 @@
             <div class="d-flex flex-stack">
               <div class="d-flex">
                 <img
-                  src="media/svg/brand-logos/github.svg"
-                  class="w-30px me-6"
                   alt=""
+                  class="w-30px me-6"
+                  src="media/svg/brand-logos/github.svg"
                 />
 
                 <div class="d-flex flex-column">
                   <a
-                    href="#"
                     class="fs-5 text-dark text-hover-primary fw-bolder"
-                    >Github</a
+                    href="#"
+                  >Github</a
                   >
                   <div class="fs-6 fw-bold text-muted">
                     Keep eye on on your Repositories
@@ -310,12 +310,12 @@
                 >
                   <!--begin::Input-->
                   <input
+                    id="kt_modal_connected_accounts_github"
+                    checked="checked"
                     class="form-check-input"
                     name="github"
                     type="checkbox"
                     value="1"
-                    id="kt_modal_connected_accounts_github"
-                    checked="checked"
                   />
                   <!--end::Input-->
 
@@ -337,16 +337,16 @@
             <div class="d-flex flex-stack">
               <div class="d-flex">
                 <img
-                  src="media/svg/brand-logos/slack-icon.svg"
-                  class="w-30px me-6"
                   alt=""
+                  class="w-30px me-6"
+                  src="media/svg/brand-logos/slack-icon.svg"
                 />
 
                 <div class="d-flex flex-column">
                   <a
-                    href="#"
                     class="fs-5 text-dark text-hover-primary fw-bolder"
-                    >Slack</a
+                    href="#"
+                  >Slack</a
                   >
                   <div class="fs-6 fw-bold text-muted">
                     Integrate Projects Discussions
@@ -366,11 +366,11 @@
                 >
                   <!--begin::Input-->
                   <input
+                    id="kt_modal_connected_accounts_slack"
                     class="form-check-input"
                     name="slack"
                     type="checkbox"
                     value="1"
-                    id="kt_modal_connected_accounts_slack"
                   />
                   <!--end::Input-->
 
@@ -418,7 +418,7 @@
             class="nav-link text-active-primary pb-4 active"
             data-bs-toggle="tab"
             href="#kt_customer_view_overview_tab"
-            >Overview</a
+          >Overview</a
           >
         </li>
         <!--end:::Tab item-->
@@ -429,7 +429,7 @@
             class="nav-link text-active-primary pb-4"
             data-bs-toggle="tab"
             href="#kt_customer_view_overview_events_and_logs_tab"
-            >Events & Logs</a
+          >Events & Logs</a
           >
         </li>
         <!--end:::Tab item-->
@@ -438,10 +438,10 @@
         <li class="nav-item">
           <a
             class="nav-link text-active-primary pb-4"
-            data-kt-countup-tabs="true"
             data-bs-toggle="tab"
+            data-kt-countup-tabs="true"
             href="#kt_customer_view_overview_statements"
-            >Statements</a
+          >Statements</a
           >
         </li>
         <!--end:::Tab item-->
@@ -450,11 +450,11 @@
         <li class="nav-item ms-auto">
           <!--begin::Action menu-->
           <a
-            href="#"
             class="btn btn-primary ps-7"
-            data-kt-menu-trigger="click"
             data-kt-menu-attach="parent"
             data-kt-menu-placement="bottom-end"
+            data-kt-menu-trigger="click"
+            href="#"
           >
             Actions
             <span class="svg-icon svg-icon-2 me-0">
@@ -469,11 +469,11 @@
       <!--end:::Tabs-->
 
       <!--begin:::Tab content-->
-      <div class="tab-content" id="myTabContent">
+      <div id="myTabContent" class="tab-content">
         <!--begin:::Tab pane-->
         <div
-          class="tab-pane fade show active"
           id="kt_customer_view_overview_tab"
+          class="tab-pane fade show active"
           role="tabpanel"
         >
           <PaymentRecords card-classes="mb-6 mb-xl-9"></PaymentRecords>
@@ -488,8 +488,8 @@
 
         <!--begin:::Tab pane-->
         <div
-          class="tab-pane fade"
           id="kt_customer_view_overview_events_and_logs_tab"
+          class="tab-pane fade"
           role="tabpanel"
         >
           <Logs card-classes="mb-6 mb-xl-9"></Logs>
@@ -499,8 +499,8 @@
 
         <!--begin:::Tab pane-->
         <div
-          class="tab-pane fade"
           id="kt_customer_view_overview_statements"
+          class="tab-pane fade"
           role="tabpanel"
         >
           <Earnings card-classes="mb-6 mb-xl-9"></Earnings>
@@ -546,7 +546,7 @@ export default defineComponent({
     Earnings,
     Statement,
     Dropdown3,
-    NewCardModal,
+    NewCardModal
   },
   setup() {
     onMounted(() => {
@@ -555,6 +555,6 @@ export default defineComponent({
     });
 
     return {};
-  },
+  }
 });
 </script>

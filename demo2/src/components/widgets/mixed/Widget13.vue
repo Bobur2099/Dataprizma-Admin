@@ -2,25 +2,25 @@
   <!--begin::Mixed Widget 13-->
   <div
     :class="widgetClasses"
-    class="card"
     :style="`background-color: ${widgetColor}`"
+    class="card"
   >
     <!--begin::Body-->
     <div class="card-body d-flex flex-column">
       <!--begin::Wrapper-->
       <div class="d-flex flex-column flex-grow-1">
         <!--begin::Title-->
-        <a href="#" class="text-dark text-hover-primary fw-bolder fs-3"
+        <a class="text-dark text-hover-primary fw-bolder fs-3" href="#"
           >Contributors</a
         >
         <!--end::Title-->
 
         <!--begin::Chart-->
         <apexchart
-          class="mixed-widget-14-chart"
+          :height="chartHeight"
           :options="chartOptions"
           :series="series"
-          :height="chartHeight"
+          class="mixed-widget-14-chart"
           type="bar"
         ></apexchart>
         <!--end::Chart-->

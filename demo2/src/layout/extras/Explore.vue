@@ -15,8 +15,8 @@
       transform-90
       fs-6
     "
-    data-bs-toggle="tooltip"
     data-bs-placement="right"
+    data-bs-toggle="tooltip"
     data-bs-trigger="hover"
   >
     <span id="kt_explore_toggle_label">Explore</span>
@@ -28,27 +28,27 @@
     id="kt_explore"
     class="bg-body"
     data-kt-drawer="true"
-    data-kt-drawer-name="explore"
     data-kt-drawer-activate="true"
-    data-kt-drawer-overlay="true"
-    data-kt-drawer-width="{default:'350px', 'lg': '475px'}"
-    data-kt-drawer-direction="end"
-    data-kt-drawer-toggle="#kt_explore_toggle"
     data-kt-drawer-close="#kt_explore_close"
+    data-kt-drawer-direction="end"
+    data-kt-drawer-name="explore"
+    data-kt-drawer-overlay="true"
+    data-kt-drawer-toggle="#kt_explore_toggle"
+    data-kt-drawer-width="{default:'350px', 'lg': '475px'}"
   >
     <!--begin::Card-->
     <div class="card shadow-none w-100">
       <!--begin::Header-->
-      <div class="card-header" id="kt_explore_header">
+      <div id="kt_explore_header" class="card-header">
         <h3 class="card-title fw-bolder text-gray-700">
           {{ themeName }} Metronic
         </h3>
 
         <div class="card-toolbar">
           <button
-            type="button"
-            class="btn btn-sm btn-icon btn-active-light-primary me-n5"
             id="kt_explore_close"
+            class="btn btn-sm btn-icon btn-active-light-primary me-n5"
+            type="button"
           >
             <span class="svg-icon svg-icon-2">
               <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
@@ -59,16 +59,16 @@
       <!--end::Header-->
 
       <!--begin::Body-->
-      <div class="card-body" id="kt_explore_body">
+      <div id="kt_explore_body" class="card-body">
         <!--begin::Content-->
         <div
           id="kt_explore_scroll"
           class="scroll-y me-n5 pe-5"
           data-kt-scroll="true"
-          data-kt-scroll-height="auto"
-          data-kt-scroll-wrappers="#kt_explore_body"
           data-kt-scroll-dependencies="#kt_explore_header"
+          data-kt-scroll-height="auto"
           data-kt-scroll-offset="5px"
+          data-kt-scroll-wrappers="#kt_explore_body"
         >
           <!--begin::Wrapper-->
           <div class="mb-0">
@@ -78,8 +78,8 @@
                 <h3 class="mb-0">Metronic Licenses</h3>
 
                 <a
-                  href="https://themeforest.net/licenses/standard"
                   class="fw-bold"
+                  href="https://themeforest.net/licenses/standard"
                   target="_blank"
                 >
                   License FAQs
@@ -107,11 +107,11 @@
 
                     <i
                       class="text-gray-400 fas fa-exclamation-circle ms-1 fs-7"
-                      data-bs-toggle="popover"
-                      data-bs-custom-class="popover-dark"
-                      data-bs-trigger="hover"
-                      data-bs-placement="top"
                       data-bs-content="Use, by you or one client in a single end product which end users are not charged for."
+                      data-bs-custom-class="popover-dark"
+                      data-bs-placement="top"
+                      data-bs-toggle="popover"
+                      data-bs-trigger="hover"
                     >
                     </i>
                   </div>
@@ -147,11 +147,11 @@
 
                     <i
                       class="text-gray-400 fas fa-exclamation-circle ms-1 fs-7"
-                      data-bs-toggle="popover"
-                      data-bs-custom-class="popover-dark"
-                      data-bs-trigger="hover"
-                      data-bs-placement="top"
                       data-bs-content="Use, by you or one client, in a single end product which end users can be charged for."
+                      data-bs-custom-class="popover-dark"
+                      data-bs-placement="top"
+                      data-bs-toggle="popover"
+                      data-bs-trigger="hover"
                     >
                     </i>
                   </div>
@@ -192,10 +192,10 @@
 
                 <div class="text-nowrap">
                   <a
-                    href="https://keenthemes.com/contact/"
                     class="btn btn-sm btn-success"
+                    href="https://keenthemes.com/contact/"
                     target="_blank"
-                    >Contact Us</a
+                  >Contact Us</a
                   >
                 </div>
               </div>
@@ -204,8 +204,8 @@
 
             <!--begin::Purchase-->
             <a
-              href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469"
               class="btn btn-primary mb-15 w-100"
+              href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469"
             >
               Buy Now
             </a>
@@ -229,9 +229,9 @@
                     >
                       <div class="overlay-wrapper">
                         <img
+                          :class="`w-100 ${!item.available && 'opacity-75'}`"
                           :src="`media/demos/${item.name}.png`"
                           alt="demo"
-                          :class="`w-100 ${!item.available && 'opacity-75'}`"
                         />
                       </div>
 
@@ -240,7 +240,7 @@
                           v-if="item.available"
                           :href="`https://preview.keenthemes.com/metronic8/vue/${item.name}`"
                           class="btn btn-sm btn-success shadow"
-                          >{{
+                        >{{
                             item.name.charAt(0).toUpperCase() +
                             item.name.slice(1)
                           }}</a
@@ -289,53 +289,53 @@ export default defineComponent({
     const demos = [
       {
         name: "demo1",
-        available: true,
+        available: true
       },
       {
         name: "demo2",
-        available: true,
+        available: true
       },
       {
-        name: "demo3",
+        name: "demo3"
       },
       {
-        name: "demo4",
+        name: "demo4"
       },
       {
-        name: "demo5",
+        name: "demo5"
       },
       {
-        name: "demo6",
+        name: "demo6"
       },
       {
         name: "demo7",
-        available: true,
+        available: true
       },
       {
-        name: "demo8",
+        name: "demo8"
       },
       {
-        name: "demo9",
+        name: "demo9"
       },
       {
-        name: "demo10",
+        name: "demo10"
       },
       {
-        name: "demo11",
+        name: "demo11"
       },
       {
-        name: "demo12",
+        name: "demo12"
       },
       {
-        name: "demo13",
-      },
+        name: "demo13"
+      }
     ];
 
     return {
       themeName,
       demos,
-      demo,
+      demo
     };
-  },
+  }
 });
 </script>

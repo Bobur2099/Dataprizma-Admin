@@ -3,9 +3,9 @@
     <div class="highlight">
       <button
         class="highlight-copy btn"
+        data-bs-original-title="Copy code"
         data-bs-toggle="tooltip"
         title=""
-        data-bs-original-title="Copy code"
       >
         copy
       </button>

@@ -1,11 +1,11 @@
 <template>
   <!--begin::Modal - New Address-->
   <div
-    class="modal fade"
-    ref="newAddressModalRef"
     id="kt_modal_new_address"
-    tabindex="-1"
+    ref="newAddressModalRef"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
@@ -13,13 +13,13 @@
       <div class="modal-content">
         <!--begin::Form-->
         <Form
-          class="form"
           id="kt_modal_new_address_form"
-          @submit="submit"
           :validation-schema="validationSchema"
+          class="form"
+          @submit="submit"
         >
           <!--begin::Modal header-->
-          <div class="modal-header" id="kt_modal_new_address_header">
+          <div id="kt_modal_new_address_header" class="modal-header">
             <!--begin::Modal title-->
             <h2>Add New Address</h2>
             <!--end::Modal title-->
@@ -41,14 +41,14 @@
           <div class="modal-body py-10 px-lg-17">
             <!--begin::Scroll-->
             <div
-              class="scroll-y me-n7 pe-7"
               id="kt_modal_new_address_scroll"
+              class="scroll-y me-n7 pe-7"
               data-kt-scroll="true"
               data-kt-scroll-activate="{default: false, lg: true}"
-              data-kt-scroll-max-height="auto"
               data-kt-scroll-dependencies="#kt_modal_new_address_header"
-              data-kt-scroll-wrappers="#kt_modal_new_address_scroll"
+              data-kt-scroll-max-height="auto"
               data-kt-scroll-offset="300px"
+              data-kt-scroll-wrappers="#kt_modal_new_address_scroll"
             >
               <!--begin::Notice-->
               <div
@@ -91,11 +91,11 @@
 
                   <!--begin::Input-->
                   <Field
-                    type="text"
-                    class="form-control form-control-solid"
-                    placeholder=""
-                    name="firstName"
                     v-model="newAddressData.firstName"
+                    class="form-control form-control-solid"
+                    name="firstName"
+                    placeholder=""
+                    type="text"
                   />
                   <div class="fv-plugins-message-container">
                     <div class="fv-help-block">
@@ -114,11 +114,11 @@
 
                   <!--end::Input-->
                   <Field
-                    type="text"
-                    class="form-control form-control-solid"
-                    placeholder=""
-                    name="lastName"
                     v-model="newAddressData.lastName"
+                    class="form-control form-control-solid"
+                    name="lastName"
+                    placeholder=""
+                    type="text"
                   />
                   <div class="fv-plugins-message-container">
                     <div class="fv-help-block">
@@ -146,10 +146,10 @@
 
                 <!--begin::Select-->
                 <Field
-                  name="country"
-                  class="form-select form-select-solid"
-                  as="select"
                   v-model="newAddressData.country"
+                  as="select"
+                  class="form-select form-select-solid"
+                  name="country"
                 >
                   <option value="">Select a Country...</option>
                   <option value="AF">Afghanistan</option>
@@ -427,10 +427,10 @@
 
                 <!--begin::Input-->
                 <Field
-                  class="form-control form-control-solid"
-                  placeholder=""
-                  name="address1"
                   v-model="newAddressData.address1"
+                  class="form-control form-control-solid"
+                  name="address1"
+                  placeholder=""
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
@@ -449,10 +449,10 @@
 
                 <!--begin::Input-->
                 <Field
-                  class="form-control form-control-solid"
-                  placeholder=""
-                  name="address2"
                   v-model="newAddressData.address2"
+                  class="form-control form-control-solid"
+                  name="address2"
+                  placeholder=""
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
@@ -471,10 +471,10 @@
 
                 <!--begin::Input-->
                 <Field
-                  class="form-control form-control-solid"
-                  placeholder=""
-                  name="town"
                   v-model="newAddressData.town"
+                  class="form-control form-control-solid"
+                  name="town"
+                  placeholder=""
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
@@ -495,10 +495,10 @@
 
                   <!--begin::Input-->
                   <Field
-                    class="form-control form-control-solid"
-                    placeholder=""
-                    name="state"
                     v-model="newAddressData.state"
+                    class="form-control form-control-solid"
+                    name="state"
+                    placeholder=""
                   />
                   <div class="fv-plugins-message-container">
                     <div class="fv-help-block">
@@ -517,10 +517,10 @@
 
                   <!--begin::Input-->
                   <Field
-                    class="form-control form-control-solid"
-                    placeholder=""
-                    name="postCode"
                     v-model="newAddressData.postCode"
+                    class="form-control form-control-solid"
+                    name="postCode"
+                    placeholder=""
                   />
                   <div class="fv-plugins-message-container">
                     <div class="fv-help-block">
@@ -541,7 +541,7 @@
                   <div class="me-5">
                     <!--begin::Label-->
                     <label class="fs-5 fw-bold"
-                      >Use as a billing adderess?</label
+                    >Use as a billing adderess?</label
                     >
                     <!--end::Label-->
 
@@ -561,11 +561,11 @@
                   >
                     <!--begin::Input-->
                     <Field
+                      checked="checked"
                       class="form-check-input"
                       name="billing"
                       type="checkbox"
                       value="1"
-                      checked="checked"
                     />
                     <div class="fv-plugins-message-container">
                       <div class="fv-help-block">
@@ -594,9 +594,9 @@
           <div class="modal-footer flex-center">
             <!--begin::Button-->
             <button
-              type="reset"
               id="kt_modal_new_address_cancel"
               class="btn btn-white me-3"
+              type="reset"
             >
               Discard
             </button>
@@ -604,10 +604,10 @@
 
             <!--begin::Button-->
             <button
-              ref="submitButtonRef"
-              type="submit"
               id="kt_modal_new_address_submit"
+              ref="submitButtonRef"
               class="btn btn-primary"
+              type="submit"
             >
               <span class="indicator-label"> Submit </span>
               <span class="indicator-progress">
@@ -651,7 +651,7 @@ export default defineComponent({
   components: {
     ErrorMessage,
     Field,
-    Form,
+    Form
   },
   setup() {
     const submitButtonRef = ref<null | HTMLButtonElement>(null);
@@ -665,7 +665,7 @@ export default defineComponent({
       address2: "",
       town: "",
       state: "",
-      postCode: "",
+      postCode: ""
     });
 
     const validationSchema = Yup.object().shape({
@@ -676,7 +676,7 @@ export default defineComponent({
       address2: Yup.string().required().label("Address Line 2"),
       town: Yup.string().required().label("Town"),
       state: Yup.string().required().label("State/Province"),
-      postCode: Yup.string().required().label("Post code"),
+      postCode: Yup.string().required().label("Post code")
     });
 
     const submit = () => {
@@ -702,8 +702,8 @@ export default defineComponent({
           buttonsStyling: false,
           confirmButtonText: "Ok, got it!",
           customClass: {
-            confirmButton: "btn btn-primary",
-          },
+            confirmButton: "btn btn-primary"
+          }
         }).then(() => {
           hideModal(newAddressModalRef.value);
         });
@@ -715,8 +715,8 @@ export default defineComponent({
       validationSchema,
       submit,
       submitButtonRef,
-      newAddressModalRef,
+      newAddressModalRef
     };
-  },
+  }
 });
 </script>

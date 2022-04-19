@@ -1,6 +1,6 @@
 <template>
   <!--begin::Tables Widget 14-->
-  <div class="card" :class="widgetClasses">
+  <div :class="widgetClasses" class="card">
     <!--    begin::Create User-->
     <!--    <KTModalCard-->
     <!--      button-text="Add New Card"-->
@@ -13,14 +13,14 @@
     <!--    begin::Update User-->
     <KTModalCard
       button-text="Add New Card"
+      class="modal-view"
       modal-id="kt_modal_services_header"
       style="display: none"
-      class="modal-view"
     ></KTModalCard>
     <ServicesHeaderModal
+      :create="create"
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
-      :create="create"
     ></ServicesHeaderModal>
     <!--    end::Update User-->
 
@@ -49,8 +49,8 @@
 
       <div
         class="card-toolbar"
-        data-bs-toggle="tooltip"
         data-bs-placement="top"
+        data-bs-toggle="tooltip"
         data-bs-trigger="hover"
       >
         <!--        <a-->
@@ -148,8 +148,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.topicUz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -159,8 +159,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.topicRu }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -170,8 +170,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.topicEn }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -181,8 +181,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.headerUz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -192,8 +192,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.headerRu }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -203,8 +203,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.headerEn }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -254,14 +254,14 @@
                   <!--                  </a>-->
 
                   <a
+                    class="
+                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                      me-1
+                    "
                     @click="
                       fillUpdateInputs(item.id);
                       ServicesHeaderModal();
                       create = 0;
-                    "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                      me-1
                     "
                   >
                     <span class="svg-icon svg-icon-3">

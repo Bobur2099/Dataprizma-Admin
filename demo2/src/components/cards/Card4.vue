@@ -35,8 +35,8 @@
 
         <!--begin::Name-->
         <a
-          href="#"
           class="fs-4 text-gray-800 text-hover-primary fw-bolder mb-0"
+          href="#"
           >{{ name }}</a
         >
         <!--end::Name-->
@@ -86,8 +86,8 @@
         <!--begin::Link-->
         <button
           class="btn btn-sm btn-light-primary fw-bolder"
-          data-kt-drawer-toggle="true"
           data-kt-drawer-target="#kt_drawer_chat"
+          data-kt-drawer-toggle="true"
           @click="openDrawer()"
         >
           Send Message

@@ -13,7 +13,7 @@ import TableWidget19 from "@/components/widgets/tables/dataprizma_widgets/Servic
 export default {
   name: "ServicesCarousel",
   components: {
-    TableWidget19,
-  },
+    TableWidget19
+  }
 };
 </script>

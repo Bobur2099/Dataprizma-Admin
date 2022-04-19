@@ -1,6 +1,6 @@
 <template>
   <!--begin::Tables Widget 14-->
-  <div class="card" :class="widgetClasses">
+  <div :class="widgetClasses" class="card">
     <!--    begin::Create User-->
     <!--    <KTModalCard-->
     <!--      button-text="Add New Card"-->
@@ -13,14 +13,14 @@
     <!--    begin::Update User-->
     <KTModalCard
       button-text="Add New Card"
+      class="modal-view"
       modal-id="kt_modal_portfolio"
       style="display: none"
-      class="modal-view"
     ></KTModalCard>
     <PortfolioModal
+      :create="create"
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
-      :create="create"
     ></PortfolioModal>
     <!--    end::Update User-->
 
@@ -49,14 +49,14 @@
 
       <div
         class="card-toolbar"
-        data-bs-toggle="tooltip"
         data-bs-placement="top"
+        data-bs-toggle="tooltip"
         data-bs-trigger="hover"
       >
         <a
           class="btn btn-sm btn-light-primary"
-          data-bs-toggle="modal"
           data-bs-target="#kt_modal_invite_friends"
+          data-bs-toggle="modal"
           @click="
             fillUpdateInputs(-1);
             create = 1;
@@ -150,9 +150,9 @@
                             :src="
                               'http://site.dataprizma.uz/' + item.uploadPath
                             "
-                            width="50"
-                            height="50"
                             class="view-box"
+                            height="50"
+                            width="50"
                           />
                         </photo-consumer>
                       </photo-provider>
@@ -167,104 +167,104 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.headerUz }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.headerRu }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.headerEn }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textUz }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textRu }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textEn }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.budget }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.location }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.clientNameUz }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.clientNameRu }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.clientNameEn }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.startDate }}</a
                   >
                 </td>
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.endDate }}</a
                   >
                 </td>
@@ -284,14 +284,14 @@
                   <!--                  </a>-->
 
                   <a
+                    class="
+                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                      me-1
+                    "
                     @click="
                       fillUpdateInputs(item.id);
                       PortfolioModal();
                       create = 0;
-                    "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                      me-1
                     "
                   >
                     <span class="svg-icon svg-icon-3">
@@ -300,14 +300,14 @@
                   </a>
 
                   <a
+                    class="
+                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                    "
                     @click="
                       /*deleteUser(item.id, index)*/
                       fillUpdateInputs(item.id);
                       create = 2;
                       PortfolioModal();
-                    "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                     "
                   >
                     <span class="svg-icon svg-icon-3">

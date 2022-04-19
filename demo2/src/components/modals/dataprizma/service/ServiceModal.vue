@@ -1,22 +1,22 @@
 <template>
   <!--begin::Modal - New Card-->
   <div
-    class="modal fade"
-    ref="newCardModalRef"
     id="kt_modal_service"
-    tabindex="-1"
+    ref="newCardModalRef"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-1000px" v-if="create < 2">
+    <div v-if="create < 2" class="modal-dialog modal-dialog-centered mw-1000px">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
         <div class="modal-header">
           <!--begin::Modal title-->
           <h2>
-            <span v-if="create == 1"> {{ $t("create") }}</span
-            ><span v-if="create == 0"> {{ $t("update") }}</span> Dataprizma
+            <span v-if="create === 1"> {{ $t("create") }}</span
+            ><span v-if="create === 0"> {{ $t("update") }}</span> Dataprizma
             {{ $t("service") }} {{ $t("content") }}
           </h2>
           <!--end::Modal title-->
@@ -39,9 +39,9 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form row"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row col-6">
@@ -54,10 +54,10 @@
               <!--end::Label-->
 
               <Field
-                type="file"
-                class="form-control form-control-solid file"
                 ref="file-upload"
+                class="form-control form-control-solid file"
                 name="file"
+                type="file"
                 @change="fileChosen($event)"
               />
               <div class="fv-plugins-message-container">
@@ -80,10 +80,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateHeaderUz"
                   class="form-control form-control-solid"
                   name="header-uz"
-                  v-model="updateHeaderUz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -103,10 +103,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateHeaderRu"
                   class="form-control form-control-solid"
                   name="header-ru"
-                  v-model="updateHeaderRu"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -126,10 +126,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateHeaderEn"
                   class="form-control form-control-solid"
                   name="header-en"
-                  v-model="updateHeaderEn"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -149,10 +149,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updatePrimaryUz"
                   class="form-control form-control-solid"
                   name="primary-uz"
-                  v-model="updatePrimaryUz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -172,10 +172,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updatePrimaryRu"
                   class="form-control form-control-solid"
                   name="primary-ru"
-                  v-model="updatePrimaryRu"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -195,10 +195,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updatePrimaryEn"
                   class="form-control form-control-solid"
                   name="primary-en"
-                  v-model="updatePrimaryEn"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -218,10 +218,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextUz"
                   class="form-control form-control-solid"
                   name="text-uz"
-                  v-model="updateTextUz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -241,10 +241,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextRu"
                   class="form-control form-control-solid"
                   name="text-ru"
-                  v-model="updateTextRu"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -264,10 +264,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextEn"
                   class="form-control form-control-solid"
                   name="text-en"
-                  v-model="updateTextEn"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -287,10 +287,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateSphereText1Uz"
                   class="form-control form-control-solid"
                   name="sphere-text-1-uz"
-                  v-model="updateSphereText1Uz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -310,10 +310,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateSphereText1Ru"
                   class="form-control form-control-solid"
                   name="sphere-text-1-ru"
-                  v-model="updateSphereText1Ru"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -333,10 +333,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateSphereText1En"
                   class="form-control form-control-solid"
                   name="sphere-text-1-en"
-                  v-model="updateSphereText1En"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -356,10 +356,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateSphereText2Uz"
                   class="form-control form-control-solid"
                   name="sphere-text-2-uz"
-                  v-model="updateSphereText2Uz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -379,10 +379,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateSphereText2Ru"
                   class="form-control form-control-solid"
                   name="sphere-text-2-ru"
-                  v-model="updateSphereText2Ru"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -402,10 +402,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateSphereText2En"
                   class="form-control form-control-solid"
                   name="sphere-text-2-en"
-                  v-model="updateSphereText2En"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -425,10 +425,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateSphereText3Uz"
                   class="form-control form-control-solid"
                   name="sphere-text-3-uz"
-                  v-model="updateSphereText3Uz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -448,10 +448,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateSphereText3Ru"
                   class="form-control form-control-solid"
                   name="sphere-text-3-ru"
-                  v-model="updateSphereText3Ru"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -471,10 +471,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateSphereText3En"
                   class="form-control form-control-solid"
                   name="sphere-text-3-en"
-                  v-model="updateSphereText3En"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -494,10 +494,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextFirstUz"
                   class="form-control form-control-solid"
                   name="text-1-uz"
-                  v-model="updateTextFirstUz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -517,10 +517,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextFirstRu"
                   class="form-control form-control-solid"
                   name="text-1-ru"
-                  v-model="updateTextFirstRu"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -540,10 +540,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextFirstEn"
                   class="form-control form-control-solid"
                   name="text-1-en"
-                  v-model="updateTextFirstEn"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -563,10 +563,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextSecondUz"
                   class="form-control form-control-solid"
                   name="text-2-uz"
-                  v-model="updateTextSecondUz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -586,10 +586,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextSecondRu"
                   class="form-control form-control-solid"
                   name="text-2-ru"
-                  v-model="updateTextSecondRu"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -609,10 +609,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextSecondEn"
                   class="form-control form-control-solid"
                   name="text-2-en"
-                  v-model="updateTextSecondEn"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -632,10 +632,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextThirdUz"
                   class="form-control form-control-solid"
                   name="text-3-uz"
-                  v-model="updateTextThirdUz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -655,10 +655,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextThirdRu"
                   class="form-control form-control-solid"
                   name="text-3-ru"
-                  v-model="updateTextThirdRu"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -678,10 +678,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTextThirdEn"
                   class="form-control form-control-solid"
                   name="text-3-en"
-                  v-model="updateTextThirdEn"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -692,18 +692,18 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                type="reset"
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
+                type="reset"
               >
                 {{ $t("discard") }}
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_new_card_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -729,8 +729,8 @@
     <!--end::Modal dialog-->
 
     <div
-      class="modal-dialog modal-dialog-centered mw-1000px"
       v-if="create === 2"
+      class="modal-dialog modal-dialog-centered mw-1000px"
     >
       <!--begin::Modal content-->
       <div class="modal-content">
@@ -758,17 +758,17 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_fail_submit"
+                ref="submitButtonRef"
                 class="btn btn-danger mx-5"
+                type="submit"
                 @click="submit('cancel')"
               >
                 <span class="indicator-label"> Cancel </span>
@@ -781,10 +781,10 @@
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_success_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -821,6 +821,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import requests from "@/request/dataprizma_request_links/request_links";
 import { useI18n } from "vue-i18n";
+import { setLocale } from "yup";
 
 interface CardData {
   nameOnCard: string;
@@ -865,6 +866,7 @@ export default defineComponent({
       updateTextThirdUz: "",
       updateTextThirdRu: "",
       updateTextThirdEn: "",
+      responseError: 200,
       error: 0,
     };
   },
@@ -876,7 +878,74 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
-      newValue;
+      const service_items = JSON.parse(Object(localStorage.getItem("service")));
+      let service_item = {
+        headerEn: "",
+        headerRu: "",
+        headerUz: "",
+        primaryEn: "",
+        primaryRu: "",
+        primaryUz: "",
+        sphereText1En: "",
+        sphereText1Ru: "",
+        sphereText1Uz: "",
+        sphereText2En: "",
+        sphereText2Ru: "",
+        sphereText2Uz: "",
+        sphereText3En: "",
+        sphereText3Ru: "",
+        sphereText3Uz: "",
+        textEn: "",
+        textFirstEn: "",
+        textFirstRu: "",
+        textFirstUz: "",
+        textRu: "",
+        textSecondEn: "",
+        textSecondRu: "",
+        textSecondUz: "",
+        textThirdEn: "",
+        textThirdRu: "",
+        textThirdUz: "",
+        textUz: "",
+      };
+      for (const item of service_items) {
+        if (item.id === newValue) {
+          service_item = Object(item);
+          for (let property in service_item) {
+            if (service_item[property] === null) {
+              service_item[property] = "";
+            }
+          }
+          break;
+        }
+      }
+      this.updateHeaderEn = service_item.headerEn;
+      this.updateHeaderRu = service_item.headerRu;
+      this.updateHeaderUz = service_item.headerUz;
+      this.updatePrimaryEn = service_item.primaryEn;
+      this.updatePrimaryRu = service_item.primaryRu;
+      this.updatePrimaryUz = service_item.primaryUz;
+      this.updateSphereText1En = service_item.sphereText1En;
+      this.updateSphereText1Ru = service_item.sphereText1Ru;
+      this.updateSphereText1Uz = service_item.sphereText1Uz;
+      this.updateSphereText2En = service_item.sphereText2En;
+      this.updateSphereText2Ru = service_item.sphereText2Ru;
+      this.updateSphereText2Uz = service_item.sphereText2Uz;
+      this.updateSphereText3En = service_item.sphereText3En;
+      this.updateSphereText3Ru = service_item.sphereText3Ru;
+      this.updateSphereText3Uz = service_item.sphereText3Uz;
+      this.updateTextEn = service_item.textEn;
+      this.updateTextFirstEn = service_item.textFirstEn;
+      this.updateTextFirstRu = service_item.textFirstRu;
+      this.updateTextFirstUz = service_item.textFirstUz;
+      this.updateTextRu = service_item.textRu;
+      this.updateTextSecondEn = service_item.textSecondEn;
+      this.updateTextSecondRu = service_item.textSecondRu;
+      this.updateTextSecondUz = service_item.textSecondUz;
+      this.updateTextThirdEn = service_item.textThirdEn;
+      this.updateTextThirdRu = service_item.textThirdRu;
+      this.updateTextThirdUz = service_item.textThirdUz;
+      this.updateTextUz = service_item.textUz;
     },
     create(newValue) {
       newValue;
@@ -886,10 +955,12 @@ export default defineComponent({
     fileChosen(e) {
       this.updateFile = e.target.files;
       const formCleaner = document.querySelectorAll(".reset")[0];
+
       function func() {
         e.target.value = "";
         formCleaner.removeEventListener("click", func);
       }
+
       formCleaner.addEventListener("click", func);
     },
     isImage(file) {
@@ -1056,6 +1127,12 @@ export default defineComponent({
       ? (localStorage.getItem("lang") as string)
       : "en";
 
+    setLocale({
+      mixed: {
+        required: i18n.t("forms_validation_required"),
+      },
+    });
+
     const cardData = ref<CardData>({
       nameOnCard: "Max Doe",
       cardNumber: "4111 1111 1111 1111",
@@ -1091,7 +1168,7 @@ export default defineComponent({
         });
       }
 
-      function errorAlert(text) {
+      function errorAlert(text, doThen = false) {
         Swal.fire({
           text: translate(text),
           icon: "error",
@@ -1100,6 +1177,10 @@ export default defineComponent({
           customClass: {
             confirmButton: "btn fw-bold btn-light-danger",
           },
+        }).then(() => {
+          if (doThen) {
+            location.reload();
+          }
         });
       }
 
@@ -1122,8 +1203,15 @@ export default defineComponent({
 
         const error = instance?.data.error;
         const create = instance?.props.create;
+        const responseError = instance?.data.responseError;
 
-        if (text !== "cancel") {
+        if (responseError === 500) {
+          errorAlert("Too much text was given to input");
+        } else if (responseError === 401) {
+          errorAlert("You are not authorized", true);
+        }
+
+        if (text !== "cancel" && responseError === 200) {
           if (error === 0) {
             if (create === 1) {
               successAlert("item_added");

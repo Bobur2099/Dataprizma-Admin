@@ -14,7 +14,7 @@
         "
       >
         <!--begin::Name-->
-        <a href="#" class="text-gray-800 text-hover-primary d-flex flex-column">
+        <a class="text-gray-800 text-hover-primary d-flex flex-column" href="#">
           <!--begin::Image-->
           <div class="symbol symbol-60px mb-6">
             <img :src="`media/svg/files/${fileType}.svg`" alt="" />
@@ -51,8 +51,8 @@ export default defineComponent({
 
     createdAt: String,
 
-    fileType: String,
+    fileType: String
   },
-  components: {},
+  components: {}
 });
 </script>

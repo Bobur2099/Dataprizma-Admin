@@ -13,7 +13,7 @@ import TableWidget15 from "@/components/widgets/tables/dataprizma_widgets/MainWr
 export default {
   name: "MainWrap",
   components: {
-    TableWidget15,
-  },
+    TableWidget15
+  }
 };
 </script>

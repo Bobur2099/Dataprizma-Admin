@@ -2,19 +2,19 @@
   <!--begin::Tables Widget 9-->
   <!--  begin::Create Role-->
   <div
-    class="card"
-    :class="widgetClasses"
     v-if="permissionsBooleanByName('role_table')"
+    :class="widgetClasses"
+    class="card"
   >
     <KTModalCard
       button-text="Add New Card"
+      class="modal-view-permission"
       modal-id="kt_modal_permissions_role"
       style="display: none"
-      class="modal-view-permission"
     ></KTModalCard>
     <PermissionsRoleModal
-      user-perms-copy="user_perms"
       type-permission-copy="type_perms"
+      user-perms-copy="user_perms"
       v-bind:type-perms-name="type_perms_name"
       v-on:permission-load="
         permissionsRefresh();
@@ -26,14 +26,14 @@
     <!--    start::Main-Wrap Modal-->
     <KTModalCard
       button-text="Add New Card"
+      class="modal-view"
       modal-id="kt_modal_role"
       style="display: none"
-      class="modal-view"
     ></KTModalCard>
     <RoleModal
+      :create="create"
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
-      :create="create"
     ></RoleModal>
     <!--    end::Main-Wrap Modal-->
 
@@ -47,21 +47,21 @@
 
       <div
         class="card-toolbar"
-        data-bs-toggle="tooltip"
         data-bs-placement="top"
+        data-bs-toggle="tooltip"
         data-bs-trigger="hover"
         title="Click to add a user"
       >
         <a
+          v-if="permissionsBooleanByName('create')"
           class="btn btn-sm btn-light-primary"
-          data-bs-toggle="modal"
           data-bs-target="#kt_modal_invite_friends"
+          data-bs-toggle="modal"
           @click="
             fillUpdateInputs(-1);
             create = 1;
             RoleModal();
           "
-          v-if="permissionsBooleanByName('create')"
         >
           <span class="svg-icon svg-icon-3">
             <inline-svg src="/media/icons/duotune/arrows/arr075.svg" />
@@ -131,8 +131,8 @@
                     <!--                    </div>-->
                     <div class="d-flex justify-content-start flex-column">
                       <a
-                        href="#"
                         class="text-dark fw-bolder text-hover-primary fs-6"
+                        href="#"
                         >{{ item.name }}</a
                       >
 
@@ -202,17 +202,17 @@
                   <!--                  </a>-->
 
                   <a
+                    v-if="permissionsBooleanByName('update')"
+                    class="
+                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                      me-1
+                    "
                     @click="
                       // fillUpdateInputs(index);
                       fillUpdateInputs(item.id);
                       RoleModal();
                       create = 0;
                     "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                      me-1
-                    "
-                    v-if="permissionsBooleanByName('update')"
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg src="/media/icons/duotune/art/art005.svg" />
@@ -220,15 +220,15 @@
                   </a>
 
                   <a
+                    v-if="permissionsBooleanByName('delete')"
+                    class="
+                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                    "
                     @click="
                       fillUpdateInputs(item.id);
                       create = 2;
                       RoleModal();
                     "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                    "
-                    v-if="permissionsBooleanByName('delete')"
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg

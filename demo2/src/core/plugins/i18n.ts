@@ -1,5 +1,7 @@
 import { createI18n } from "vue-i18n";
 
+//TODO forms_validation_*
+
 const messages = {
   uz: {
     administration: "Administratsia",
@@ -140,6 +142,11 @@ const messages = {
     datas: "Malumotlari",
     review: "Ko'rib chiqish",
     //end:Widgets
+
+    //start:Forms
+    forms_validation_required: "Buni to'ldirish shart",
+    forms_validation_file: "File is required",
+    //end:Forms
   },
   ru: {
     administration: "Администрация",
@@ -280,6 +287,11 @@ const messages = {
     datas: "Информации",
     review: "Просмотр",
     //end:Widgets
+
+    //start:Forms
+    forms_validation_required: "Buni to'ldirish shart",
+    forms_validation_file: "File is required",
+    //end:Forms
   },
   en: {
     dashboard: "Dashboard",
@@ -483,6 +495,11 @@ const messages = {
     choose_file: "Choose FIle",
     review: "Review",
     //end:Widgets
+
+    //start:Forms
+    forms_validation_required: "This field is required",
+    forms_validation_file: "File is required",
+    //end:Forms
   },
   es: {
     dashboard: "Tablero",

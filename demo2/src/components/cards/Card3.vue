@@ -2,7 +2,7 @@
   <!--begin::Col-->
   <div class="col-md-6 col-xxl-4">
     <!--begin::Card-->
-    <div class="card" :class="cardClasses">
+    <div :class="cardClasses" class="card">
       <!--begin::Card body-->
       <div class="card-body d-flex flex-center flex-column p-9">
         <!--begin::Avatar-->
@@ -52,8 +52,8 @@
 
         <!--begin::Name-->
         <a
-          href="#"
           class="fs-4 text-gray-800 text-hover-primary fw-bolder mb-0"
+          href="#"
           >{{ name }}</a
         >
         <!--end::Name-->
@@ -85,13 +85,13 @@
         <!--end::Info-->
 
         <!--begin::Follow-->
-        <a v-if="connected" href="#" class="btn btn-sm btn-light-primary">
+        <a v-if="connected" class="btn btn-sm btn-light-primary" href="#">
           <span class="svg-icon svg-icon-3">
             <inline-svg src="/media/icons/duotune/arrows/arr012.svg" />
           </span>
           Connected
         </a>
-        <a v-else href="#" class="btn btn-sm btn-light">
+        <a v-else class="btn btn-sm btn-light" href="#">
           <span class="svg-icon svg-icon-3">
             <inline-svg src="/media/icons/duotune/arrows/arr075.svg" />
           </span>

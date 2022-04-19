@@ -7,16 +7,16 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           :class="`btn-active-color-${widgetColor}`"
           class="
             btn btn-sm btn-icon btn-color-white btn-active-white
             border-0
             me-n3
           "
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -32,9 +32,9 @@
       <!--begin::Chart-->
       <apexchart
         :class="`bg-${widgetColor}`"
-        class="mixed-widget-2-chart card-rounded-bottom"
         :options="chartOptions"
         :series="series"
+        class="mixed-widget-2-chart card-rounded-bottom"
         height="200"
         type="area"
       ></apexchart>
@@ -47,13 +47,13 @@
             <span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
               <inline-svg src="/media/icons/duotune/general/gen032.svg" />
             </span>
-            <a href="#" class="text-warning fw-bold fs-6"> Weekly Sales </a>
+            <a class="text-warning fw-bold fs-6" href="#"> Weekly Sales </a>
           </div>
           <div class="col bg-light-primary px-6 py-8 rounded-2 mb-7">
             <span class="svg-icon svg-icon-3x svg-icon-primary d-block my-2">
               <inline-svg src="/media/icons/duotune/arrows/arr075.svg" />
             </span>
-            <a href="#" class="text-primary fw-bold fs-6"> New Users </a>
+            <a class="text-primary fw-bold fs-6" href="#"> New Users </a>
           </div>
         </div>
         <!--end::Row-->
@@ -63,13 +63,13 @@
             <span class="svg-icon svg-icon-3x svg-icon-danger d-block my-2">
               <inline-svg src="/media/icons/duotune/abstract/abs027.svg" />
             </span>
-            <a href="#" class="text-danger fw-bold fs-6 mt-2"> Item Orders </a>
+            <a class="text-danger fw-bold fs-6 mt-2" href="#"> Item Orders </a>
           </div>
           <div class="col bg-light-success px-6 py-8 rounded-2">
             <span class="svg-icon svg-icon-3x svg-icon-success d-block my-2">
               <inline-svg src="/media/icons/duotune/communication/com010.svg" />
             </span>
-            <a href="#" class="text-success fw-bold fs-6 mt-2"> Bug Reports </a>
+            <a class="text-success fw-bold fs-6 mt-2" href="#"> Bug Reports </a>
           </div>
         </div>
         <!--end::Row-->

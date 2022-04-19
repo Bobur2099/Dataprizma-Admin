@@ -4,9 +4,9 @@
     <!--begin::Body-->
     <div class="card-body my-3">
       <a
-        href="#"
         :class="`text-${color}`"
         class="card-title fw-bolder fs-5 mb-3 d-block"
+        href="#"
       >
         {{ description }}
       </a>
@@ -20,12 +20,12 @@
       <div :class="`bg-${color}`" class="progress h-7px bg-opacity-50 mt-7">
         <div
           :class="`bg-${color}`"
+          :style="`width: ${progress}`"
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="50"
           class="progress-bar"
           role="progressbar"
-          :style="`width: ${progress}`"
-          aria-valuenow="50"
-          aria-valuemin="0"
-          aria-valuemax="100"
         ></div>
       </div>
     </div>

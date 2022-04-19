@@ -1,10 +1,10 @@
 <template>
   <KTModalCard
-    title="New Target Modal Example"
+    button-text="Add New Target"
     description="Click on the below buttons to launch <br/>a new target example."
     image="media/illustrations/sketchy-1/17.png"
-    button-text="Add New Target"
     modal-id="kt_modal_new_target"
+    title="New Target Modal Example"
   ></KTModalCard>
 
   <KTNewTargetModal></KTNewTargetModal>
@@ -20,12 +20,12 @@ export default defineComponent({
   name: "new-target",
   components: {
     KTModalCard,
-    KTNewTargetModal,
+    KTNewTargetModal
   },
   setup() {
     onMounted(() => {
       setCurrentPageBreadcrumbs("New Target", ["Modals", "Forms"]);
     });
-  },
+  }
 });
 </script>

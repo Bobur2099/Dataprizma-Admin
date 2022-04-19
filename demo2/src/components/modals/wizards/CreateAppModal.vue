@@ -1,11 +1,11 @@
 <template>
   <!--begin::Modal - Create App-->
   <div
-    class="modal fade"
     id="kt_modal_create_app"
     ref="createAppModalRef"
-    tabindex="-1"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-900px">
@@ -34,13 +34,13 @@
         <div class="modal-body py-lg-10 px-lg-10">
           <!--begin::Stepper-->
           <div
+            id="kt_modal_create_app_stepper"
+            ref="createAppRef"
             class="
               stepper stepper-pills stepper-column
               d-flex
               flex-column flex-xl-row flex-row-fluid
             "
-            id="kt_modal_create_app_stepper"
-            ref="createAppRef"
           >
             <!--begin::Aside-->
             <div
@@ -176,9 +176,9 @@
             <div class="flex-row-fluid py-lg-5 px-lg-15">
               <!--begin::Form-->
               <form
+                id="kt_modal_create_app_form"
                 class="form"
                 novalidate="novalidate"
-                id="kt_modal_create_app_form"
                 @submit="handleStep"
               >
                 <!--begin::Step 1-->
@@ -201,10 +201,10 @@
 
                       <!--begin::Input-->
                       <Field
-                        type="text"
                         class="form-control form-control-lg form-control-solid"
                         name="appName"
                         placeholder=""
+                        type="text"
                       />
                       <ErrorMessage
                         class="fv-plugins-message-container invalid-feedback"
@@ -273,8 +273,8 @@
                           >
                             <Field
                               class="form-check-input"
-                              type="radio"
                               name="category"
+                              type="radio"
                               value="1"
                             />
                           </span>
@@ -323,8 +323,8 @@
                           >
                             <Field
                               class="form-check-input"
-                              type="radio"
                               name="category"
+                              type="radio"
                               value="2"
                             />
                           </span>
@@ -373,8 +373,8 @@
                           >
                             <Field
                               class="form-check-input"
-                              type="radio"
                               name="category"
+                              type="radio"
                               value="3"
                             />
                           </span>
@@ -438,10 +438,10 @@
                           class="form-check form-check-custom form-check-solid"
                         >
                           <Field
-                            class="form-check-input"
-                            type="radio"
                             checked
+                            class="form-check-input"
                             name="framework"
+                            type="radio"
                             value="1"
                           />
                         </span>
@@ -478,8 +478,8 @@
                         >
                           <input
                             class="form-check-input"
-                            type="radio"
                             name="framework"
+                            type="radio"
                             value="2"
                           />
                         </span>
@@ -516,8 +516,8 @@
                         >
                           <Field
                             class="form-check-input"
-                            type="radio"
                             name="framework"
+                            type="radio"
                             value="3"
                           />
                         </span>
@@ -554,8 +554,8 @@
                         >
                           <Field
                             class="form-check-input"
-                            type="radio"
                             name="framework"
+                            type="radio"
                             value="4"
                           />
                         </span>
@@ -586,10 +586,10 @@
 
                       <!--begin::Input-->
                       <Field
-                        type="text"
                         class="form-control form-control-lg form-control-solid"
                         name="dbName"
                         placeholder=""
+                        type="text"
                       />
                       <ErrorMessage
                         class="fv-plugins-message-container invalid-feedback"
@@ -645,8 +645,8 @@
                         >
                           <Field
                             class="form-check-input"
-                            type="radio"
                             name="dbType"
+                            type="radio"
                             value="1"
                           />
                         </span>
@@ -684,8 +684,8 @@
                         >
                           <Field
                             class="form-check-input"
-                            type="radio"
                             name="dbType"
+                            type="radio"
                             value="2"
                           />
                         </span>
@@ -723,8 +723,8 @@
                         >
                           <Field
                             class="form-check-input"
-                            type="radio"
                             name="dbType"
+                            type="radio"
                             value="3"
                           />
                         </span>
@@ -768,10 +768,10 @@
                       <!--end::Label-->
 
                       <Field
-                        type="text"
                         class="form-control form-control-solid"
-                        placeholder=""
                         name="nameOnCard"
+                        placeholder=""
+                        type="text"
                       />
                       <ErrorMessage
                         class="fv-plugins-message-container invalid-feedback"
@@ -792,10 +792,10 @@
                       <div class="position-relative">
                         <!--begin::Input-->
                         <Field
-                          type="text"
                           class="form-control form-control-solid"
-                          placeholder="Enter card number"
                           name="cardNumber"
+                          placeholder="Enter card number"
+                          type="text"
                         />
                         <ErrorMessage
                           class="fv-plugins-message-container invalid-feedback"
@@ -814,19 +814,19 @@
                           "
                         >
                           <img
+                            alt=""
+                            class="h-25px"
                             src="media/svg/card-logos/visa.svg"
-                            alt=""
-                            class="h-25px"
                           />
                           <img
+                            alt=""
+                            class="h-25px"
                             src="media/svg/card-logos/mastercard.svg"
-                            alt=""
-                            class="h-25px"
                           />
                           <img
-                            src="media/svg/card-logos/american-express.svg"
                             alt=""
                             class="h-25px"
+                            src="media/svg/card-logos/american-express.svg"
                           />
                         </div>
                         <!--end::Card logos-->
@@ -850,13 +850,13 @@
                           <!--begin::Col-->
                           <div class="col-6">
                             <Field
-                              name="cardExpiryMonth"
+                              as="select"
                               class="
                                 form-select form-select-solid
                                 select2-hidden-accessible
                               "
+                              name="cardExpiryMonth"
                               placeholder="Month"
-                              as="select"
                             >
                               <option
                                 v-for="i in 12"
@@ -878,13 +878,13 @@
                           <!--begin::Col-->
                           <div class="col-6">
                             <Field
-                              name="cardExpiryYear"
+                              as="select"
                               class="
                                 form-select form-select-solid
                                 select2-hidden-accessible
                               "
+                              name="cardExpiryYear"
                               placeholder="Year"
-                              as="select"
                             >
                               <option
                                 v-for="i in 10"
@@ -933,12 +933,12 @@
                         <div class="position-relative">
                           <!--begin::Input-->
                           <Field
-                            type="text"
                             class="form-control form-control-solid"
-                            minlength="3"
                             maxlength="4"
-                            placeholder="CVV"
+                            minlength="3"
                             name="cardCvv"
+                            placeholder="CVV"
+                            type="text"
                           />
                           <ErrorMessage
                             class="
@@ -996,9 +996,9 @@
                         "
                       >
                         <Field
-                          type="checkbox"
                           class="form-check-input"
                           name="saveCard"
+                          type="checkbox"
                           value="1"
                         />
                         <span class="form-check-label fw-bold text-gray-400">
@@ -1028,9 +1028,9 @@
                     <!--begin::Illustration-->
                     <div class="text-center px-4 py-15">
                       <img
-                        src="media/illustrations/sketchy-1/9.png"
                         alt=""
                         class="w-100 mh-300px"
+                        src="media/illustrations/sketchy-1/9.png"
                       />
                     </div>
                     <!--end::Illustration-->
@@ -1043,9 +1043,9 @@
                   <!--begin::Wrapper-->
                   <div class="me-2">
                     <button
-                      type="button"
                       class="btn btn-lg btn-light-primary me-3"
                       data-kt-stepper-action="previous"
+                      type="button"
                       @click="previousStep()"
                     >
                       <span class="svg-icon svg-icon-3 me-1">
@@ -1061,9 +1061,9 @@
                   <!--begin::Wrapper-->
                   <div>
                     <button
-                      type="submit"
-                      class="btn btn-lg btn-primary"
                       v-if="currentStepIndex === totalSteps - 1"
+                      class="btn btn-lg btn-primary"
+                      type="submit"
                       @click="formSubmit()"
                     >
                       <span class="indicator-label">
@@ -1086,7 +1086,7 @@
                       </span>
                     </button>
 
-                    <button type="submit" class="btn btn-lg btn-primary" v-else>
+                    <button v-else class="btn btn-lg btn-primary" type="submit">
                       Continue
                       <span class="svg-icon svg-icon-3 ms-1 me-0">
                         <inline-svg

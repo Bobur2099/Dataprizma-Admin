@@ -43,12 +43,12 @@ export default defineComponent({
     KTWidget6,
     KTChartWidget1,
     KTListWidget5,
-    KTEngageWidget1,
+    KTEngageWidget1
   },
   setup() {
     onMounted(() => {
       setCurrentPageBreadcrumbs("Overview", ["Pages", "Profile"]);
     });
-  },
+  }
 });
 </script>

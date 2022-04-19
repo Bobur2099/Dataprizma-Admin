@@ -21,8 +21,8 @@
       <div class="pe-3 mb-5">
         <!--begin::Title-->
         <div class="fs-5 fw-bold mb-2">
-          Task <a href="#" class="text-primary fw-bolder me-1">#45890</a> merged
-          with <a href="#" class="text-primary fw-bolder me-1">#45890</a> in
+          Task <a class="text-primary fw-bolder me-1" href="#">#45890</a> merged
+          with <a class="text-primary fw-bolder me-1" href="#">#45890</a> in
           “Ads Pro Admin Dashboard project:
         </div>
         <!--end::Title-->
@@ -36,12 +36,12 @@
           <!--begin::User-->
           <div
             class="symbol symbol-circle symbol-25px"
-            data-bs-toggle="tooltip"
             data-bs-boundary="window"
             data-bs-placement="top"
+            data-bs-toggle="tooltip"
             title="Nina Nilson"
           >
-            <img src="media/avatars/150-11.jpg" alt="img" />
+            <img alt="img" src="media/avatars/150-11.jpg" />
           </div>
           <!--end::User-->
         </div>
@@ -59,6 +59,6 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "",
-  components: {},
+  components: {}
 });
 </script>

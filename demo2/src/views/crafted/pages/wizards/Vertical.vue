@@ -1,13 +1,13 @@
 <template>
   <!--begin::Stepper-->
   <div
+    id="kt_create_account_stepper"
+    ref="verticalWizardRef"
     class="
       stepper stepper-pills stepper-column
       d-flex
       flex-column flex-xl-row flex-row-fluid
     "
-    id="kt_create_account_stepper"
-    ref="verticalWizardRef"
   >
     <!--begin::Aside-->
     <div
@@ -149,9 +149,9 @@
     <div class="d-flex flex-row-fluid flex-center bg-white rounded">
       <!--begin::Form-->
       <form
+        id="kt_create_account_form"
         class="py-20 w-100 w-xl-700px px-9"
         novalidate="novalidate"
-        id="kt_create_account_form"
         @submit="handleStep"
       >
         <!--begin::Step 1-->
@@ -189,9 +189,9 @@
           <!--begin::Wrapper-->
           <div class="mr-2">
             <button
-              type="button"
               class="btn btn-lg btn-light-primary me-3"
               data-kt-stepper-action="previous"
+              type="button"
               @click="previousStep"
             >
               <span class="svg-icon svg-icon-4 me-1">
@@ -205,10 +205,10 @@
           <!--begin::Wrapper-->
           <div>
             <button
-              type="button"
+              v-if="currentStepIndex === totalSteps - 1"
               class="btn btn-lg btn-primary me-3"
               data-kt-stepper-action="submit"
-              v-if="currentStepIndex === totalSteps - 1"
+              type="button"
               @click="formSubmit()"
             >
               <span class="indicator-label">
@@ -225,7 +225,7 @@
               </span>
             </button>
 
-            <button v-else type="submit" class="btn btn-lg btn-primary">
+            <button v-else class="btn btn-lg btn-primary" type="submit">
               Continue
               <span class="svg-icon svg-icon-4 ms-1 me-0">
                 <inline-svg src="/media/icons/duotune/arrows/arr064.svg" />
@@ -283,7 +283,8 @@ interface IStep4 {
   saveCard: string;
 }
 
-interface CreateAccount extends IStep1, IStep2, IStep3, IStep4 {}
+interface CreateAccount extends IStep1, IStep2, IStep3, IStep4 {
+}
 
 export default defineComponent({
   name: "kt-vertical-wizard",
@@ -292,7 +293,7 @@ export default defineComponent({
     Step2,
     Step3,
     Step4,
-    Step5,
+    Step5
   },
   setup() {
     const _stepperObj = ref<StepperComponent | null>(null);
@@ -314,7 +315,7 @@ export default defineComponent({
       cardExpiryMonth: "1",
       cardExpiryYear: "2",
       cardCvv: "123",
-      saveCard: "1",
+      saveCard: "1"
     });
 
     onMounted(() => {
@@ -327,10 +328,10 @@ export default defineComponent({
 
     const createAccountSchema = [
       Yup.object({
-        accountType: Yup.string().required().label("Account Type"),
+        accountType: Yup.string().required().label("Account Type")
       }),
       Yup.object({
-        accountName: Yup.string().required().label("Account Name"),
+        accountName: Yup.string().required().label("Account Name")
       }),
       Yup.object({
         businessName: Yup.string().required().label("Business Name"),
@@ -338,25 +339,23 @@ export default defineComponent({
           .required()
           .label("Shortened Descriptor"),
         businessType: Yup.string().required().label("Corporation Type"),
-        businessEmail: Yup.string().required().label("Contact Email"),
+        businessEmail: Yup.string().required().label("Contact Email")
       }),
       Yup.object({
         nameOnCard: Yup.string().required().label("Name On Card"),
         cardNumber: Yup.string().required().label("Card Number"),
         cardExpiryMonth: Yup.string().required().label("Expiration Month"),
         cardExpiryYear: Yup.string().required().label("Expiration Year"),
-        cardCvv: Yup.string().required().label("CVV"),
-      }),
+        cardCvv: Yup.string().required().label("CVV")
+      })
     ];
 
     const currentSchema = computed(() => {
       return createAccountSchema[currentStepIndex.value];
     });
 
-    const { resetForm, handleSubmit } = useForm<
-      IStep1 | IStep2 | IStep3 | IStep4
-    >({
-      validationSchema: currentSchema,
+    const { resetForm, handleSubmit } = useForm<IStep1 | IStep2 | IStep3 | IStep4>({
+      validationSchema: currentSchema
     });
 
     const totalSteps = computed(() => {
@@ -369,8 +368,8 @@ export default defineComponent({
 
     resetForm({
       values: {
-        ...formData.value,
-      },
+        ...formData.value
+      }
     });
 
     const handleStep = handleSubmit((values) => {
@@ -378,7 +377,7 @@ export default defineComponent({
 
       formData.value = {
         ...formData.value,
-        ...values,
+        ...values
       };
 
       currentStepIndex.value++;
@@ -407,8 +406,8 @@ export default defineComponent({
         buttonsStyling: false,
         confirmButtonText: "Ok, got it!",
         customClass: {
-          confirmButton: "btn fw-bold btn-light-primary",
-        },
+          confirmButton: "btn fw-bold btn-light-primary"
+        }
       }).then(() => {
         window.location.reload();
       });
@@ -420,8 +419,8 @@ export default defineComponent({
       handleStep,
       formSubmit,
       totalSteps,
-      currentStepIndex,
+      currentStepIndex
     };
-  },
+  }
 });
 </script>

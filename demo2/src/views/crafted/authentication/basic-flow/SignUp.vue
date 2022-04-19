@@ -3,11 +3,11 @@
   <div class="bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
     <!--begin::Form-->
     <Form
+      id="kt_login_signup_form"
+      :validation-schema="registration"
       class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework"
       novalidate="novalidate"
       @submit="onSubmitRegister"
-      id="kt_login_signup_form"
-      :validation-schema="registration"
     >
       <!--begin::Heading-->
       <div class="mb-10 text-center">
@@ -19,7 +19,7 @@
         <div class="text-gray-400 fw-bold fs-4">
           Already have an account?
 
-          <router-link to="/sign-in" class="link-primary fw-bolder">
+          <router-link class="link-primary fw-bolder" to="/sign-in">
             Sign in here
           </router-link>
         </div>
@@ -28,11 +28,11 @@
       <!--end::Heading-->
 
       <!--begin::Action-->
-      <button type="button" class="btn btn-light-primary fw-bolder w-100 mb-10">
+      <button class="btn btn-light-primary fw-bolder w-100 mb-10" type="button">
         <img
           alt="Logo"
-          src="media/svg/brand-logos/google-icon.svg"
           class="h-20px me-3"
+          src="media/svg/brand-logos/google-icon.svg"
         />
         Sign in with Google
       </button>
@@ -52,11 +52,11 @@
         <div class="col-xl-6">
           <label class="form-label fw-bolder text-dark fs-6">First Name</label>
           <Field
-            class="form-control form-control-lg form-control-solid"
-            type="text"
-            placeholder=""
-            name="name"
             autocomplete="off"
+            class="form-control form-control-lg form-control-solid"
+            name="name"
+            placeholder=""
+            type="text"
           />
           <div class="fv-plugins-message-container">
             <div class="fv-help-block">
@@ -70,11 +70,11 @@
         <div class="col-xl-6">
           <label class="form-label fw-bolder text-dark fs-6">Last Name</label>
           <Field
-            class="form-control form-control-lg form-control-solid"
-            type="text"
-            placeholder=""
-            name="surname"
             autocomplete="off"
+            class="form-control form-control-lg form-control-solid"
+            name="surname"
+            placeholder=""
+            type="text"
           />
           <div class="fv-plugins-message-container">
             <div class="fv-help-block">
@@ -90,11 +90,11 @@
       <div class="fv-row mb-7">
         <label class="form-label fw-bolder text-dark fs-6">Email</label>
         <Field
-          class="form-control form-control-lg form-control-solid"
-          type="email"
-          placeholder=""
-          name="email"
           autocomplete="off"
+          class="form-control form-control-lg form-control-solid"
+          name="email"
+          placeholder=""
+          type="email"
         />
         <div class="fv-plugins-message-container">
           <div class="fv-help-block">
@@ -115,11 +115,11 @@
           <!--begin::Input wrapper-->
           <div class="position-relative mb-3">
             <Field
-              class="form-control form-control-lg form-control-solid"
-              type="password"
-              placeholder=""
-              name="password"
               autocomplete="off"
+              class="form-control form-control-lg form-control-solid"
+              name="password"
+              placeholder=""
+              type="password"
             />
             <div class="fv-plugins-message-container">
               <div class="fv-help-block">
@@ -136,14 +136,14 @@
       <!--begin::Input group-->
       <div class="fv-row mb-5">
         <label class="form-label fw-bolder text-dark fs-6"
-          >Confirm Password</label
+        >Confirm Password</label
         >
         <Field
-          class="form-control form-control-lg form-control-solid"
-          type="password"
-          placeholder=""
-          name="cpassword"
           autocomplete="off"
+          class="form-control form-control-lg form-control-solid"
+          name="cpassword"
+          placeholder=""
+          type="password"
         />
         <div class="fv-plugins-message-container">
           <div class="fv-help-block">
@@ -158,13 +158,13 @@
         <label class="form-check form-check-custom form-check-solid">
           <Field
             class="form-check-input"
-            type="checkbox"
             name="toc"
+            type="checkbox"
             value="1"
           />
           <span class="form-check-label fw-bold text-gray-700 fs-6">
             I Agree &
-            <a href="#" class="ms-1 link-primary">Terms and conditions</a>.
+            <a class="ms-1 link-primary" href="#">Terms and conditions</a>.
           </span>
         </label>
       </div>
@@ -175,8 +175,8 @@
         <button
           id="kt_sign_up_submit"
           ref="submitButton"
-          type="submit"
           class="btn btn-lg btn-primary"
+          type="submit"
         >
           <span class="indicator-label"> Submit </span>
           <span class="indicator-progress">
@@ -208,7 +208,7 @@ export default defineComponent({
   components: {
     Field,
     Form,
-    ErrorMessage,
+    ErrorMessage
   },
   setup() {
     const store = useStore();
@@ -225,7 +225,7 @@ export default defineComponent({
         .min(4)
         .required()
         .oneOf([Yup.ref("password"), null], "Passwords must match")
-        .label("Password Confirmation"),
+        .label("Password Confirmation")
     });
 
     const onSubmitRegister = (values) => {
@@ -247,9 +247,9 @@ export default defineComponent({
               buttonsStyling: false,
               confirmButtonText: "Ok, got it!",
               customClass: {
-                confirmButton: "btn fw-bold btn-light-primary",
-              },
-            }).then(function () {
+                confirmButton: "btn fw-bold btn-light-primary"
+              }
+            }).then(function() {
               // Go to page after successfully login
               router.push({ name: "dashboard" });
             });
@@ -261,8 +261,8 @@ export default defineComponent({
               buttonsStyling: false,
               confirmButtonText: "Try again!",
               customClass: {
-                confirmButton: "btn fw-bold btn-light-danger",
-              },
+                confirmButton: "btn fw-bold btn-light-danger"
+              }
             });
           });
 
@@ -273,8 +273,8 @@ export default defineComponent({
     return {
       registration,
       onSubmitRegister,
-      submitButton,
+      submitButton
     };
-  },
+  }
 });
 </script>

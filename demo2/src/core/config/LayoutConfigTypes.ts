@@ -79,5 +79,5 @@ export {
   Content,
   Toolbar,
   Footer,
-  LayoutConfig,
+  LayoutConfig
 };

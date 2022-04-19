@@ -2,6 +2,7 @@
   <div class="dataTables_wrapper dt-bootstrap4 no-footer">
     <div class="table-responsive">
       <table
+        id="kt_customers_table"
         :class="[loading && 'overlay overlay-block']"
         class="
           table
@@ -12,7 +13,6 @@
           dataTable
           no-footer
         "
-        id="kt_customers_table"
         role="grid"
       >
         <!--begin::Table head-->
@@ -24,12 +24,6 @@
           >
             <template v-for="(cell, i) in tableHeader" :key="i">
               <th
-                @click="
-                  sort(
-                    cell.sortingField ? cell.sortingField : cell.key,
-                    cell.sortable
-                  )
-                "
                 :class="[
                   cell.name && 'min-w-125px',
                   cell.sortable !== false && 'sorting',
@@ -41,10 +35,16 @@
                     `${cell.sortingField ? cell.sortingField : cell.key}asc` &&
                     'sorting_asc',
                 ]"
-                tabindex="0"
-                rowspan="1"
                 colspan="1"
+                rowspan="1"
                 style="cursor: pointer"
+                tabindex="0"
+                @click="
+                  sort(
+                    cell.sortingField ? cell.sortingField : cell.key,
+                    cell.sortable
+                  )
+                "
               >
                 {{ cell.name }}
               </th>
@@ -71,7 +71,7 @@
           </template>
           <template>
             <tr class="odd">
-              <td colspan="7" class="dataTables_empty">
+              <td class="dataTables_empty" colspan="7">
                 {{ emptyTableText }}
               </td>
             </tr>
@@ -100,13 +100,13 @@
       >
         <div
           v-if="enableItemsPerPageDropdown"
-          class="dataTables_length"
           id="kt_customers_table_length"
+          class="dataTables_length"
         >
           <label
             ><select
-              name="kt_customers_table_length"
               class="form-select form-select-sm form-select-solid"
+              name="kt_customers_table_length"
               @change="setItemsPerPage"
             >
               <option value="10">10</option>
@@ -127,12 +127,12 @@
       >
         <el-pagination
           v-model:current-page="pagination.page"
-          @current-change="currentPageChange"
-          :page-size="pagination.rowsPerPage"
-          layout="prev, pager, next"
-          :total="pagination.total"
           :hide-on-single-page="true"
+          :page-size="pagination.rowsPerPage"
+          :total="pagination.total"
           background
+          layout="prev, pager, next"
+          @current-change="currentPageChange"
         >
         </el-pagination>
       </div>
@@ -289,6 +289,7 @@ table.dataTable > thead {
   th.sorting {
     position: relative;
   }
+
   .sorting:after {
     position: absolute;
   }

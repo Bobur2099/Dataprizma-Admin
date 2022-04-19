@@ -15,16 +15,16 @@
           <div class="ms-1">
             <!--begin::Menu-->
             <button
-              type="button"
               :class="`btn-active-color-${widgetColor}`"
               class="
                 btn btn-sm btn-icon btn-color-white btn-active-white
                 border-0
                 me-n3
               "
-              data-kt-menu-trigger="click"
-              data-kt-menu-placement="bottom-end"
               data-kt-menu-flip="top-end"
+              data-kt-menu-placement="bottom-end"
+              data-kt-menu-trigger="click"
+              type="button"
             >
               <span class="svg-icon svg-icon-2">
                 <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -81,8 +81,8 @@
               <!--begin::Title-->
               <div class="mb-1 pe-3 flex-grow-1">
                 <a
-                  href="#"
                   class="fs-5 text-gray-800 text-hover-primary fw-bolder"
+                  href="#"
                   >{{ item.title }}</a
                 >
                 <div class="text-gray-400 fw-bold fs-7">

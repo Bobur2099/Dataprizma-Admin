@@ -9,11 +9,11 @@
             <inline-svg src="/media/icons/duotune/general/gen021.svg" />
           </span>
           <input
-            type="text"
             v-model="search"
-            @input="searchItems()"
             class="form-control form-control-solid w-250px ps-15"
             placeholder="Search Customers"
+            type="text"
+            @input="searchItems()"
           />
         </div>
         <!--end::Search-->
@@ -29,10 +29,10 @@
         >
           <!--begin::Export-->
           <button
-            type="button"
             class="btn btn-light-primary me-3"
-            data-bs-toggle="modal"
             data-bs-target="#kt_customers_export_modal"
+            data-bs-toggle="modal"
+            type="button"
           >
             <span class="svg-icon svg-icon-2">
               <inline-svg src="/media/icons/duotune/arrows/arr078.svg" />
@@ -42,10 +42,10 @@
           <!--end::Export-->
           <!--begin::Add customer-->
           <button
-            type="button"
             class="btn btn-primary"
-            data-bs-toggle="modal"
             data-bs-target="#kt_modal_add_customer"
+            data-bs-toggle="modal"
+            type="button"
           >
             <span class="svg-icon svg-icon-2">
               <inline-svg src="/media/icons/duotone/Navigation/Plus.svg" />
@@ -66,8 +66,8 @@
             >Selected
           </div>
           <button
-            type="button"
             class="btn btn-danger"
+            type="button"
             @click="deleteFewCustomers()"
           >
             Delete Selected
@@ -87,9 +87,9 @@
             >Selected
           </div>
           <button
-            type="button"
             class="btn btn-danger"
             data-kt-customer-table-select="delete_selected"
+            type="button"
           >
             Delete Selected
           </button>
@@ -100,19 +100,19 @@
     </div>
     <div class="card-body pt-0">
       <Datatable
+        :enable-items-per-page-dropdown="true"
         :table-data="tableData"
         :table-header="tableHeader"
-        :enable-items-per-page-dropdown="true"
       >
         <template v-slot:cell-checkbox="{ row: customer }">
           <div
             class="form-check form-check-sm form-check-custom form-check-solid"
           >
             <input
+              v-model="checkedCustomers"
+              :value="customer.id"
               class="form-check-input"
               type="checkbox"
-              :value="customer.id"
-              v-model="checkedCustomers"
             />
           </div>
         </template>
@@ -120,7 +120,7 @@
           {{ customer.name }}
         </template>
         <template v-slot:cell-email="{ row: customer }">
-          <a href="#" class="text-gray-600 text-hover-primary mb-1">
+          <a class="text-gray-600 text-hover-primary mb-1" href="#">
             {{ customer.email }}
           </a>
         </template>
@@ -128,7 +128,7 @@
           {{ customer.company }}
         </template>
         <template v-slot:cell-paymentMethod="{ row: customer }">
-          <img :src="customer.payment.icon" class="w-35px me-3" alt="" />{{
+          <img :src="customer.payment.icon" alt="" class="w-35px me-3" />{{
             customer.payment.ccnumber
           }}
         </template>
@@ -137,12 +137,12 @@
         </template>
         <template v-slot:cell-actions="{ row: customer }">
           <a
-            href="#"
             class="btn btn-sm btn-light btn-active-light-primary"
-            data-kt-menu-trigger="click"
-            data-kt-menu-placement="bottom-end"
             data-kt-menu-flip="top-end"
-            >Actions
+            data-kt-menu-placement="bottom-end"
+            data-kt-menu-trigger="click"
+            href="#"
+          >Actions
             <span class="svg-icon svg-icon-5 m-0">
               <inline-svg src="/media/icons/duotune/arrows/arr072.svg" />
             </span>
@@ -167,16 +167,17 @@
             <!--begin::Menu item-->
             <div class="menu-item px-3">
               <router-link
-                to="/apps/customers/customer-details"
                 class="menu-link px-3"
-                >View</router-link
+                to="/apps/customers/customer-details"
+              >View
+              </router-link
               >
             </div>
             <!--end::Menu item-->
             <!--begin::Menu item-->
             <div class="menu-item px-3">
-              <a @click="deleteCustomer(customer.id)" class="menu-link px-3"
-                >Delete</a
+              <a class="menu-link px-3" @click="deleteCustomer(customer.id)"
+              >Delete</a
               >
             </div>
             <!--end::Menu item-->
@@ -206,44 +207,44 @@ export default defineComponent({
   components: {
     Datatable,
     ExportCustomerModal,
-    AddCustomerModal,
+    AddCustomerModal
   },
   setup() {
     const checkedCustomers = ref([]);
     const tableHeader = ref([
       {
-        key: "checkbox",
+        key: "checkbox"
       },
       {
         name: "Customer Name",
         key: "name",
-        sortable: true,
+        sortable: true
       },
       {
         name: "Email",
         key: "email",
-        sortable: true,
+        sortable: true
       },
       {
         name: "Company",
         key: "company",
-        sortable: true,
+        sortable: true
       },
       {
         name: "Payment Method",
         key: "paymentMethod",
         sortingField: "payment.label",
-        sortable: true,
+        sortable: true
       },
       {
         name: "Created Date",
         key: "date",
-        sortable: true,
+        sortable: true
       },
       {
         name: "Actions",
-        key: "actions",
-      },
+        key: "actions"
+      }
     ]);
 
     const tableData = ref<Array<ICustomer>>(customers);
@@ -302,8 +303,8 @@ export default defineComponent({
       search,
       searchItems,
       checkedCustomers,
-      deleteFewCustomers,
+      deleteFewCustomers
     };
-  },
+  }
 });
 </script>

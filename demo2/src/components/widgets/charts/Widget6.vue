@@ -12,23 +12,23 @@
       <!--begin::Toolbar-->
       <div class="card-toolbar" data-kt-buttons="true">
         <a
+          id="kt_charts_widget_6_sales_btn"
           class="
             btn btn-sm btn-color-muted btn-active btn-active-primary
             active
             px-4
             me-1
           "
-          id="kt_charts_widget_6_sales_btn"
           >Sales</a
         >
 
         <a
+          id="kt_charts_widget_6_expenses_btn"
           class="
             btn btn-sm btn-color-muted btn-active btn-active-primary
             px-4
             me-1
           "
-          id="kt_charts_widget_6_expenses_btn"
           >Expenses</a
         >
       </div>
@@ -39,7 +39,7 @@
     <!--begin::Body-->
     <div class="card-body">
       <!--begin::Chart-->
-      <apexchart type="bar" :options="options" :series="series"></apexchart>
+      <apexchart :options="options" :series="series" type="bar"></apexchart>
       <!--end::Chart-->
     </div>
     <!--end::Body-->

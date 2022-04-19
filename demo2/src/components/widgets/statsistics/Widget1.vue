@@ -9,8 +9,8 @@
     <!--begin::Body-->
     <div class="card-body">
       <a
-        href="#"
         class="card-title fw-bolder text-muted text-hover-primary fs-4"
+        href="#"
         >{{ title }}</a
       >
 

@@ -1,11 +1,11 @@
 <template>
   <!--begin::Modal - New Card-->
   <div
-    class="modal fade"
-    ref="newCardModalRef"
     id="kt_modal_update_user"
-    tabindex="-1"
+    ref="newCardModalRef"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-1000px">
@@ -35,9 +35,9 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row">
@@ -55,11 +55,11 @@
               <!--end::Label-->
 
               <Field
-                type="text"
-                class="form-control form-control-solid"
-                placeholder="Name"
-                name="nameOnCard"
                 v-model="updateEmail"
+                class="form-control form-control-solid"
+                name="nameOnCard"
+                placeholder="Name"
+                type="text"
               />
               <div class="fv-plugins-message-container">
                 <div class="fv-help-block">
@@ -70,32 +70,32 @@
             <!--end::Input group-->
 
             <!--begin::Input group-->
-<!--            <div class="d-flex flex-column mb-7 fv-row">-->
-<!--              &lt;!&ndash;begin::Label&ndash;&gt;-->
-<!--              <label class="required fs-6 fw-bold form-label mb-2"-->
-<!--                >Password</label-->
-<!--              >-->
-<!--              &lt;!&ndash;end::Label&ndash;&gt;-->
+            <!--            <div class="d-flex flex-column mb-7 fv-row">-->
+            <!--              &lt;!&ndash;begin::Label&ndash;&gt;-->
+            <!--              <label class="required fs-6 fw-bold form-label mb-2"-->
+            <!--                >Password</label-->
+            <!--              >-->
+            <!--              &lt;!&ndash;end::Label&ndash;&gt;-->
 
-<!--              &lt;!&ndash;begin::Input wrapper&ndash;&gt;-->
-<!--              <div class="position-relative">-->
-<!--                &lt;!&ndash;begin::Input&ndash;&gt;-->
-<!--                <Field-->
-<!--                  type="text"-->
-<!--                  class="form-control form-control-solid"-->
-<!--                  placeholder="Password"-->
-<!--                  name="cardNumber"-->
-<!--                  v-model="updatePassword"-->
-<!--                />-->
-<!--                <div class="fv-plugins-message-container">-->
-<!--                  <div class="fv-help-block">-->
-<!--                    <ErrorMessage name="cardNumber" />-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                &lt;!&ndash;end::Input&ndash;&gt;-->
-<!--              </div>-->
-<!--              &lt;!&ndash;end::Input wrapper&ndash;&gt;-->
-<!--            </div>-->
+            <!--              &lt;!&ndash;begin::Input wrapper&ndash;&gt;-->
+            <!--              <div class="position-relative">-->
+            <!--                &lt;!&ndash;begin::Input&ndash;&gt;-->
+            <!--                <Field-->
+            <!--                  type="text"-->
+            <!--                  class="form-control form-control-solid"-->
+            <!--                  placeholder="Password"-->
+            <!--                  name="cardNumber"-->
+            <!--                  v-model="updatePassword"-->
+            <!--                />-->
+            <!--                <div class="fv-plugins-message-container">-->
+            <!--                  <div class="fv-help-block">-->
+            <!--                    <ErrorMessage name="cardNumber" />-->
+            <!--                  </div>-->
+            <!--                </div>-->
+            <!--                &lt;!&ndash;end::Input&ndash;&gt;-->
+            <!--              </div>-->
+            <!--              &lt;!&ndash;end::Input wrapper&ndash;&gt;-->
+            <!--            </div>-->
             <!--end::Input group-->
 
             <div class="row fv-row">
@@ -103,18 +103,18 @@
               <div class="col-12">
                 <Field
                   v-model="updateRole"
-                  name="expirationMonth"
+                  as="select"
                   class="form-select form-select-solid"
                   data-control="select2"
                   data-hide-search="true"
                   data-placeholder="Month"
-                  as="select"
+                  name="expirationMonth"
                 >
                   <option value="nothing">Choose the role</option>
                   <option
                     v-for="(item, index) in roleDatas"
-                    v-bind:value="item.id"
                     v-bind:key="index"
+                    v-bind:value="item.id"
                   >
                     {{ item.name }}
                   </option>
@@ -130,18 +130,18 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                type="reset"
                 id="kt_modal_new_card_cancel"
                 class="btn btn-white me-3"
+                type="reset"
               >
                 {{ $t("discard") }}
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_new_card_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   updateUser(userId, userId);
                   submit();
@@ -188,7 +188,7 @@ interface CardData {
 
 export default defineComponent({
   name: "update-role-modal",
-  data: function () {
+  data: function() {
     return {
       name: "",
       code: "",
@@ -199,22 +199,22 @@ export default defineComponent({
       updatePassword: "",
       updateRole: "0",
       userId: 0,
-      userIndex: -1,
+      userIndex: -1
     };
   },
   props: ["updateIndex"],
   components: {
     ErrorMessage,
     Field,
-    Form,
+    Form
   },
   methods: {
     tableData() {
       axios
         .get("login/list", {
           headers: {
-            Authorization: `Bearer ${this.token}`,
-          },
+            Authorization: `Bearer ${this.token}`
+          }
         })
         .then((response) => {
           if (response.status !== 200) {
@@ -236,8 +236,8 @@ export default defineComponent({
       axios
         .get("role/list", {
           headers: {
-            Authorization: `Bearer ${this.token}`,
-          },
+            Authorization: `Bearer ${this.token}`
+          }
         })
         .then((response) => {
           if (response.status !== 200) {
@@ -264,8 +264,8 @@ export default defineComponent({
       axios
         .put("/login/update/" + id, userResponseDatas, {
           headers: {
-            Authorization: `Bearer ${this.token}`,
-          },
+            Authorization: `Bearer ${this.token}`
+          }
         })
         .then((response) => {
           if (response.status !== 200) {
@@ -275,14 +275,14 @@ export default defineComponent({
             this.$emit("table-load");
           }
         });
-    },
+    }
   },
   watch: {
     updateIndex(newValue, oldValue) {
       this.tableData();
       console.log("It was changed", newValue, oldValue);
       this.fillUpdateInputs(newValue);
-    },
+    }
   },
   created() {
     this.tableData();
@@ -296,7 +296,7 @@ export default defineComponent({
       cardNumber: "4111 1111 1111 1111",
       expirationMonth: "",
       expirationYear: "",
-      cvv: "",
+      cvv: ""
     });
 
     const validationSchema = Yup.object().shape({
@@ -304,7 +304,7 @@ export default defineComponent({
       cardNumber: Yup.string().required().label("Card number"),
       expirationMonth: Yup.string().required().label("Month"),
       expirationYear: Yup.string().required().label("Year"),
-      cvv: Yup.string().required().label("CVV"),
+      cvv: Yup.string().required().label("CVV")
     });
 
     const submit = () => {
@@ -344,8 +344,8 @@ export default defineComponent({
           buttonsStyling: false,
           confirmButtonText: "Ok, got it!",
           customClass: {
-            confirmButton: "btn btn-primary",
-          },
+            confirmButton: "btn btn-primary"
+          }
         }).then(() => {
           hideModal(newCardModalRef.value);
         });
@@ -357,8 +357,8 @@ export default defineComponent({
       validationSchema,
       submit,
       submitButtonRef,
-      newCardModalRef,
+      newCardModalRef
     };
-  },
+  }
 });
 </script>

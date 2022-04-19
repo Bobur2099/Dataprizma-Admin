@@ -1,11 +1,11 @@
 <template>
   <!--begin::Modal - New Target-->
   <div
-    class="modal fade"
     id="kt_modal_new_target"
     ref="newTargetModalRef"
-    tabindex="-1"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
@@ -31,11 +31,11 @@
           <!--begin:Form-->
           <el-form
             id="kt_modal_new_target_form"
-            @submit.prevent="submit()"
+            ref="formRef"
             :model="targetData"
             :rules="rules"
-            ref="formRef"
             class="form"
+            @submit.prevent="submit()"
           >
             <!--begin::Heading-->
             <div class="mb-13 text-center">
@@ -46,7 +46,7 @@
               <!--begin::Description-->
               <div class="text-gray-400 fw-bold fs-5">
                 If you need more info, please check
-                <a href="#" class="fw-bolder link-primary">Project Guidelines</a
+                <a class="fw-bolder link-primary" href="#">Project Guidelines</a
                 >.
               </div>
               <!--end::Description-->
@@ -69,8 +69,8 @@
               <el-form-item prop="targetTitle">
                 <el-input
                   v-model="targetData.targetTitle"
-                  placeholder="Enter Target Title"
                   name="targetTitle"
+                  placeholder="Enter Target Title"
                 ></el-input>
               </el-form-item>
             </div>
@@ -85,20 +85,23 @@
                 <el-form-item prop="assign">
                   <el-select
                     v-model="targetData.assign"
-                    placeholder="Select a Team Member"
-                    name="assign"
                     as="select"
+                    name="assign"
+                    placeholder="Select a Team Member"
                   >
                     <el-option value="">Select user...</el-option>
                     <el-option label="Karina Clark" value="1"
-                      >Karina Clark</el-option
+                    >Karina Clark
+                    </el-option
                     >
                     <el-option label="Robert Doe" value="2"
-                      >Robert Doe</el-option
+                    >Robert Doe
+                    </el-option
                     >
                     <el-option label="Niel Owen" value="3">Niel Owen</el-option>
                     <el-option label="Olivia Wild" value="4"
-                      >Olivia Wild</el-option
+                    >Olivia Wild
+                    </el-option
                     >
                     <el-option label="Sean Bean" value="5">Sean Bean</el-option>
                   </el-select>
@@ -128,8 +131,8 @@
                   <el-form-item prop="dueDate">
                     <el-date-picker
                       v-model="targetData.dueDate"
-                      placeholder="Select a date"
                       name="dueDate"
+                      placeholder="Select a date"
                     />
                   </el-form-item>
                   <!--end::Datepicker-->
@@ -147,10 +150,10 @@
               <el-form-item prop="targetDetails">
                 <el-input
                   v-model="targetData.targetDetails"
-                  type="textarea"
-                  rows="3"
                   name="targetDetails"
                   placeholder="Type Target Details"
+                  rows="3"
+                  type="textarea"
                 />
               </el-form-item>
             </div>
@@ -172,17 +175,17 @@
               <el-form-item prop="tags">
                 <el-select
                   v-model="targetData.tags"
-                  multiple
-                  filterable
                   allow-create
                   default-first-option
+                  filterable
+                  multiple
                   placeholder="Choose tags for your target"
                 >
-                  <el-option label="Important" value="important"> </el-option>
-                  <el-option label="Urgent" value="urgent"> </el-option>
-                  <el-option label="high" value="high"> </el-option>
-                  <el-option label="low" value="low"> </el-option>
-                  <el-option label="medium" value="medium"> </el-option>
+                  <el-option label="Important" value="important"></el-option>
+                  <el-option label="Urgent" value="urgent"></el-option>
+                  <el-option label="high" value="high"></el-option>
+                  <el-option label="low" value="low"></el-option>
+                  <el-option label="medium" value="medium"></el-option>
                 </el-select>
               </el-form-item>
             </div>
@@ -207,10 +210,10 @@
                 "
               >
                 <input
+                  checked="checked"
                   class="form-check-input"
                   type="checkbox"
                   value="1"
-                  checked="checked"
                 />
                 <span class="form-check-label fw-bold text-gray-400">
                   Allowed
@@ -241,11 +244,11 @@
                     class="form-check form-check-custom form-check-solid me-10"
                   >
                     <input
-                      class="form-check-input h-20px w-20px"
-                      type="checkbox"
-                      name="communication[]"
-                      value="email"
                       checked="checked"
+                      class="form-check-input h-20px w-20px"
+                      name="communication[]"
+                      type="checkbox"
+                      value="email"
                     />
 
                     <span class="form-check-label fw-bold"> Email </span>
@@ -256,8 +259,8 @@
                   <label class="form-check form-check-custom form-check-solid">
                     <input
                       class="form-check-input h-20px w-20px"
-                      type="checkbox"
                       name="communication[]"
+                      type="checkbox"
                       value="phone"
                     />
 
@@ -274,9 +277,9 @@
             <!--begin::Actions-->
             <div class="text-center">
               <button
-                type="reset"
                 id="kt_modal_new_target_cancel"
                 class="btn btn-white me-3"
+                type="reset"
               >
                 Cancel
               </button>
@@ -352,7 +355,7 @@ export default defineComponent({
       assign: "",
       dueDate: "",
       targetDetails: "",
-      tags: ["important", "urgent"],
+      tags: ["important", "urgent"]
     });
 
     const rules = ref({
@@ -360,30 +363,30 @@ export default defineComponent({
         {
           required: true,
           message: "Please input Activity name",
-          trigger: "blur",
-        },
+          trigger: "blur"
+        }
       ],
       assign: [
         {
           required: true,
           message: "Please select Activity zone",
-          trigger: "change",
-        },
+          trigger: "change"
+        }
       ],
       dueDate: [
         {
           required: true,
           message: "Please select Activity zone",
-          trigger: "change",
-        },
+          trigger: "change"
+        }
       ],
       tags: [
         {
           required: true,
           message: "Please select Activity zone",
-          trigger: "change",
-        },
-      ],
+          trigger: "change"
+        }
+      ]
     });
 
     const submit = () => {
@@ -404,8 +407,8 @@ export default defineComponent({
               buttonsStyling: false,
               confirmButtonText: "Ok, got it!",
               customClass: {
-                confirmButton: "btn btn-primary",
-              },
+                confirmButton: "btn btn-primary"
+              }
             }).then(() => {
               hideModal(newTargetModalRef.value);
             });
@@ -417,8 +420,8 @@ export default defineComponent({
             buttonsStyling: false,
             confirmButtonText: "Ok, got it!",
             customClass: {
-              confirmButton: "btn btn-primary",
-            },
+              confirmButton: "btn btn-primary"
+            }
           });
           return false;
         }
@@ -431,8 +434,8 @@ export default defineComponent({
       loading,
       formRef,
       rules,
-      newTargetModalRef,
+      newTargetModalRef
     };
-  },
+  }
 });
 </script>

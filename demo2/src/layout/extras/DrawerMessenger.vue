@@ -4,24 +4,23 @@
     id="kt_drawer_chat"
     class="bg-white"
     data-kt-drawer="true"
-    data-kt-drawer-name="chat"
     data-kt-drawer-activate="true"
-    data-kt-drawer-overlay="true"
-    data-kt-drawer-width="{default:'300px', 'md': '500px'}"
-    data-kt-drawer-direction="end"
-    data-kt-drawer-toggle="#kt_drawer_chat_toggle"
     data-kt-drawer-close="#kt_drawer_chat_close"
+    data-kt-drawer-direction="end"
+    data-kt-drawer-name="chat"
+    data-kt-drawer-overlay="true"
+    data-kt-drawer-toggle="#kt_drawer_chat_toggle"
+    data-kt-drawer-width="{default:'300px', 'md': '500px'}"
   >
     <!--begin::Messenger-->
-    <div class="card w-100" id="kt_drawer_chat_messenger">
+    <div id="kt_drawer_chat_messenger" class="card w-100">
       <!--begin::Card header-->
-      <div class="card-header pe-5" id="kt_drawer_chat_messenger_header">
+      <div id="kt_drawer_chat_messenger_header" class="card-header pe-5">
         <!--begin::Title-->
         <div class="card-title">
           <!--begin::User-->
           <div class="d-flex justify-content-center flex-column me-3">
             <a
-              href="#"
               class="
                 fs-4
                 fw-bolder
@@ -30,6 +29,7 @@
                 mb-2
                 lh-1
               "
+              href="#"
               >Brian Cox</a
             >
 
@@ -52,9 +52,9 @@
           <div class="me-2">
             <button
               class="btn btn-sm btn-icon btn-active-icon-primary"
-              data-kt-menu-trigger="click"
-              data-kt-menu-placement="bottom-end"
               data-kt-menu-flip="top-end"
+              data-kt-menu-placement="bottom-end"
+              data-kt-menu-trigger="click"
             >
               <i class="bi bi-three-dots fs-3"></i>
             </button>
@@ -64,8 +64,8 @@
 
           <!--begin::Close-->
           <div
-            class="btn btn-sm btn-icon btn-active-icon-primary"
             id="kt_drawer_chat_close"
+            class="btn btn-sm btn-icon btn-active-icon-primary"
           >
             <span class="svg-icon svg-icon-2x">
               <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
@@ -78,34 +78,34 @@
       <!--end::Card header-->
 
       <!--begin::Card body-->
-      <div class="card-body" id="kt_drawer_chat_messenger_body">
+      <div id="kt_drawer_chat_messenger_body" class="card-body">
         <!--begin::Messages-->
         <div
-          class="scroll-y me-n5 pe-5"
           ref="messagesRef"
+          class="scroll-y me-n5 pe-5"
           data-kt-element="messages"
           data-kt-scroll="true"
           data-kt-scroll-activate="true"
-          data-kt-scroll-height="auto"
           data-kt-scroll-dependencies="#kt_drawer_chat_messenger_header, #kt_drawer_chat_messenger_footer"
-          data-kt-scroll-wrappers="#kt_drawer_chat_messenger_body"
+          data-kt-scroll-height="auto"
           data-kt-scroll-offset="0px"
+          data-kt-scroll-wrappers="#kt_drawer_chat_messenger_body"
         >
           <template v-for="(item, index) in messages" :key="index">
             <MessageIn
-              ref="messagesInRef"
               v-if="item.type === 'in'"
-              :name="item.name"
+              ref="messagesInRef"
               :image="item.image"
-              :time="item.time"
+              :name="item.name"
               :text="item.text"
+              :time="item.time"
             ></MessageIn>
             <MessageOut
-              ref="messagesOutRef"
               v-if="item.type === 'out'"
+              ref="messagesOutRef"
               :image="item.image"
-              :time="item.time"
               :text="item.text"
+              :time="item.time"
             ></MessageOut>
           </template>
         </div>
@@ -114,13 +114,13 @@
       <!--end::Card body-->
 
       <!--begin::Card footer-->
-      <div class="card-footer pt-4" id="kt_drawer_chat_messenger_footer">
+      <div id="kt_drawer_chat_messenger_footer" class="card-footer pt-4">
         <!--begin::Input-->
         <input
+          v-model="newMessageText"
           class="form-control form-control-flush mb-3"
           data-kt-element="input"
           placeholder="Type a message"
-          v-model="newMessageText"
           @keydown.enter="addNewMessage"
         />
         <!--end::Input-->
@@ -131,17 +131,17 @@
           <div class="d-flex align-items-center me-2">
             <button
               class="btn btn-sm btn-icon btn-active-light-primary me-1"
-              type="button"
               data-bs-toggle="tooltip"
               title="Coming soon"
+              type="button"
             >
               <i class="bi bi-paperclip fs-3"></i>
             </button>
             <button
               class="btn btn-sm btn-icon btn-active-light-primary me-1"
-              type="button"
               data-bs-toggle="tooltip"
               title="Coming soon"
+              type="button"
             >
               <i class="bi bi-upload fs-3"></i>
             </button>
@@ -150,10 +150,10 @@
 
           <!--begin::Send-->
           <button
-            @click="addNewMessage"
             class="btn btn-primary"
-            type="button"
             data-kt-element="send"
+            type="button"
+            @click="addNewMessage"
           >
             Send
           </button>

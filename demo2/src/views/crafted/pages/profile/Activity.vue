@@ -30,8 +30,8 @@
                 active
               "
               data-bs-toggle="tab"
-              role="tab"
               href="#kt_activity_today"
+              role="tab"
             >
               Today
             </a>
@@ -41,8 +41,8 @@
               id="kt_activity_week_tab"
               class="nav-link justify-content-center text-active-gray-800"
               data-bs-toggle="tab"
-              role="tab"
               href="#kt_activity_week"
+              role="tab"
             >
               Week
             </a>
@@ -52,8 +52,8 @@
               id="kt_activity_month_tab"
               class="nav-link justify-content-center text-active-gray-800"
               data-bs-toggle="tab"
-              role="tab"
               href="#kt_activity_month"
+              role="tab"
             >
               Month
             </a>
@@ -67,8 +67,8 @@
                 text-active-gray-800 text-hover-gray-800
               "
               data-bs-toggle="tab"
-              role="tab"
               href="#kt_activity_year"
+              role="tab"
             >
               2021
             </a>
@@ -87,9 +87,9 @@
         <!--begin::Tab panel-->
         <div
           id="kt_activity_today"
+          aria-labelledby="kt_activity_today_tab"
           class="card-body p-0 tab-pane fade show active"
           role="tabpanel"
-          aria-labelledby="kt_activity_today_tab"
         >
           <!--begin::Timeline-->
           <div class="timeline">
@@ -109,9 +109,9 @@
         <!--begin::Tab panel-->
         <div
           id="kt_activity_week"
+          aria-labelledby="kt_activity_week_tab"
           class="card-body p-0 tab-pane fade show"
           role="tabpanel"
-          aria-labelledby="kt_activity_week_tab"
         >
           <!--begin::Timeline-->
           <div class="timeline">
@@ -128,9 +128,9 @@
         <!--begin::Tab panel-->
         <div
           id="kt_activity_month"
+          aria-labelledby="kt_activity_month_tab"
           class="card-body p-0 tab-pane fade show"
           role="tabpanel"
-          aria-labelledby="kt_activity_month_tab"
         >
           <!--begin::Timeline-->
           <div class="timeline">
@@ -148,9 +148,9 @@
         <!--begin::Tab panel-->
         <div
           id="kt_activity_year"
+          aria-labelledby="kt_activity_year_tab"
           class="card-body p-0 tab-pane fade show"
           role="tabpanel"
-          aria-labelledby="kt_activity_year_tab"
         >
           <!--begin::Timeline-->
           <div class="timeline">
@@ -191,7 +191,7 @@ export default defineComponent({
     KTActivityItem5,
     KTActivityItem6,
     KTActivityItem7,
-    KTActivityItem8,
-  },
+    KTActivityItem8
+  }
 });
 </script>

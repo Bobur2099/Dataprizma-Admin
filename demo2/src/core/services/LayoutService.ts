@@ -21,7 +21,7 @@ class LayoutService {
   public static initLayout(): void {
     store.dispatch(Actions.ADD_BODY_ATTRIBUTE, {
       qulifiedName: "id",
-      value: "kt_body",
+      value: "kt_body"
     });
 
     if (objectPath.get(config.value, "loader.display")) {
@@ -31,7 +31,7 @@ class LayoutService {
 
     store.dispatch(Actions.ADD_BODY_ATTRIBUTE, {
       qulifiedName: "style",
-      value: `background-image: url('${process.env.VUE_APP_ROOT_URL}/media/patterns/header-bg.jpg')`,
+      value: `background-image: url('${process.env.VUE_APP_ROOT_URL}/media/patterns/header-bg.jpg')`
     });
   }
 

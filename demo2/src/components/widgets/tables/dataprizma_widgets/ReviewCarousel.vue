@@ -1,6 +1,6 @@
 <template>
   <!--begin::Tables Widget 14-->
-  <div class="card" :class="widgetClasses">
+  <div :class="widgetClasses" class="card">
     <!--    begin::Create User-->
     <!--    <KTModalCard-->
     <!--      button-text="Add New Card"-->
@@ -13,14 +13,14 @@
     <!--    begin::Update User-->
     <KTModalCard
       button-text="Add New Card"
+      class="modal-view"
       modal-id="kt_modal_review_carousel"
       style="display: none"
-      class="modal-view"
     ></KTModalCard>
     <ReviewCarouselModal
+      :create="create"
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
-      :create="create"
     ></ReviewCarouselModal>
     <!--    end::Update User-->
 
@@ -49,14 +49,14 @@
 
       <div
         class="card-toolbar"
-        data-bs-toggle="tooltip"
         data-bs-placement="top"
+        data-bs-toggle="tooltip"
         data-bs-trigger="hover"
       >
         <a
           class="btn btn-sm btn-light-primary"
-          data-bs-toggle="modal"
           data-bs-target="#kt_modal_invite_friends"
+          data-bs-toggle="modal"
           @click="
             fillUpdateInputs(-1);
             create = 1;
@@ -146,9 +146,9 @@
                             :src="
                               'http://site.dataprizma.uz/' + item.uploadPath
                             "
-                            width="50"
-                            height="50"
                             class="view-box"
+                            height="50"
+                            width="50"
                           />
                         </photo-consumer>
                       </photo-provider>
@@ -163,8 +163,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.authorUz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -174,8 +174,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.authorRu }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -185,8 +185,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.authorEn }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -196,8 +196,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.positionUz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -207,8 +207,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.positionRu }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -218,8 +218,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.positionEn }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -229,8 +229,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textUz }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -240,8 +240,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textRu }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -251,8 +251,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary d-block fs-6"
+                    href="#"
                     >{{ item.textEn }}</a
                   >
                   <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
@@ -302,14 +302,14 @@
                   <!--                  </a>-->
 
                   <a
+                    class="
+                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                      me-1
+                    "
                     @click="
                       fillUpdateInputs(item.id);
                       ReviewCarouselModal();
                       create = 0;
-                    "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                      me-1
                     "
                   >
                     <span class="svg-icon svg-icon-3">
@@ -318,14 +318,14 @@
                   </a>
 
                   <a
+                    class="
+                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                    "
                     @click="
                       /*deleteUser(item.id, index)*/
                       fillUpdateInputs(item.id);
                       create = 2;
                       ReviewCarouselModal();
-                    "
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                     "
                   >
                     <span class="svg-icon svg-icon-3">

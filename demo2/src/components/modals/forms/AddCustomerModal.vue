@@ -1,17 +1,17 @@
 <template>
   <div
-    class="modal fade"
     id="kt_modal_add_customer"
     ref="addCustomerModalRef"
-    tabindex="-1"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
-        <div class="modal-header" id="kt_modal_add_customer_header">
+        <div id="kt_modal_add_customer_header" class="modal-header">
           <!--begin::Modal title-->
           <h2 class="fw-bolder">Add a Customer</h2>
           <!--end::Modal title-->
@@ -19,8 +19,8 @@
           <!--begin::Close-->
           <div
             id="kt_modal_add_customer_close"
-            data-bs-dismiss="modal"
             class="btn btn-icon btn-sm btn-active-icon-primary"
+            data-bs-dismiss="modal"
           >
             <span class="svg-icon svg-icon-1">
               <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
@@ -31,23 +31,23 @@
         <!--end::Modal header-->
         <!--begin::Form-->
         <el-form
-          @submit.prevent="submit()"
+          ref="formRef"
           :model="formData"
           :rules="rules"
-          ref="formRef"
+          @submit.prevent="submit()"
         >
           <!--begin::Modal body-->
           <div class="modal-body py-10 px-lg-17">
             <!--begin::Scroll-->
             <div
-              class="scroll-y me-n7 pe-7"
               id="kt_modal_add_customer_scroll"
+              class="scroll-y me-n7 pe-7"
               data-kt-scroll="true"
               data-kt-scroll-activate="{default: false, lg: true}"
-              data-kt-scroll-max-height="auto"
               data-kt-scroll-dependencies="#kt_modal_add_customer_header"
-              data-kt-scroll-wrappers="#kt_modal_add_customer_scroll"
+              data-kt-scroll-max-height="auto"
               data-kt-scroll-offset="300px"
+              data-kt-scroll-wrappers="#kt_modal_add_customer_scroll"
             >
               <!--begin::Input group-->
               <div class="fv-row mb-7">
@@ -59,8 +59,8 @@
                 <el-form-item prop="name">
                   <el-input
                     v-model="formData.name"
-                    type="text"
                     placeholder=""
+                    type="text"
                   />
                 </el-form-item>
                 <!--end::Input-->
@@ -105,12 +105,12 @@
 
               <!--begin::Billing toggle-->
               <div
+                aria-controls="kt_customer_view_details"
+                aria-expanded="false"
                 class="fw-bolder fs-3 rotate collapsible mb-7"
                 data-bs-toggle="collapse"
                 href="#kt_modal_add_customer_billing_info"
                 role="button"
-                aria-expanded="false"
-                aria-controls="kt_customer_view_details"
               >
                 Shipping Information
                 <span class="ms-2 rotate-180">
@@ -130,7 +130,7 @@
                 <div class="d-flex flex-column mb-7 fv-row">
                   <!--begin::Label-->
                   <label class="required fs-6 fw-bold mb-2"
-                    >Address Line 1</label
+                  >Address Line 1</label
                   >
                   <!--end::Label-->
 
@@ -174,7 +174,7 @@
                   <div class="col-md-6 fv-row">
                     <!--begin::Label-->
                     <label class="required fs-6 fw-bold mb-2"
-                      >State / Province</label
+                    >State / Province</label
                     >
                     <!--end::Label-->
 
@@ -246,17 +246,20 @@
                     <el-option value="BM">Bermuda</el-option>
                     <el-option value="BT">Bhutan</el-option>
                     <el-option value="BO"
-                      >Bolivia, Plurinational State of</el-option
+                    >Bolivia, Plurinational State of
+                    </el-option
                     >
                     <el-option value="BQ"
-                      >Bonaire, Sint Eustatius and Saba</el-option
+                    >Bonaire, Sint Eustatius and Saba
+                    </el-option
                     >
                     <el-option value="BA">Bosnia and Herzegovina</el-option>
                     <el-option value="BW">Botswana</el-option>
                     <el-option value="BV">Bouvet Island</el-option>
                     <el-option value="BR">Brazil</el-option>
                     <el-option value="IO"
-                      >British Indian Ocean Territory</el-option
+                    >British Indian Ocean Territory
+                    </el-option
                     >
                     <el-option value="BN">Brunei Darussalam</el-option>
                     <el-option value="BG">Bulgaria</el-option>
@@ -299,7 +302,8 @@
                     <el-option value="EE">Estonia</el-option>
                     <el-option value="ET">Ethiopia</el-option>
                     <el-option value="FK"
-                      >Falkland Islands (Malvinas)</el-option
+                    >Falkland Islands (Malvinas)
+                    </el-option
                     >
                     <el-option value="FO">Faroe Islands</el-option>
                     <el-option value="FJ">Fiji</el-option>
@@ -308,7 +312,8 @@
                     <el-option value="GF">French Guiana</el-option>
                     <el-option value="PF">French Polynesia</el-option>
                     <el-option value="TF"
-                      >French Southern Territories</el-option
+                    >French Southern Territories
+                    </el-option
                     >
                     <el-option value="GA">Gabon</el-option>
                     <el-option value="GM">Gambia</el-option>
@@ -331,7 +336,8 @@
                       Heard Island and McDonald Islands
                     </el-option>
                     <el-option value="VA"
-                      >Holy See (Vatican City State)</el-option
+                    >Holy See (Vatican City State)
+                    </el-option
                     >
                     <el-option value="HN">Honduras</el-option>
                     <el-option value="HK">Hong Kong</el-option>
@@ -358,7 +364,8 @@
                     <el-option value="KW">Kuwait</el-option>
                     <el-option value="KG">Kyrgyzstan</el-option>
                     <el-option value="LA"
-                      >Lao People's Democratic Republic</el-option
+                    >Lao People's Democratic Republic
+                    </el-option
                     >
                     <el-option value="LV">Latvia</el-option>
                     <el-option value="LB">Lebanon</el-option>
@@ -385,7 +392,8 @@
                     <el-option value="YT">Mayotte</el-option>
                     <el-option value="MX">Mexico</el-option>
                     <el-option value="FM"
-                      >Micronesia, Federated States of</el-option
+                    >Micronesia, Federated States of
+                    </el-option
                     >
                     <el-option value="MD">Moldova, Republic of</el-option>
                     <el-option value="MC">Monaco</el-option>
@@ -412,7 +420,8 @@
                     <el-option value="PK">Pakistan</el-option>
                     <el-option value="PW">Palau</el-option>
                     <el-option value="PS"
-                      >Palestinian Territory, Occupied</el-option
+                    >Palestinian Territory, Occupied
+                    </el-option
                     >
                     <el-option value="PA">Panama</el-option>
                     <el-option value="PG">Papua New Guinea</el-option>
@@ -437,7 +446,8 @@
                     <el-option value="MF">Saint Martin (French part)</el-option>
                     <el-option value="PM">Saint Pierre and Miquelon</el-option>
                     <el-option value="VC"
-                      >Saint Vincent and the Grenadines</el-option
+                    >Saint Vincent and the Grenadines
+                    </el-option
                     >
                     <el-option value="WS">Samoa</el-option>
                     <el-option value="SM">San Marino</el-option>
@@ -471,7 +481,8 @@
                     <el-option value="TW">Taiwan, Province of China</el-option>
                     <el-option value="TJ">Tajikistan</el-option>
                     <el-option value="TZ"
-                      >Tanzania, United Republic of</el-option
+                    >Tanzania, United Republic of
+                    </el-option
                     >
                     <el-option value="TH">Thailand</el-option>
                     <el-option value="TL">Timor-Leste</el-option>
@@ -515,7 +526,7 @@
                     <div class="me-5">
                       <!--begin::Label-->
                       <label class="fs-6 fw-bold"
-                        >Use as a billing adderess?</label
+                      >Use as a billing adderess?</label
                       >
                       <!--end::Label-->
 
@@ -538,12 +549,12 @@
                     >
                       <!--begin::Input-->
                       <input
+                        id="kt_modal_add_customer_billing"
+                        checked="checked"
                         class="form-check-input"
                         name="billing"
                         type="checkbox"
                         value="1"
-                        id="kt_modal_add_customer_billing"
-                        checked="checked"
                       />
                       <!--end::Input-->
 
@@ -572,9 +583,9 @@
           <div class="modal-footer flex-center">
             <!--begin::Button-->
             <button
-              type="reset"
               id="kt_modal_add_customer_cancel"
               class="btn btn-light me-3"
+              type="reset"
             >
               Discard
             </button>
@@ -630,7 +641,7 @@ export default defineComponent({
       town: "Melbourne",
       state: "Victoria",
       postCode: "3000",
-      country: "US",
+      country: "US"
     });
 
     const rules = ref({
@@ -638,44 +649,44 @@ export default defineComponent({
         {
           required: true,
           message: "Customer name is required",
-          trigger: "change",
-        },
+          trigger: "change"
+        }
       ],
       email: [
         {
           required: true,
           message: "Customer email is required",
-          trigger: "change",
-        },
+          trigger: "change"
+        }
       ],
       addressLine: [
         {
           required: true,
           message: "Address 1 is required",
-          trigger: "change",
-        },
+          trigger: "change"
+        }
       ],
       town: [
         {
           required: true,
           message: "Town is required",
-          trigger: "change",
-        },
+          trigger: "change"
+        }
       ],
       state: [
         {
           required: true,
           message: "State is required",
-          trigger: "change",
-        },
+          trigger: "change"
+        }
       ],
       postCode: [
         {
           required: true,
           message: "Post code is required",
-          trigger: "change",
-        },
-      ],
+          trigger: "change"
+        }
+      ]
     });
 
     const submit = () => {
@@ -696,8 +707,8 @@ export default defineComponent({
               buttonsStyling: false,
               confirmButtonText: "Ok, got it!",
               customClass: {
-                confirmButton: "btn btn-primary",
-              },
+                confirmButton: "btn btn-primary"
+              }
             }).then(() => {
               hideModal(addCustomerModalRef.value);
             });
@@ -709,8 +720,8 @@ export default defineComponent({
             buttonsStyling: false,
             confirmButtonText: "Ok, got it!",
             customClass: {
-              confirmButton: "btn btn-primary",
-            },
+              confirmButton: "btn btn-primary"
+            }
           });
           return false;
         }
@@ -723,8 +734,8 @@ export default defineComponent({
       submit,
       formRef,
       loading,
-      addCustomerModalRef,
+      addCustomerModalRef
     };
-  },
+  }
 });
 </script>

@@ -3,12 +3,12 @@
   <div class="card mb-5 mb-xl-10">
     <!--begin::Card header-->
     <div
-      class="card-header border-0 cursor-pointer"
-      role="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#kt_account_profile_details"
-      aria-expanded="true"
       aria-controls="kt_account_profile_details"
+      aria-expanded="true"
+      class="card-header border-0 cursor-pointer"
+      data-bs-target="#kt_account_profile_details"
+      data-bs-toggle="collapse"
+      role="button"
     >
       <!--begin::Card title-->
       <div class="card-title m-0">
@@ -23,10 +23,10 @@
       <!--begin::Form-->
       <Form
         id="kt_account_profile_details_form"
+        :validation-schema="profileDetailsValidator"
         class="form"
         novalidate="novalidate"
         @submit="saveChanges1()"
-        :validation-schema="profileDetailsValidator"
       >
         <!--begin::Card body-->
         <div class="card-body border-top p-9">
@@ -46,8 +46,8 @@
               >
                 <!--begin::Preview existing avatar-->
                 <div
-                  class="image-input-wrapper w-125px h-125px"
                   :style="`background-image: url(${profileDetails.avatar})`"
+                  class="image-input-wrapper w-125px h-125px"
                 ></div>
                 <!--end::Preview existing avatar-->
 
@@ -60,15 +60,15 @@
                     bg-white
                     shadow
                   "
-                  data-kt-image-input-action="change"
                   data-bs-toggle="tooltip"
+                  data-kt-image-input-action="change"
                   title="Change avatar"
                 >
                   <i class="bi bi-pencil-fill fs-7"></i>
 
                   <!--begin::Inputs-->
-                  <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
-                  <input type="hidden" name="avatar_remove" />
+                  <input accept=".png, .jpg, .jpeg" name="avatar" type="file" />
+                  <input name="avatar_remove" type="hidden" />
                   <!--end::Inputs-->
                 </label>
                 <!--end::Label-->
@@ -82,10 +82,10 @@
                     bg-white
                     shadow
                   "
-                  data-kt-image-input-action="remove"
                   data-bs-toggle="tooltip"
-                  @click="removeImage()"
+                  data-kt-image-input-action="remove"
                   title="Remove avatar"
+                  @click="removeImage()"
                 >
                   <i class="bi bi-x fs-2"></i>
                 </span>
@@ -105,7 +105,7 @@
           <div class="row mb-6">
             <!--begin::Label-->
             <label class="col-lg-4 col-form-label required fw-bold fs-6"
-              >Full Name</label
+            >Full Name</label
             >
             <!--end::Label-->
 
@@ -116,14 +116,14 @@
                 <!--begin::Col-->
                 <div class="col-lg-6 fv-row">
                   <Field
-                    type="text"
-                    name="fname"
+                    v-model="profileDetails.name"
                     class="
                       form-control form-control-lg form-control-solid
                       mb-3 mb-lg-0
                     "
+                    name="fname"
                     placeholder="First name"
-                    v-model="profileDetails.name"
+                    type="text"
                   />
                   <div class="fv-plugins-message-container">
                     <div class="fv-help-block">
@@ -136,11 +136,11 @@
                 <!--begin::Col-->
                 <div class="col-lg-6 fv-row">
                   <Field
-                    type="text"
-                    name="lname"
-                    class="form-control form-control-lg form-control-solid"
-                    placeholder="Last name"
                     v-model="profileDetails.surname"
+                    class="form-control form-control-lg form-control-solid"
+                    name="lname"
+                    placeholder="Last name"
+                    type="text"
                   />
                   <div class="fv-plugins-message-container">
                     <div class="fv-help-block">
@@ -160,18 +160,18 @@
           <div class="row mb-6">
             <!--begin::Label-->
             <label class="col-lg-4 col-form-label required fw-bold fs-6"
-              >Company</label
+            >Company</label
             >
             <!--end::Label-->
 
             <!--begin::Col-->
             <div class="col-lg-8 fv-row">
               <Field
-                type="text"
-                name="company"
-                class="form-control form-control-lg form-control-solid"
-                placeholder="Company name"
                 v-model="profileDetails.company"
+                class="form-control form-control-lg form-control-solid"
+                name="company"
+                placeholder="Company name"
+                type="text"
               />
               <div class="fv-plugins-message-container">
                 <div class="fv-help-block">
@@ -200,11 +200,11 @@
             <!--begin::Col-->
             <div class="col-lg-8 fv-row">
               <Field
-                type="tel"
-                name="phone"
-                class="form-control form-control-lg form-control-solid"
-                placeholder="Phone number"
                 v-model="profileDetails.contactPhone"
+                class="form-control form-control-lg form-control-solid"
+                name="phone"
+                placeholder="Phone number"
+                type="tel"
               />
               <div class="fv-plugins-message-container">
                 <div class="fv-help-block">
@@ -220,18 +220,18 @@
           <div class="row mb-6">
             <!--begin::Label-->
             <label class="col-lg-4 col-form-label fw-bold fs-6"
-              >Company Site</label
+            >Company Site</label
             >
             <!--end::Label-->
 
             <!--begin::Col-->
             <div class="col-lg-8 fv-row">
               <Field
-                type="text"
-                name="website"
-                class="form-control form-control-lg form-control-solid"
-                placeholder="Company website"
                 v-model="profileDetails.companySite"
+                class="form-control form-control-lg form-control-solid"
+                name="website"
+                placeholder="Company website"
+                type="text"
               />
               <div class="fv-plugins-message-container">
                 <div class="fv-help-block">
@@ -260,10 +260,10 @@
             <!--begin::Col-->
             <div class="col-lg-8 fv-row">
               <Field
-                as="select"
-                name="country"
-                class="form-select form-select-solid form-select-lg fw-bold"
                 v-model="profileDetails.country"
+                as="select"
+                class="form-select form-select-solid form-select-lg fw-bold"
+                name="country"
               >
                 <option value="AF">Afghanistan</option>
                 <option value="AX">Aland Islands</option>
@@ -537,7 +537,7 @@
           <div class="row mb-6">
             <!--begin::Label-->
             <label class="col-lg-4 col-form-label required fw-bold fs-6"
-              >Language</label
+            >Language</label
             >
             <!--end::Label-->
 
@@ -545,10 +545,10 @@
             <div class="col-lg-8 fv-row">
               <!--begin::Input-->
               <Field
-                as="select"
-                name="language"
-                class="form-select form-select-solid form-select-lg"
                 v-model="profileDetails.language"
+                as="select"
+                class="form-select form-select-solid form-select-lg"
+                name="language"
               >
                 <option value="id">Bahasa Indonesia - Indonesian</option>
                 <option value="msa">Bahasa Melayu - Malay</option>
@@ -619,17 +619,17 @@
           <div class="row mb-6">
             <!--begin::Label-->
             <label class="col-lg-4 col-form-label required fw-bold fs-6"
-              >Time Zone</label
+            >Time Zone</label
             >
             <!--end::Label-->
 
             <!--begin::Col-->
             <div class="col-lg-8 fv-row">
               <Field
-                as="select"
-                name="timezone"
-                class="form-select form-select-solid form-select-lg"
                 v-model="profileDetails.timezone"
+                as="select"
+                class="form-select form-select-solid form-select-lg"
+                name="timezone"
               >
                 <option
                   data-bs-offset="-39600"
@@ -1086,17 +1086,17 @@
           <div class="row mb-6">
             <!--begin::Label-->
             <label class="col-lg-4 col-form-label required fw-bold fs-6"
-              >Currency</label
+            >Currency</label
             >
             <!--end::Label-->
 
             <!--begin::Col-->
             <div class="col-lg-8 fv-row">
               <Field
-                as="select"
-                name="currency"
-                class="form-select form-select-solid form-select-lg"
                 v-model="profileDetails.currency"
+                as="select"
+                class="form-select form-select-solid form-select-lg"
+                name="currency"
               >
                 <option data-kt-flag="flags/united-states.svg" value="USD">
                   <b>USD</b>&#160;-&#160;USA dollar
@@ -1134,7 +1134,7 @@
           <div class="row mb-6">
             <!--begin::Label-->
             <label class="col-lg-4 col-form-label fw-bold fs-6"
-              >Communication</label
+            >Communication</label
             >
             <!--end::Label-->
 
@@ -1176,7 +1176,7 @@
           <div class="row mb-0">
             <!--begin::Label-->
             <label class="col-lg-4 col-form-label fw-bold fs-6"
-              >Allow Marketing</label
+            >Allow Marketing</label
             >
             <!--begin::Label-->
 
@@ -1184,9 +1184,9 @@
             <div class="col-lg-8 d-flex align-items-center">
               <div class="form-check form-check-solid form-switch fv-row">
                 <input
+                  id="allowmarketing"
                   class="form-check-input w-45px h-30px"
                   type="checkbox"
-                  id="allowmarketing"
                 />
                 <label class="form-check-label" for="allowmarketing"></label>
               </div>
@@ -1200,17 +1200,17 @@
         <!--begin::Actions-->
         <div class="card-footer d-flex justify-content-end py-6 px-9">
           <button
-            type="reset"
             class="btn btn-white btn-active-light-primary me-2"
+            type="reset"
           >
             Discard
           </button>
 
           <button
-            type="submit"
             id="kt_account_profile_details_submit"
             ref="submitButton1"
             class="btn btn-primary"
+            type="submit"
           >
             <span class="indicator-label"> Save Changes </span>
             <span class="indicator-progress">
@@ -1234,9 +1234,9 @@
     <!--begin::Card header-->
     <div
       class="card-header border-0 cursor-pointer"
-      role="button"
-      data-bs-toggle="collapse"
       data-bs-target="#kt_account_signin_method"
+      data-bs-toggle="collapse"
+      role="button"
     >
       <div class="card-title m-0">
         <h3 class="fw-boldest m-0">Sign-in Method</h3>
@@ -1263,29 +1263,29 @@
             <!--begin::Form-->
             <Form
               id="kt_signin_change_email"
+              :validation-schema="changeEmail"
               class="form"
               novalidate="novalidate"
               @submit="updateEmail()"
-              :validation-schema="changeEmail"
             >
               <div class="row mb-6">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                   <div class="fv-row mb-0">
                     <label
-                      for="emailaddress"
                       class="form-label fs-6 fw-bolder mb-3"
-                      >Enter New Email Address</label
+                      for="emailaddress"
+                    >Enter New Email Address</label
                     >
                     <Field
-                      type="email"
+                      id="emailaddress"
                       class="
                         form-control form-control-lg form-control-solid
                         fw-bold
                         fs-6
                       "
-                      id="emailaddress"
-                      placeholder="Email Address"
                       name="emailaddress"
+                      placeholder="Email Address"
+                      type="email"
                       value="support@keenthemes.com"
                     />
                     <div class="fv-plugins-message-container">
@@ -1298,19 +1298,19 @@
                 <div class="col-lg-6">
                   <div class="fv-row mb-0">
                     <label
-                      for="confirmemailpassword"
                       class="form-label fs-6 fw-bolder mb-3"
-                      >Confirm Password</label
+                      for="confirmemailpassword"
+                    >Confirm Password</label
                     >
                     <Field
-                      type="password"
+                      id="confirmemailpassword"
                       class="
                         form-control form-control-lg form-control-solid
                         fw-bold
                         fs-6
                       "
                       name="confirmemailpassword"
-                      id="confirmemailpassword"
+                      type="password"
                     />
                     <div class="fv-plugins-message-container">
                       <div class="fv-help-block">
@@ -1323,9 +1323,9 @@
               <div class="d-flex">
                 <button
                   id="kt_signin_submit"
-                  type="submit"
                   ref="updateEmailButton"
                   class="btn btn-primary me-2 px-6"
+                  type="submit"
                 >
                   <span class="indicator-label"> Update Email </span>
                   <span class="indicator-progress">
@@ -1337,8 +1337,8 @@
                 </button>
                 <button
                   id="kt_signin_cancel"
-                  type="button"
                   class="btn btn-color-gray-400 btn-active-light-primary px-6"
+                  type="button"
                   @click="emailFormDisplay = !emailFormDisplay"
                 >
                   Cancel
@@ -1373,8 +1373,8 @@
           </div>
           <div
             id="kt_signin_password_edit"
-            class="flex-row-fluid"
             :class="{ 'd-none': !passwordFormDisplay }"
+            class="flex-row-fluid"
           >
             <div class="fs-6 fw-bold text-gray-600 mb-4">
               Password must be at least 8 character and contain symbols
@@ -1383,28 +1383,28 @@
             <!--begin::Form-->
             <Form
               id="kt_signin_change_password"
+              :validation-schema="changePassword"
               class="form"
               novalidate="novalidate"
               @submit="updatePassword()"
-              :validation-schema="changePassword"
             >
               <div class="row mb-6">
                 <div class="col-lg-4">
                   <div class="fv-row mb-0">
                     <label
-                      for="currentpassword"
                       class="form-label fs-6 fw-bolder mb-3"
-                      >Current Password</label
+                      for="currentpassword"
+                    >Current Password</label
                     >
                     <Field
-                      type="password"
+                      id="currentpassword"
                       class="
                         form-control form-control-lg form-control-solid
                         fw-bold
                         fs-6
                       "
                       name="currentpassword"
-                      id="currentpassword"
+                      type="password"
                     />
                     <div class="fv-plugins-message-container">
                       <div class="fv-help-block">
@@ -1416,19 +1416,19 @@
                 <div class="col-lg-4">
                   <div class="fv-row mb-0">
                     <label
-                      for="newpassword"
                       class="form-label fs-6 fw-bolder mb-3"
-                      >New Password</label
+                      for="newpassword"
+                    >New Password</label
                     >
                     <Field
-                      type="password"
+                      id="newpassword"
                       class="
                         form-control form-control-lg form-control-solid
                         fw-bold
                         fs-6
                       "
                       name="newpassword"
-                      id="newpassword"
+                      type="password"
                     />
                     <div class="fv-plugins-message-container">
                       <div class="fv-help-block">
@@ -1440,19 +1440,19 @@
                 <div class="col-lg-4">
                   <div class="fv-row mb-0">
                     <label
-                      for="confirmpassword"
                       class="form-label fs-6 fw-bolder mb-3"
-                      >Confirm New Password</label
+                      for="confirmpassword"
+                    >Confirm New Password</label
                     >
                     <Field
-                      type="password"
+                      id="confirmpassword"
                       class="
                         form-control form-control-lg form-control-solid
                         fw-bold
                         fs-6
                       "
                       name="confirmpassword"
-                      id="confirmpassword"
+                      type="password"
                     />
                     <div class="fv-plugins-message-container">
                       <div class="fv-help-block">
@@ -1465,9 +1465,9 @@
               <div class="d-flex">
                 <button
                   id="kt_password_submit"
-                  type="submit"
                   ref="updatePasswordButton"
                   class="btn btn-primary me-2 px-6"
+                  type="submit"
                 >
                   <span class="indicator-label"> Update Password </span>
                   <span class="indicator-progress">
@@ -1479,9 +1479,9 @@
                 </button>
                 <button
                   id="kt_password_cancel"
+                  class="btn btn-color-gray-400 btn-active-light-primary px-6"
                   type="button"
                   @click="passwordFormDisplay = !passwordFormDisplay"
-                  class="btn btn-color-gray-400 btn-active-light-primary px-6"
                 >
                   Cancel
                 </button>
@@ -1491,12 +1491,12 @@
           </div>
           <div
             id="kt_signin_password_button"
-            class="ms-auto"
             :class="{ 'd-none': passwordFormDisplay }"
+            class="ms-auto"
           >
             <button
-              @click="passwordFormDisplay = !passwordFormDisplay"
               class="btn btn-light fw-boldest"
+              @click="passwordFormDisplay = !passwordFormDisplay"
             >
               Reset Password
             </button>
@@ -1514,12 +1514,12 @@
   <div class="card mb-5 mb-xl-10">
     <!--begin::Card header-->
     <div
-      class="card-header border-0 cursor-pointer"
-      role="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#kt_account_connected_accounts"
-      aria-expanded="true"
       aria-controls="kt_account_connected_accounts"
+      aria-expanded="true"
+      class="card-header border-0 cursor-pointer"
+      data-bs-target="#kt_account_connected_accounts"
+      data-bs-toggle="collapse"
+      role="button"
     >
       <div class="card-title m-0">
         <h3 class="fw-bolder m-0">Connected Accounts</h3>
@@ -1553,7 +1553,7 @@
               <div class="fs-6 text-gray-600">
                 Two-factor authentication adds an extra layer of security to
                 your account. To log in, in you'll need to provide a 4 digit
-                amazing code. <a href="#" class="fw-bolder">Learn More</a>
+                amazing code. <a class="fw-bolder" href="#">Learn More</a>
               </div>
             </div>
             <!--end::Content-->
@@ -1567,14 +1567,14 @@
           <div class="d-flex flex-stack">
             <div class="d-flex">
               <img
-                src="media/svg/brand-logos/google-icon.svg"
-                class="w-30px me-6"
                 alt=""
+                class="w-30px me-6"
+                src="media/svg/brand-logos/google-icon.svg"
               />
 
               <div class="d-flex flex-column">
-                <a href="#" class="fs-5 text-dark text-hover-primary fw-bolder"
-                  >Google</a
+                <a class="fs-5 text-dark text-hover-primary fw-bolder" href="#"
+                >Google</a
                 >
                 <div class="fs-6 fw-bold text-gray-400">
                   Plan properly your workflow
@@ -1584,10 +1584,10 @@
             <div class="d-flex justify-content-end">
               <div class="form-check form-check-solid form-switch">
                 <input
-                  class="form-check-input w-45px h-30px"
-                  type="checkbox"
                   id="googleswitch"
                   checked
+                  class="form-check-input w-45px h-30px"
+                  type="checkbox"
                 />
                 <label class="form-check-label" for="googleswitch"></label>
               </div>
@@ -1601,14 +1601,14 @@
           <div class="d-flex flex-stack">
             <div class="d-flex">
               <img
-                src="media/svg/brand-logos/github.svg"
-                class="w-30px me-6"
                 alt=""
+                class="w-30px me-6"
+                src="media/svg/brand-logos/github.svg"
               />
 
               <div class="d-flex flex-column">
-                <a href="#" class="fs-5 text-dark text-hover-primary fw-bolder"
-                  >Github</a
+                <a class="fs-5 text-dark text-hover-primary fw-bolder" href="#"
+                >Github</a
                 >
                 <div class="fs-6 fw-bold text-gray-400">
                   Keep eye on on your Repositories
@@ -1618,10 +1618,10 @@
             <div class="d-flex justify-content-end">
               <div class="form-check form-check-solid form-switch">
                 <input
-                  class="form-check-input w-45px h-30px"
-                  type="checkbox"
                   id="githubswitch"
                   checked
+                  class="form-check-input w-45px h-30px"
+                  type="checkbox"
                 />
                 <label class="form-check-label" for="githubswitch"></label>
               </div>
@@ -1635,14 +1635,14 @@
           <div class="d-flex flex-stack">
             <div class="d-flex">
               <img
-                src="media/svg/brand-logos/slack-icon.svg"
-                class="w-30px me-6"
                 alt=""
+                class="w-30px me-6"
+                src="media/svg/brand-logos/slack-icon.svg"
               />
 
               <div class="d-flex flex-column">
-                <a href="#" class="fs-5 text-dark text-hover-primary fw-bolder"
-                  >Slack</a
+                <a class="fs-5 text-dark text-hover-primary fw-bolder" href="#"
+                >Slack</a
                 >
                 <div class="fs-6 fw-bold text-gray-400">
                   Integrate Projects Discussions
@@ -1652,9 +1652,9 @@
             <div class="d-flex justify-content-end">
               <div class="form-check form-check-solid form-switch">
                 <input
+                  id="slackswitch"
                   class="form-check-input w-45px h-30px"
                   type="checkbox"
-                  id="slackswitch"
                 />
                 <label class="form-check-label" for="slackswitch"></label>
               </div>
@@ -1695,12 +1695,12 @@
   <div class="card mb-5 mb-xl-10">
     <!--begin::Card header-->
     <div
-      class="card-header border-0 cursor-pointer"
-      role="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#kt_account_email_preferences"
-      aria-expanded="true"
       aria-controls="kt_account_email_preferences"
+      aria-expanded="true"
+      class="card-header border-0 cursor-pointer"
+      data-bs-target="#kt_account_email_preferences"
+      data-bs-toggle="collapse"
+      role="button"
     >
       <div class="card-title m-0">
         <h3 class="fw-bolder m-0">Email Preferences</h3>
@@ -1724,8 +1724,8 @@
             <!--begin::Input-->
             <input
               class="form-check-input me-3"
-              type="checkbox"
               name="email-preferences1"
+              type="checkbox"
               value="1"
             />
             <!--end::Input-->
@@ -1734,7 +1734,7 @@
             <span class="form-check-label d-flex flex-column align-items-start">
               <span class="fw-bolder fs-5 mb-0">Successful Payments</span>
               <span class="text-muted fs-6"
-                >Receive a notification for every successful payment.</span
+              >Receive a notification for every successful payment.</span
               >
             </span>
             <!--end::Label-->
@@ -1753,10 +1753,10 @@
           >
             <!--begin::Input-->
             <input
-              class="form-check-input me-3"
-              type="checkbox"
-              name="email-preferences1"
               checked
+              class="form-check-input me-3"
+              name="email-preferences1"
+              type="checkbox"
               value="1"
             />
             <!--end::Input-->
@@ -1765,7 +1765,7 @@
             <span class="form-check-label d-flex flex-column align-items-start">
               <span class="fw-bolder fs-5 mb-0">Payouts</span>
               <span class="text-muted fs-6"
-                >Receive a notification for every initiated payout.</span
+              >Receive a notification for every initiated payout.</span
               >
             </span>
             <!--end::Label-->
@@ -1785,8 +1785,8 @@
             <!--begin::Input-->
             <input
               class="form-check-input me-3"
-              type="checkbox"
               name="email-preferences1"
+              type="checkbox"
               value="1"
             />
             <!--end::Input-->
@@ -1795,7 +1795,7 @@
             <span class="form-check-label d-flex flex-column align-items-start">
               <span class="fw-bolder fs-5 mb-0">Fee Collection</span>
               <span class="text-muted fs-6"
-                >Receive a notification each time you collect a fee from
+              >Receive a notification each time you collect a fee from
                 sales</span
               >
             </span>
@@ -1815,10 +1815,10 @@
           >
             <!--begin::Input-->
             <input
-              class="form-check-input me-3"
-              type="checkbox"
-              name="email-preferences1"
               checked
+              class="form-check-input me-3"
+              name="email-preferences1"
+              type="checkbox"
               value="1"
             />
             <!--end::Input-->
@@ -1827,7 +1827,7 @@
             <span class="form-check-label d-flex flex-column align-items-start">
               <span class="fw-bolder fs-5 mb-0">Customer Payment Dispute</span>
               <span class="text-muted fs-6"
-                >Receive a notification if a payment is disputed by a customer
+              >Receive a notification if a payment is disputed by a customer
                 and for dispute purposes.</span
               >
             </span>
@@ -1848,8 +1848,8 @@
             <!--begin::Input-->
             <input
               class="form-check-input me-3"
-              type="checkbox"
               name="email-preferences1"
+              type="checkbox"
               value="1"
             />
             <!--end::Input-->
@@ -1858,7 +1858,7 @@
             <span class="form-check-label d-flex flex-column align-items-start">
               <span class="fw-bolder fs-5 mb-0">Refund Alerts</span>
               <span class="text-muted fs-6"
-                >Receive a notification if a payment is stated as risk by the
+              >Receive a notification if a payment is stated as risk by the
                 Finance Department.</span
               >
             </span>
@@ -1878,10 +1878,10 @@
           >
             <!--begin::Input-->
             <input
-              class="form-check-input me-3"
-              type="checkbox"
-              name="email-preferences1"
               checked
+              class="form-check-input me-3"
+              name="email-preferences1"
+              type="checkbox"
               value="1"
             />
             <!--end::Input-->
@@ -1890,7 +1890,7 @@
             <span class="form-check-label d-flex flex-column align-items-start">
               <span class="fw-bolder fs-5 mb-0">Invoice Payments</span>
               <span class="text-muted fs-6"
-                >Receive a notification if a customer sends an incorrect amount
+              >Receive a notification if a customer sends an incorrect amount
                 to pay their invoice.</span
               >
             </span>
@@ -1911,8 +1911,8 @@
             <!--begin::Input-->
             <input
               class="form-check-input me-3"
-              type="checkbox"
               name="email-preferences1"
+              type="checkbox"
               value="1"
             />
             <!--end::Input-->
@@ -1921,7 +1921,7 @@
             <span class="form-check-label d-flex flex-column align-items-start">
               <span class="fw-bolder fs-5 mb-0">Webhook API Endpoints</span>
               <span class="text-muted fs-6"
-                >Receive notifications for consistently failing webhook API
+              >Receive notifications for consistently failing webhook API
                 endpoints.</span
               >
             </span>
@@ -1941,8 +1941,8 @@
           </button>
           <button
             ref="submitButton3"
-            type="submit"
             class="btn btn-primary px-6"
+            type="submit"
           >
             <span class="indicator-label"> Save Changes </span>
             <span class="indicator-progress">
@@ -1965,12 +1965,12 @@
   <div class="card mb-5 mb-xl-10">
     <!--begin::Card header-->
     <div
-      class="card-header border-0 cursor-pointer"
-      role="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#kt_account_notifications"
-      aria-expanded="true"
       aria-controls="kt_account_notifications"
+      aria-expanded="true"
+      class="card-header border-0 cursor-pointer"
+      data-bs-target="#kt_account_notifications"
+      data-bs-toggle="collapse"
+      role="button"
     >
       <div class="card-title m-0">
         <h3 class="fw-bolder m-0">Notifications</h3>
@@ -1990,191 +1990,191 @@
               class="table table-row-dashed border-gray-300 align-middle gy-6"
             >
               <tbody class="fs-6 fw-bold">
-                <!--begin::Table row-->
-                <tr>
-                  <td class="min-w-250px fs-4 fw-bolder">Notifications</td>
-                  <td class="w-125px">
-                    <div class="form-check form-check-solid">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="kt_settings_notification_email"
-                        checked
-                        data-kt-check="true"
-                        data-kt-check-target="[data-kt-settings-notification=email]"
-                      />
-                      <label
-                        class="form-check-label ps-2"
-                        for="kt_settings_notification_email"
-                      >
-                        Email
-                      </label>
-                    </div>
-                  </td>
-                  <td class="w-125px">
-                    <div class="form-check form-check-solid">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="kt_settings_notification_phone"
-                        checked
-                        data-kt-check="true"
-                        data-kt-check-target="[data-kt-settings-notification=phone]"
-                      />
-                      <label
-                        class="form-check-label ps-2"
-                        for="kt_settings_notification_phone"
-                      >
-                        Phone
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <!--begin::Table row-->
+              <!--begin::Table row-->
+              <tr>
+                <td class="min-w-250px fs-4 fw-bolder">Notifications</td>
+                <td class="w-125px">
+                  <div class="form-check form-check-solid">
+                    <input
+                      id="kt_settings_notification_email"
+                      checked
+                      class="form-check-input"
+                      data-kt-check="true"
+                      data-kt-check-target="[data-kt-settings-notification=email]"
+                      type="checkbox"
+                      value=""
+                    />
+                    <label
+                      class="form-check-label ps-2"
+                      for="kt_settings_notification_email"
+                    >
+                      Email
+                    </label>
+                  </div>
+                </td>
+                <td class="w-125px">
+                  <div class="form-check form-check-solid">
+                    <input
+                      id="kt_settings_notification_phone"
+                      checked
+                      class="form-check-input"
+                      data-kt-check="true"
+                      data-kt-check-target="[data-kt-settings-notification=phone]"
+                      type="checkbox"
+                      value=""
+                    />
+                    <label
+                      class="form-check-label ps-2"
+                      for="kt_settings_notification_phone"
+                    >
+                      Phone
+                    </label>
+                  </div>
+                </td>
+              </tr>
+              <!--begin::Table row-->
 
-                <!--begin::Table row-->
-                <tr>
-                  <td>Billing Updates</td>
-                  <td>
-                    <div class="form-check form-check-solid">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value="1"
-                        id="billing1"
-                        checked
-                        data-kt-settings-notification="email"
-                      />
-                      <label
-                        class="form-check-label ps-2"
-                        for="billing1"
-                      ></label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check form-check-solid">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="billing2"
-                        checked
-                        data-kt-settings-notification="phone"
-                      />
-                      <label
-                        class="form-check-label ps-2"
-                        for="billing2"
-                      ></label>
-                    </div>
-                  </td>
-                </tr>
-                <!--begin::Table row-->
+              <!--begin::Table row-->
+              <tr>
+                <td>Billing Updates</td>
+                <td>
+                  <div class="form-check form-check-solid">
+                    <input
+                      id="billing1"
+                      checked
+                      class="form-check-input"
+                      data-kt-settings-notification="email"
+                      type="checkbox"
+                      value="1"
+                    />
+                    <label
+                      class="form-check-label ps-2"
+                      for="billing1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check form-check-solid">
+                    <input
+                      id="billing2"
+                      checked
+                      class="form-check-input"
+                      data-kt-settings-notification="phone"
+                      type="checkbox"
+                      value=""
+                    />
+                    <label
+                      class="form-check-label ps-2"
+                      for="billing2"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <!--begin::Table row-->
 
-                <!--begin::Table row-->
-                <tr>
-                  <td>New Team Members</td>
-                  <td>
-                    <div class="form-check form-check-solid">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="team1"
-                        checked
-                        data-kt-settings-notification="email"
-                      />
-                      <label class="form-check-label ps-2" for="team1"></label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check form-check-solid">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="team2"
-                        data-kt-settings-notification="phone"
-                      />
-                      <label class="form-check-label ps-2" for="team2"></label>
-                    </div>
-                  </td>
-                </tr>
-                <!--begin::Table row-->
+              <!--begin::Table row-->
+              <tr>
+                <td>New Team Members</td>
+                <td>
+                  <div class="form-check form-check-solid">
+                    <input
+                      id="team1"
+                      checked
+                      class="form-check-input"
+                      data-kt-settings-notification="email"
+                      type="checkbox"
+                      value=""
+                    />
+                    <label class="form-check-label ps-2" for="team1"></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check form-check-solid">
+                    <input
+                      id="team2"
+                      class="form-check-input"
+                      data-kt-settings-notification="phone"
+                      type="checkbox"
+                      value=""
+                    />
+                    <label class="form-check-label ps-2" for="team2"></label>
+                  </div>
+                </td>
+              </tr>
+              <!--begin::Table row-->
 
-                <!--begin::Table row-->
-                <tr>
-                  <td>Completed Projects</td>
-                  <td>
-                    <div class="form-check form-check-solid">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="project1"
-                        data-kt-settings-notification="email"
-                      />
-                      <label
-                        class="form-check-label ps-2"
-                        for="project1"
-                      ></label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check form-check-solid">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="project2"
-                        checked
-                        data-kt-settings-notification="phone"
-                      />
-                      <label
-                        class="form-check-label ps-2"
-                        for="project2"
-                      ></label>
-                    </div>
-                  </td>
-                </tr>
-                <!--begin::Table row-->
+              <!--begin::Table row-->
+              <tr>
+                <td>Completed Projects</td>
+                <td>
+                  <div class="form-check form-check-solid">
+                    <input
+                      id="project1"
+                      class="form-check-input"
+                      data-kt-settings-notification="email"
+                      type="checkbox"
+                      value=""
+                    />
+                    <label
+                      class="form-check-label ps-2"
+                      for="project1"
+                    ></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="form-check form-check-solid">
+                    <input
+                      id="project2"
+                      checked
+                      class="form-check-input"
+                      data-kt-settings-notification="phone"
+                      type="checkbox"
+                      value=""
+                    />
+                    <label
+                      class="form-check-label ps-2"
+                      for="project2"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <!--begin::Table row-->
 
-                <!--begin::Table row-->
-                <tr>
-                  <td class="border-bottom-0">Newsletters</td>
-                  <td class="border-bottom-0">
-                    <div class="form-check form-check-solid">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="newsletter1"
-                        data-kt-settings-notification="email"
-                      />
-                      <label
-                        class="form-check-label ps-2"
-                        for="newsletter1"
-                      ></label>
-                    </div>
-                  </td>
-                  <td class="border-bottom-0">
-                    <div class="form-check form-check-solid">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="newsletter2"
-                        data-kt-settings-notification="phone"
-                      />
-                      <label
-                        class="form-check-label ps-2"
-                        for="newsletter2"
-                      ></label>
-                    </div>
-                  </td>
-                </tr>
-                <!--begin::Table row-->
+              <!--begin::Table row-->
+              <tr>
+                <td class="border-bottom-0">Newsletters</td>
+                <td class="border-bottom-0">
+                  <div class="form-check form-check-solid">
+                    <input
+                      id="newsletter1"
+                      class="form-check-input"
+                      data-kt-settings-notification="email"
+                      type="checkbox"
+                      value=""
+                    />
+                    <label
+                      class="form-check-label ps-2"
+                      for="newsletter1"
+                    ></label>
+                  </div>
+                </td>
+                <td class="border-bottom-0">
+                  <div class="form-check form-check-solid">
+                    <input
+                      id="newsletter2"
+                      class="form-check-input"
+                      data-kt-settings-notification="phone"
+                      type="checkbox"
+                      value=""
+                    />
+                    <label
+                      class="form-check-label ps-2"
+                      for="newsletter2"
+                    ></label>
+                  </div>
+                </td>
+              </tr>
+              <!--begin::Table row-->
               </tbody>
             </table>
           </div>
@@ -2189,8 +2189,8 @@
           </button>
           <button
             ref="submitButton4"
-            type="submit"
             class="btn btn-primary px-6"
+            type="submit"
           >
             <span class="indicator-label"> Save Changes </span>
             <span class="indicator-progress">
@@ -2213,12 +2213,12 @@
   <div class="card mb-5 mb-xl-10">
     <!--begin::Card header-->
     <div
-      class="card-header border-0 cursor-pointer"
-      role="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#kt_account_deactivate"
-      aria-expanded="true"
       aria-controls="kt_account_deactivate"
+      aria-expanded="true"
+      class="card-header border-0 cursor-pointer"
+      data-bs-target="#kt_account_deactivate"
+      data-bs-toggle="collapse"
+      role="button"
     >
       <div class="card-title m-0">
         <h3 class="fw-boldest m-0">Deactivate Account</h3>
@@ -2261,10 +2261,10 @@
                 <div class="fs-6 text-gray-600">
                   For extra security, this requires you to confirm your email or
                   phone number when you reset yousignr password. <br /><a
-                    class="fw-bolder"
-                    href="#"
-                    >Learn more</a
-                  >
+                  class="fw-bolder"
+                  href="#"
+                >Learn more</a
+                >
                 </div>
               </div>
               <!--end::Content-->
@@ -2275,14 +2275,14 @@
           <!--begin::Form input row-->
           <div class="form-check form-check-solid fv-row">
             <input
-              name="deactivate"
+              id="deactivate"
               class="form-check-input"
+              name="deactivate"
               type="checkbox"
               value=""
-              id="deactivate"
             />
             <label class="form-check-label fw-bold ps-2 fs-6" for="deactivate"
-              >Confirm Account Deactivation</label
+            >Confirm Account Deactivation</label
             >
           </div>
           <!--end::Form input row-->
@@ -2294,8 +2294,8 @@
           <button
             id="kt_account_deactivate_account_submit"
             ref="submitButton5"
-            type="submit"
             class="btn btn-danger fw-bold"
+            type="submit"
           >
             <span class="indicator-label"> Deactivate Account </span>
             <span class="indicator-progress">
@@ -2345,7 +2345,7 @@ export default defineComponent({
   components: {
     ErrorMessage,
     Field,
-    Form,
+    Form
   },
   setup() {
     const submitButton1 = ref<HTMLElement | null>(null);
@@ -2368,12 +2368,12 @@ export default defineComponent({
       country: Yup.string().required().label("Country"),
       language: Yup.string().required().label("Language"),
       timezone: Yup.string().required().label("Timezone"),
-      currency: Yup.string().required().label("Currency"),
+      currency: Yup.string().required().label("Currency")
     });
 
     const changeEmail = Yup.object().shape({
       emailaddress: Yup.string().required().email().label("Email"),
-      confirmemailpassword: Yup.string().required().label("Password"),
+      confirmemailpassword: Yup.string().required().label("Password")
     });
 
     const changePassword = Yup.object().shape({
@@ -2383,7 +2383,7 @@ export default defineComponent({
         .min(4)
         .required()
         .oneOf([Yup.ref("newpassword"), null], "Passwords must match")
-        .label("Password Confirmation"),
+        .label("Password Confirmation")
     });
 
     const profileDetails = ref<ProfileDetails>({
@@ -2399,9 +2399,9 @@ export default defineComponent({
       currency: "USD",
       communications: {
         email: false,
-        phone: false,
+        phone: false
       },
-      allowMarketing: false,
+      allowMarketing: false
     });
 
     const saveChanges1 = () => {
@@ -2462,8 +2462,8 @@ export default defineComponent({
             confirmButtonText: "Ok",
             buttonsStyling: false,
             customClass: {
-              confirmButton: "btn btn-light-primary",
-            },
+              confirmButton: "btn btn-light-primary"
+            }
           }).then(() => {
             emailFormDisplay.value = false;
           });
@@ -2500,8 +2500,8 @@ export default defineComponent({
             confirmButtonText: "Ok",
             buttonsStyling: false,
             customClass: {
-              confirmButton: "btn btn-light-primary",
-            },
+              confirmButton: "btn btn-light-primary"
+            }
           }).then(() => {
             passwordFormDisplay.value = false;
           });
@@ -2538,8 +2538,8 @@ export default defineComponent({
       updateEmailButton,
       updatePasswordButton,
       updateEmail,
-      updatePassword,
+      updatePassword
     };
-  },
+  }
 });
 </script>

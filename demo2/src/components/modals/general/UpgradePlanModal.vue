@@ -1,10 +1,10 @@
 <template>
   <!--begin::Modal - Upgrade plan-->
   <div
-    class="modal fade"
     id="kt_modal_upgrade_plan"
-    tabindex="-1"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-xl">
@@ -33,7 +33,7 @@
 
             <div class="text-gray-400 fw-bold fs-5">
               If you need more info, please check
-              <a href="#" class="link-primary fw-bolder">Pricing Guidelines</a>.
+              <a class="link-primary fw-bolder" href="#">Pricing Guidelines</a>.
             </div>
           </div>
           <!--end::Heading-->
@@ -46,7 +46,6 @@
               data-kt-buttons="true"
             >
               <button
-                @click="current = 'month'"
                 :class="[current === 'month' && 'active']"
                 class="
                   btn btn-color-gray-400 btn-active btn-active-secondary
@@ -54,17 +53,18 @@
                   py-3
                   me-2
                 "
+                @click="current = 'month'"
               >
                 Monthly
               </button>
               <button
-                @click="current = 'annual'"
                 :class="[current === 'annual' && 'active']"
                 class="
                   btn btn-color-gray-400 btn-active btn-active-secondary
                   px-6
                   py-3
                 "
+                @click="current = 'annual'"
               >
                 Annual
               </button>
@@ -80,7 +80,12 @@
                   <template v-for="(plan, index) in plans" :key="index">
                     <!--begin::Tab link-->
                     <div
-                      @click="selected = plan.title"
+                      :class="[
+                        index !== plans.length - 1 && 'mb-6',
+                        plan.default && 'active',
+                        !plan.custom && 'btn-active btn-active-primary',
+                      ]"
+                      :data-bs-target="`#kt_upgrade_plan_${index}`"
                       class="
                         nav-link
                         btn btn-outline btn-outline-dashed btn-color-dark
@@ -89,13 +94,8 @@
                         text-start
                         p-6
                       "
-                      :class="[
-                        index !== plans.length - 1 && 'mb-6',
-                        plan.default && 'active',
-                        !plan.custom && 'btn-active btn-active-primary',
-                      ]"
                       data-bs-toggle="tab"
-                      :data-bs-target="`#kt_upgrade_plan_${index}`"
+                      @click="selected = plan.title"
                     >
                       <!--end::Description-->
                       <div class="d-flex align-items-center me-2">
@@ -110,11 +110,11 @@
                           "
                         >
                           <input
-                            class="form-check-input"
-                            type="radio"
-                            name="plan"
-                            :value="plan.title"
                             :checked="selected === plan.title"
+                            :value="plan.title"
+                            class="form-check-input"
+                            name="plan"
+                            type="radio"
                           />
                         </div>
                         <!--end::Radio-->
@@ -135,7 +135,7 @@
                             <span
                               v-if="plan.label"
                               class="badge badge-light-success ms-2 fs-7"
-                              >{{ plan.label }}</span
+                            >{{ plan.label }}</span
                             >
                           </h2>
                           <div class="fw-bold opacity-50">
@@ -166,7 +166,7 @@
                           </span>
 
                           <span class="fs-7 opacity-50"
-                            >/
+                          >/
                             <span data-kt-element="period">Mon</span>
                           </span>
                         </template>
@@ -188,9 +188,9 @@
                     <!--begin::Tab Pane-->
                     <div
                       v-if="!plan.custom"
+                      :id="`kt_upgrade_plan_${index}`"
                       :class="[plan.default && 'show active']"
                       class="tab-pane fade"
-                      :id="`kt_upgrade_plan_${index}`"
                     >
                       <!--begin::Heading-->
                       <div class="pb-5">
@@ -262,14 +262,14 @@
           <!--begin::Actions-->
           <div class="d-flex flex-center flex-row-fluid pt-12">
             <button
-              type="reset"
               class="btn btn-white me-3"
               data-bs-dismiss="modal"
+              type="reset"
             >
               Cancel
             </button>
 
-            <button type="submit" class="btn btn-primary">Upgrade Plan</button>
+            <button class="btn btn-primary" type="submit">Upgrade Plan</button>
           </div>
           <!--end::Actions-->
         </div>
@@ -305,33 +305,33 @@ export default defineComponent({
         features: [
           {
             title: "Up to 10 Active Users",
-            supported: true,
+            supported: true
           },
           {
             title: "Up to 30 Project Integrations",
-            supported: true,
+            supported: true
           },
           {
             title: "Analytics Module",
-            supported: true,
+            supported: true
           },
           {
             title: "Finance Module",
-            supported: false,
+            supported: false
           },
           {
             title: "Accounting Module",
-            supported: false,
+            supported: false
           },
           {
             title: "Network Platform",
-            supported: false,
+            supported: false
           },
           {
             title: "Unlimited Cloud Space",
-            supported: false,
-          },
-        ],
+            supported: false
+          }
+        ]
       },
 
       {
@@ -345,33 +345,33 @@ export default defineComponent({
         features: [
           {
             title: "Up to 10 Active Users",
-            supported: true,
+            supported: true
           },
           {
             title: "Up to 30 Project Integrations",
-            supported: true,
+            supported: true
           },
           {
             title: "Analytics Module",
-            supported: true,
+            supported: true
           },
           {
             title: "Finance Module",
-            supported: true,
+            supported: true
           },
           {
             title: "Accounting Module",
-            supported: true,
+            supported: true
           },
           {
             title: "Network Platform",
-            supported: false,
+            supported: false
           },
           {
             title: "Unlimited Cloud Space",
-            supported: false,
-          },
-        ],
+            supported: false
+          }
+        ]
       },
 
       {
@@ -386,48 +386,48 @@ export default defineComponent({
         features: [
           {
             title: "Up to 10 Active Users",
-            supported: true,
+            supported: true
           },
           {
             title: "Up to 30 Project Integrations",
-            supported: true,
+            supported: true
           },
           {
             title: "Analytics Module",
-            supported: true,
+            supported: true
           },
           {
             title: "Finance Module",
-            supported: true,
+            supported: true
           },
           {
             title: "Accounting Module",
-            supported: true,
+            supported: true
           },
           {
             title: "Network Platform",
-            supported: true,
+            supported: true
           },
           {
             title: "Unlimited Cloud Space",
-            supported: true,
-          },
-        ],
+            supported: true
+          }
+        ]
       },
 
       {
         title: "Custom",
         subTitle: "Requet a custom license",
         default: false,
-        custom: true,
-      },
+        custom: true
+      }
     ];
 
     return {
       plans,
       current,
-      selected,
+      selected
     };
-  },
+  }
 });
 </script>

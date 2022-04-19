@@ -2,7 +2,7 @@ import {
   MenuComponent,
   ScrollTopComponent,
   StickyComponent,
-  ToggleComponent,
+  ToggleComponent
 } from "@/assets/ts/components";
 
 /**

@@ -1,11 +1,11 @@
 <template>
   <!--begin::Modal - New Card-->
   <div
-    class="modal fade"
-    ref="newCardModalRef"
     id="kt_modal_delete_user"
-    tabindex="-1"
+    ref="newCardModalRef"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-1000px">
@@ -35,9 +35,9 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--            &lt;!&ndash;begin::Input group&ndash;&gt;-->
             <!--            <div class="d-flex flex-column mb-7 fv-row">-->
@@ -130,10 +130,10 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_fail_submit"
+                ref="submitButtonRef"
                 class="btn btn-danger mx-5"
+                type="submit"
                 @click="
                   submit();
                   deleteRole(deleteId, deleteIndex, false);
@@ -149,10 +149,10 @@
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_success_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   submit();
                   deleteUser(deleteId, deleteIndex, true);
@@ -199,7 +199,7 @@ interface CardData {
 
 export default defineComponent({
   name: "delete-user-modal",
-  data: function () {
+  data: function() {
     return {
       name: "",
       code: "",
@@ -210,22 +210,22 @@ export default defineComponent({
       updatePassword: "",
       updateRole: "0",
       userId: 0,
-      userIndex: -1,
+      userIndex: -1
     };
   },
   props: ["deleteIndex", "deleteId"],
   components: {
     // ErrorMessage,
     // Field,
-    Form,
+    Form
   },
   methods: {
     tableData() {
       axios
         .get("login/list", {
           headers: {
-            Authorization: `Bearer ${this.token}`,
-          },
+            Authorization: `Bearer ${this.token}`
+          }
         })
         .then((response) => {
           if (response.status !== 200) {
@@ -247,8 +247,8 @@ export default defineComponent({
       axios
         .get("role/list", {
           headers: {
-            Authorization: `Bearer ${this.token}`,
-          },
+            Authorization: `Bearer ${this.token}`
+          }
         })
         .then((response) => {
           if (response.status !== 200) {
@@ -264,8 +264,8 @@ export default defineComponent({
         axios
           .delete("login/delete/" + id, {
             headers: {
-              Authorization: `Bearer ${this.token}`,
-            },
+              Authorization: `Bearer ${this.token}`
+            }
           })
           .then((response) => {
             if (response.status !== 200) {
@@ -276,8 +276,8 @@ export default defineComponent({
                 buttonsStyling: false,
                 confirmButtonText: "Ok, got it!",
                 customClass: {
-                  confirmButton: "btn btn-danger",
-                },
+                  confirmButton: "btn btn-danger"
+                }
               });
             } else {
               // alert("Successfully deleted");
@@ -287,8 +287,8 @@ export default defineComponent({
                 buttonsStyling: false,
                 confirmButtonText: "Ok, got it!",
                 customClass: {
-                  confirmButton: "btn btn-primary",
-                },
+                  confirmButton: "btn btn-primary"
+                }
               }).then(() => {
                 this.userDatas.splice(row, 1);
                 this.$emit("splice");
@@ -305,12 +305,12 @@ export default defineComponent({
               buttonsStyling: false,
               confirmButtonText: "Ok, got it!",
               customClass: {
-                confirmButton: "btn btn-danger",
-              },
+                confirmButton: "btn btn-danger"
+              }
             });
           });
       }
-    },
+    }
   },
   watch: {
     deleteId(newValue, oldValue) {
@@ -318,7 +318,7 @@ export default defineComponent({
     },
     deleteIndex(newValue, oldValue) {
       console.log("This is new index:", newValue);
-    },
+    }
   },
   created() {
     this.tableData();
@@ -332,7 +332,7 @@ export default defineComponent({
       cardNumber: "4111 1111 1111 1111",
       expirationMonth: "",
       expirationYear: "",
-      cvv: "",
+      cvv: ""
     });
 
     const validationSchema = Yup.object().shape({
@@ -340,7 +340,7 @@ export default defineComponent({
       cardNumber: Yup.string().required().label("Card number"),
       expirationMonth: Yup.string().required().label("Month"),
       expirationYear: Yup.string().required().label("Year"),
-      cvv: Yup.string().required().label("CVV"),
+      cvv: Yup.string().required().label("CVV")
     });
 
     const submit = () => {
@@ -393,8 +393,8 @@ export default defineComponent({
       validationSchema,
       submit,
       submitButtonRef,
-      newCardModalRef,
+      newCardModalRef
     };
-  },
+  }
 });
 </script>

@@ -1,12 +1,12 @@
 <template>
   <KTModalCard
-    title="Invite Friends Modal Example"
+    button-text="Invite Friends"
     description="Click on the below buttons
   to launch <br />
   a friend invitation example."
     image="media/illustrations/sketchy-1/1.png"
-    button-text="Invite Friends"
     modal-id="kt_modal_invite_friends"
+    title="Invite Friends Modal Example"
   ></KTModalCard>
 
   <KTInviteFriendsModal></KTInviteFriendsModal>
@@ -22,12 +22,12 @@ export default defineComponent({
   name: "invite-friends",
   components: {
     KTModalCard,
-    KTInviteFriendsModal,
+    KTInviteFriendsModal
   },
   setup() {
     onMounted(() => {
       setCurrentPageBreadcrumbs("Invite Friends", ["Modals", "General"]);
     });
-  },
+  }
 });
 </script>

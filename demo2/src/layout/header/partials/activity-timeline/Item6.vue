@@ -21,7 +21,7 @@
       <div class="pe-3 mb-5">
         <!--begin::Title-->
         <div class="fs-5 fw-bold mb-2">
-          New case <a href="#" class="text-primary fw-bolder me-1">#67890</a>
+          New case <a class="text-primary fw-bolder me-1" href="#">#67890</a>
           is assigned to you in Multi-platform Database Design project
         </div>
         <!--end::Title-->
@@ -35,7 +35,7 @@
             <!--end::Info-->
 
             <!--begin::User-->
-            <a href="#" class="text-primary fw-bolder me-1">Alice Tan</a>
+            <a class="text-primary fw-bolder me-1" href="#">Alice Tan</a>
             <!--end::User-->
           </div>
           <!--end::Wrapper-->
@@ -54,6 +54,6 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "",
-  components: {},
+  components: {}
 });
 </script>

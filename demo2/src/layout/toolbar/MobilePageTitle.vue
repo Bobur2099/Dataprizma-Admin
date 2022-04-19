@@ -13,7 +13,7 @@
       class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1"
     >
       <li class="breadcrumb-item text-white opacity-75">
-        <router-link to="/dashboard" class="text-white"> Home </router-link>
+        <router-link class="text-white" to="/dashboard"> Home</router-link>
       </li>
       <li class="breadcrumb-item text-white opacity-75">
         <span class="bullet bg-gray-200 w-5px h-2px"></span>
@@ -43,7 +43,7 @@ export default defineComponent({
   components: {},
   props: {
     breadcrumbs: Array,
-    title: String,
-  },
+    title: String
+  }
 });
 </script>

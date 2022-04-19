@@ -9,7 +9,7 @@
         <span class="text-muted mt-1 fw-bold fs-7">Over 500 new products</span>
       </h3>
       <div class="card-toolbar">
-        <a href="#" class="btn btn-sm btn-light-primary">
+        <a class="btn btn-sm btn-light-primary" href="#">
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/arrows/arr075.svg" />
           </span>
@@ -45,13 +45,13 @@
                 <td>
                   <div class="d-flex align-items-center">
                     <div class="symbol symbol-50px me-5">
-                      <img :src="item.product.image" class="" alt="" />
+                      <img :src="item.product.image" alt="" class="" />
                     </div>
 
                     <div class="d-flex justify-content-start flex-column">
                       <a
-                        href="#"
                         class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                        href="#"
                         >{{ item.product.name }}</a
                       >
                       <span
@@ -64,7 +64,6 @@
 
                 <td>
                   <a
-                    href="#"
                     class="
                       text-dark
                       fw-bolder
@@ -73,6 +72,7 @@
                       mb-1
                       fs-6
                     "
+                    href="#"
                     >{{ item.price }}</a
                   >
                   <span class="text-muted fw-bold text-muted d-block fs-7"
@@ -82,7 +82,6 @@
 
                 <td>
                   <a
-                    href="#"
                     class="
                       text-dark
                       fw-bolder
@@ -91,6 +90,7 @@
                       mb-1
                       fs-6
                     "
+                    href="#"
                     >{{ item.deposit }}</a
                   >
                   <span class="text-muted fw-bold text-muted d-block fs-7"
@@ -100,7 +100,6 @@
 
                 <td>
                   <a
-                    href="#"
                     class="
                       text-dark
                       fw-bolder
@@ -109,6 +108,7 @@
                       mb-1
                       fs-6
                     "
+                    href="#"
                     >{{ item.agent.name }}</a
                   >
                   <span class="text-muted fw-bold text-muted d-block fs-7">{{
@@ -129,11 +129,11 @@
 
                 <td class="text-end">
                   <a
-                    href="#"
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                       me-1
                     "
+                    href="#"
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg
@@ -143,11 +143,11 @@
                   </a>
 
                   <a
-                    href="#"
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                       me-1
                     "
+                    href="#"
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg src="/media/icons/duotune/art/art005.svg" />
@@ -155,10 +155,10 @@
                   </a>
 
                   <a
-                    href="#"
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                     "
+                    href="#"
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg

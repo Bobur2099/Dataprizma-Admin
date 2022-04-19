@@ -2,15 +2,15 @@
   <!--begin::Mixed Widget 14-->
   <div
     :class="widgetClasses"
-    class="card"
     :style="`background-color: ${widgetColor}`"
+    class="card"
   >
     <!--begin::Body-->
     <div class="card-body d-flex flex-column">
       <!--begin::Wrapper-->
       <div class="d-flex flex-column mb-7">
         <!--begin::Title-->
-        <a href="#" class="text-dark text-hover-primary fw-bolder fs-3"
+        <a class="text-dark text-hover-primary fw-bolder fs-3" href="#"
           >Summary</a
         >
         <!--end::Title-->

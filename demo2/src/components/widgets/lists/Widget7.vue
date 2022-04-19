@@ -1,6 +1,6 @@
 <template>
   <!--begin::List Widget 7-->
-  <div class="card" :class="widgetClasses">
+  <div :class="widgetClasses" class="card">
     <!--begin::Header-->
     <div class="card-header align-items-center border-0 mt-4">
       <h3 class="card-title align-items-start flex-column">
@@ -14,11 +14,11 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -41,8 +41,8 @@
           <!--begin::Symbol-->
           <div class="symbol symbol-60px symbol-2by3 me-4">
             <div
-              class="symbol-label"
               :style="`background-image: url('${item.image}')`"
+              class="symbol-label"
             ></div>
           </div>
           <!--end::Symbol-->
@@ -51,8 +51,8 @@
           <div class="d-flex flex-row-fluid flex-wrap align-items-center">
             <div class="flex-grow-1 me-2">
               <a
-                href="#"
                 class="text-gray-800 fw-bolder text-hover-primary fs-6"
+                href="#"
                 >{{ item.title }}</a
               >
 

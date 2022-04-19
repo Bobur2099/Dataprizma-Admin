@@ -35,56 +35,46 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget2
-        widget-classes="card-xl-stretch mb-xl-8"
-        widget-color="info"
         chart-height="200"
         stroke-color="#4e12c4"
-      ></MixedWidget2>
-    </div>
-    <!--end::Col-->
-
-    <!--begin::Col-->
-    <div class="col-xl-4">
-      <MixedWidget2
-        widget-classes="card-xl-stretch mb-xl-8"
-        widget-color="danger"
-        chart-height="200"
-        stroke-color="#cb1e46"
-      ></MixedWidget2>
-    </div>
-    <!--end::Col-->
-
-    <!--begin::Col-->
-    <div class="col-xl-4">
-      <MixedWidget2
-        widget-classes="card-xl-stretch mb-xl-8"
-        widget-color="primary"
-        chart-height="200"
-        stroke-color="#0078d0"
-      ></MixedWidget2>
-    </div>
-    <!--end::Col-->
-  </div>
-  <!--end::Row-->
-
-  <!--begin::Row-->
-  <div class="row g-5 g-xl-8">
-    <!--begin::Col-->
-    <div class="col-xl-4">
-      <MixedWidget11
         widget-classes="card-xl-stretch mb-xl-8"
         widget-color="info"
-        chart-height="200"
-      ></MixedWidget11>
+      ></MixedWidget2>
     </div>
     <!--end::Col-->
 
     <!--begin::Col-->
     <div class="col-xl-4">
-      <MixedWidget11
+      <MixedWidget2
+        chart-height="200"
+        stroke-color="#cb1e46"
         widget-classes="card-xl-stretch mb-xl-8"
         widget-color="danger"
+      ></MixedWidget2>
+    </div>
+    <!--end::Col-->
+
+    <!--begin::Col-->
+    <div class="col-xl-4">
+      <MixedWidget2
         chart-height="200"
+        stroke-color="#0078d0"
+        widget-classes="card-xl-stretch mb-xl-8"
+        widget-color="primary"
+      ></MixedWidget2>
+    </div>
+    <!--end::Col-->
+  </div>
+  <!--end::Row-->
+
+  <!--begin::Row-->
+  <div class="row g-5 g-xl-8">
+    <!--begin::Col-->
+    <div class="col-xl-4">
+      <MixedWidget11
+        chart-height="200"
+        widget-classes="card-xl-stretch mb-xl-8"
+        widget-color="info"
       ></MixedWidget11>
     </div>
     <!--end::Col-->
@@ -92,9 +82,19 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget11
+        chart-height="200"
+        widget-classes="card-xl-stretch mb-xl-8"
+        widget-color="danger"
+      ></MixedWidget11>
+    </div>
+    <!--end::Col-->
+
+    <!--begin::Col-->
+    <div class="col-xl-4">
+      <MixedWidget11
+        chart-height="200"
         widget-classes="card-xl-stretch mb-xl-8"
         widget-color="primary"
-        chart-height="200"
       ></MixedWidget11>
     </div>
     <!--end::Col-->
@@ -106,25 +106,12 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget8
-        widget-classes="card-xl-stretch mb-xl-8"
-        image="media/svg/brand-logos/plurk.svg"
         color="danger"
-        title="Monthly Subscription"
         date="Due: 27 Apr 2020"
+        image="media/svg/brand-logos/plurk.svg"
         progress="75"
-      ></MixedWidget8>
-    </div>
-    <!--end::Col-->
-
-    <!--begin::Col-->
-    <div class="col-xl-4">
-      <MixedWidget8
+        title="Monthly Subscription"
         widget-classes="card-xl-stretch mb-xl-8"
-        image="media/svg/brand-logos/vimeo.svg"
-        color="primary"
-        title="Monthly Subscription"
-        date="Due: 27 Apr 2020"
-        progress="75"
       ></MixedWidget8>
     </div>
     <!--end::Col-->
@@ -132,12 +119,25 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget8
-        widget-classes="card-xl-stretch mb-5 mb-xl-8"
-        image="media/svg/brand-logos/kickstarter.svg"
-        color="success"
-        title="Monthly Subscription"
+        color="primary"
         date="Due: 27 Apr 2020"
+        image="media/svg/brand-logos/vimeo.svg"
         progress="75"
+        title="Monthly Subscription"
+        widget-classes="card-xl-stretch mb-xl-8"
+      ></MixedWidget8>
+    </div>
+    <!--end::Col-->
+
+    <!--begin::Col-->
+    <div class="col-xl-4">
+      <MixedWidget8
+        color="success"
+        date="Due: 27 Apr 2020"
+        image="media/svg/brand-logos/kickstarter.svg"
+        progress="75"
+        title="Monthly Subscription"
+        widget-classes="card-xl-stretch mb-5 mb-xl-8"
       ></MixedWidget8>
     </div>
     <!--end::Col-->
@@ -149,13 +149,13 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget9
-        widget-classes="card-xl-stretch mb-xl-8"
+        description="Pitstop creates quick email campaigns.<br/>
+            We help to strengthen your brand<br/>
+            for your every purpose."
         image="media/svg/brand-logos/plurk.svg"
         time="7 hours ago"
         title="PitStop - Multiple Email Generator"
-        description="Pitstop creates quick email campaigns.<br/>
-            We help to strengthen your brand<br/>
-            for your every purpose."
+        widget-classes="card-xl-stretch mb-xl-8"
       ></MixedWidget9>
     </div>
     <!--end::Col-->
@@ -163,13 +163,13 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget9
-        widget-classes="card-xl-stretch mb-xl-8"
+        description="Pitstop creates quick email campaigns.<br/>
+            We help to strengthen your brand<br/>
+            for your every purpose."
         image="media/svg/brand-logos/telegram.svg"
         time="10 days ago"
         title="ReactJS Admin Theme"
-        description="Pitstop creates quick email campaigns.<br/>
-            We help to strengthen your brand<br/>
-            for your every purpose."
+        widget-classes="card-xl-stretch mb-xl-8"
       ></MixedWidget9>
     </div>
     <!--end::Col-->
@@ -177,13 +177,13 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget9
-        widget-classes="card-xl-stretch mb-5 mb-xl-8"
-        image="media/svg/brand-logos/vimeo.svg"
-        time="2 weeks ago"
-        title="KT.com - High Quality Templates"
         description="Easy to use, incredibly flexible and secure<br/>
             with in-depth documentation that outlines<br/>
             everything for you"
+        image="media/svg/brand-logos/vimeo.svg"
+        time="2 weeks ago"
+        title="KT.com - High Quality Templates"
+        widget-classes="card-xl-stretch mb-5 mb-xl-8"
       ></MixedWidget9>
     </div>
     <!--end::Col-->
@@ -195,19 +195,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget3
-        widget-classes="card-xl-stretch mb-xl-8"
-        chart-height="150"
         chart-color="primary"
-      ></MixedWidget3>
-    </div>
-    <!--end::Col-->
-
-    <!--begin::Col-->
-    <div class="col-xl-4">
-      <MixedWidget3
+        chart-height="150"
         widget-classes="card-xl-stretch mb-xl-8"
-        chart-height="150"
-        chart-color="danger"
       ></MixedWidget3>
     </div>
     <!--end::Col-->
@@ -215,9 +205,19 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget3
-        widget-classes="card-xl-stretch mb-5 mb-xl-8"
+        chart-color="danger"
         chart-height="150"
+        widget-classes="card-xl-stretch mb-xl-8"
+      ></MixedWidget3>
+    </div>
+    <!--end::Col-->
+
+    <!--begin::Col-->
+    <div class="col-xl-4">
+      <MixedWidget3
         chart-color="success"
+        chart-height="150"
+        widget-classes="card-xl-stretch mb-5 mb-xl-8"
       ></MixedWidget3>
     </div>
     <!--end::Col-->
@@ -229,10 +229,10 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget4
-        widget-classes="card-xl-stretch mb-xl-8"
-        chart-color="primary"
-        chart-height="200"
         btn-color="primary"
+        chart-color="primary"
+        chart-height="200"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></MixedWidget4>
     </div>
     <!--end::Col-->
@@ -240,10 +240,10 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget4
-        widget-classes="card-xl-stretch mb-xl-8"
-        chart-color="success"
-        chart-height="200"
         btn-color="success"
+        chart-color="success"
+        chart-height="200"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></MixedWidget4>
     </div>
     <!--end::Col-->
@@ -251,10 +251,10 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget4
-        widget-classes="card-xl-stretch mb-5 mb-xl-8"
+        btn-color="danger"
         chart-color="danger"
         chart-height="200"
-        btn-color="danger"
+        widget-classes="card-xl-stretch mb-5 mb-xl-8"
       ></MixedWidget4>
     </div>
     <!--end::Col-->
@@ -266,9 +266,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget5
-        widget-classes="card-xl-stretch mb-xl-8"
         chart-color="primary"
         chart-height="150"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></MixedWidget5>
     </div>
     <!--end::Col-->
@@ -276,9 +276,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget5
-        widget-classes="card-xl-stretch mb-xl-8"
         chart-color="success"
         chart-height="150"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></MixedWidget5>
     </div>
     <!--end::Col-->
@@ -286,9 +286,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget5
-        widget-classes="card-xl-stretch mb-5 mb-xl-8"
         chart-color="danger"
         chart-height="150"
+        widget-classes="card-xl-stretch mb-5 mb-xl-8"
       ></MixedWidget5>
     </div>
     <!--end::Col-->
@@ -300,9 +300,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget6
-        widget-classes="card-xl-stretch mb-xl-8"
         chart-color="primary"
         chart-height="150"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></MixedWidget6>
     </div>
     <!--end::Col-->
@@ -310,9 +310,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget6
-        widget-classes="card-xl-stretch mb-xl-8"
         chart-color="success"
         chart-height="150"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></MixedWidget6>
     </div>
     <!--end::Col-->
@@ -320,9 +320,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget6
-        widget-classes="card-xl-stretch mb-5 mb-xl-8"
         chart-color="danger"
         chart-height="150"
+        widget-classes="card-xl-stretch mb-5 mb-xl-8"
       ></MixedWidget6>
     </div>
     <!--end::Col-->
@@ -334,9 +334,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget7
-        widget-classes="card-xl-stretch mb-xl-8"
         chart-color="info"
         chart-height="150"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></MixedWidget7>
     </div>
     <!--end::Col-->
@@ -344,9 +344,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget7
-        widget-classes="card-xl-stretch mb-xl-8"
         chart-color="warning"
         chart-height="150"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></MixedWidget7>
     </div>
     <!--end::Col-->
@@ -354,9 +354,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget7
-        widget-classes="card-xl-stretch mb-xl-8"
         chart-color="primary"
         chart-height="150"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></MixedWidget7>
     </div>
     <!--end::Col-->
@@ -368,9 +368,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget10
-        widget-classes="card-xl-stretch mb-xl-8"
         chart-color="info"
         chart-height="200"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></MixedWidget10>
     </div>
     <!--end::Col-->
@@ -378,9 +378,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget10
-        widget-classes="card-xl-stretch mb-xl-8"
         chart-color="warning"
         chart-height="200"
+        widget-classes="card-xl-stretch mb-xl-8"
       ></MixedWidget10>
     </div>
     <!--end::Col-->
@@ -388,9 +388,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget10
+        chart-color="primary"
+        chart-height="200"
         widget-classes="card-xl-stretch mb-5 mb-xl-8"
-        chart-color="primary"
-        chart-height="200"
       ></MixedWidget10>
     </div>
     <!--end::Col-->
@@ -402,9 +402,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget12
+        chart-height="100"
         widget-classes="card-xl-stretch mb-xl-8"
         widget-color="#F7D9E3"
-        chart-height="100"
       ></MixedWidget12>
     </div>
     <!--end::Col-->
@@ -412,9 +412,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget12
+        chart-height="100"
         widget-classes="card-xl-stretch mb-xl-8"
         widget-color="#CBF0F4"
-        chart-height="100"
       ></MixedWidget12>
     </div>
     <!--end::Col-->
@@ -422,9 +422,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget12
+        chart-height="100"
         widget-classes="card-xl-stretch mb-xl-8"
         widget-color="#CBD4F4"
-        chart-height="100"
       ></MixedWidget12>
     </div>
     <!--end::Col-->
@@ -436,9 +436,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget13
+        chart-height="125"
         widget-classes="card-xxl-stretch mb-5 mb-xl-8"
         widget-color="#F7D9E3"
-        chart-height="125"
       ></MixedWidget13>
     </div>
     <!--end::Col-->
@@ -446,9 +446,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget13
+        chart-height="125"
         widget-classes="card-xxl-stretch mb-5 mb-xl-8"
         widget-color="#CBF0F4"
-        chart-height="125"
       ></MixedWidget13>
     </div>
     <!--end::Col-->
@@ -456,9 +456,9 @@
     <!--begin::Col-->
     <div class="col-xl-4">
       <MixedWidget13
+        chart-height="125"
         widget-classes="card-xxl-stretch mb-5 mb-xl-8"
         widget-color="#CBD4F4"
-        chart-height="125"
       ></MixedWidget13>
     </div>
     <!--end::Col-->
@@ -532,7 +532,7 @@ export default defineComponent({
     MixedWidget11,
     MixedWidget12,
     MixedWidget13,
-    MixedWidget14,
+    MixedWidget14
   },
   setup() {
     onMounted(() => {
@@ -540,6 +540,6 @@ export default defineComponent({
 
       MenuComponent.reinitialization();
     });
-  },
+  }
 });
 </script>

@@ -43,7 +43,7 @@ export default defineComponent({
     FeedsWidget3,
     FeedsWidget4,
     FeedsWidget5,
-    FeedsWidget6,
+    FeedsWidget6
   },
   setup() {
     onMounted(() => {
@@ -51,6 +51,6 @@ export default defineComponent({
 
       MenuComponent.reinitialization();
     });
-  },
+  }
 });
 </script>

@@ -1,6 +1,6 @@
 <template>
   <!--begin::Card-->
-  <div class="card h-100" :class="cardClasses">
+  <div :class="cardClasses" class="card h-100">
     <!--begin::Card header-->
     <div class="card-header flex-nowrap border-0 pt-9">
       <!--begin::Card title-->
@@ -12,7 +12,7 @@
         <!--end::Icon-->
 
         <!--begin::Title-->
-        <a href="#" class="fs-4 fw-bold text-hover-primary text-gray-600 m-0">
+        <a class="fs-4 fw-bold text-hover-primary text-gray-600 m-0" href="#">
           {{ title }}
         </a>
         <!--end::Title-->
@@ -23,7 +23,6 @@
       <div class="card-toolbar m-0">
         <!--begin::Menu-->
         <button
-          type="button"
           class="
             btn
             btn-clean
@@ -33,9 +32,10 @@
             btn-active-light-primary
             me-n3
           "
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-3 svg-icon-primary">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -99,7 +99,7 @@ import Dropdown3 from "@/components/dropdown/Dropdown3.vue";
 export default defineComponent({
   name: "card-2",
   components: {
-    Dropdown3,
+    Dropdown3
   },
   props: {
     cardClasses: String,
@@ -120,7 +120,7 @@ export default defineComponent({
 
     indicatorValue: String,
 
-    indicatorLabel: String,
-  },
+    indicatorLabel: String
+  }
 });
 </script>

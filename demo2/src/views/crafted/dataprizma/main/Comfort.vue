@@ -13,7 +13,7 @@ import TableWidget16 from "@/components/widgets/tables/dataprizma_widgets/Comfor
 export default {
   name: "Comfort",
   components: {
-    TableWidget16,
-  },
+    TableWidget16
+  }
 };
 </script>

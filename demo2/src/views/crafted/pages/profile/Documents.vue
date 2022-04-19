@@ -16,18 +16,18 @@
           <inline-svg src="/media/icons/duotune/general/gen021.svg" />
         </span>
         <input
-          type="text"
           id="kt_filter_search"
           class="form-control form-control-white form-control-sm w-150px ps-9"
           placeholder="Search"
+          type="text"
         />
       </div>
       <!--end::Search-->
 
       <a
-        href="#"
         class="btn btn-primary btn-sm"
         data-bs-toggle="tooltip"
+        href="#"
         title="Coming soon"
       >
         File Manager
@@ -38,11 +38,11 @@
   <!--end::Documents toolbar-->
 
   <div class="row g-6 g-xl-9 mb-6 mb-xl-9">
-    <KTFolder folder-name="Finance" files="7"></KTFolder>
+    <KTFolder files="7" folder-name="Finance"></KTFolder>
 
-    <KTFolder folder-name="Customers" files="3"></KTFolder>
+    <KTFolder files="3" folder-name="Customers"></KTFolder>
 
-    <KTFolder folder-name="CRM Project" files="25"></KTFolder>
+    <KTFolder files="25" folder-name="CRM Project"></KTFolder>
 
     <div class="col d-none d-xl-block"></div>
 
@@ -51,47 +51,47 @@
 
   <div class="row g-6 g-xl-9 mb-6 mb-xl-9">
     <KTFile
+      created-at="3 days ago"
       file-title="Project Reqs.."
       file-type="pdf"
-      created-at="3 days ago"
     ></KTFile>
 
     <KTFile
+      created-at="3 days ago"
       file-title="CRM App Docs.."
       file-type="doc"
-      created-at="3 days ago"
     ></KTFile>
 
     <KTFile
+      created-at="4 days ago"
       file-title="User CRUD Styles"
       file-type="css"
-      created-at="4 days ago"
     ></KTFile>
 
     <KTFile
+      created-at="5 days ago"
       file-title="Metronic Logo"
       file-type="ai"
-      created-at="5 days ago"
     ></KTFile>
 
     <KTFile
+      created-at="1 week ago"
       file-title="Orders backup"
       file-type="sql"
-      created-at="1 week ago"
     ></KTFile>
   </div>
 
   <div class="row g-6 g-xl-9 mb-6 mb-xl-9">
     <KTFile
+      created-at="2 weeks ago"
       file-title="UTAIR CRM API Co.."
       file-type="xml"
-      created-at="2 weeks ago"
     ></KTFile>
 
     <KTFile
+      created-at="3 weeks ago"
       file-title="Tower Hill App.."
       file-type="tif"
-      created-at="3 weeks ago"
     ></KTFile>
 
     <div class="col d-none d-xl-block"></div>
@@ -112,12 +112,12 @@ export default defineComponent({
   name: "documents",
   components: {
     KTFolder,
-    KTFile,
+    KTFile
   },
   setup() {
     onMounted(() => {
       setCurrentPageBreadcrumbs("Documents", ["Pages", "Profile"]);
     });
-  },
+  }
 });
 </script>

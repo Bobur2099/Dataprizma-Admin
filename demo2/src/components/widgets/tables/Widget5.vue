@@ -1,5 +1,5 @@
 <template>
-  <div class="card" :class="widgetClasses">
+  <div :class="widgetClasses" class="card">
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
@@ -60,7 +60,7 @@
     <div class="card-body py-3">
       <div class="tab-content">
         <!--begin::Tap pane-->
-        <div class="tab-pane fade active show" id="kt_table_widget_5_tab_1">
+        <div id="kt_table_widget_5_tab_1" class="tab-pane fade active show">
           <!--begin::Table container-->
           <div class="table-responsive">
             <!--begin::Table-->
@@ -90,17 +90,17 @@
                     <div class="symbol symbol-45px me-2">
                       <span class="symbol-label">
                         <img
-                          src="media/svg/brand-logos/plurk.svg"
-                          class="h-50 align-self-center"
                           alt=""
+                          class="h-50 align-self-center"
+                          src="media/svg/brand-logos/plurk.svg"
                         />
                       </span>
                     </div>
                   </td>
                   <td>
                     <a
-                      href="#"
                       class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                      href="#"
                       >Brad Simmons</a
                     >
                     <span class="text-muted fw-bold d-block"
@@ -113,7 +113,6 @@
                   </td>
                   <td class="text-end">
                     <a
-                      href="#"
                       class="
                         btn
                         btn-sm
@@ -121,6 +120,7 @@
                         btn-bg-light
                         btn-active-color-primary
                       "
+                      href="#"
                     >
                       <!--begin::Svg Icon | path: -->
                       <span class="svg-icon svg-icon-2">
@@ -137,17 +137,17 @@
                     <div class="symbol symbol-45px me-2">
                       <span class="symbol-label">
                         <img
-                          src="media/svg/brand-logos/telegram.svg"
-                          class="h-50 align-self-center"
                           alt=""
+                          class="h-50 align-self-center"
+                          src="media/svg/brand-logos/telegram.svg"
                         />
                       </span>
                     </div>
                   </td>
                   <td>
                     <a
-                      href="#"
                       class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                      href="#"
                       >Popular Authors</a
                     >
                     <span class="text-muted fw-bold d-block"
@@ -160,7 +160,6 @@
                   </td>
                   <td class="text-end">
                     <a
-                      href="#"
                       class="
                         btn
                         btn-sm
@@ -168,6 +167,7 @@
                         btn-bg-light
                         btn-active-color-primary
                       "
+                      href="#"
                     >
                       <!--begin::Svg Icon | path: -->
                       <span class="svg-icon svg-icon-2">
@@ -184,17 +184,17 @@
                     <div class="symbol symbol-45px me-2">
                       <span class="symbol-label">
                         <img
-                          src="media/svg/brand-logos/vimeo.svg"
-                          class="h-50 align-self-center"
                           alt=""
+                          class="h-50 align-self-center"
+                          src="media/svg/brand-logos/vimeo.svg"
                         />
                       </span>
                     </div>
                   </td>
                   <td>
                     <a
-                      href="#"
                       class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                      href="#"
                       >New Users</a
                     >
                     <span class="text-muted fw-bold d-block"
@@ -207,7 +207,6 @@
                   </td>
                   <td class="text-end">
                     <a
-                      href="#"
                       class="
                         btn
                         btn-sm
@@ -215,6 +214,7 @@
                         btn-bg-light
                         btn-active-color-primary
                       "
+                      href="#"
                     >
                       <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                       <span class="svg-icon svg-icon-2">
@@ -231,17 +231,17 @@
                     <div class="symbol symbol-45px me-2">
                       <span class="symbol-label">
                         <img
-                          src="media/svg/brand-logos/bebo.svg"
-                          class="h-50 align-self-center"
                           alt=""
+                          class="h-50 align-self-center"
+                          src="media/svg/brand-logos/bebo.svg"
                         />
                       </span>
                     </div>
                   </td>
                   <td>
                     <a
-                      href="#"
                       class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                      href="#"
                       >Active Customers</a
                     >
                     <span class="text-muted fw-bold d-block"
@@ -254,7 +254,6 @@
                   </td>
                   <td class="text-end">
                     <a
-                      href="#"
                       class="
                         btn
                         btn-sm
@@ -262,6 +261,7 @@
                         btn-bg-light
                         btn-active-color-primary
                       "
+                      href="#"
                     >
                       <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                       <span class="svg-icon svg-icon-2">
@@ -278,17 +278,17 @@
                     <div class="symbol symbol-45px me-2">
                       <span class="symbol-label">
                         <img
-                          src="media/svg/brand-logos/kickstarter.svg"
-                          class="h-50 align-self-center"
                           alt=""
+                          class="h-50 align-self-center"
+                          src="media/svg/brand-logos/kickstarter.svg"
                         />
                       </span>
                     </div>
                   </td>
                   <td>
                     <a
-                      href="#"
                       class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                      href="#"
                       >Bestseller Theme</a
                     >
                     <span class="text-muted fw-bold d-block"
@@ -301,7 +301,6 @@
                   </td>
                   <td class="text-end">
                     <a
-                      href="#"
                       class="
                         btn
                         btn-sm
@@ -309,6 +308,7 @@
                         btn-bg-light
                         btn-active-color-primary
                       "
+                      href="#"
                     >
                       <span class="svg-icon svg-icon-2">
                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
@@ -328,7 +328,7 @@
         </div>
         <!--end::Tap pane-->
         <!--begin::Tap pane-->
-        <div class="tab-pane fade" id="kt_table_widget_5_tab_2">
+        <div id="kt_table_widget_5_tab_2" class="tab-pane fade">
           <!--begin::Table container-->
           <div class="table-responsive">
             <!--begin::Table-->
@@ -358,17 +358,17 @@
                     <div class="symbol symbol-45px me-2">
                       <span class="symbol-label">
                         <img
-                          src="media/svg/brand-logos/plurk.svg"
-                          class="h-50 align-self-center"
                           alt=""
+                          class="h-50 align-self-center"
+                          src="media/svg/brand-logos/plurk.svg"
                         />
                       </span>
                     </div>
                   </td>
                   <td>
                     <a
-                      href="#"
                       class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                      href="#"
                       >Brad Simmons</a
                     >
                     <span class="text-muted fw-bold d-block"
@@ -381,7 +381,6 @@
                   </td>
                   <td class="text-end">
                     <a
-                      href="#"
                       class="
                         btn
                         btn-sm
@@ -389,6 +388,7 @@
                         btn-bg-light
                         btn-active-color-primary
                       "
+                      href="#"
                     >
                       <span class="svg-icon svg-icon-2">
                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
@@ -405,17 +405,17 @@
                     <div class="symbol symbol-45px me-2">
                       <span class="symbol-label">
                         <img
-                          src="media/svg/brand-logos/telegram.svg"
-                          class="h-50 align-self-center"
                           alt=""
+                          class="h-50 align-self-center"
+                          src="media/svg/brand-logos/telegram.svg"
                         />
                       </span>
                     </div>
                   </td>
                   <td>
                     <a
-                      href="#"
                       class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                      href="#"
                       >Popular Authors</a
                     >
                     <span class="text-muted fw-bold d-block"
@@ -428,7 +428,6 @@
                   </td>
                   <td class="text-end">
                     <a
-                      href="#"
                       class="
                         btn
                         btn-sm
@@ -436,6 +435,7 @@
                         btn-bg-light
                         btn-active-color-primary
                       "
+                      href="#"
                     >
                       <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                       <span class="svg-icon svg-icon-2">
@@ -452,17 +452,17 @@
                     <div class="symbol symbol-45px me-2">
                       <span class="symbol-label">
                         <img
-                          src="media/svg/brand-logos/bebo.svg"
-                          class="h-50 align-self-center"
                           alt=""
+                          class="h-50 align-self-center"
+                          src="media/svg/brand-logos/bebo.svg"
                         />
                       </span>
                     </div>
                   </td>
                   <td>
                     <a
-                      href="#"
                       class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                      href="#"
                       >Active Customers</a
                     >
                     <span class="text-muted fw-bold d-block"
@@ -475,7 +475,6 @@
                   </td>
                   <td class="text-end">
                     <a
-                      href="#"
                       class="
                         btn
                         btn-sm
@@ -483,6 +482,7 @@
                         btn-bg-light
                         btn-active-color-primary
                       "
+                      href="#"
                     >
                       <span class="svg-icon svg-icon-2">
                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
@@ -502,7 +502,7 @@
         </div>
         <!--end::Tap pane-->
         <!--begin::Tap pane-->
-        <div class="tab-pane fade" id="kt_table_widget_5_tab_3">
+        <div id="kt_table_widget_5_tab_3" class="tab-pane fade">
           <!--begin::Table container-->
           <div class="table-responsive">
             <!--begin::Table-->
@@ -532,17 +532,17 @@
                     <div class="symbol symbol-45px me-2">
                       <span class="symbol-label">
                         <img
-                          src="media/svg/brand-logos/kickstarter.svg"
-                          class="h-50 align-self-center"
                           alt=""
+                          class="h-50 align-self-center"
+                          src="media/svg/brand-logos/kickstarter.svg"
                         />
                       </span>
                     </div>
                   </td>
                   <td>
                     <a
-                      href="#"
                       class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                      href="#"
                       >Bestseller Theme</a
                     >
                     <span class="text-muted fw-bold d-block"
@@ -555,7 +555,6 @@
                   </td>
                   <td class="text-end">
                     <a
-                      href="#"
                       class="
                         btn
                         btn-sm
@@ -563,6 +562,7 @@
                         btn-bg-light
                         btn-active-color-primary
                       "
+                      href="#"
                     >
                       <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                       <span class="svg-icon svg-icon-2">
@@ -579,17 +579,17 @@
                     <div class="symbol symbol-45px me-2">
                       <span class="symbol-label">
                         <img
-                          src="media/svg/brand-logos/bebo.svg"
-                          class="h-50 align-self-center"
                           alt=""
+                          class="h-50 align-self-center"
+                          src="media/svg/brand-logos/bebo.svg"
                         />
                       </span>
                     </div>
                   </td>
                   <td>
                     <a
-                      href="#"
                       class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                      href="#"
                       >Active Customers</a
                     >
                     <span class="text-muted fw-bold d-block"
@@ -602,7 +602,6 @@
                   </td>
                   <td class="text-end">
                     <a
-                      href="#"
                       class="
                         btn
                         btn-sm
@@ -610,6 +609,7 @@
                         btn-bg-light
                         btn-active-color-primary
                       "
+                      href="#"
                     >
                       <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                       <span class="svg-icon svg-icon-2">
@@ -626,17 +626,17 @@
                     <div class="symbol symbol-45px me-2">
                       <span class="symbol-label">
                         <img
-                          src="media/svg/brand-logos/vimeo.svg"
-                          class="h-50 align-self-center"
                           alt=""
+                          class="h-50 align-self-center"
+                          src="media/svg/brand-logos/vimeo.svg"
                         />
                       </span>
                     </div>
                   </td>
                   <td>
                     <a
-                      href="#"
                       class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                      href="#"
                       >New Users</a
                     >
                     <span class="text-muted fw-bold d-block"
@@ -649,7 +649,6 @@
                   </td>
                   <td class="text-end">
                     <a
-                      href="#"
                       class="
                         btn
                         btn-sm
@@ -657,6 +656,7 @@
                         btn-bg-light
                         btn-active-color-primary
                       "
+                      href="#"
                     >
                       <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                       <span class="svg-icon svg-icon-2">
@@ -673,17 +673,17 @@
                     <div class="symbol symbol-45px me-2">
                       <span class="symbol-label">
                         <img
-                          src="media/svg/brand-logos/telegram.svg"
-                          class="h-50 align-self-center"
                           alt=""
+                          class="h-50 align-self-center"
+                          src="media/svg/brand-logos/telegram.svg"
                         />
                       </span>
                     </div>
                   </td>
                   <td>
                     <a
-                      href="#"
                       class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                      href="#"
                       >Popular Authors</a
                     >
                     <span class="text-muted fw-bold d-block"
@@ -696,7 +696,6 @@
                   </td>
                   <td class="text-end">
                     <a
-                      href="#"
                       class="
                         btn
                         btn-sm
@@ -704,6 +703,7 @@
                         btn-bg-light
                         btn-active-color-primary
                       "
+                      href="#"
                     >
                       <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                       <span class="svg-icon svg-icon-2">

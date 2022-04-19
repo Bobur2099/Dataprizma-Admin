@@ -1,14 +1,14 @@
 <template>
   <!--begin::Modal - New Card-->
   <div
-    class="modal fade"
-    ref="newCardModalRef"
     id="kt_modal_company"
-    tabindex="-1"
+    ref="newCardModalRef"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-1000px" v-if="create < 2">
+    <div v-if="create < 2" class="modal-dialog modal-dialog-centered mw-1000px">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
@@ -39,9 +39,9 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form row"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row col-6">
@@ -54,12 +54,17 @@
               <!--end::Label-->
 
               <Field
-                type="file"
-                class="form-control form-control-solid file"
                 ref="file-upload"
+                class="form-control form-control-solid file"
                 name="file"
+                type="file"
                 @change="fileChosen($event)"
               />
+              <div class="fv-plugins-message-container">
+                <div class="fv-help-block">
+                  <ErrorMessage name="file" />
+                </div>
+              </div>
             </div>
             <!--end::Input group-->
 
@@ -74,11 +79,16 @@
               <!--end::Label-->
 
               <Field
-                type="text"
+                v-model="updateEmail"
                 class="form-control form-control-solid"
                 name="email"
-                v-model="updateEmail"
+                type="text"
               />
+              <div class="fv-plugins-message-container">
+                <div class="fv-help-block">
+                  <ErrorMessage name="email" />
+                </div>
+              </div>
             </div>
             <!--end::Input group-->
 
@@ -93,11 +103,16 @@
               <!--end::Label-->
 
               <Field
-                type="text"
-                class="form-control form-control-solid"
-                name="address-uz"
                 v-model="updateAddressUz"
+                class="form-control form-control-solid"
+                name="addressUz"
+                type="text"
               />
+              <div class="fv-plugins-message-container">
+                <div class="fv-help-block">
+                  <ErrorMessage name="addressUz" />
+                </div>
+              </div>
             </div>
             <!--end::Input group-->
 
@@ -112,11 +127,16 @@
               <!--end::Label-->
 
               <Field
-                type="text"
-                class="form-control form-control-solid"
-                name="address-ru"
                 v-model="updateAddressRu"
+                class="form-control form-control-solid"
+                name="addressRu"
+                type="text"
               />
+              <div class="fv-plugins-message-container">
+                <div class="fv-help-block">
+                  <ErrorMessage name="addressRu" />
+                </div>
+              </div>
             </div>
             <!--end::Input group-->
 
@@ -131,11 +151,16 @@
               <!--end::Label-->
 
               <Field
-                type="text"
-                class="form-control form-control-solid"
-                name="address-en"
                 v-model="updateAddressEn"
+                class="form-control form-control-solid"
+                name="addressEn"
+                type="text"
               />
+              <div class="fv-plugins-message-container">
+                <div class="fv-help-block">
+                  <ErrorMessage name="addressEn" />
+                </div>
+              </div>
             </div>
             <!--end::Input group-->
 
@@ -150,14 +175,14 @@
               <!--end::Label-->
 
               <Field
-                type="text"
+                v-model="updatePhone"
                 class="form-control form-control-solid"
                 name="phone"
-                v-model="updatePhone"
+                type="text"
               />
               <div class="fv-plugins-message-container">
                 <div class="fv-help-block">
-                  <!--                  <ErrorMessage name="nameOnCard" />-->
+                  <ErrorMessage name="phone" />
                 </div>
               </div>
             </div>
@@ -174,20 +199,18 @@
               <!--end::Label-->
 
               <Field
-                type="text"
-                class="form-control form-control-solid"
-                name="map-x"
                 v-model="updateMapX"
+                class="form-control form-control-solid"
+                name="mapX"
+                type="text"
               />
               <div class="fv-plugins-message-container">
                 <div class="fv-help-block">
-                  <!--                  <ErrorMessage name="nameOnCard" />-->
+                  <ErrorMessage name="mapX" />
                 </div>
               </div>
             </div>
             <!--end::Input group-->
-
-
 
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row col-6">
@@ -200,14 +223,15 @@
               <!--end::Label-->
 
               <Field
-                type="text"
-                class="form-control form-control-solid"
-                name="map-y"
                 v-model="updateMapY"
+                class="form-control form-control-solid"
+                name="mapY"
+                type="text"
               />
+
               <div class="fv-plugins-message-container">
                 <div class="fv-help-block">
-                  <!--                  <ErrorMessage name="nameOnCard" />-->
+                  <ErrorMessage name="mapY" />
                 </div>
               </div>
             </div>
@@ -216,18 +240,18 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                type="reset"
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
+                type="reset"
               >
                 {{ $t("discard") }}
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_new_card_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -253,8 +277,8 @@
     <!--end::Modal dialog-->
 
     <div
-      class="modal-dialog modal-dialog-centered mw-1000px"
       v-if="create === 2"
+      class="modal-dialog modal-dialog-centered mw-1000px"
     >
       <!--begin::Modal content-->
       <div class="modal-content">
@@ -282,17 +306,17 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_fail_submit"
+                ref="submitButtonRef"
                 class="btn btn-danger mx-5"
+                type="submit"
                 @click="submit('cancel')"
               >
                 <span class="indicator-label"> Cancel </span>
@@ -305,10 +329,10 @@
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_success_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -345,14 +369,15 @@ import * as Yup from "yup";
 import axios from "axios";
 import requests from "@/request/dataprizma_request_links/request_links";
 import { useI18n } from "vue-i18n";
+import { setLocale } from "yup";
 
-interface CardData {
-  nameOnCard: string;
-  cardNumber: string;
-  expirationMonth: string;
-  expirationYear: string;
-  cvv: string;
-}
+// interface CardData {
+//   nameOnCard: string;
+//   cardNumber: string;
+//   expirationMonth: string;
+//   expirationYear: string;
+//   cvv: string;
+// }
 
 export default defineComponent({
   name: "contact-modal",
@@ -369,12 +394,13 @@ export default defineComponent({
       updateAddressEn: "",
       updateMapX: "",
       updateMapY: "",
+      responseError: 200,
       error: 0,
     };
   },
   props: ["updateId", "create"],
   components: {
-    // ErrorMessage,
+    ErrorMessage,
     Field,
     Form,
   },
@@ -393,6 +419,12 @@ export default defineComponent({
       for (const item of company_items) {
         if (item.id === newValue) {
           company_item = Object(item);
+          for (let property in company_item) {
+            if (company_item[property] === null) {
+              company_item[property] = "";
+            }
+          }
+          break;
         }
       }
       this.updateEmail = company_item.email;
@@ -411,10 +443,12 @@ export default defineComponent({
     fileChosen(e) {
       this.updateFile = e.target.files;
       const formCleaner = document.querySelectorAll(".reset")[0];
+
       function func() {
         e.target.value = "";
         formCleaner.removeEventListener("click", func);
       }
+
       formCleaner.addEventListener("click", func);
     },
     isImage(file) {
@@ -431,6 +465,7 @@ export default defineComponent({
         .post(`company/create`, datas, {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${this.token}`,
           },
         })
         .then((response) => {
@@ -446,6 +481,7 @@ export default defineComponent({
         .put(`company/update/${id}`, datas, {
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${this.token}`,
           },
         })
         .then((response) => {
@@ -457,9 +493,16 @@ export default defineComponent({
         });
     },
     deleteItem(id) {
-      axios.delete(`company/delete/${id}`).then(() => {
-        this.$emit("table-load");
-      });
+      axios
+        .delete(`company/delete/${id}`, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${this.token}`,
+          },
+        })
+        .then(() => {
+          this.$emit("table-load");
+        });
     },
     doRequest(create, id) {
       axios.defaults.baseURL = requests.dataprizma[0];
@@ -533,20 +576,23 @@ export default defineComponent({
       ? (localStorage.getItem("lang") as string)
       : "en";
 
-    const cardData = ref<CardData>({
-      nameOnCard: "Max Doe",
-      cardNumber: "4111 1111 1111 1111",
-      expirationMonth: "",
-      expirationYear: "",
-      cvv: "",
+    setLocale({
+      mixed: {
+        required: i18n.t("forms_validation_required"),
+      },
     });
 
     const validationSchema = Yup.object().shape({
-      nameOnCard: Yup.string().required().label("Name"),
-      cardNumber: Yup.string().required().label("Card number"),
-      expirationMonth: Yup.string().required().label("Month"),
-      expirationYear: Yup.string().required().label("Year"),
-      cvv: Yup.string().required().label("CVV"),
+      file: Yup.object()
+        .required(translate("forms_validation_file"))
+        .label("File"),
+      email: Yup.string().email().required(),
+      phone: Yup.string().required(),
+      addressUz: Yup.string().required(),
+      addressRu: Yup.string().required(),
+      addressEn: Yup.string().required(),
+      mapX: Yup.string().required(),
+      mapY: Yup.string().required(),
     });
 
     const submit = (text) => {
@@ -568,7 +614,7 @@ export default defineComponent({
         });
       }
 
-      function errorAlert(text) {
+      function errorAlert(text, doThen = false) {
         Swal.fire({
           text: translate(text),
           icon: "error",
@@ -577,6 +623,10 @@ export default defineComponent({
           customClass: {
             confirmButton: "btn fw-bold btn-light-danger",
           },
+        }).then(() => {
+          if (doThen) {
+            location.reload();
+          }
         });
       }
 
@@ -599,8 +649,15 @@ export default defineComponent({
 
         const error = instance?.data.error;
         const create = instance?.props.create;
+        const responseError = instance?.data.responseError;
 
-        if (text !== "cancel") {
+        if (responseError === 500) {
+          errorAlert("Too much text was given to input");
+        } else if (responseError === 401) {
+          errorAlert("You are not authorized", true);
+        }
+
+        if (text !== "cancel" && responseError === 200) {
           if (error === 0) {
             if (create === 1) {
               successAlert("item_added");
@@ -621,7 +678,7 @@ export default defineComponent({
     };
 
     return {
-      cardData,
+      // cardData,
       validationSchema,
       submit,
       submitButtonRef,

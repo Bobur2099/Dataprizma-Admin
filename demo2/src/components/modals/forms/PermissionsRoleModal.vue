@@ -1,11 +1,11 @@
 <template>
   <!--begin::Modal - New Card-->
   <div
-    class="modal fade"
-    ref="newCardModalRef"
     id="kt_modal_permissions_role"
-    tabindex="-1"
+    ref="newCardModalRef"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-1000px">
@@ -35,9 +35,9 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Input group-->
 
@@ -77,11 +77,11 @@
                     "
                   >
                     <input
+                      v-bind:id="'permission-' + item.name"
+                      v-model="item.aboolean"
                       class="form-check-input"
                       type="checkbox"
-                      v-bind:id="'permission-' + item.name"
                       v-bind:name="'permission-' + item.name"
-                      v-model="item.aboolean"
                     />
                   </label>
                   <br />
@@ -93,10 +93,10 @@
               <!--begin::Actions-->
               <div class="text-center pt-15">
                 <button
-                  ref="submitButtonRef"
-                  type="submit"
                   id="kt_modal_new_card_submit"
+                  ref="submitButtonRef"
                   class="btn btn-primary"
+                  type="submit"
                   @click="
                     updatePermissions();
                     submit();
@@ -144,20 +144,20 @@ interface CardData {
 
 export default defineComponent({
   name: "permissions-role-modal",
-  data: function () {
+  data: function() {
     return {
       name: "",
       code: "",
       token: JSON.parse(String(localStorage.getItem("userData")))["token"],
       typePermissions: { Page: [{ name: "dashboard" }] },
-      user_perms: [],
+      user_perms: []
     };
   },
   props: ["typePermissionsCopy", "typePermsName", "userPermsCopy"],
   components: {
     // ErrorMessage,
     // Field,
-    Form,
+    Form
   },
   methods: {
     userPermissions() {
@@ -179,8 +179,8 @@ export default defineComponent({
           {},
           {
             headers: {
-              Authorization: `Bearer ${token}`,
-            },
+              Authorization: `Bearer ${token}`
+            }
           }
         )
         .then((response) => {
@@ -198,8 +198,8 @@ export default defineComponent({
           {},
           {
             headers: {
-              Authorization: `Bearer ${this.token}`,
-            },
+              Authorization: `Bearer ${this.token}`
+            }
           }
         )
         .then((response) => {
@@ -230,12 +230,12 @@ export default defineComponent({
             "permission/update",
             {
               id: value["id"],
-              aboolean: value["aboolean"],
+              aboolean: value["aboolean"]
             },
             {
               headers: {
-                Authorization: `Bearer ${this.token}`,
-              },
+                Authorization: `Bearer ${this.token}`
+              }
             }
           );
         }
@@ -248,13 +248,13 @@ export default defineComponent({
           buttonsStyling: false,
           confirmButtonText: "Ok, got it!",
           customClass: {
-            confirmButton: "btn btn-primary",
-          },
+            confirmButton: "btn btn-primary"
+          }
         }).then(() => {
           this.$emit("permission-load");
         });
       }, 2000);
-    },
+    }
   },
   watch: {
     typePermsName(newValue, oldValue) {
@@ -262,7 +262,7 @@ export default defineComponent({
       this.userPermissions();
       this.user_perms = this.userPermsCopy;
       this.typePermissions = this.typePermissionsCopy;
-    },
+    }
   },
   //created
   setup() {
@@ -274,7 +274,7 @@ export default defineComponent({
       cardNumber: "4111 1111 1111 1111",
       expirationMonth: "",
       expirationYear: "",
-      cvv: "",
+      cvv: ""
     });
 
     const validationSchema = Yup.object().shape({
@@ -282,7 +282,7 @@ export default defineComponent({
       cardNumber: Yup.string().required().label("Card number"),
       expirationMonth: Yup.string().required().label("Month"),
       expirationYear: Yup.string().required().label("Year"),
-      cvv: Yup.string().required().label("CVV"),
+      cvv: Yup.string().required().label("CVV")
     });
 
     const submit = () => {
@@ -335,8 +335,8 @@ export default defineComponent({
       validationSchema,
       submit,
       submitButtonRef,
-      newCardModalRef,
+      newCardModalRef
     };
-  },
+  }
 });
 </script>

@@ -11,11 +11,11 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -32,10 +32,10 @@
       <div class="flex-grow-1">
         <!--begin::Chart-->
         <apexchart
-          class="mixed-widget-4-chart"
+          :height="chartHeight"
           :options="chartOptions"
           :series="series"
-          :height="chartHeight"
+          class="mixed-widget-4-chart"
           type="radialBar"
         ></apexchart>
         <!--end::Chart-->
@@ -48,7 +48,7 @@
           to approve newly amended policies
         </p>
 
-        <a href="#" :class="`btn-${btnColor}`" class="btn w-100 py-3"
+        <a :class="`btn-${btnColor}`" class="btn w-100 py-3" href="#"
           >Take Action</a
         >
       </div>

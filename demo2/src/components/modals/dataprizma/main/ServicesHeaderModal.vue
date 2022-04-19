@@ -1,22 +1,22 @@
 <template>
   <!--begin::Modal - New Card-->
   <div
-    class="modal fade"
-    ref="newCardModalRef"
     id="kt_modal_services_header"
-    tabindex="-1"
+    ref="newCardModalRef"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-1000px" v-if="create < 2">
+    <div v-if="create < 2" class="modal-dialog modal-dialog-centered mw-1000px">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
         <div class="modal-header">
           <!--begin::Modal title-->
           <h2>
-            <span v-if="create == 1">{{ $t("create") }}</span
-            ><span v-if="create == 0">{{ $t("update") }}</span>
+            <span v-if="create === 1">{{ $t("create") }}</span
+            ><span v-if="create === 0">{{ $t("update") }}</span>
             {{ $t("service") }} {{ $t("header") }} {{ $t("main") }}
             {{ $t("content") }}
           </h2>
@@ -40,9 +40,9 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form row"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row col-6">
@@ -56,10 +56,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTopicUz"
                   class="form-control form-control-solid"
                   name="topic-uz"
-                  v-model="updateTopicUz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -79,10 +79,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTopicRu"
                   class="form-control form-control-solid"
                   name="topic-ru"
-                  v-model="updateTopicRu"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -102,10 +102,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateTopicEn"
                   class="form-control form-control-solid"
                   name="topic-en"
-                  v-model="updateTopicEn"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -125,10 +125,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateHeaderUz"
                   class="form-control form-control-solid"
                   name="header-uz"
-                  v-model="updateHeaderUz"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -148,10 +148,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateHeaderRu"
                   class="form-control form-control-solid"
                   name="header-ru"
-                  v-model="updateHeaderRu"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -171,10 +171,10 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="updateHeaderEn"
                   class="form-control form-control-solid"
                   name="header-en"
-                  v-model="updateHeaderEn"
+                  type="text"
                 />
                 <!--end::Input-->
               </div>
@@ -185,18 +185,18 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                type="reset"
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
+                type="reset"
               >
                 {{ $t("discard") }}
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_new_card_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -222,8 +222,8 @@
     <!--end::Modal dialog-->
 
     <div
-      class="modal-dialog modal-dialog-centered mw-1000px"
       v-if="create === 2"
+      class="modal-dialog modal-dialog-centered mw-1000px"
     >
       <!--begin::Modal content-->
       <div class="modal-content">
@@ -251,17 +251,17 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_fail_submit"
+                ref="submitButtonRef"
                 class="btn btn-danger mx-5"
+                type="submit"
                 @click="submit('cancel')"
               >
                 <span class="indicator-label"> Cancel </span>
@@ -274,10 +274,10 @@
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_success_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -314,6 +314,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import requests from "@/request/dataprizma_request_links/request_links";
 import { useI18n } from "vue-i18n";
+import { setLocale } from "yup";
 
 interface CardData {
   nameOnCard: string;
@@ -336,6 +337,7 @@ export default defineComponent({
       updateHeaderUz: "",
       updateHeaderRu: "",
       updateHeaderEn: "",
+      responseError: 200,
       error: 0,
     };
   },
@@ -361,6 +363,12 @@ export default defineComponent({
       for (const item of service_header_items) {
         if (item.id === newValue) {
           service_header_item = Object(item);
+          for (let property in service_header_item) {
+            if (service_header_item[property] === null) {
+              service_header_item[property] = "";
+            }
+          }
+          break;
         }
       }
       this.updateHeaderEn = service_header_item.headerEn;
@@ -478,6 +486,12 @@ export default defineComponent({
       ? (localStorage.getItem("lang") as string)
       : "en";
 
+    setLocale({
+      mixed: {
+        required: i18n.t("forms_validation_required"),
+      },
+    });
+
     const cardData = ref<CardData>({
       nameOnCard: "Max Doe",
       cardNumber: "4111 1111 1111 1111",
@@ -513,7 +527,7 @@ export default defineComponent({
         });
       }
 
-      function errorAlert(text) {
+      function errorAlert(text, doThen = false) {
         Swal.fire({
           text: translate(text),
           icon: "error",
@@ -522,6 +536,10 @@ export default defineComponent({
           customClass: {
             confirmButton: "btn fw-bold btn-light-danger",
           },
+        }).then(() => {
+          if (doThen) {
+            location.reload();
+          }
         });
       }
 
@@ -544,8 +562,15 @@ export default defineComponent({
 
         const error = instance?.data.error;
         const create = instance?.props.create;
+        const responseError = instance?.data.responseError;
 
-        if (text !== "cancel") {
+        if (responseError === 500) {
+          errorAlert("Too much text was given to input");
+        } else if (responseError === 401) {
+          errorAlert("You are not authorized", true);
+        }
+
+        if (text !== "cancel" && responseError === 200) {
           if (error === 0) {
             if (create === 1) {
               successAlert("item_added");

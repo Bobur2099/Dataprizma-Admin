@@ -20,8 +20,8 @@
       <!--begin::Timeline heading-->
       <div class="mb-5 pe-3">
         <!--begin::Title-->
-        <a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2"
-          >3 New Incoming Project Files:</a
+        <a class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2" href="#"
+        >3 New Incoming Project Files:</a
         >
         <!--end::Title-->
 
@@ -34,12 +34,12 @@
           <!--begin::User-->
           <div
             class="symbol symbol-circle symbol-25px"
-            data-bs-toggle="tooltip"
             data-bs-boundary="window"
             data-bs-placement="top"
+            data-bs-toggle="tooltip"
             title="Jan Hummer"
           >
-            <img src="media/avatars/150-6.jpg" alt="img" />
+            <img alt="img" src="media/avatars/150-6.jpg" />
           </div>
           <!--end::User-->
         </div>
@@ -68,8 +68,8 @@
             <!--begin::Info-->
             <div class="ms-1 fw-bold">
               <!--begin::Desc-->
-              <a href="#" class="fs-6 text-hover-primary fw-bolder"
-                >Finance KPI App Guidelines</a
+              <a class="fs-6 text-hover-primary fw-bolder" href="#"
+              >Finance KPI App Guidelines</a
               >
               <!--end::Desc-->
 
@@ -90,8 +90,8 @@
             <!--begin::Info-->
             <div class="ms-1 fw-bold">
               <!--begin::Desc-->
-              <a href="#" class="fs-6 text-hover-primary fw-bolder"
-                >Client UAT Testing Results</a
+              <a class="fs-6 text-hover-primary fw-bolder" href="#"
+              >Client UAT Testing Results</a
               >
               <!--end::Desc-->
 
@@ -112,8 +112,8 @@
             <!--begin::Info-->
             <div class="ms-1 fw-bold">
               <!--begin::Desc-->
-              <a href="#" class="fs-6 text-hover-primary fw-bolder"
-                >Finance Reports</a
+              <a class="fs-6 text-hover-primary fw-bolder" href="#"
+              >Finance Reports</a
               >
               <!--end::Desc-->
 
@@ -138,6 +138,6 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "",
-  components: {},
+  components: {}
 });
 </script>

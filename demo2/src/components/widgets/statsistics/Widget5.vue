@@ -1,6 +1,6 @@
 <template>
   <!--begin::Statistics Widget 5-->
-  <a href="#" :class="[widgetClasses, `bg-${color}`]" class="card hoverable">
+  <a :class="[widgetClasses, `bg-${color}`]" class="card hoverable" href="#">
     <!--begin::Body-->
     <div class="card-body">
       <span :class="`svg-icon-${iconColor}`" class="svg-icon svg-icon-3x mx-n1">

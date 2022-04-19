@@ -26,13 +26,13 @@
 
     <!--begin::Menu item-->
     <div class="menu-item px-5">
-      <a href="#" class="menu-link px-5"> Create invoice </a>
+      <a class="menu-link px-5" href="#"> Create invoice </a>
     </div>
     <!--end::Menu item-->
 
     <!--begin::Menu item-->
     <div class="menu-item px-5">
-      <a href="#" class="menu-link flex-stack px-5">
+      <a class="menu-link flex-stack px-5" href="#">
         Create payments
 
         <i
@@ -47,10 +47,10 @@
     <!--begin::Menu item-->
     <div
       class="menu-item px-5"
-      data-kt-menu-trigger="hover"
       data-kt-menu-placement="left-start"
+      data-kt-menu-trigger="hover"
     >
-      <a href="#" class="menu-link px-5">
+      <a class="menu-link px-5" href="#">
         <span class="menu-title">Subscription</span>
         <span class="menu-arrow"></span>
       </a>
@@ -59,19 +59,19 @@
       <div class="menu-sub menu-sub-dropdown w-175px py-4">
         <!--begin::Menu item-->
         <div class="menu-item px-3">
-          <a href="#" class="menu-link px-5"> Apps </a>
+          <a class="menu-link px-5" href="#"> Apps </a>
         </div>
         <!--end::Menu item-->
 
         <!--begin::Menu item-->
         <div class="menu-item px-3">
-          <a href="#" class="menu-link px-5"> Billing </a>
+          <a class="menu-link px-5" href="#"> Billing </a>
         </div>
         <!--end::Menu item-->
 
         <!--begin::Menu item-->
         <div class="menu-item px-3">
-          <a href="#" class="menu-link px-5"> Statements </a>
+          <a class="menu-link px-5" href="#"> Statements </a>
         </div>
         <!--end::Menu item-->
 
@@ -86,12 +86,12 @@
               class="form-check form-switch form-check-custom form-check-solid"
             >
               <input
+                id="kt_user_menu_notifications"
+                checked
                 class="form-check-input w-30px h-20px"
+                name="notifications"
                 type="checkbox"
                 value=""
-                name="notifications"
-                checked
-                id="kt_user_menu_notifications"
               />
               <span
                 class="form-check-label text-muted fs-6"
@@ -122,19 +122,19 @@
 
     <!--begin::Menu item-->
     <div class="menu-item px-5">
-      <a href="#" class="menu-link px-5"> Reports </a>
+      <a class="menu-link px-5" href="#"> Reports </a>
     </div>
     <!--end::Menu item-->
 
     <!--begin::Menu item-->
     <div class="menu-item px-5 my-1">
-      <a href="#" class="menu-link px-5"> Account Settings </a>
+      <a class="menu-link px-5" href="#"> Account Settings </a>
     </div>
     <!--end::Menu item-->
 
     <!--begin::Menu item-->
     <div class="menu-item px-5">
-      <a href="#" class="menu-link text-danger px-5"> Delete customer </a>
+      <a class="menu-link text-danger px-5" href="#"> Delete customer </a>
     </div>
     <!--end::Menu item-->
   </div>

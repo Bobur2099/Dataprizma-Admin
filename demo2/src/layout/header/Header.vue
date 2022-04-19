@@ -2,8 +2,8 @@
   <!--begin::Header-->
   <div
     id="kt_header"
-    class="header align-items-stretch"
     :data-kt-sticky="isHeaderSticky"
+    class="header align-items-stretch"
     data-kt-sticky-name="header"
     data-kt-sticky-offset="{default: '200px', lg: '300px'}"
   >
@@ -21,6 +21,7 @@
         title="Show aside menu"
       >
         <div
+          id="kt_header_menu_mobile_toggle"
           class="
             btn btn-icon btn-active-light-primary
             w-30px
@@ -28,7 +29,6 @@
             w-md-40px
             h-md-40px
           "
-          id="kt_header_menu_mobile_toggle"
         >
           <span class="svg-icon svg-icon-2x">
             <inline-svg src="/media/icons/duotune/abstract/abs015.svg" />
@@ -40,8 +40,8 @@
       <!--begin::Mobile logo-->
       <div class="header-logo me-5 me-md-10 flex-grow-1 flex-lg-grow-0">
         <a href="#">
-          <img alt="Logo" :src="'http://site.dataprizma.uz/' + logo" class="logo-default h-25px" />
-          <img alt="Logo" :src="'http://site.dataprizma.uz/' + logo" class="logo-sticky h-25px" />
+          <img :src="'http://site.dataprizma.uz/' + logo" alt="Logo" class="logo-default h-25px" />
+          <img :src="'http://site.dataprizma.uz/' + logo" alt="Logo" class="logo-sticky h-25px" />
         </a>
       </div>
       <!--end::Mobile logo-->
@@ -56,7 +56,7 @@
         "
       >
         <!--begin::Navbar-->
-        <div class="d-flex align-items-stretch" id="kt_header_menu_nav">
+        <div id="kt_header_menu_nav" class="d-flex align-items-stretch">
           <KTMenu></KTMenu>
         </div>
         <!--end::Navbar-->
@@ -85,7 +85,7 @@ import {
   headerFixed,
   headerFixedOnMobile,
   headerLeft,
-  asideDisplay,
+  asideDisplay
 } from "@/core/helpers/config";
 import axios from "axios";
 import requests from "@/request/dataprizma_request_links/request_links";
@@ -94,15 +94,15 @@ export default defineComponent({
   name: "KTHeader",
   data() {
     return {
-      logo: "",
+      logo: ""
     };
   },
   props: {
-    title: String,
+    title: String
   },
   components: {
     KTTopbar,
-    KTMenu,
+    KTMenu
   },
   created() {
     axios.defaults.baseURL = requests.dataprizma[0];
@@ -129,8 +129,8 @@ export default defineComponent({
       headerWidthFluid,
       headerLeft,
       asideDisplay,
-      isHeaderSticky,
+      isHeaderSticky
     };
-  },
+  }
 });
 </script>

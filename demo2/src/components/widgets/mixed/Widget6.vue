@@ -12,11 +12,11 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -64,7 +64,9 @@
               <div class="symbol symbol-50px me-3">
                 <div class="symbol-label bg-light-danger">
                   <span class="svg-icon svg-icon-1 svg-icon-danger">
-                    <inline-svg src="/media/icons/duotune/abstract/abs027.svg" />
+                    <inline-svg
+                      src="/media/icons/duotune/abstract/abs027.svg"
+                    />
                   </span>
                 </div>
               </div>
@@ -140,10 +142,10 @@
 
       <!--begin::Chart-->
       <apexchart
-        class="mixed-widget-6-chart card-rounded-bottom"
+        :height="chartHeight"
         :options="chartOptions"
         :series="series"
-        :height="chartHeight"
+        class="mixed-widget-6-chart card-rounded-bottom"
         type="area"
       ></apexchart>
       <!--end::Chart-->

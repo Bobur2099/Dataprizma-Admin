@@ -32,12 +32,12 @@
           <!--begin::User-->
           <div
             class="symbol symbol-circle symbol-25px"
-            data-bs-toggle="tooltip"
             data-bs-boundary="window"
             data-bs-placement="top"
+            data-bs-toggle="tooltip"
             title="Robert Rich"
           >
-            <img src="media/avatars/150-14.jpg" alt="img" />
+            <img alt="img" src="media/avatars/150-14.jpg" />
           </div>
           <!--end::User-->
         </div>
@@ -82,8 +82,8 @@
 
             <!--begin::Action-->
             <a
-              href="#"
               class="btn btn-primary px-6 align-self-center text-nowrap"
+              href="#"
             >
               Proceed
             </a>

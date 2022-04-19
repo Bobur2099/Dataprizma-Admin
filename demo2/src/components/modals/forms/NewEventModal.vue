@@ -1,26 +1,26 @@
 <template>
   <div
-    class="modal fade show"
     id="kt_modal_add_event"
-    aria-modal="true"
-    role="dialog"
     ref="newTargetModalRef"
+    aria-modal="true"
+    class="modal fade show"
+    role="dialog"
   >
     <div class="modal-dialog modal-dialog-centered mw-650px">
       <div class="modal-content">
         <el-form
-          class="form fv-plugins-bootstrap5 fv-plugins-framework"
           id="kt_modal_add_event_form"
-          @submit.prevent="submit()"
+          ref="formRef"
           :model="targetData"
           :rules="rules"
-          ref="formRef"
+          class="form fv-plugins-bootstrap5 fv-plugins-framework"
+          @submit.prevent="submit()"
         >
           <div class="modal-header">
             <h2 class="fw-bolder">Add a New Event</h2>
             <div
-              class="btn btn-icon btn-sm btn-active-icon-primary"
               id="kt_modal_add_event_close"
+              class="btn btn-icon btn-sm btn-active-icon-primary"
               data-bs-dismiss="modal"
             >
               <span class="svg-icon svg-icon-1">
@@ -40,8 +40,8 @@
               <el-form-item prop="eventName">
                 <el-input
                   v-model="targetData.eventName"
-                  type="text"
                   name="eventName"
+                  type="text"
                 />
               </el-form-item>
               <!--end::Input-->
@@ -56,9 +56,9 @@
               <!--begin::Input-->
               <el-input
                 v-model="targetData.eventDescription"
-                type="text"
-                placeholder=""
                 name="eventDescription"
+                placeholder=""
+                type="text"
               />
               <!--end::Input-->
             </div>
@@ -71,9 +71,9 @@
               <!--begin::Input-->
               <el-input
                 v-model="targetData.eventLocation"
-                type="text"
-                placeholder=""
                 name="eventLocation"
+                placeholder=""
+                type="text"
               />
               <!--end::Input-->
             </div>
@@ -100,14 +100,14 @@
                 >
                   <!--begin::Label-->
                   <label class="fs-6 fw-bold mb-2 required"
-                    >Event Start Date</label
+                  >Event Start Date</label
                   >
                   <!--end::Label-->
                   <!--begin::Input-->
                   <el-date-picker
                     v-model="targetData.eventStartDate"
-                    type="text"
                     name="eventStartDate"
+                    type="text"
                   />
                   <!--end::Input-->
                   <div
@@ -129,14 +129,14 @@
                 >
                   <!--begin::Label-->
                   <label class="fs-6 fw-bold mb-2 required"
-                    >Event End Date</label
+                  >Event End Date</label
                   >
                   <!--end::Label-->
                   <!--begin::Input-->
                   <el-date-picker
                     v-model="targetData.eventEndDate"
-                    type="text"
                     name="eventName"
+                    type="text"
                   />
                   <!--end::Input-->
                   <div
@@ -152,10 +152,10 @@
           <div class="modal-footer flex-center">
             <!--begin::Button-->
             <button
-              data-bs-dismiss="modal"
-              type="reset"
               id="kt_modal_add_event_cancel"
               class="btn btn-light me-3"
+              data-bs-dismiss="modal"
+              type="reset"
             >
               Cancel
             </button>
@@ -218,7 +218,7 @@ export default defineComponent({
       eventLocation: "",
       allDay: true,
       eventStartDate: "",
-      eventEndDate: "",
+      eventEndDate: ""
     });
 
     const rules = ref({
@@ -226,9 +226,9 @@ export default defineComponent({
         {
           required: true,
           message: "Please input event name",
-          trigger: "blur",
-        },
-      ],
+          trigger: "blur"
+        }
+      ]
     });
 
     const submit = () => {
@@ -249,8 +249,8 @@ export default defineComponent({
               buttonsStyling: false,
               confirmButtonText: "Ok, got it!",
               customClass: {
-                confirmButton: "btn btn-primary",
-              },
+                confirmButton: "btn btn-primary"
+              }
             }).then(() => {
               hideModal(newTargetModalRef.value);
             });
@@ -262,8 +262,8 @@ export default defineComponent({
             buttonsStyling: false,
             confirmButtonText: "Ok, got it!",
             customClass: {
-              confirmButton: "btn btn-primary",
-            },
+              confirmButton: "btn btn-primary"
+            }
           });
           return false;
         }
@@ -276,9 +276,9 @@ export default defineComponent({
       loading,
       targetData,
       rules,
-      submit,
+      submit
     };
-  },
+  }
 });
 </script>
 

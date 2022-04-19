@@ -28,25 +28,25 @@
 
     <!--begin::Menu item-->
     <div class="menu-item px-3">
-      <a href="#" class="menu-link px-3"> New Ticket </a>
+      <a class="menu-link px-3" href="#"> New Ticket </a>
     </div>
     <!--end::Menu item-->
 
     <!--begin::Menu item-->
     <div class="menu-item px-3">
-      <a href="#" class="menu-link px-3"> New Customer </a>
+      <a class="menu-link px-3" href="#"> New Customer </a>
     </div>
     <!--end::Menu item-->
 
     <!--begin::Menu item-->
     <div
       class="menu-item px-3"
-      data-kt-menu-trigger="hover"
-      data-kt-menu-placement="right-start"
       data-kt-menu-flip="left-start, top"
+      data-kt-menu-placement="right-start"
+      data-kt-menu-trigger="hover"
     >
       <!--begin::Menu item-->
-      <a href="#" class="menu-link px-3">
+      <a class="menu-link px-3" href="#">
         <span class="menu-title">New Group</span>
         <span class="menu-arrow"></span>
       </a>
@@ -56,19 +56,19 @@
       <div class="menu-sub menu-sub-dropdown w-175px py-4">
         <!--begin::Menu item-->
         <div class="menu-item px-3">
-          <a href="#" class="menu-link px-3"> Admin Group </a>
+          <a class="menu-link px-3" href="#"> Admin Group </a>
         </div>
         <!--end::Menu item-->
 
         <!--begin::Menu item-->
         <div class="menu-item px-3">
-          <a href="#" class="menu-link px-3"> Staff Group </a>
+          <a class="menu-link px-3" href="#"> Staff Group </a>
         </div>
         <!--end::Menu item-->
 
         <!--begin::Menu item-->
         <div class="menu-item px-3">
-          <a href="#" class="menu-link px-3"> Member Group </a>
+          <a class="menu-link px-3" href="#"> Member Group </a>
         </div>
         <!--end::Menu item-->
       </div>
@@ -78,7 +78,7 @@
 
     <!--begin::Menu item-->
     <div class="menu-item px-3">
-      <a href="#" class="menu-link px-3"> New Contact </a>
+      <a class="menu-link px-3" href="#"> New Contact </a>
     </div>
     <!--end::Menu item-->
 

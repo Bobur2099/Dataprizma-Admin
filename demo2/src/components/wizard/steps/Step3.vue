@@ -10,7 +10,7 @@
       <!--begin::Notice-->
       <div class="text-gray-400 fw-bold fs-6">
         If you need more info, please check out
-        <a href="#" class="link-primary fw-bolder">Help Page</a>.
+        <a class="link-primary fw-bolder" href="#">Help Page</a>.
       </div>
       <!--end::Notice-->
     </div>
@@ -24,13 +24,13 @@
 
       <!--begin::Input-->
       <Field
-        name="businessName"
         class="form-control form-control-lg form-control-solid"
+        name="businessName"
         value="Keenthemes Inc."
       />
       <ErrorMessage
-        name="businessName"
         class="fv-plugins-message-container invalid-feedback"
+        name="businessName"
       ></ErrorMessage>
       <!--end::Input-->
     </div>
@@ -44,9 +44,9 @@
 
         <i
           class="fas fa-exclamation-circle ms-2 fs-7"
+          data-bs-html="true"
           data-bs-toggle="popover"
           data-bs-trigger="hover"
-          data-bs-html="true"
         >
         </i>
       </label>
@@ -54,14 +54,14 @@
 
       <!--begin::Input-->
       <Field
-        name="businessDescriptor"
         class="form-control form-control-lg form-control-solid"
+        name="businessDescriptor"
         value="KEENTHEMES"
       />
       <!--end::Input-->
       <ErrorMessage
-        name="businessDescriptor"
         class="fv-plugins-message-container invalid-feedback"
+        name="businessDescriptor"
       ></ErrorMessage>
 
       <!--begin::Hint-->
@@ -80,13 +80,13 @@
 
       <!--begin::Input-->
       <Field
-        name="businessType"
-        class="form-select form-select-lg form-select-solid"
-        data-control="select2"
-        data-placeholder="Select..."
-        data-allow-clear="true"
-        data-hide-search="true"
         as="select"
+        class="form-select form-select-lg form-select-solid"
+        data-allow-clear="true"
+        data-control="select2"
+        data-hide-search="true"
+        data-placeholder="Select..."
+        name="businessType"
       >
         <option></option>
         <option value="1">S Corporation</option>
@@ -98,8 +98,8 @@
       </Field>
       <!--end::Input-->
       <ErrorMessage
-        name="businessType"
         class="fv-plugins-message-container invalid-feedback"
+        name="businessType"
       ></ErrorMessage>
     </div>
     <!--end::Input group-->
@@ -112,10 +112,10 @@
 
       <!--begin::Input-->
       <Field
-        type="text"
-        name="businessDescription"
         class="form-control form-control-lg form-control-solid"
+        name="businessDescription"
         rows="3"
+        type="text"
       ></Field>
       <!--end::Input-->
     </div>
@@ -129,14 +129,14 @@
 
       <!--begin::Input-->
       <Field
-        name="businessEmail"
         class="form-control form-control-lg form-control-solid"
+        name="businessEmail"
         value="corp@support.com"
       />
       <!--end::Input-->
       <ErrorMessage
-        name="businessEmail"
         class="fv-plugins-message-container invalid-feedback"
+        name="businessEmail"
       ></ErrorMessage>
     </div>
     <!--end::Input group-->

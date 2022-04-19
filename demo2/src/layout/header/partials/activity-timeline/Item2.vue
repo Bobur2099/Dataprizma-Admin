@@ -34,12 +34,12 @@
           <!--begin::User-->
           <div
             class="symbol symbol-circle symbol-25px"
-            data-bs-toggle="tooltip"
             data-bs-boundary="window"
             data-bs-placement="top"
+            data-bs-toggle="tooltip"
             title="Alan Nilson"
           >
-            <img src="media/avatars/150-2.jpg" alt="img" />
+            <img alt="img" src="media/avatars/150-2.jpg" />
           </div>
           <!--end::User-->
         </div>
@@ -57,6 +57,6 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "",
-  components: {},
+  components: {}
 });
 </script>

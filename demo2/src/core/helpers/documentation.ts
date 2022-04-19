@@ -58,7 +58,7 @@ export const useCopyClipboard = () => {
               }
 
               return highlight;
-            },
+            }
           });
 
           clipboard.on("success", (e) => {
@@ -67,7 +67,7 @@ export const useCopyClipboard = () => {
             e.trigger.innerHTML = "copied";
             e.clearSelection();
 
-            setTimeout(function () {
+            setTimeout(function() {
               e.trigger.innerHTML = caption;
             }, 2000);
           });
@@ -79,6 +79,6 @@ export const useCopyClipboard = () => {
   return {
     init: (element?) => {
       _init(element);
-    },
+    }
   };
 };

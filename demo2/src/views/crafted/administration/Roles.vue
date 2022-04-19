@@ -13,7 +13,7 @@ import TableWidget9 from "@/components/widgets/tables/Widget9.vue";
 export default {
   name: "Roles",
   components: {
-    TableWidget9,
-  },
+    TableWidget9
+  }
 };
 </script>

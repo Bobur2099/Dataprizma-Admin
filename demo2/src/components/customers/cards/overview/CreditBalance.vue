@@ -12,10 +12,10 @@
       <!--begin::Card toolbar-->
       <div class="card-toolbar">
         <a
-          href="#"
           class="btn btn-sm btn-flex btn-light-primary"
-          data-bs-toggle="modal"
           data-bs-target="#kt_modal_adjust_balance"
+          data-bs-toggle="modal"
+          href="#"
         >
           <span class="svg-icon svg-icon-3">
             <inline-svg src="/media/icons/duotune/art/art005.svg" />

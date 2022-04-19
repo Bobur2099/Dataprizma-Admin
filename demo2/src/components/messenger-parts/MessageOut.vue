@@ -8,15 +8,15 @@
         <div class="me-3">
           <span class="text-muted fs-7 mb-1">{{ time }}</span>
           <a
-            href="#"
             class="fs-5 fw-bolder text-gray-900 text-hover-primary ms-1"
+            href="#"
             >You</a
           >
         </div>
         <!--end::Details-->
 
         <div class="symbol symbol-35px symbol-circle">
-          <img alt="Pic" :src="image" />
+          <img :src="image" alt="Pic" />
         </div>
       </div>
       <!--end::User-->

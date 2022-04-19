@@ -8,7 +8,7 @@
   </template>
   <template v-else-if="loaderType === 'spinner-logo'">
     <div class="page-loader flex-column">
-      <img alt="Logo" class="max-h-75px" :src="logo" />
+      <img :src="logo" alt="Logo" class="max-h-75px" />
 
       <div class="d-flex align-items-center mt-5">
         <span class="spinner-border text-primary" role="status"></span>

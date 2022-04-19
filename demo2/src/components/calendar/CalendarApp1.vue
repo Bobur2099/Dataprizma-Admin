@@ -8,8 +8,8 @@
       <div class="card-toolbar">
         <button
           class="btn btn-flex btn-primary"
-          data-bs-toggle="modal"
           data-bs-target="#kt_modal_add_event"
+          data-bs-toggle="modal"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/arrows/arr075.svg" />
@@ -24,8 +24,8 @@
     <div class="card-body">
       <!--begin::Calendar-->
       <FullCalendar
-        class="demo-app-calendar"
         :options="calendarOptions"
+        class="demo-app-calendar"
       ></FullCalendar>
       <!--end::Calendar-->
     </div>

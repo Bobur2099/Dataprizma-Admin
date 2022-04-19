@@ -13,7 +13,7 @@ import TableWidget16 from "@/components/widgets/tables/dataprizma_widgets/About.
 export default {
   name: "About",
   components: {
-    TableWidget16,
-  },
+    TableWidget16
+  }
 };
 </script>

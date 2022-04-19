@@ -1,6 +1,6 @@
 <template>
   <!--begin::Toolbar-->
-  <div class="toolbar py-5 py-lg-15" id="kt_toolbar">
+  <div id="kt_toolbar" class="toolbar py-5 py-lg-15">
     <!--begin::Container-->
     <div
       id="kt_toolbar_container"
@@ -104,15 +104,15 @@ export default defineComponent({
   name: "KToolbar",
   props: {
     breadcrumbs: Array,
-    title: String,
+    title: String
   },
   components: {
     // Dropdown1,
   },
   setup() {
     return {
-      toolbarWidthFluid,
+      toolbarWidthFluid
     };
-  },
+  }
 });
 </script>

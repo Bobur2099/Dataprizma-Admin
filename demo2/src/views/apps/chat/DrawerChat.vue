@@ -12,12 +12,12 @@
     <div class="d-flex my-2">
       <!--begin::Select-->
       <select
-        name="status"
+        class="form-select form-select-white form-select-sm w-125px"
         data-control="select2"
         data-hide-search="true"
-        class="form-select form-select-white form-select-sm w-125px"
+        name="status"
       >
-        <option value="Online" selected>Online</option>
+        <option selected value="Online">Online</option>
         <option value="Pending">Pending</option>
         <option value="Declined">Declined</option>
         <option value="Accepted">Accepted</option>
@@ -31,127 +31,127 @@
   <!--begin::Contacts-->
   <div class="row g-6 g-xl-9">
     <Card4
-      name="Emma Smith"
-      position="Art Director"
+      :connected="false"
       :online="false"
       avatar="media/avatars/150-1.jpg"
-      :connected="false"
       avg-earnings="$14,560"
+      name="Emma Smith"
+      position="Art Director"
       total-sales="$236,400"
     ></Card4>
 
     <Card4
+      :connected="false"
+      :online="true"
+      avg-earnings="$14,560"
+      color="danger"
+      initials="M"
       name="Melody Macy"
       position="Marketing Analytic"
-      :online="true"
-      initials="M"
-      color="danger"
-      :connected="false"
-      avg-earnings="$14,560"
       total-sales="$236,400"
     ></Card4>
 
     <Card4
-      name="Max Smith"
-      position="Software Enginer"
+      :connected="false"
       :online="false"
       avatar="media/avatars/150-2.jpg"
-      :connected="false"
       avg-earnings="$14,560"
+      name="Max Smith"
+      position="Software Enginer"
       total-sales="$236,400"
     ></Card4>
 
     <Card4
-      name="Sean Bean"
-      position="Web Developer"
+      :connected="false"
       :online="false"
       avatar="media/avatars/150-4.jpg"
-      :connected="false"
       avg-earnings="$14,560"
+      name="Sean Bean"
+      position="Web Developer"
       total-sales="$236,400"
     ></Card4>
 
     <Card4
-      name="Brian Cox"
-      position="UI/UX Designer"
+      :connected="false"
       :online="false"
       avatar="media/avatars/150-15.jpg"
-      :connected="false"
       avg-earnings="$14,560"
+      name="Brian Cox"
+      position="UI/UX Designer"
       total-sales="$236,400"
     ></Card4>
 
     <Card4
+      :connected="false"
+      :online="true"
+      avg-earnings="$14,560"
+      color="warning"
+      initials="M"
       name="Mikaela Collins"
       position="Head Of Marketing"
-      :online="true"
-      initials="M"
-      color="warning"
-      :connected="false"
-      avg-earnings="$14,560"
       total-sales="$236,400"
     ></Card4>
 
     <Card4
-      name="Francis Mitcham"
-      position="Software Arcitect"
+      :connected="false"
       :online="false"
       avatar="media/avatars/150-8.jpg"
-      :connected="false"
       avg-earnings="$14,560"
+      name="Francis Mitcham"
+      position="Software Arcitect"
       total-sales="$236,400"
     ></Card4>
 
     <Card4
+      :connected="false"
+      :online="true"
+      avg-earnings="$14,560"
+      color="danger"
+      initials="O"
       name="Olivia Wild"
       position="System Admin"
-      :online="true"
-      initials="O"
-      color="danger"
-      :connected="false"
-      avg-earnings="$14,560"
       total-sales="$236,400"
     ></Card4>
 
     <Card4
+      :connected="false"
+      :online="true"
+      avg-earnings="$14,560"
+      color="primary"
+      initials="N"
       name="Neil Owen"
       position="Account Manager"
-      :online="true"
-      initials="N"
-      color="primary"
-      :connected="false"
-      avg-earnings="$14,560"
       total-sales="$236,400"
     ></Card4>
 
     <Card4
-      name="Dan Wilson"
-      position="Web Desinger"
+      :connected="false"
       :online="false"
       avatar="media/avatars/150-6.jpg"
-      :connected="false"
       avg-earnings="$14,560"
+      name="Dan Wilson"
+      position="Web Desinger"
       total-sales="$236,400"
     ></Card4>
 
     <Card4
+      :connected="false"
+      :online="true"
+      avg-earnings="$14,560"
+      color="danger"
+      initials="E"
       name="Emma Bold"
       position="Corporate Finance"
-      :online="true"
-      initials="E"
-      color="danger"
-      :connected="false"
-      avg-earnings="$14,560"
       total-sales="$236,400"
     ></Card4>
 
     <Card4
-      name="Ana Crown"
-      position="Customer Relationship"
+      :connected="false"
       :online="false"
       avatar="media/avatars/150-7.jpg"
-      :connected="false"
       avg-earnings="$14,560"
+      name="Ana Crown"
+      position="Customer Relationship"
       total-sales="$236,400"
     ></Card4>
   </div>
@@ -164,35 +164,35 @@
     <!--begin::Pages-->
     <ul class="pagination">
       <li class="page-item previous">
-        <a href="#" class="page-link"><i class="previous"></i></a>
+        <a class="page-link" href="#"><i class="previous"></i></a>
       </li>
 
       <li class="page-item active">
-        <a href="#" class="page-link">1</a>
+        <a class="page-link" href="#">1</a>
       </li>
 
       <li class="page-item">
-        <a href="#" class="page-link">2</a>
+        <a class="page-link" href="#">2</a>
       </li>
 
       <li class="page-item">
-        <a href="#" class="page-link">3</a>
+        <a class="page-link" href="#">3</a>
       </li>
 
       <li class="page-item">
-        <a href="#" class="page-link">4</a>
+        <a class="page-link" href="#">4</a>
       </li>
 
       <li class="page-item">
-        <a href="#" class="page-link">5</a>
+        <a class="page-link" href="#">5</a>
       </li>
 
       <li class="page-item">
-        <a href="#" class="page-link">6</a>
+        <a class="page-link" href="#">6</a>
       </li>
 
       <li class="page-item next">
-        <a href="#" class="page-link"><i class="next"></i></a>
+        <a class="page-link" href="#"><i class="next"></i></a>
       </li>
     </ul>
     <!--end::Pages-->
@@ -208,12 +208,12 @@ import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 export default defineComponent({
   name: "drawer-chat",
   components: {
-    Card4,
+    Card4
   },
   setup() {
     onMounted(() => {
       setCurrentPageBreadcrumbs("Drawer Chat", ["Chat"]);
     });
-  },
+  }
 });
 </script>

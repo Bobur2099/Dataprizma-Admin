@@ -11,11 +11,11 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -62,8 +62,8 @@
                     <div class="symbol symbol-45px me-5">
                       <img
                         v-if="item.user.avatar"
-                        alt="Pic"
                         :src="item.user.avatar"
+                        alt="Pic"
                       />
                       <span
                         v-else-if="item.user.state"
@@ -78,13 +78,12 @@
                     <!--begin::Name-->
                     <div class="d-flex justify-content-start flex-column">
                       <a
-                        href="#"
                         class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                        href="#"
                         >{{ item.user.name }}</a
                       >
 
                       <a
-                        href="#"
                         class="
                           text-muted text-hover-primary
                           fw-bold
@@ -92,6 +91,7 @@
                           d-block
                           fs-7
                         "
+                        href="#"
                       >
                         <span class="text-dark">Email</span>:
                         {{ item.user.email }}
@@ -103,7 +103,6 @@
 
                 <td class="text-end">
                   <a
-                    href="#"
                     class="
                       text-dark
                       fw-bolder
@@ -112,6 +111,7 @@
                       mb-1
                       fs-6
                     "
+                    href="#"
                     >{{ item.price }}</a
                   >
                   <span class="text-muted fw-bold text-muted d-block fs-7"
@@ -133,11 +133,11 @@
 
                 <td class="text-end">
                   <a
-                    href="#"
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                       me-1
                     "
+                    href="#"
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg
@@ -147,11 +147,11 @@
                   </a>
 
                   <a
-                    href="#"
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                       me-1
                     "
+                    href="#"
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg src="/media/icons/duotune/art/art005.svg" />
@@ -159,10 +159,10 @@
                   </a>
 
                   <a
-                    href="#"
                     class="
                       btn btn-icon btn-bg-light btn-active-color-primary btn-sm
                     "
+                    href="#"
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg

@@ -12,11 +12,11 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -32,11 +32,11 @@
     <div class="card-body d-flex flex-column">
       <!--begin::Chart-->
       <apexchart
-        class="mixed-widget-5-chart card-rounded-top"
+        :height="chartHeight"
         :options="chartOptions"
         :series="series"
+        class="mixed-widget-5-chart card-rounded-top"
         type="area"
-        :height="chartHeight"
       ></apexchart>
       <!--end::Chart-->
 
@@ -50,9 +50,9 @@
             <div class="symbol symbol-50px me-3">
               <div class="symbol-label bg-light">
                 <img
-                  src="media/svg/brand-logos/plurk.svg"
                   alt=""
                   class="h-50"
+                  src="media/svg/brand-logos/plurk.svg"
                 />
               </div>
             </div>
@@ -61,8 +61,8 @@
             <!--begin::Title-->
             <div>
               <a
-                href="#"
                 class="fs-6 text-gray-800 text-hover-primary fw-bolder"
+                href="#"
                 >Top Authors</a
               >
               <div class="fs-7 text-muted fw-bold mt-1">
@@ -87,9 +87,9 @@
             <div class="symbol symbol-50px me-3">
               <div class="symbol-label bg-light">
                 <img
-                  src="media/svg/brand-logos/figma-1.svg"
                   alt=""
                   class="h-50"
+                  src="media/svg/brand-logos/figma-1.svg"
                 />
               </div>
             </div>
@@ -98,8 +98,8 @@
             <!--begin::Title-->
             <div>
               <a
-                href="#"
                 class="fs-6 text-gray-800 text-hover-primary fw-bolder"
+                href="#"
                 >Top Sales</a
               >
               <div class="fs-7 text-muted fw-bold mt-1">PitStop Emails</div>
@@ -122,9 +122,9 @@
             <div class="symbol symbol-50px me-3">
               <div class="symbol-label bg-light">
                 <img
-                  src="media/svg/brand-logos/vimeo.svg"
                   alt=""
                   class="h-50"
+                  src="media/svg/brand-logos/vimeo.svg"
                 />
               </div>
             </div>
@@ -133,8 +133,8 @@
             <!--begin::Title-->
             <div class="py-1">
               <a
-                href="#"
                 class="fs-6 text-gray-800 text-hover-primary fw-bolder"
+                href="#"
                 >Top Engagement</a
               >
 

@@ -10,7 +10,7 @@
       <!--begin::Notice-->
       <div class="text-gray-400 fw-bold fs-6">
         If you need more info, please check out
-        <a href="#" class="text-primary fw-bolder">Help Page</a>.
+        <a class="text-primary fw-bolder" href="#">Help Page</a>.
       </div>
       <!--end::Notice-->
     </div>
@@ -31,10 +31,10 @@
         <!--end::Label-->
 
         <Field
-          type="text"
           class="form-control form-control-solid"
-          placeholder=""
           name="nameOnCard"
+          placeholder=""
+          type="text"
         />
         <ErrorMessage
           class="fv-plugins-message-container invalid-feedback"
@@ -53,10 +53,10 @@
         <div class="position-relative">
           <!--begin::Input-->
           <Field
-            type="text"
             class="form-control form-control-solid"
-            placeholder="Enter card number"
             name="cardNumber"
+            placeholder="Enter card number"
+            type="text"
           />
           <ErrorMessage
             class="fv-plugins-message-container invalid-feedback"
@@ -66,16 +66,16 @@
 
           <!--begin::Card logos-->
           <div class="position-absolute translate-middle-y top-50 end-0 me-5">
-            <img src="media/svg/card-logos/visa.svg" alt="" class="h-25px" />
+            <img alt="" class="h-25px" src="media/svg/card-logos/visa.svg" />
             <img
-              src="media/svg/card-logos/mastercard.svg"
               alt=""
               class="h-25px"
+              src="media/svg/card-logos/mastercard.svg"
             />
             <img
-              src="media/svg/card-logos/american-express.svg"
               alt=""
               class="h-25px"
+              src="media/svg/card-logos/american-express.svg"
             />
           </div>
           <!--end::Card logos-->
@@ -99,10 +99,10 @@
             <!--begin::Col-->
             <div class="col-6">
               <Field
-                name="cardExpiryMonth"
-                class="form-select form-select-solid select2-hidden-accessible"
-                placeholder="Month"
                 as="select"
+                class="form-select form-select-solid select2-hidden-accessible"
+                name="cardExpiryMonth"
+                placeholder="Month"
               >
                 <option v-for="i in 12" :key="i" :label="i" :value="i"></option>
               </Field>
@@ -116,10 +116,10 @@
             <!--begin::Col-->
             <div class="col-6">
               <Field
-                name="cardExpiryYear"
-                class="form-select form-select-solid select2-hidden-accessible"
-                placeholder="Year"
                 as="select"
+                class="form-select form-select-solid select2-hidden-accessible"
+                name="cardExpiryYear"
+                placeholder="Year"
               >
                 <option
                   v-for="i in 10"
@@ -156,12 +156,12 @@
           <div class="position-relative">
             <!--begin::Input-->
             <Field
-              type="text"
               class="form-control form-control-solid"
-              minlength="3"
               maxlength="4"
-              placeholder="CVV"
+              minlength="3"
               name="cardCvv"
+              placeholder="CVV"
+              type="text"
             />
             <ErrorMessage
               class="fv-plugins-message-container invalid-feedback"
@@ -201,9 +201,9 @@
           class="form-check form-switch form-check-custom form-check-solid"
         >
           <Field
-            type="checkbox"
             class="form-check-input"
             name="saveCard"
+            type="checkbox"
             value="1"
           />
           <span class="form-check-label fw-bold text-gray-400">

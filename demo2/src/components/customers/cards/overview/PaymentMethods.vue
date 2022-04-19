@@ -10,10 +10,10 @@
       <!--begin::Card toolbar-->
       <div class="card-toolbar">
         <a
-          href="#"
           class="btn btn-sm btn-flex btn-light-primary"
-          data-bs-toggle="modal"
           data-bs-target="#kt_modal_new_card"
+          data-bs-toggle="modal"
+          href="#"
         >
           <span class="svg-icon svg-icon-3">
             <inline-svg src="/media/icons/duotune/general/gen035.svg" />
@@ -32,12 +32,12 @@
         <div class="py-3 d-flex flex-stack flex-wrap">
           <!--begin::Toggle-->
           <div
+            aria-controls="kt_customer_view_payment_method_1"
+            aria-expanded="false"
             class="d-flex align-items-center collapsible rotate collapsed"
             data-bs-toggle="collapse"
             href="#kt_customer_view_payment_method_1"
             role="button"
-            aria-expanded="false"
-            aria-controls="kt_customer_view_payment_method_1"
           >
             <!--begin::Arrow-->
             <div class="me-3 rotate-90">
@@ -48,9 +48,9 @@
             <!--end::Arrow-->
             <!--begin::Logo-->
             <img
-              src="media/svg/card-logos/mastercard.svg"
-              class="w-40px me-3"
               alt=""
+              class="w-40px me-3"
+              src="media/svg/card-logos/mastercard.svg"
             />
             <!--end::Logo-->
             <!--begin::Summary-->
@@ -68,16 +68,16 @@
           <div class="d-flex my-3 ms-9">
             <!--begin::Edit-->
             <a
-              href="#"
               class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-              data-bs-toggle="modal"
               data-bs-target="#kt_modal_new_card"
+              data-bs-toggle="modal"
+              href="#"
             >
               <span
+                data-bs-original-title="Edit"
                 data-bs-toggle="tooltip"
                 data-bs-trigger="hover"
                 title=""
-                data-bs-original-title="Edit"
               >
                 <span class="svg-icon svg-icon-3">
                   <inline-svg src="/media/icons/duotune/art/art005.svg" />
@@ -87,12 +87,12 @@
             <!--end::Edit-->
             <!--begin::Delete-->
             <a
-              href="#"
               class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-              data-bs-toggle="tooltip"
-              title=""
-              data-kt-customer-payment-method="delete"
               data-bs-original-title="Delete"
+              data-bs-toggle="tooltip"
+              data-kt-customer-payment-method="delete"
+              href="#"
+              title=""
             >
               <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
               <span class="svg-icon svg-icon-3">
@@ -102,13 +102,13 @@
             <!--end::Delete-->
             <!--begin::More-->
             <a
-              href="#"
               class="btn btn-icon btn-active-light-primary w-30px h-30px"
-              data-bs-toggle="tooltip"
-              title=""
-              data-kt-menu-trigger="click"
-              data-kt-menu-placement="bottom-end"
               data-bs-original-title="More Options"
+              data-bs-toggle="tooltip"
+              data-kt-menu-placement="bottom-end"
+              data-kt-menu-trigger="click"
+              href="#"
+              title=""
             >
               <span class="svg-icon svg-icon-3">
                 <inline-svg src="/media/icons/duotune/general/gen019.svg" />
@@ -133,9 +133,9 @@
               <!--begin::Menu item-->
               <div class="menu-item px-3">
                 <a
-                  href="#"
                   class="menu-link px-3"
                   data-kt-payment-mehtod-action="set_as_primary"
+                  href="#"
                   >Set as Primary</a
                 >
               </div>
@@ -205,7 +205,7 @@
                   <tr>
                     <td class="text-muted min-w-125px w-125px">Email</td>
                     <td class="text-gray-800">
-                      <a href="#" class="text-gray-900 text-hover-primary"
+                      <a class="text-gray-900 text-hover-primary" href="#"
                         >e.smith@kpmg.com.au</a
                       >
                     </td>
@@ -247,12 +247,12 @@
         <div class="py-3 d-flex flex-stack flex-wrap">
           <!--begin::Toggle-->
           <div
+            aria-controls="kt_customer_view_payment_method_2"
+            aria-expanded="false"
             class="d-flex align-items-center collapsible rotate collapsed"
             data-bs-toggle="collapse"
             href="#kt_customer_view_payment_method_2"
             role="button"
-            aria-expanded="false"
-            aria-controls="kt_customer_view_payment_method_2"
           >
             <!--begin::Arrow-->
             <div class="me-3 rotate-90">
@@ -263,9 +263,9 @@
             <!--end::Arrow-->
             <!--begin::Logo-->
             <img
-              src="media/svg/card-logos/visa.svg"
-              class="w-40px me-3"
               alt=""
+              class="w-40px me-3"
+              src="media/svg/card-logos/visa.svg"
             />
             <!--end::Logo-->
             <!--begin::Summary-->
@@ -282,16 +282,16 @@
           <div class="d-flex my-3 ms-9">
             <!--begin::Edit-->
             <a
-              href="#"
               class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-              data-bs-toggle="modal"
               data-bs-target="#kt_modal_new_card"
+              data-bs-toggle="modal"
+              href="#"
             >
               <span
+                data-bs-original-title="Edit"
                 data-bs-toggle="tooltip"
                 data-bs-trigger="hover"
                 title=""
-                data-bs-original-title="Edit"
               >
                 <span class="svg-icon svg-icon-3">
                   <inline-svg src="/media/icons/duotune/art/art005.svg" />
@@ -301,12 +301,12 @@
             <!--end::Edit-->
             <!--begin::Delete-->
             <a
-              href="#"
               class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-              data-bs-toggle="tooltip"
-              title=""
-              data-kt-customer-payment-method="delete"
               data-bs-original-title="Delete"
+              data-bs-toggle="tooltip"
+              data-kt-customer-payment-method="delete"
+              href="#"
+              title=""
             >
               <span class="svg-icon svg-icon-3">
                 <inline-svg src="/media/icons/duotune/general/gen027.svg" />
@@ -315,13 +315,13 @@
             <!--end::Delete-->
             <!--begin::More-->
             <a
-              href="#"
               class="btn btn-icon btn-active-light-primary w-30px h-30px"
-              data-bs-toggle="tooltip"
-              title=""
-              data-kt-menu-trigger="click"
-              data-kt-menu-placement="bottom-end"
               data-bs-original-title="More Options"
+              data-bs-toggle="tooltip"
+              data-kt-menu-placement="bottom-end"
+              data-kt-menu-trigger="click"
+              href="#"
+              title=""
             >
               <span class="svg-icon svg-icon-3">
                 <inline-svg src="/media/icons/duotune/general/gen019.svg" />
@@ -346,9 +346,9 @@
               <!--begin::Menu item-->
               <div class="menu-item px-3">
                 <a
-                  href="#"
                   class="menu-link px-3"
                   data-kt-payment-mehtod-action="set_as_primary"
+                  href="#"
                   >Set as Primary</a
                 >
               </div>
@@ -418,7 +418,7 @@
                   <tr>
                     <td class="text-muted min-w-125px w-125px">Email</td>
                     <td class="text-gray-800">
-                      <a href="#" class="text-gray-900 text-hover-primary"
+                      <a class="text-gray-900 text-hover-primary" href="#"
                         >melody@altbox.com</a
                       >
                     </td>
@@ -461,12 +461,12 @@
         <div class="py-3 d-flex flex-stack flex-wrap">
           <!--begin::Toggle-->
           <div
+            aria-controls="kt_customer_view_payment_method_3"
+            aria-expanded="false"
             class="d-flex align-items-center collapsible collapsed rotate"
             data-bs-toggle="collapse"
             href="#kt_customer_view_payment_method_3"
             role="button"
-            aria-expanded="false"
-            aria-controls="kt_customer_view_payment_method_3"
           >
             <!--begin::Arrow-->
             <div class="me-3 rotate-90">
@@ -477,9 +477,9 @@
             <!--end::Arrow-->
             <!--begin::Logo-->
             <img
-              src="media/svg/card-logos/american-express.svg"
-              class="w-40px me-3"
               alt=""
+              class="w-40px me-3"
+              src="media/svg/card-logos/american-express.svg"
             />
             <!--end::Logo-->
             <!--begin::Summary-->
@@ -497,16 +497,16 @@
           <div class="d-flex my-3 ms-9">
             <!--begin::Edit-->
             <a
-              href="#"
               class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-              data-bs-toggle="modal"
               data-bs-target="#kt_modal_new_card"
+              data-bs-toggle="modal"
+              href="#"
             >
               <span
+                data-bs-original-title="Edit"
                 data-bs-toggle="tooltip"
                 data-bs-trigger="hover"
                 title=""
-                data-bs-original-title="Edit"
               >
                 <span class="svg-icon svg-icon-3">
                   <inline-svg src="/media/icons/duotune/art/art005.svg" />
@@ -516,12 +516,12 @@
             <!--end::Edit-->
             <!--begin::Delete-->
             <a
-              href="#"
               class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
-              data-bs-toggle="tooltip"
-              title=""
-              data-kt-customer-payment-method="delete"
               data-bs-original-title="Delete"
+              data-bs-toggle="tooltip"
+              data-kt-customer-payment-method="delete"
+              href="#"
+              title=""
             >
               <span class="svg-icon svg-icon-3">
                 <inline-svg src="/media/icons/duotune/general/gen027.svg" />
@@ -530,13 +530,13 @@
             <!--end::Delete-->
             <!--begin::More-->
             <a
-              href="#"
               class="btn btn-icon btn-active-light-primary w-30px h-30px"
-              data-bs-toggle="tooltip"
-              title=""
-              data-kt-menu-trigger="click"
-              data-kt-menu-placement="bottom-end"
               data-bs-original-title="More Options"
+              data-bs-toggle="tooltip"
+              data-kt-menu-placement="bottom-end"
+              data-kt-menu-trigger="click"
+              href="#"
+              title=""
             >
               <span class="svg-icon svg-icon-3">
                 <inline-svg src="/media/icons/duotune/general/gen019.svg" />
@@ -561,9 +561,9 @@
               <!--begin::Menu item-->
               <div class="menu-item px-3">
                 <a
-                  href="#"
                   class="menu-link px-3"
                   data-kt-payment-mehtod-action="set_as_primary"
+                  href="#"
                   >Set as Primary</a
                 >
               </div>
@@ -632,7 +632,7 @@
                   <tr>
                     <td class="text-muted min-w-125px w-125px">Email</td>
                     <td class="text-gray-800">
-                      <a href="#" class="text-gray-900 text-hover-primary"
+                      <a class="text-gray-900 text-hover-primary" href="#"
                         >max@kt.com</a
                       >
                     </td>

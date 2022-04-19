@@ -273,8 +273,8 @@ export default defineComponent({
       MainMenuConfig,
       asideMenuIcons,
       version,
-      translate,
+      translate
     };
-  },
+  }
 });
 </script>

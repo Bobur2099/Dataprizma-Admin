@@ -13,7 +13,7 @@ import TableWidget24 from "@/components/widgets/tables/dataprizma_widgets/Portfo
 export default {
   name: "Portfolio",
   components: {
-    TableWidget24,
-  },
+    TableWidget24
+  }
 };
 </script>

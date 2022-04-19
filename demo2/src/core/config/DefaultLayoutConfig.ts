@@ -9,16 +9,16 @@ const config: LayoutConfigTypes = {
     primaryColor: "#009EF7",
     logo: {
       dark: "media/logos/logo-1-dark.svg",
-      light: "media/logos/logo-1-light.svg",
-    },
+      light: "media/logos/logo-1-light.svg"
+    }
   },
   loader: {
     logo: "media/logos/logo-1-dark.svg",
     display: true,
-    type: "default",
+    type: "default"
   },
   scrollTop: {
-    display: true,
+    display: true
   },
   header: {
     display: true,
@@ -26,16 +26,16 @@ const config: LayoutConfigTypes = {
     width: "fixed",
     fixed: {
       desktop: true,
-      tabletAndMobile: true,
-    },
+      tabletAndMobile: true
+    }
   },
   toolbar: {
     display: true,
     width: "fixed",
     fixed: {
       desktop: true,
-      tabletAndMobile: true,
-    },
+      tabletAndMobile: true
+    }
   },
   aside: {
     display: false,
@@ -44,14 +44,14 @@ const config: LayoutConfigTypes = {
     menuIcon: "svg",
     minimized: false,
     minimize: true,
-    hoverable: true,
+    hoverable: true
   },
   content: {
-    width: "fixed",
+    width: "fixed"
   },
   footer: {
-    width: "fixed",
-  },
+    width: "fixed"
+  }
 };
 
 export default config;

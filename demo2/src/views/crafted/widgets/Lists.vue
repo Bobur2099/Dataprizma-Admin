@@ -68,7 +68,7 @@ export default defineComponent({
     ListsWidget5,
     ListsWidget6,
     ListsWidget7,
-    ListsWidget8,
+    ListsWidget8
   },
   setup() {
     onMounted(() => {
@@ -76,6 +76,6 @@ export default defineComponent({
 
       MenuComponent.reinitialization();
     });
-  },
+  }
 });
 </script>

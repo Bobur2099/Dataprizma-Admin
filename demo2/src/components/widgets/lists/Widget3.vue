@@ -1,6 +1,6 @@
 <template>
   <!--begin::List Widget 3-->
-  <div class="card" :class="widgetClasses">
+  <div :class="widgetClasses" class="card">
     <!--begin::Header-->
     <div class="card-header border-0">
       <h3 class="card-title fw-bolder text-dark">Todo</h3>
@@ -8,11 +8,11 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -34,8 +34,8 @@
         >
           <!--begin::Bullet-->
           <span
-            class="bullet bullet-vertical h-40px"
             :class="`bg-${item.color}`"
+            class="bullet bullet-vertical h-40px"
           ></span>
           <!--end::Bullet-->
 
@@ -48,8 +48,8 @@
           <!--begin::Description-->
           <div class="flex-grow-1">
             <a
-              href="#"
               class="text-gray-800 text-hover-primary fw-bolder fs-6"
+              href="#"
               >{{ item.title }}</a
             >
 
@@ -58,8 +58,8 @@
           <!--end::Description-->
 
           <span
-            class="badge fs-8 fw-bolder"
             :class="`badge-light-${item.color}`"
+            class="badge fs-8 fw-bolder"
             >New</span
           >
         </div>

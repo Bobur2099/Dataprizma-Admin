@@ -5,14 +5,14 @@
       <!--begin::User-->
       <div class="d-flex align-items-center mb-2">
         <div class="symbol symbol-35px symbol-circle">
-          <img alt="Pic" :src="image" />
+          <img :src="image" alt="Pic" />
         </div>
 
         <!--begin::Details-->
         <div class="ms-3">
           <a
-            href="#"
             class="fs-5 fw-bolder text-gray-900 text-hover-primary me-1"
+            href="#"
             >{{ name }}</a
           >
           <span class="text-muted fs-7 mb-1">{{ time }}</span>

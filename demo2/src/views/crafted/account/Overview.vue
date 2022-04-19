@@ -1,6 +1,6 @@
 <template>
   <!--begin::details View-->
-  <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+  <div id="kt_profile_details_view" class="card mb-5 mb-xl-10">
     <!--begin::Card header-->
     <div class="card-header cursor-pointer">
       <!--begin::Card title-->
@@ -11,9 +11,10 @@
 
       <!--begin::Action-->
       <router-link
-        to="/account/settings"
         class="btn btn-primary align-self-center"
-        >Edit Profile</router-link
+        to="/account/settings"
+      >Edit Profile
+      </router-link
       >
       <!--end::Action-->
     </div>
@@ -80,8 +81,8 @@
 
         <!--begin::Col-->
         <div class="col-lg-8">
-          <a href="#" class="fw-bold fs-6 text-dark text-hover-primary"
-            >keenthemes.com</a
+          <a class="fw-bold fs-6 text-dark text-hover-primary" href="#"
+          >keenthemes.com</a
           >
         </div>
         <!--end::Col-->
@@ -225,12 +226,12 @@ export default defineComponent({
     KTChartWidget1,
     KTListWidget5,
     KTTableWidget5,
-    KTListWidget1,
+    KTListWidget1
   },
   setup() {
     onMounted(() => {
       setCurrentPageBreadcrumbs("Overview", ["Account"]);
     });
-  },
+  }
 });
 </script>

@@ -10,9 +10,10 @@
       <!--begin::Notice-->
       <div class="text-gray-400 fw-bold fs-6">
         If you need more info, please
-        <router-link to="/sign-in" class="link-primary fw-bolder"
-          >Sign In</router-link
-        >.
+        <router-link class="link-primary fw-bolder" to="/sign-in"
+          >Sign In
+        </router-link>
+        .
       </div>
       <!--end::Notice-->
     </div>
@@ -51,7 +52,7 @@
             <h4 class="text-gray-800 fw-bolder">We need your attention!</h4>
             <div class="fs-6 text-gray-600">
               To start using great tools, please, please
-              <a href="#" class="fw-bolder">Create Team Platform</a>
+              <a class="fw-bolder" href="#">Create Team Platform</a>
             </div>
           </div>
           <!--end::Content-->

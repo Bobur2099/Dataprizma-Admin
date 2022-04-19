@@ -8,15 +8,15 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           :class="`btn-active-color-${widgetColor}`"
           class="
             btn btn-sm btn-icon btn-color-white btn-active-white
             border-0
             me-n3
           "
-          data-kt-menu-trigger="click"
           data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -33,9 +33,9 @@
       <!--begin::Chart-->
       <apexchart
         :class="`bg-${widgetColor}`"
-        class="mixed-widget-12-chart card-rounded-bottom"
         :options="chartOptions"
         :series="series"
+        class="mixed-widget-12-chart card-rounded-bottom"
         height="200"
         type="bar"
       ></apexchart>

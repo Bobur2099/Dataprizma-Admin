@@ -34,12 +34,12 @@
           <!--begin::User-->
           <div
             class="symbol symbol-circle symbol-25px"
-            data-bs-toggle="tooltip"
             data-bs-boundary="window"
             data-bs-placement="top"
+            data-bs-toggle="tooltip"
             title="Nina Nilson"
           >
-            <img src="media/avatars/150-11.jpg" alt="img" />
+            <img alt="img" src="media/avatars/150-11.jpg" />
           </div>
           <!--end::User-->
         </div>
@@ -64,7 +64,6 @@
         >
           <!--begin::Title-->
           <a
-            href="#"
             class="
               fs-5
               text-dark text-hover-primary
@@ -72,7 +71,8 @@
               w-375px
               min-w-200px
             "
-            >Meeting with customer</a
+            href="#"
+          >Meeting with customer</a
           >
           <!--end::Title-->
 
@@ -93,13 +93,13 @@
           >
             <!--begin::User-->
             <div class="symbol symbol-circle symbol-25px">
-              <img src="media/avatars/150-3.jpg" alt="img" />
+              <img alt="img" src="media/avatars/150-3.jpg" />
             </div>
             <!--end::User-->
 
             <!--begin::User-->
             <div class="symbol symbol-circle symbol-25px">
-              <img src="media/avatars/150-11.jpg" alt="img" />
+              <img alt="img" src="media/avatars/150-11.jpg" />
             </div>
             <!--end::User-->
 
@@ -128,8 +128,8 @@
           <!--end::Progress-->
 
           <!--begin::Action-->
-          <a href="#" class="btn btn-sm btn-light btn-active-light-primary"
-            >View</a
+          <a class="btn btn-sm btn-light btn-active-light-primary" href="#"
+          >View</a
           >
           <!--end::Action-->
         </div>
@@ -150,7 +150,6 @@
         >
           <!--begin::Title-->
           <a
-            href="#"
             class="
               fs-5
               text-dark text-hover-primary
@@ -158,14 +157,15 @@
               w-375px
               min-w-200px
             "
-            >Project Delivery Preparation</a
+            href="#"
+          >Project Delivery Preparation</a
           >
           <!--end::Title-->
 
           <!--begin::Label-->
           <div class="min-w-175px">
             <span class="badge badge-light text-muted"
-              >CRM System Development</span
+            >CRM System Development</span
             >
           </div>
           <!--end::Label-->
@@ -180,7 +180,7 @@
           >
             <!--begin::User-->
             <div class="symbol symbol-circle symbol-25px">
-              <img src="media/avatars/150-5.jpg" alt="img" />
+              <img alt="img" src="media/avatars/150-5.jpg" />
             </div>
             <!--end::User-->
 
@@ -209,8 +209,8 @@
           <!--end::Progress-->
 
           <!--begin::Action-->
-          <a href="#" class="btn btn-sm btn-light btn-active-light-primary"
-            >View</a
+          <a class="btn btn-sm btn-light btn-active-light-primary" href="#"
+          >View</a
           >
           <!--end::Action-->
         </div>
@@ -228,6 +228,6 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "item-1",
-  components: {},
+  components: {}
 });
 </script>

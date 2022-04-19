@@ -12,7 +12,7 @@
       <!--begin::Card toolbar-->
       <div class="card-toolbar">
         <!--begin::Button-->
-        <button type="button" class="btn btn-sm btn-light-primary">
+        <button class="btn btn-sm btn-light-primary" type="button">
           <span class="svg-icon svg-icon-3">
             <inline-svg src="/media/icons/duotune/files/fil021.svg" />
           </span>
@@ -30,6 +30,7 @@
       <div class="table-responsive">
         <!--begin::Table-->
         <table
+          id="kt_table_customers_logs"
           class="
             table
             align-middle
@@ -39,7 +40,6 @@
             fs-6
             gy-5
           "
-          id="kt_table_customers_logs"
         >
           <!--begin::Table body-->
           <tbody>

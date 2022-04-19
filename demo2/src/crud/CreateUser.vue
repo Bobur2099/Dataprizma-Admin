@@ -1,14 +1,14 @@
 <template>
   <form name="create" @submit.prevent="createUser">
     <label for="email">Name: </label>
-    <input type="text" id="email" name="email" v-model="email" />
+    <input id="email" v-model="email" name="email" type="text" />
     <br />
     <label for="password">Password: </label>
-    <input type="text" id="password" name="password" v-model="password" />
+    <input id="password" v-model="password" name="password" type="text" />
     <br />
     <label>Choose role: </label>
     <select id="roles" v-model="role">
-      <option value="0" disabled>Choose your role</option>
+      <option disabled value="0">Choose your role</option>
       <option value="1">User</option>
       <option value="2">Admin</option>
     </select>
@@ -38,8 +38,8 @@ export default {
       userData["roleId"] = Number(this.role);
       axios.post("/login/create", userData, {
         headers: {
-          "Authorization": `Bearer ${this.token}`,
-        },
+          "Authorization": `Bearer ${this.token}`
+        }
       }).then((response) => {
         if (response.status !== 200) {
           alert("It was not created");
@@ -47,8 +47,8 @@ export default {
           alert("It was created");
         }
       });
-    },
-  },
+    }
+  }
 };
 </script>
 

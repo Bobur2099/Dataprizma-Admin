@@ -1,10 +1,10 @@
 <template>
   <!--begin::Modal - Two-factor authentication-->
   <div
-    class="modal fade"
     id="kt_modal_two_factor_authentication"
-    tabindex="-1"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal header-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
@@ -44,13 +44,13 @@
             <div class="pb-10">
               <!--begin::Option-->
               <input
-                type="radio"
-                class="btn-check"
-                name="auth_option"
-                value="apps"
-                checked="checked"
                 id="kt_modal_two_factor_authentication_option_1"
                 v-model="value"
+                checked="checked"
+                class="btn-check"
+                name="auth_option"
+                type="radio"
+                value="apps"
               />
               <label
                 class="
@@ -68,7 +68,7 @@
 
                 <span class="d-block fw-bold text-start">
                   <span class="text-dark fw-bolder d-block fs-3"
-                    >Authenticator Apps</span
+                  >Authenticator Apps</span
                   >
                   <span class="text-gray-400 fw-bold fs-6">
                     Get codes from an app like Google Authenticator, Microsoft
@@ -80,12 +80,12 @@
 
               <!--begin::Option-->
               <input
-                type="radio"
-                class="btn-check"
-                name="auth_option"
-                value="sms"
                 id="kt_modal_two_factor_authentication_option_2"
                 v-model="value"
+                class="btn-check"
+                name="auth_option"
+                type="radio"
+                value="sms"
               />
               <label
                 class="
@@ -105,7 +105,7 @@
                 <span class="d-block fw-bold text-start">
                   <span class="text-dark fw-bolder d-block fs-3">SMS</span>
                   <span class="text-gray-400 fw-bold fs-6"
-                    >We will send a code via SMS if you need to use your backup
+                  >We will send a code via SMS if you need to use your backup
                     login method.</span
                   >
                 </span>
@@ -115,7 +115,7 @@
             <!--end::Options-->
 
             <!--begin::Action-->
-            <button @click="state = value" class="btn btn-primary w-100">
+            <button class="btn btn-primary w-100" @click="state = value">
               Continue
             </button>
             <!--end::Action-->
@@ -134,25 +134,25 @@
               <a
                 href="https://support.google.com/accounts/answer/1066447?hl=en"
                 target="_blank"
-                >Google Authenticator</a
+              >Google Authenticator</a
               >,
               <a
                 href="https://www.microsoft.com/en-us/account/authenticator"
                 target="_blank"
-                >Microsoft Authenticator</a
+              >Microsoft Authenticator</a
               >,
               <a href="https://authy.com/download/" target="_blank">Authy</a>,
               or
               <a
                 href="https://support.1password.com/one-time-passwords/"
                 target="_blank"
-                >1Password</a
+              >1Password</a
               >, scan the QR code. It will generate a 6 digit code for you to
               enter below.
 
               <!--begin::QR code image-->
               <div class="pt-5 text-center">
-                <img src="media/misc/qr.png" alt="" class="mw-150px" />
+                <img alt="" class="mw-150px" src="media/misc/qr.png" />
               </div>
               <!--end::QR code image-->
             </div>
@@ -191,17 +191,17 @@
 
             <!--begin::Form-->
             <Form
+              :validation-schema="schema2"
               class="form"
               @submit="submitAuthCodeForm()"
-              :validation-schema="schema2"
             >
               <!--begin::Input group-->
               <div class="mb-10 fv-row">
                 <Field
-                  type="text"
                   class="form-control form-control-lg form-control-solid"
-                  placeholder="Enter authentication code"
                   name="code"
+                  placeholder="Enter authentication code"
+                  type="text"
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
@@ -214,18 +214,18 @@
               <!--begin::Actions-->
               <div class="d-flex flex-center">
                 <button
+                  class="btn btn-white me-3"
                   type="reset"
                   @click="state = ''"
-                  class="btn btn-white me-3"
                 >
                   Cancel
                 </button>
 
                 <button
                   ref="submitAuthCodeButtonRef"
-                  type="submit"
-                  data-kt-element="apps-submit"
                   class="btn btn-primary"
+                  data-kt-element="apps-submit"
+                  type="submit"
                 >
                   <span class="indicator-label"> Submit </span>
                   <span class="indicator-progress">
@@ -259,17 +259,17 @@
 
             <!--begin::Form-->
             <Form
+              :validation-schema="schema1"
               class="form"
               @submit="submitMobileForm()"
-              :validation-schema="schema1"
             >
               <!--begin::Input group-->
               <div class="mb-10 fv-row">
                 <Field
-                  type="text"
                   class="form-control form-control-lg form-control-solid"
-                  placeholder="Mobile number with country code..."
                   name="mobile"
+                  placeholder="Mobile number with country code..."
+                  type="text"
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
@@ -281,15 +281,15 @@
 
               <!--begin::Actions-->
               <div class="d-flex flex-center">
-                <button @click="state = ''" class="btn btn-white me-3">
+                <button class="btn btn-white me-3" @click="state = ''">
                   Cancel
                 </button>
 
                 <button
                   ref="submitMobileButtonRef"
-                  type="submit"
-                  data-kt-element="sms-submit"
                   class="btn btn-primary"
+                  data-kt-element="sms-submit"
+                  type="submit"
                 >
                   <span class="indicator-label"> Submit </span>
                   <span class="indicator-progress">
@@ -326,7 +326,7 @@ export default defineComponent({
   components: {
     ErrorMessage,
     Field,
-    Form,
+    Form
   },
   setup() {
     const value = ref("apps");
@@ -337,11 +337,11 @@ export default defineComponent({
     const submitMobileButtonRef = ref<null | HTMLButtonElement>(null);
 
     const schema1 = Yup.object().shape({
-      mobile: Yup.string().required().label("Mobile"),
+      mobile: Yup.string().required().label("Mobile")
     });
 
     const schema2 = Yup.object().shape({
-      code: Yup.string().required().label("Code"),
+      code: Yup.string().required().label("Code")
     });
 
     const submitAuthCodeForm = () => {
@@ -358,8 +358,8 @@ export default defineComponent({
             buttonsStyling: false,
             confirmButtonText: "Ok, got it!",
             customClass: {
-              confirmButton: "btn btn-primary",
-            },
+              confirmButton: "btn btn-primary"
+            }
           }).then(() => {
             state.value = "";
           });
@@ -390,8 +390,8 @@ export default defineComponent({
           buttonsStyling: false,
           confirmButtonText: "Ok, got it!",
           customClass: {
-            confirmButton: "btn btn-primary",
-          },
+            confirmButton: "btn btn-primary"
+          }
         }).then(() => {
           state.value = "";
         });
@@ -406,8 +406,8 @@ export default defineComponent({
       submitAuthCodeForm,
       submitMobileForm,
       submitAuthCodeButtonRef,
-      submitMobileButtonRef,
+      submitMobileButtonRef
     };
-  },
+  }
 });
 </script>

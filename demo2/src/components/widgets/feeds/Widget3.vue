@@ -1,6 +1,6 @@
 <template>
   <!--begin::Feeds Widget 3-->
-  <div class="card" :class="widgetClasses">
+  <div :class="widgetClasses" class="card">
     <!--begin::Body-->
     <div class="card-body pb-0">
       <!--begin::Header-->
@@ -9,13 +9,13 @@
         <div class="d-flex align-items-center flex-grow-1">
           <!--begin::Avatar-->
           <div class="symbol symbol-45px me-5">
-            <img src="media/avatars/150-10.jpg" alt="" />
+            <img alt="" src="media/avatars/150-10.jpg" />
           </div>
           <!--end::Avatar-->
 
           <!--begin::Info-->
           <div class="d-flex flex-column">
-            <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bolder"
+            <a class="text-gray-800 text-hover-primary fs-6 fw-bolder" href="#"
               >Carles Nilson</a
             >
             <span class="text-gray-400 fw-bold">Yestarday at 5:06 PM</span>
@@ -27,13 +27,13 @@
         <!--begin::Menu-->
         <div class="my-0">
           <button
-            type="button"
             class="
               btn btn-sm btn-icon btn-color-primary btn-active-light-primary
             "
-            data-kt-menu-trigger="click"
-            data-kt-menu-placement="bottom-end"
             data-kt-menu-flip="top-end"
+            data-kt-menu-placement="bottom-end"
+            data-kt-menu-trigger="click"
+            type="button"
           >
             <span class="svg-icon svg-icon-2">
               <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -58,13 +58,13 @@
         <!--begin::Toolbar-->
         <div class="d-flex align-items-center mb-5">
           <a
-            href="#"
             class="
               btn btn-sm btn-light btn-color-muted btn-active-light-success
               px-4
               py-2
               me-4
             "
+            href="#"
           >
             <span class="svg-icon svg-icon-3">
               <inline-svg src="/media/icons/duotune/communication/com012.svg" />
@@ -73,12 +73,12 @@
           </a>
 
           <a
-            href="#"
             class="
               btn btn-sm btn-light btn-color-muted btn-active-light-danger
               px-4
               py-2
             "
+            href="#"
           >
             <span class="svg-icon svg-icon-2">
               <inline-svg src="/media/icons/duotune/general/gen030.svg" />
@@ -96,7 +96,7 @@
         <div class="d-flex mb-5">
           <!--begin::Avatar-->
           <div class="symbol symbol-45px me-5">
-            <img src="media/avatars/150-11.jpg" alt="" />
+            <img alt="" src="media/avatars/150-11.jpg" />
           </div>
           <!--end::Avatar-->
 
@@ -105,16 +105,16 @@
             <!--begin::Info-->
             <div class="d-flex align-items-center flex-wrap mb-1">
               <a
-                href="#"
                 class="text-gray-800 text-hover-primary fw-bolder me-2"
+                href="#"
                 >Alice Danchik</a
               >
 
               <span class="text-gray-400 fw-bold fs-7">1 day</span>
 
               <a
-                href="#"
                 class="ms-auto text-gray-400 text-hover-primary fw-bold fs-7"
+                href="#"
                 >Reply</a
               >
             </div>
@@ -135,7 +135,7 @@
         <div class="d-flex">
           <!--begin::Avatar-->
           <div class="symbol symbol-45px me-5">
-            <img src="media/avatars/150-8.jpg" alt="" />
+            <img alt="" src="media/avatars/150-8.jpg" />
           </div>
           <!--end::Avatar-->
 
@@ -144,16 +144,16 @@
             <!--begin::Info-->
             <div class="d-flex align-items-center flex-wrap mb-1">
               <a
-                href="#"
                 class="text-gray-800 text-hover-primary fw-bolder me-2"
+                href="#"
                 >Harris Bold</a
               >
 
               <span class="text-gray-400 fw-bold fs-7">2 days</span>
 
               <a
-                href="#"
                 class="ms-auto text-gray-400 text-hover-primary fw-bold fs-7"
+                href="#"
                 >Reply</a
               >
             </div>
@@ -180,8 +180,8 @@
         <textarea
           class="form-control border-0 p-0 pe-10 resize-none min-h-25px"
           data-kt-autosize="true"
-          rows="1"
           placeholder="Reply.."
+          rows="1"
         ></textarea>
 
         <div class="position-absolute top-0 end-0 me-n5">

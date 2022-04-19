@@ -66,9 +66,9 @@
         <template v-for="(item, index) in items" :key="index">
           <!--begin::Tap pane-->
           <div
+            :id="`kt_table_widget_6_tab_${index + 1}`"
             :class="[index === 0 && 'active show']"
             class="tab-pane fade"
-            :id="`kt_table_widget_6_tab_${index + 1}`"
           >
             <!--begin::Table container-->
             <div class="table-responsive">
@@ -94,15 +94,14 @@
                           <span class="symbol-label">
                             <img
                               :src="item1.image"
-                              class="h-75 align-self-end"
                               alt=""
+                              class="h-75 align-self-end"
                             />
                           </span>
                         </div>
                       </td>
                       <td>
                         <a
-                          href="#"
                           class="
                             text-dark
                             fw-bolder
@@ -110,6 +109,7 @@
                             mb-1
                             fs-6
                           "
+                          href="#"
                           >{{ item1.user.name }}</a
                         >
                         <span class="text-muted fw-bold d-block">{{
@@ -133,7 +133,6 @@
                       </td>
                       <td class="text-end">
                         <a
-                          href="#"
                           class="
                             btn
                             btn-sm
@@ -141,6 +140,7 @@
                             btn-bg-light
                             btn-active-color-primary
                           "
+                          href="#"
                         >
                           <span class="svg-icon svg-icon-2">
                             <inline-svg

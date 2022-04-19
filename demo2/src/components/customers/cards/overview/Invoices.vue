@@ -27,8 +27,8 @@
               id="kt_referrals_year_tab"
               class="nav-link text-active-primary active"
               data-bs-toggle="tab"
-              role="tab"
               href="#kt_customer_details_invoices_1"
+              role="tab"
             >
               This Year
             </a>
@@ -39,8 +39,8 @@
               id="kt_referrals_2019_tab"
               class="nav-link text-active-primary ms-3"
               data-bs-toggle="tab"
-              role="tab"
               href="#kt_customer_details_invoices_2"
+              role="tab"
             >
               2020
             </a>
@@ -51,8 +51,8 @@
               id="kt_referrals_2018_tab"
               class="nav-link text-active-primary ms-3"
               data-bs-toggle="tab"
-              role="tab"
               href="#kt_customer_details_invoices_3"
+              role="tab"
             >
               2019
             </a>
@@ -63,8 +63,8 @@
               id="kt_referrals_2017_tab"
               class="nav-link text-active-primary ms-3"
               data-bs-toggle="tab"
-              role="tab"
               href="#kt_customer_details_invoices_4"
+              role="tab"
             >
               2018
             </a>
@@ -86,10 +86,10 @@
           role="tabpanel"
         >
           <Datatable
-            :table-header="tableHeader"
-            :table-data="tableData1"
-            :rows-per-page="5"
             :enable-items-per-page-dropdown="false"
+            :rows-per-page="5"
+            :table-data="tableData1"
+            :table-header="tableHeader"
           >
             <template v-slot:cell-order="{ row: invoice }">
               {{ invoice.order }}
@@ -120,10 +120,10 @@
           role="tabpanel"
         >
           <Datatable
-            :table-header="tableHeader"
-            :table-data="tableData2"
-            :rows-per-page="5"
             :enable-items-per-page-dropdown="false"
+            :rows-per-page="5"
+            :table-data="tableData2"
+            :table-header="tableHeader"
           >
             <template v-slot:cell-order="{ row: invoice }">
               {{ invoice.order }}
@@ -154,10 +154,10 @@
           role="tabpanel"
         >
           <Datatable
-            :table-header="tableHeader"
-            :table-data="tableData3"
-            :rows-per-page="5"
             :enable-items-per-page-dropdown="false"
+            :rows-per-page="5"
+            :table-data="tableData3"
+            :table-header="tableHeader"
           >
             <template v-slot:cell-order="{ row: invoice }">
               {{ invoice.order }}
@@ -188,10 +188,10 @@
           role="tabpanel"
         >
           <Datatable
-            :table-header="tableHeader"
-            :table-data="tableData4"
-            :rows-per-page="5"
             :enable-items-per-page-dropdown="false"
+            :rows-per-page="5"
+            :table-data="tableData4"
+            :table-header="tableHeader"
           >
             <template v-slot:cell-order="{ row: invoice }">
               {{ invoice.order }}

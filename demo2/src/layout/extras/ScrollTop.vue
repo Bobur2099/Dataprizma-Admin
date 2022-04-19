@@ -24,6 +24,6 @@ export default defineComponent({
     onMounted(() => {
       ScrollTopComponent.reinitialization();
     });
-  },
+  }
 });
 </script>

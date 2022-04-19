@@ -11,11 +11,11 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -53,8 +53,8 @@
                     <span class="symbol-label">
                       <img
                         :src="item.image"
-                        class="h-50 align-self-center"
                         alt=""
+                        class="h-50 align-self-center"
                       />
                     </span>
                   </div>
@@ -62,8 +62,8 @@
 
                 <td>
                   <a
-                    href="#"
                     class="text-dark fw-bolder text-hover-primary mb-1 fs-6"
+                    href="#"
                     >{{ item.info.title }}</a
                   >
                   <span class="text-muted fw-bold d-block fs-7">{{
@@ -81,15 +81,15 @@
 
                     <div class="progress h-6px w-100">
                       <div
+                        :aria-valuenow="item.progress.value"
                         :class="`
                           progress-bar
                           bg-${item.progress.color}
                         `"
-                        role="progressbar"
                         :style="`width: ${item.progress.value}%`"
-                        :aria-valuenow="item.progress.value"
-                        aria-valuemin="0"
                         aria-valuemax="100"
+                        aria-valuemin="0"
+                        role="progressbar"
                       ></div>
                     </div>
                   </div>
@@ -97,13 +97,15 @@
 
                 <td class="text-end">
                   <a
-                    href="#"
                     class="
                       btn btn-sm btn-icon btn-bg-light btn-active-color-primary
                     "
+                    href="#"
                   >
                     <span class="svg-icon svg-icon-2">
-                      <inline-svg src="/media/icons/duotune/arrows/arr064.svg" />
+                      <inline-svg
+                        src="/media/icons/duotune/arrows/arr064.svg"
+                      />
                     </span>
                   </a>
                 </td>

@@ -5,7 +5,7 @@
     <div class="card-body d-flex flex-column p-0">
       <div class="d-flex flex-stack flex-grow-1 card-p">
         <div class="d-flex flex-column me-2">
-          <a href="#" class="text-dark text-hover-primary fw-bolder fs-3">{{
+          <a class="text-dark text-hover-primary fw-bolder fs-3" href="#">{{
             title
           }}</a>
 
@@ -23,10 +23,10 @@
 
       <!--begin::Chart-->
       <apexchart
-        class="statistics-widget-3-chart card-rounded-bottom"
+        :height="height"
         :options="chartOptions"
         :series="series"
-        :height="height"
+        class="statistics-widget-3-chart card-rounded-bottom"
         type="area"
       ></apexchart>
       <!--end::Chart-->

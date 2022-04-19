@@ -22,7 +22,7 @@
             class="nav-link text-white opacity-75 opacity-state-100 pb-4"
             data-bs-toggle="tab"
             href="#kt_topbar_notifications_1"
-            >Alerts</a
+          >Alerts</a
           >
         </li>
 
@@ -31,7 +31,7 @@
             class="nav-link text-white opacity-75 opacity-state-100 pb-4 active"
             data-bs-toggle="tab"
             href="#kt_topbar_notifications_2"
-            >Updates</a
+          >Updates</a
           >
         </li>
 
@@ -40,7 +40,7 @@
             class="nav-link text-white opacity-75 opacity-state-100 pb-4"
             data-bs-toggle="tab"
             href="#kt_topbar_notifications_3"
-            >Logs</a
+          >Logs</a
           >
         </li>
       </ul>
@@ -51,7 +51,7 @@
     <!--begin::Tab content-->
     <div class="tab-content">
       <!--begin::Tab panel-->
-      <div class="tab-pane fade" id="kt_topbar_notifications_1" role="tabpanel">
+      <div id="kt_topbar_notifications_1" class="tab-pane fade" role="tabpanel">
         <!--begin::Items-->
         <div class="scroll-y mh-325px my-5 px-8">
           <template v-for="(item, index) in data1" :key="index">
@@ -75,9 +75,9 @@
                 <!--begin::Title-->
                 <div class="mb-0 me-2">
                   <a
-                    href="#"
                     class="fs-6 text-gray-800 text-hover-primary fw-bolder"
-                    >{{ item.title }}</a
+                    href="#"
+                  >{{ item.title }}</a
                   >
                   <div class="text-gray-400 fs-7">
                     {{ item.description }}
@@ -98,7 +98,7 @@
 
         <!--begin::View more-->
         <div class="py-3 text-center border-top">
-          <a href="#" class="btn btn-color-gray-600 btn-active-color-primary">
+          <a class="btn btn-color-gray-600 btn-active-color-primary" href="#">
             View All
             <span class="svg-icon svg-icon-5">
               <inline-svg src="/media/icons/duotune/arrows/arr064.svg" />
@@ -111,8 +111,8 @@
 
       <!--begin::Tab panel-->
       <div
-        class="tab-pane fade show active"
         id="kt_topbar_notifications_2"
+        class="tab-pane fade show active"
         role="tabpanel"
       >
         <!--begin::Wrapper-->
@@ -133,11 +133,11 @@
             <!--begin::Action-->
             <div class="text-center mt-5 mb-9">
               <a
-                href="#"
                 class="btn btn-sm btn-primary px-6"
-                data-bs-toggle="modal"
                 data-bs-target="#kt_modal_upgrade_plan"
-                >Upgrade</a
+                data-bs-toggle="modal"
+                href="#"
+              >Upgrade</a
               >
             </div>
             <!--end::Action-->
@@ -146,8 +146,8 @@
 
           <!--begin::Illustration-->
           <img
-            class="mw-100 mh-200px"
             alt="metronic"
+            class="mw-100 mh-200px"
             src="media/illustrations/sketchy-1/1.png"
           />
           <!--end::Illustration-->
@@ -157,7 +157,7 @@
       <!--end::Tab panel-->
 
       <!--begin::Tab panel-->
-      <div class="tab-pane fade" id="kt_topbar_notifications_3" role="tabpanel">
+      <div id="kt_topbar_notifications_3" class="tab-pane fade" role="tabpanel">
         <!--begin::Items-->
         <div class="scroll-y mh-325px my-5 px-8">
           <template v-for="(item, index) in data2" :key="index">
@@ -167,16 +167,16 @@
               <div class="d-flex align-items-center me-2">
                 <!--begin::Code-->
                 <span
-                  class="w-70px badge me-4"
                   :class="`badge-light-${item.state}`"
-                  >{{ item.code }}</span
+                  class="w-70px badge me-4"
+                >{{ item.code }}</span
                 >
                 <!--end::Code-->
 
                 <!--begin::Title-->
-                <a href="#" class="text-gray-800 text-hover-primary fw-bold">{{
-                  item.message
-                }}</a>
+                <a class="text-gray-800 text-hover-primary fw-bold" href="#">{{
+                    item.message
+                  }}</a>
                 <!--end::Title-->
               </div>
               <!--end::Section-->
@@ -192,7 +192,7 @@
 
         <!--begin::View more-->
         <div class="py-3 text-center border-top">
-          <a href="#" class="btn btn-color-gray-600 btn-active-color-primary">
+          <a class="btn btn-color-gray-600 btn-active-color-primary" href="#">
             View All
             <span class="svg-icon-svg-icon-5">
               <inline-svg src="/media/icons/duotune/arrows/arr064.svg" />
@@ -221,50 +221,50 @@ export default defineComponent({
         description: "Phase 1 development",
         time: "1 hr",
         icon: "/media/icons/duotune/technology/teh008.svg",
-        state: "primary",
+        state: "primary"
       },
       {
         title: "HR Confidential",
         description: "Confidential staff documents",
         time: "2 hrs",
         icon: "/media/icons/duotune/general/gen044.svg",
-        state: "danger",
+        state: "danger"
       },
       {
         title: "Company HR",
         description: "Corporeate staff profiles",
         time: "5 hrs",
         icon: "/media/icons/duotune/finance/fin006.svg",
-        state: "warning",
+        state: "warning"
       },
       {
         title: "Project Redux",
         description: "New frontend admin theme",
         time: "2 days",
         icon: "/media/icons/duotune/files/fil023.svg",
-        state: "success",
+        state: "success"
       },
       {
         title: "Project Breafing",
         description: "Product launch status update",
         time: "21 Jan",
         icon: "/media/icons/duotune/maps/map001.svg",
-        state: "primary",
+        state: "primary"
       },
       {
         title: "Banner Assets",
         description: "Collection of banner images",
         time: "21 Jan",
         icon: "/media/icons/duotune/general/gen006.svg",
-        state: "info",
+        state: "info"
       },
       {
         title: "Icon Assets",
         description: "Collection of SVG icons",
         time: "20 March",
         icon: "/media/icons/duotune/art/art002.svg",
-        state: "warning",
-      },
+        state: "warning"
+      }
     ];
 
     const data2 = [
@@ -272,80 +272,80 @@ export default defineComponent({
         code: "200 OK",
         state: "success",
         message: "New order",
-        time: "Just now",
+        time: "Just now"
       },
       {
         code: "500 ERR",
         state: "danger",
         message: "New customer",
-        time: "2 hrs",
+        time: "2 hrs"
       },
       {
         code: "200 OK",
         state: "success",
         message: "Payment process",
-        time: "5 hrs",
+        time: "5 hrs"
       },
       {
         code: "300 WRN",
         state: "warning",
         message: "Search query",
-        time: "2 days",
+        time: "2 days"
       },
       {
         code: "200 OK",
         state: "success",
         message: "API connection",
-        time: "1 week",
+        time: "1 week"
       },
       {
         code: "200 OK",
         state: "success",
         message: "Database restore",
-        time: "Mar 5",
+        time: "Mar 5"
       },
       {
         code: "300 WRN",
         state: "warning",
         message: "System update",
-        time: "May 15",
+        time: "May 15"
       },
       {
         code: "300 WRN",
         state: "warning",
         message: "Server OS update",
-        time: "Apr 3",
+        time: "Apr 3"
       },
       {
         code: "300 WRN",
         state: "warning",
         message: "API rollback",
-        time: "Jun 30",
+        time: "Jun 30"
       },
       {
         code: "500 ERR",
         state: "danger",
         message: "Refund process",
-        time: "Jul 10",
+        time: "Jul 10"
       },
       {
         code: "500 ERR",
         state: "danger",
         message: "Withdrawal process",
-        time: "Sep 10",
+        time: "Sep 10"
       },
       {
         code: "500 ERR",
         state: "danger",
         message: "Mail tasks",
-        time: "Dec 10",
-      },
+        time: "Dec 10"
+      }
     ];
 
     return {
       data1,
-      data2,
+      data2
     };
-  },
+  }
 });
 </script>

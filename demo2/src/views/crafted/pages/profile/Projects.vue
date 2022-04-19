@@ -14,12 +14,12 @@
       <div class="m-0">
         <!--begin::Select-->
         <select
-          name="status"
+          class="form-select form-select-white form-select-sm fw-bolder w-125px"
           data-control="select2"
           data-hide-search="true"
-          class="form-select form-select-white form-select-sm fw-bolder w-125px"
+          name="status"
         >
-          <option value="Active" selected>Active</option>
+          <option selected value="Active">Active</option>
           <option value="Approved">In Progress</option>
           <option value="Declined">To Do</option>
           <option value="In Progress">Completed</option>
@@ -38,9 +38,9 @@
     <div class="col-md-6 col-xl-4">
       <KTCard
         :progress="50"
-        title="Fitnes App"
-        icon="media/svg/brand-logos/plurk.svg"
         :users="users1"
+        icon="media/svg/brand-logos/plurk.svg"
+        title="Fitnes App"
       ></KTCard>
     </div>
     <!--end::Col-->
@@ -48,43 +48,14 @@
     <!--begin::Col-->
     <div class="col-md-6 col-xl-4">
       <KTCard
-        status="Pending"
-        status-data-badge-color="badge-light"
         :progress="30"
-        icon="media/svg/brand-logos/disqus.svg"
-        title="Leaf CRM"
-        date="May 10, 2021"
-        budget="$36,400.00"
         :users="users2"
-      ></KTCard>
-    </div>
-    <!--end::Col-->
-
-    <!--begin::Col-->
-    <div class="col-md-6 col-xl-4">
-      <KTCard
-        status="Completed"
-        status-data-badge-color="badge-light-success"
-        :progress="100"
-        icon="media/svg/brand-logos/figma-1.svg"
-        title="Atica Banking"
-        date="Mar 14, 2021"
-        budget="$605,100.00"
-        :users="users3"
-      ></KTCard>
-    </div>
-    <!--end::Col-->
-
-    <!--begin::Col-->
-    <div class="col-md-6 col-xl-4">
-      <KTCard
+        budget="$36,400.00"
+        date="May 10, 2021"
+        icon="media/svg/brand-logos/disqus.svg"
         status="Pending"
-        :progress="60"
         status-data-badge-color="badge-light"
-        icon="media/svg/brand-logos/sentry-3.svg"
-        title="Finance Dispatch"
-        budget="$36,400.00"
-        :users="users4"
+        title="Leaf CRM"
       ></KTCard>
     </div>
     <!--end::Col-->
@@ -92,71 +63,100 @@
     <!--begin::Col-->
     <div class="col-md-6 col-xl-4">
       <KTCard
-        status="In Progress"
-        :progress="40"
-        icon="media/svg/brand-logos/xing-icon.svg"
-        title="9 Degree"
-        date="May 10, 2021"
-        budget="$36,400.00"
-        :users="users5"
-      ></KTCard>
-    </div>
-    <!--end::Col-->
-
-    <!--begin::Col-->
-    <div class="col-md-6 col-xl-4">
-      <KTCard
-        status="In Progress"
-        :progress="70"
-        icon="media/svg/brand-logos/tvit.svg"
-        title="GoPro App"
-        date="May 10, 2021"
-        budget="$36,400.00"
-        :users="users6"
-      ></KTCard>
-    </div>
-    <!--end::Col-->
-
-    <!--begin::Col-->
-    <div class="col-md-6 col-xl-4">
-      <KTCard
-        status="In Progress"
-        :progress="30"
-        icon="media/svg/brand-logos/aven.svg"
-        title="Buldozer CRM"
-        date="May 10, 2021"
-        budget="$36,400.00"
-        :users="users7"
-      ></KTCard>
-    </div>
-    <!--end::Col-->
-
-    <!--begin::Col-->
-    <div class="col-md-6 col-xl-4">
-      <KTCard
-        status="Overdue"
-        :progress="10"
-        status-data-badge-color="badge-light-danger"
-        icon="media/svg/brand-logos/treva.svg"
-        title="Aviasales App"
-        date="May 10, 2021"
-        budget="$36,400.00"
-        :users="users8"
-      ></KTCard>
-    </div>
-    <!--end::Col-->
-
-    <!--begin::Col-->
-    <div class="col-md-6 col-xl-4">
-      <KTCard
-        status="Completed"
         :progress="100"
+        :users="users3"
+        budget="$605,100.00"
+        date="Mar 14, 2021"
+        icon="media/svg/brand-logos/figma-1.svg"
+        status="Completed"
         status-data-badge-color="badge-light-success"
-        icon="media/svg/brand-logos/kanba.svg"
-        title="Oppo CRM"
-        date="May 10, 2021"
+        title="Atica Banking"
+      ></KTCard>
+    </div>
+    <!--end::Col-->
+
+    <!--begin::Col-->
+    <div class="col-md-6 col-xl-4">
+      <KTCard
+        :progress="60"
+        :users="users4"
         budget="$36,400.00"
+        icon="media/svg/brand-logos/sentry-3.svg"
+        status="Pending"
+        status-data-badge-color="badge-light"
+        title="Finance Dispatch"
+      ></KTCard>
+    </div>
+    <!--end::Col-->
+
+    <!--begin::Col-->
+    <div class="col-md-6 col-xl-4">
+      <KTCard
+        :progress="40"
+        :users="users5"
+        budget="$36,400.00"
+        date="May 10, 2021"
+        icon="media/svg/brand-logos/xing-icon.svg"
+        status="In Progress"
+        title="9 Degree"
+      ></KTCard>
+    </div>
+    <!--end::Col-->
+
+    <!--begin::Col-->
+    <div class="col-md-6 col-xl-4">
+      <KTCard
+        :progress="70"
+        :users="users6"
+        budget="$36,400.00"
+        date="May 10, 2021"
+        icon="media/svg/brand-logos/tvit.svg"
+        status="In Progress"
+        title="GoPro App"
+      ></KTCard>
+    </div>
+    <!--end::Col-->
+
+    <!--begin::Col-->
+    <div class="col-md-6 col-xl-4">
+      <KTCard
+        :progress="30"
+        :users="users7"
+        budget="$36,400.00"
+        date="May 10, 2021"
+        icon="media/svg/brand-logos/aven.svg"
+        status="In Progress"
+        title="Buldozer CRM"
+      ></KTCard>
+    </div>
+    <!--end::Col-->
+
+    <!--begin::Col-->
+    <div class="col-md-6 col-xl-4">
+      <KTCard
+        :progress="10"
+        :users="users8"
+        budget="$36,400.00"
+        date="May 10, 2021"
+        icon="media/svg/brand-logos/treva.svg"
+        status="Overdue"
+        status-data-badge-color="badge-light-danger"
+        title="Aviasales App"
+      ></KTCard>
+    </div>
+    <!--end::Col-->
+
+    <!--begin::Col-->
+    <div class="col-md-6 col-xl-4">
+      <KTCard
+        :progress="100"
         :users="users9"
+        budget="$36,400.00"
+        date="May 10, 2021"
+        icon="media/svg/brand-logos/kanba.svg"
+        status="Completed"
+        status-data-badge-color="badge-light-success"
+        title="Oppo CRM"
       ></KTCard>
     </div>
     <!--end::Row-->
@@ -170,35 +170,35 @@
       <!--begin::Pages-->
       <ul class="pagination">
         <li class="page-item previous">
-          <a href="#" class="page-link"><i class="previous"></i></a>
+          <a class="page-link" href="#"><i class="previous"></i></a>
         </li>
 
         <li class="page-item active">
-          <a href="#" class="page-link">1</a>
+          <a class="page-link" href="#">1</a>
         </li>
 
         <li class="page-item">
-          <a href="#" class="page-link">2</a>
+          <a class="page-link" href="#">2</a>
         </li>
 
         <li class="page-item">
-          <a href="#" class="page-link">3</a>
+          <a class="page-link" href="#">3</a>
         </li>
 
         <li class="page-item">
-          <a href="#" class="page-link">4</a>
+          <a class="page-link" href="#">4</a>
         </li>
 
         <li class="page-item">
-          <a href="#" class="page-link">5</a>
+          <a class="page-link" href="#">5</a>
         </li>
 
         <li class="page-item">
-          <a href="#" class="page-link">6</a>
+          <a class="page-link" href="#">6</a>
         </li>
 
         <li class="page-item next">
-          <a href="#" class="page-link"><i class="next"></i></a>
+          <a class="page-link" href="#"><i class="next"></i></a>
         </li>
       </ul>
       <!--end::Pages-->
@@ -215,7 +215,7 @@ import { setCurrentPageBreadcrumbs } from "@/core/helpers/breadcrumb";
 export default defineComponent({
   name: "projects",
   components: {
-    KTCard,
+    KTCard
   },
   setup() {
     onMounted(() => {
@@ -225,51 +225,51 @@ export default defineComponent({
     const users1 = [
       { name: "Emma Smith", src: "media/avatars/150-1.jpg" },
       { name: "Rudy Stone", src: "media/avatars/150-2.jpg" },
-      { name: "Susan Redwood", initials: "S", state: "primary" },
+      { name: "Susan Redwood", initials: "S", state: "primary" }
     ];
 
     const users2 = [
       { name: "Alan Warden", initials: "A", state: "warning" },
-      { name: "Brian Cox", src: "media/avatars/150-4.jpg" },
+      { name: "Brian Cox", src: "media/avatars/150-4.jpg" }
     ];
 
     const users3 = [
       { name: "Mad Masy", src: "media/avatars/150-1.jpg" },
       { name: "Cris Willson", src: "media/avatars/150-2.jpg" },
-      { name: "Mike Garcie", initials: "M", state: "info" },
+      { name: "Mike Garcie", initials: "M", state: "info" }
     ];
 
     const users4 = [
       { name: "Nich Warden", initials: "N", state: "warning" },
-      { name: "Rob Otto", initials: "R", state: "success" },
+      { name: "Rob Otto", initials: "R", state: "success" }
     ];
 
     const users5 = [
       { name: "Francis Mitcham", src: "media/avatars/150-5.jpg" },
       { name: "Michelle Swanston", src: "media/avatars/150-13.jpg" },
-      { name: "Susan Redwood", initials: "S", state: "primary" },
+      { name: "Susan Redwood", initials: "S", state: "primary" }
     ];
 
     const users6 = [
       { name: "Emma Smith", src: "media/avatars/150-1.jpg" },
       { name: "Rudy Stone", src: "media/avatars/150-2.jpg" },
-      { name: "Susan Redwood", initials: "S", state: "primary" },
+      { name: "Susan Redwood", initials: "S", state: "primary" }
     ];
 
     const users7 = [
       { name: "Meloday Macy", src: "media/avatars/150-3.jpg" },
-      { name: "Rabbin Watterman", initials: "S", state: "success" },
+      { name: "Rabbin Watterman", initials: "S", state: "success" }
     ];
 
     const users8 = [
       { name: "Emma Smith", src: "media/avatars/150-1.jpg" },
       { name: "Rudy Stone", src: "media/avatars/150-2.jpg" },
-      { name: "Susan Redwood", initials: "S", state: "primary" },
+      { name: "Susan Redwood", initials: "S", state: "primary" }
     ];
 
     const users9 = [
       { name: "Meloday Macy", src: "media/avatars/150-3.jpg" },
-      { name: "Rabbin Watterman", initials: "S", state: "danger" },
+      { name: "Rabbin Watterman", initials: "S", state: "danger" }
     ];
 
     return {
@@ -281,8 +281,8 @@ export default defineComponent({
       users6,
       users7,
       users8,
-      users9,
+      users9
     };
-  },
+  }
 });
 </script>

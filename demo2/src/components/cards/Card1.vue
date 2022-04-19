@@ -1,6 +1,6 @@
 <template>
   <!--begin::Card-->
-  <a href="#" class="card border border-2 border-gray-300 border-hover">
+  <a class="card border border-2 border-gray-300 border-hover" href="#">
     <!--begin::Card header-->
     <div class="card-header border-0 pt-9">
       <!--begin::Card Title-->
@@ -18,7 +18,7 @@
         <span
           :class="getStatusDataBadgeColor"
           class="badge fw-bolder me-auto px-4 py-3"
-          >{{ getStatus }}</span
+        >{{ getStatus }}</span
         >
       </div>
       <!--end::Card toolbar-->
@@ -78,18 +78,18 @@
 
       <!--begin::Progress-->
       <div
+        :title="`This project ${progress}% completed`"
         class="h-4px w-100 bg-light mb-5"
         data-bs-toggle="tooltip"
-        :title="`This project ${progress}% completed`"
       >
         <div
+          :aria-valuenow="progress"
           :class="getStatusDataColor"
+          :style="{ width: progress + `%` }"
+          aria-valuemax="100"
+          aria-valuemin="0"
           class="rounded h-4px"
           role="progressbar"
-          :style="{ width: progress + `%` }"
-          :aria-valuenow="progress"
-          aria-valuemin="0"
-          aria-valuemax="100"
         ></div>
       </div>
       <!--end::Progress-->
@@ -100,16 +100,16 @@
           <template v-for="(user, index) in users" :key="index">
             <!--begin::User-->
             <div
+              :title="user.title"
               class="symbol symbol-35px symbol-circle"
               data-bs-toggle="tooltip"
-              :title="user.title"
             >
-              <img v-if="user.src" alt="Pic" :src="user.src" />
+              <img v-if="user.src" :src="user.src" alt="Pic" />
               <span
                 v-else
-                class="symbol-label fw-bolder"
                 :class="`bg-${user.state} text-inverse-${user.state}`"
-                >{{ user.initials }}</span
+                class="symbol-label fw-bolder"
+              >{{ user.initials }}</span
               >
             </div>
             <!--begin::User-->
@@ -148,7 +148,7 @@ export default defineComponent({
 
     budget: String,
 
-    users: Array,
+    users: Array
   },
   setup(props) {
     const getDescription = computed(() => {
@@ -185,8 +185,8 @@ export default defineComponent({
       getBudget,
       getStatus,
       getStatusDataBadgeColor,
-      getStatusDataColor,
+      getStatusDataColor
     };
-  },
+  }
 });
 </script>

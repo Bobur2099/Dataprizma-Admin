@@ -1,18 +1,18 @@
 <template>
   <!--begin::Modal - Create Api Key-->
   <div
-    class="modal fade"
     id="kt_modal_create_api_key"
     ref="createAPIKeyModalRef"
-    tabindex="-1"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
-        <div class="modal-header" id="kt_modal_create_api_key_header">
+        <div id="kt_modal_create_api_key_header" class="modal-header">
           <!--begin::Modal title-->
           <h2>Create API Key</h2>
           <!--end::Modal title-->
@@ -33,22 +33,22 @@
         <!--begin::Form-->
         <Form
           id="kt_modal_create_api_key_form"
+          :validation-schema="validationSchema"
           class="form"
           @submit="submit"
-          :validation-schema="validationSchema"
         >
           <!--begin::Modal body-->
           <div class="modal-body py-10 px-lg-17">
             <!--begin::Scroll-->
             <div
-              class="scroll-y me-n7 pe-7"
               id="kt_modal_create_api_key_scroll"
+              class="scroll-y me-n7 pe-7"
               data-kt-scroll="true"
               data-kt-scroll-activate="{default: false, lg: true}"
-              data-kt-scroll-max-height="auto"
               data-kt-scroll-dependencies="#kt_modal_create_api_key_header"
-              data-kt-scroll-wrappers="#kt_modal_create_api_key_scroll"
+              data-kt-scroll-max-height="auto"
               data-kt-scroll-offset="300px"
+              data-kt-scroll-wrappers="#kt_modal_create_api_key_scroll"
             >
               <div
                 class="
@@ -87,11 +87,11 @@
 
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  placeholder="Your API Name"
-                  name="apiName"
                   v-model="apiData.apiName"
+                  class="form-control form-control-solid"
+                  name="apiName"
+                  placeholder="Your API Name"
+                  type="text"
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
@@ -112,12 +112,12 @@
 
                 <!--begin::Input-->
                 <Field
-                  type="text"
+                  v-model="apiData.shortDescription"
                   class="form-control form-control-solid"
-                  rows="3"
                   name="shortDescription"
                   placeholder="Describe your API"
-                  v-model="apiData.shortDescription"
+                  rows="3"
+                  type="text"
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
@@ -136,13 +136,13 @@
 
                 <!--begin::Select-->
                 <Field
-                  name="category"
+                  v-model="apiData.category"
+                  as="select"
+                  class="form-select form-select-solid"
                   data-control="select2"
                   data-hide-search="true"
                   data-placeholder="Select a Category..."
-                  class="form-select form-select-solid"
-                  as="select"
-                  v-model="apiData.category"
+                  name="category"
                 >
                   <option value="">Select a Category...</option>
                   <option value="1">CRM</option>
@@ -187,13 +187,13 @@
                 <div class="fv-row">
                   <!--begin::Select-->
                   <Field
-                    name="apiMethod"
+                    v-model="apiData.apiMethod"
+                    as="select"
+                    class="form-select form-select-solid"
                     data-control="select2"
                     data-hide-search="true"
                     data-placeholder="Select a Category..."
-                    class="form-select form-select-solid"
-                    as="select"
-                    v-model="apiData.apiMethod"
+                    name="apiMethod"
                   >
                     <option value="">Select a API method...</option>
                     <option value="1">Open API</option>
@@ -220,9 +220,9 @@
           <div class="modal-footer flex-center">
             <!--begin::Button-->
             <button
-              type="reset"
               id="kt_modal_create_api_key_cancel"
               class="btn btn-white me-3"
+              type="reset"
             >
               Discard
             </button>
@@ -230,10 +230,10 @@
 
             <!--begin::Button-->
             <button
-              ref="submitButtonRef"
-              type="submit"
               id="kt_modal_create_api_key_submit"
+              ref="submitButtonRef"
               class="btn btn-primary"
+              type="submit"
             >
               <span class="indicator-label"> Submit </span>
               <span class="indicator-progress">

@@ -31,7 +31,6 @@
       <!--begin:Item-->
       <div class="col-6">
         <a
-          href="#"
           class="
             d-flex
             flex-column flex-center
@@ -40,6 +39,7 @@
             bg-hover-light
             border-end border-bottom
           "
+          href="#"
         >
           <span class="svg-icon svg-icon-3x svg-icon-success mb-2">
             <inline-svg src="/media/icons/duotune/finance/fin009.svg" />
@@ -53,7 +53,6 @@
       <!--begin:Item-->
       <div class="col-6">
         <a
-          href="#"
           class="
             d-flex
             flex-column flex-center
@@ -62,6 +61,7 @@
             bg-hover-light
             border-bottom
           "
+          href="#"
         >
           <span class="svg-icon svg-icon-3x svg-icon-success mb-2">
             <inline-svg src="/media/icons/duotune/communication/com010.svg" />
@@ -75,7 +75,6 @@
       <!--begin:Item-->
       <div class="col-6">
         <a
-          href="#"
           class="
             d-flex
             flex-column flex-center
@@ -84,6 +83,7 @@
             bg-hover-light
             border-end
           "
+          href="#"
         >
           <span class="svg-icon svg-icon-3x svg-icon-success mb-2">
             <inline-svg src="/media/icons/duotune/abstract/abs042.svg" />
@@ -97,8 +97,8 @@
       <!--begin:Item-->
       <div class="col-6">
         <a
-          href="#"
           class="d-flex flex-column flex-center h-100 p-6 bg-hover-light"
+          href="#"
         >
           <span class="svg-icon svg-icon-3x svg-icon-success mb-2">
             <inline-svg src="/media/icons/duotune/finance/fin006.svg" />
@@ -113,7 +113,7 @@
 
     <!--begin::View more-->
     <div class="py-2 text-center border-top">
-      <a href="#" class="btn btn-color-gray-600 btn-active-color-primary">
+      <a class="btn btn-color-gray-600 btn-active-color-primary" href="#">
         View All
         <span class="svg-icon svg-icon-5">
           <inline-svg src="/media/icons/duotune/arrows/arr064.svg" />
@@ -130,6 +130,6 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "kt-quick-links-menu",
-  components: {},
+  components: {}
 });
 </script>

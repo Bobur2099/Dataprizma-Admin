@@ -13,7 +13,7 @@ import TableWidget23 from "@/components/widgets/tables/dataprizma_widgets/Servic
 export default {
   name: "Service",
   components: {
-    TableWidget23,
-  },
+    TableWidget23
+  }
 };
 </script>

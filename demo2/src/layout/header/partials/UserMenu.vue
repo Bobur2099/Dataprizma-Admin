@@ -34,9 +34,9 @@
           <!--              >Pro</span-->
           <!--            >-->
           <!--          </div>-->
-          <a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{
-            email
-          }}</a>
+          <a class="fw-bold text-muted text-hover-primary fs-7" href="#">{{
+              email
+            }}</a>
         </div>
         <!--end::Username-->
       </div>
@@ -167,9 +167,9 @@
     <!--begin::Menu item-->
     <div
       class="menu-item px-5"
-      data-kt-menu-trigger="hover"
-      data-kt-menu-placement="left-start"
       data-kt-menu-flip="center, top"
+      data-kt-menu-placement="left-start"
+      data-kt-menu-trigger="hover"
     >
       <!--      <router-link to="/pages/profile/overview" class="menu-link px-5">-->
       <div class="menu-link px-5">
@@ -190,9 +190,9 @@
           >
             {{ currentLangugeLocale.name }}
             <img
-              class="w-15px h-15px rounded-1 ms-2"
               :src="currentLangugeLocale.flag"
               alt="metronic"
+              class="w-15px h-15px rounded-1 ms-2"
             />
           </span>
         </span>
@@ -202,16 +202,16 @@
         <!--begin::Menu item-->
         <div class="menu-item px-3">
           <a
-            @click="setLang('uz')"
-            href="#"
-            class="menu-link d-flex px-5"
             :class="{ active: currentLanguage('uz') }"
+            class="menu-link d-flex px-5"
+            href="#"
+            @click="setLang('uz')"
           >
             <span class="symbol symbol-20px me-4">
               <img
+                alt="metronic"
                 class="rounded-1"
                 src="/media/flags/uzbekistan.svg"
-                alt="metronic"
               />
             </span>
             {{ $t("Uzbek") }}
@@ -222,16 +222,16 @@
         <!--begin::Menu item-->
         <div class="menu-item px-3">
           <a
-            @click="setLang('ru')"
-            href="#"
-            class="menu-link d-flex px-5"
             :class="{ active: currentLanguage('ru') }"
+            class="menu-link d-flex px-5"
+            href="#"
+            @click="setLang('ru')"
           >
             <span class="symbol symbol-20px me-4">
               <img
+                alt="metronic"
                 class="rounded-1"
                 src="/media/flags/russia.svg"
-                alt="metronic"
               />
             </span>
             {{ $t("Russian") }}
@@ -242,16 +242,16 @@
         <!--begin::Menu item-->
         <div class="menu-item px-3">
           <a
-            @click="setLang('en')"
-            href="#"
-            class="menu-link d-flex px-5"
             :class="{ active: currentLanguage('en') }"
+            class="menu-link d-flex px-5"
+            href="#"
+            @click="setLang('en')"
           >
             <span class="symbol symbol-20px me-4">
               <img
+                alt="metronic"
                 class="rounded-1"
                 src="/media/flags/united-states.svg"
-                alt="metronic"
               />
             </span>
             {{ $t("English") }}
@@ -353,7 +353,7 @@
 
     <!--begin::Menu item-->
     <div class="menu-item px-5">
-      <a @click="signOut()" class="menu-link px-5"> {{ $t("Sign out") }} </a>
+      <a class="menu-link px-5" @click="signOut()"> {{ $t("Sign out") }} </a>
     </div>
     <!--end::Menu item-->
   </div>
@@ -372,7 +372,7 @@ export default defineComponent({
   components: {},
   data() {
     return {
-      email: "",
+      email: ""
     };
   },
   mounted() {
@@ -394,32 +394,32 @@ export default defineComponent({
     const countries = {
       en: {
         flag: "/media/flags/united-states.svg",
-        name: "English",
+        name: "English"
       },
       es: {
         flag: "media/flags/spain.svg",
-        name: "Spanish",
+        name: "Spanish"
       },
       de: {
         flag: "media/flags/germany.svg",
-        name: "German",
+        name: "German"
       },
       ja: {
         flag: "media/flags/japan.svg",
-        name: "Japanese",
+        name: "Japanese"
       },
       fr: {
         flag: "media/flags/france.svg",
-        name: "French",
+        name: "French"
       },
       uz: {
         flag: "/media/flags/uzbekistan.svg",
-        name: "O'zbek",
+        name: "O'zbek"
       },
       ru: {
         flag: "/media/flags/russia.svg",
-        name: "Русский",
-      },
+        name: "Русский"
+      }
     };
 
     const signOut = () => {
@@ -446,8 +446,8 @@ export default defineComponent({
       setLang,
       currentLanguage,
       currentLangugeLocale,
-      countries,
+      countries
     };
-  },
+  }
 });
 </script>

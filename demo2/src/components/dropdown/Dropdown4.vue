@@ -26,10 +26,10 @@
     <!--begin::Menu item-->
     <div class="menu-item px-3">
       <a
-        href="#"
         class="menu-link px-3"
-        data-bs-toggle="modal"
         data-bs-target="#kt_modal_users_search"
+        data-bs-toggle="modal"
+        href="#"
       >
         Add Contact
       </a>
@@ -39,10 +39,10 @@
     <!--begin::Menu item-->
     <div class="menu-item px-3">
       <a
-        href="#"
         class="menu-link flex-stack px-3"
-        data-bs-toggle="modal"
         data-bs-target="#kt_modal_invite_friends"
+        data-bs-toggle="modal"
+        href="#"
       >
         Invite Contacts
 
@@ -58,11 +58,11 @@
     <!--begin::Menu item-->
     <div
       class="menu-item px-3"
-      data-kt-menu-trigger="hover"
-      data-kt-menu-placement="right-start"
       data-kt-menu-flip="left, center, top"
+      data-kt-menu-placement="right-start"
+      data-kt-menu-trigger="hover"
     >
-      <a href="#" class="menu-link px-3">
+      <a class="menu-link px-3" href="#">
         <span class="menu-title">Groups</span>
         <span class="menu-arrow"></span>
       </a>
@@ -72,9 +72,9 @@
         <!--begin::Menu item-->
         <div class="menu-item px-3">
           <a
-            href="#"
             class="menu-link px-3"
             data-bs-toggle="tooltip"
+            href="#"
             title="Coming soon"
           >
             Create Group
@@ -85,9 +85,9 @@
         <!--begin::Menu item-->
         <div class="menu-item px-3">
           <a
-            href="#"
             class="menu-link px-3"
             data-bs-toggle="tooltip"
+            href="#"
             title="Coming soon"
           >
             Invite Members
@@ -98,9 +98,9 @@
         <!--begin::Menu item-->
         <div class="menu-item px-3">
           <a
-            href="#"
             class="menu-link px-3"
             data-bs-toggle="tooltip"
+            href="#"
             title="Coming soon"
           >
             Settings
@@ -115,9 +115,9 @@
     <!--begin::Menu item-->
     <div class="menu-item px-3 my-1">
       <a
-        href="#"
         class="menu-link px-3"
         data-bs-toggle="tooltip"
+        href="#"
         title="Coming soon"
       >
         Settings

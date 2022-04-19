@@ -1,22 +1,22 @@
 <template>
   <!--begin::Modal - New Card-->
   <div
-    class="modal fade"
-    ref="newCardModalRef"
     id="kt_modal_advertise"
-    tabindex="-1"
+    ref="newCardModalRef"
     aria-hidden="true"
+    class="modal fade"
+    tabindex="-1"
   >
     <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-1000px" v-if="create < 2">
+    <div v-if="create < 2" class="modal-dialog modal-dialog-centered mw-1000px">
       <!--begin::Modal content-->
       <div class="modal-content">
         <!--begin::Modal header-->
         <div class="modal-header">
           <!--begin::Modal title-->
           <h2>
-            <span v-if="create == 1"> {{ $t("create") }}</span
-            ><span v-if="create == 0"> {{ $t("update") }}</span>
+            <span v-if="create === 1"> {{ $t("create") }}</span
+            ><span v-if="create === 0"> {{ $t("update") }}</span>
             {{ $t("create") }} {{ $t("main") }}
             {{ $t("content") }}
           </h2>
@@ -40,9 +40,9 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form row"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Input group-->
             <div class="d-flex flex-column mb-7 fv-row col-6">
@@ -55,15 +55,15 @@
               <!--end::Label-->
 
               <Field
-                type="file"
-                class="form-control form-control-solid file"
                 ref="file-upload"
+                class="form-control form-control-solid file"
                 name="file"
+                type="file"
                 @change="fileChosen($event)"
               />
               <div class="fv-plugins-message-container">
                 <div class="fv-help-block">
-                  <!--                  <ErrorMessage name="nameOnCard" />-->
+                  <ErrorMessage name="file" />
                 </div>
               </div>
             </div>
@@ -81,11 +81,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="topic-uz"
                   v-model="updateTopicUz"
+                  class="form-control form-control-solid"
+                  name="topicUz"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="topicUz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -104,11 +109,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="topic-ru"
                   v-model="updateTopicRu"
+                  class="form-control form-control-solid"
+                  name="topicRu"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="topicRu" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -127,11 +137,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="topic-en"
                   v-model="updateTopicEn"
+                  class="form-control form-control-solid"
+                  name="topicEn"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="topicEn" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -150,11 +165,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="header-uz"
                   v-model="updateHeaderUz"
+                  class="form-control form-control-solid"
+                  name="headerUz"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="headerUz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -173,11 +193,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="header-ru"
                   v-model="updateHeaderRu"
+                  class="form-control form-control-solid"
+                  name="headerRu"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="headerRu" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -196,11 +221,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="header-en"
                   v-model="updateHeaderEn"
+                  class="form-control form-control-solid"
+                  name="headerEn"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="headerEn" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -219,11 +249,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="paragraph-uz"
                   v-model="updateParagraphUz"
+                  class="form-control form-control-solid"
+                  name="paragraphUz"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="paragraphUz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -242,11 +277,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="paragraph-ru"
                   v-model="updateParagraphRu"
+                  class="form-control form-control-solid"
+                  name="paragraphRu"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="paragraphRu" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -265,11 +305,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="paragraph-en"
                   v-model="updateParagraphEn"
+                  class="form-control form-control-solid"
+                  name="paragraphEn"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="paragraphEn" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -288,11 +333,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="primary-text-uz"
                   v-model="updatePrimaryTextUz"
+                  class="form-control form-control-solid"
+                  name="primaryTextUz"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="primaryTextUz" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -311,11 +361,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="primary-text-ru"
                   v-model="updatePrimaryTextRu"
+                  class="form-control form-control-solid"
+                  name="primaryTextRu"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="primaryTextRu" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -334,11 +389,16 @@
               <div class="position-relative">
                 <!--begin::Input-->
                 <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  name="primary-text-en"
                   v-model="updatePrimaryTextEn"
+                  class="form-control form-control-solid"
+                  name="primaryTextEn"
+                  type="text"
                 />
+                <div class="fv-plugins-message-container">
+                  <div class="fv-help-block">
+                    <ErrorMessage name="primaryTextEn" />
+                  </div>
+                </div>
                 <!--end::Input-->
               </div>
               <!--end::Input wrapper-->
@@ -348,18 +408,18 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                type="reset"
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
+                type="reset"
               >
                 {{ $t("discard") }}
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_new_card_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -385,8 +445,8 @@
     <!--end::Modal dialog-->
 
     <div
-      class="modal-dialog modal-dialog-centered mw-1000px"
       v-if="create === 2"
+      class="modal-dialog modal-dialog-centered mw-1000px"
     >
       <!--begin::Modal content-->
       <div class="modal-content">
@@ -414,17 +474,17 @@
           <!--begin::Form-->
           <Form
             id="kt_modal_new_card_form"
+            :validation-schema="validationSchema"
             class="form"
             @submit="submit"
-            :validation-schema="validationSchema"
           >
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_fail_submit"
+                ref="submitButtonRef"
                 class="btn btn-danger mx-5"
+                type="submit"
                 @click="submit('cancel')"
               >
                 <span class="indicator-label"> Cancel </span>
@@ -437,10 +497,10 @@
               </button>
 
               <button
-                ref="submitButtonRef"
-                type="submit"
                 id="kt_modal_success_submit"
+                ref="submitButtonRef"
                 class="btn btn-primary"
+                type="submit"
                 @click="
                   doRequest(create, updateId);
                   submit();
@@ -477,14 +537,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import requests from "@/request/dataprizma_request_links/request_links";
 import { useI18n } from "vue-i18n";
-
-interface CardData {
-  nameOnCard: string;
-  cardNumber: string;
-  expirationMonth: string;
-  expirationYear: string;
-  cvv: string;
-}
+import { setLocale } from "yup";
 
 export default defineComponent({
   name: "advertise",
@@ -506,18 +559,21 @@ export default defineComponent({
       updatePrimaryTextUz: "",
       updatePrimaryTextRu: "",
       updatePrimaryTextEn: "",
+      responseError: 200,
       error: 0,
     };
   },
   props: ["updateId", "create"],
   components: {
-    // ErrorMessage,
+    ErrorMessage,
     Field,
     Form,
   },
   watch: {
     updateId(newValue) {
-      const advertise_items = JSON.parse(Object(localStorage.getItem("advertise")));
+      const advertise_items = JSON.parse(
+        Object(localStorage.getItem("advertise"))
+      );
       let advertise_item = {
         headerEn: "",
         headerRu: "",
@@ -535,6 +591,12 @@ export default defineComponent({
       for (const item of advertise_items) {
         if (item.id === newValue) {
           advertise_item = Object(item);
+          for (let property in advertise_item) {
+            if (advertise_item[property] === null) {
+              advertise_item[property] = "";
+            }
+          }
+          break;
         }
       }
       this.updateHeaderEn = advertise_item.headerEn;
@@ -558,10 +620,12 @@ export default defineComponent({
     fileChosen(e) {
       this.updateFile = e.target.files;
       const formCleaner = document.querySelectorAll(".reset")[0];
+
       function func() {
         e.target.value = "";
         formCleaner.removeEventListener("click", func);
       }
+
       formCleaner.addEventListener("click", func);
     },
     isImage(file) {
@@ -698,20 +762,28 @@ export default defineComponent({
       ? (localStorage.getItem("lang") as string)
       : "en";
 
-    const cardData = ref<CardData>({
-      nameOnCard: "Max Doe",
-      cardNumber: "4111 1111 1111 1111",
-      expirationMonth: "",
-      expirationYear: "",
-      cvv: "",
+    setLocale({
+      mixed: {
+        required: i18n.t("forms_validation_required"),
+      },
     });
 
     const validationSchema = Yup.object().shape({
-      nameOnCard: Yup.string().required().label("Name"),
-      cardNumber: Yup.string().required().label("Card number"),
-      expirationMonth: Yup.string().required().label("Month"),
-      expirationYear: Yup.string().required().label("Year"),
-      cvv: Yup.string().required().label("CVV"),
+      file: Yup.array()
+        .required(translate("forms_validation_file"))
+        .label("File"),
+      headerEn: Yup.string().required(),
+      headerRu: Yup.string().required(),
+      headerUz: Yup.string().required(),
+      paragraphEn: Yup.string().required(),
+      paragraphRu: Yup.string().required(),
+      paragraphUz: Yup.string().required(),
+      primaryTextEn: Yup.string().required(),
+      primaryTextRu: Yup.string().required(),
+      primaryTextUz: Yup.string().required(),
+      topicEn: Yup.string().required(),
+      topicRu: Yup.string().required(),
+      topicUz: Yup.string().required(),
     });
 
     const submit = (text) => {
@@ -733,7 +805,7 @@ export default defineComponent({
         });
       }
 
-      function errorAlert(text) {
+      function errorAlert(text, doThen = false) {
         Swal.fire({
           text: translate(text),
           icon: "error",
@@ -742,6 +814,10 @@ export default defineComponent({
           customClass: {
             confirmButton: "btn fw-bold btn-light-danger",
           },
+        }).then(() => {
+          if (doThen) {
+            location.reload();
+          }
         });
       }
 
@@ -764,8 +840,15 @@ export default defineComponent({
 
         const error = instance?.data.error;
         const create = instance?.props.create;
+        const responseError = instance?.data.responseError;
 
-        if (text !== "cancel") {
+        if (responseError === 500) {
+          errorAlert("Too much text was given to input");
+        } else if (responseError === 401) {
+          errorAlert("You are not authorized", true);
+        }
+
+        if (text !== "cancel" && responseError === 200) {
           if (error === 0) {
             if (create === 1) {
               successAlert("item_added");
@@ -786,7 +869,6 @@ export default defineComponent({
     };
 
     return {
-      cardData,
       validationSchema,
       submit,
       submitButtonRef,

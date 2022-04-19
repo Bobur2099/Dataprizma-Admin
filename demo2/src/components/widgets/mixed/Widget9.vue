@@ -12,14 +12,14 @@
 
           <div class="symbol symbol-50px">
             <span class="symbol-label bg-light">
-              <img :src="image" class="h-50 align-self-center" alt="" />
+              <img :src="image" alt="" class="h-50 align-self-center" />
             </span>
           </div>
         </div>
         <!--end::Info-->
 
         <!--begin::Link-->
-        <a href="#" class="text-dark fw-bolder text-hover-primary fs-4">
+        <a class="text-dark fw-bolder text-hover-primary fs-4" href="#">
           {{ title }}
         </a>
         <!--end::Link-->
@@ -34,30 +34,30 @@
       <!--begin::Team-->
       <div class="d-flex align-items-center">
         <a
-          href="#"
           class="symbol symbol-35px me-2"
           data-bs-toggle="tooltip"
+          href="#"
           title="Ana Stone"
         >
-          <img src="media/avatars/150-1.jpg" alt="" />
+          <img alt="" src="media/avatars/150-1.jpg" />
         </a>
 
         <a
-          href="#"
           class="symbol symbol-35px me-2"
           data-bs-toggle="tooltip"
+          href="#"
           title="Mark Larson"
         >
-          <img src="media/avatars/150-4.jpg" alt="" />
+          <img alt="" src="media/avatars/150-4.jpg" />
         </a>
 
         <a
-          href="#"
           class="symbol symbol-35px me-2"
           data-bs-toggle="tooltip"
+          href="#"
           title="Sam Harris"
         >
-          <img src="media/avatars/150-8.jpg" alt="" />
+          <img alt="" src="media/avatars/150-8.jpg" />
         </a>
       </div>
       <!--end::Team-->

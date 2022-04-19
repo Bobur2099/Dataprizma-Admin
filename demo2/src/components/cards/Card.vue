@@ -17,10 +17,10 @@
 
         <!--begin::Action-->
         <button
-          type="button"
+          :data-bs-target="`#${modalId}`"
           class="btn btn-primary er fs-6 px-8 py-4"
           data-bs-toggle="modal"
-          :data-bs-target="`#${modalId}`"
+          type="button"
         >
           {{ buttonText }}
         </button>
@@ -49,8 +49,8 @@ export default defineComponent({
     description: String,
     buttonText: String,
     image: String,
-    modalId: String,
+    modalId: String
   },
-  components: {},
+  components: {}
 });
 </script>

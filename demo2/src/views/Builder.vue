@@ -8,8 +8,8 @@
       >
         <span class="svg-icon svg-icon-primary position-absolute opacity-15">
           <inline-svg
-            src="/media/icons/duotune/abstract/abs051.svg"
             class="h-80px w-80px"
+            src="/media/icons/duotune/abstract/abs051.svg"
           />
         </span>
         <span class="svg-icon svg-icon-3x svg-icon-primary position-absolute">
@@ -38,85 +38,85 @@
     <!--begin::Header-->
     <div class="card-header card-header-stretch">
       <ul
-        class="nav nav-stretch nav-line-tabs fw-bold border-0"
-        role="tablist"
         id="kt_layout_builder_tabs"
         ref="kt_layout_builder_tabs"
+        class="nav nav-stretch nav-line-tabs fw-bold border-0"
+        role="tablist"
       >
         <li class="nav-item">
           <a
-            class="nav-link"
             :class="{ active: tabIndex === 0 }"
+            class="nav-link"
             data-bs-toggle="tab"
-            @click="setActiveTab($event)"
             data-tab-index="0"
             href="#kt_builder_main"
             role="tab"
+            @click="setActiveTab($event)"
           >
             Main
           </a>
         </li>
         <li class="nav-item">
           <a
-            class="nav-link"
             :class="{ active: tabIndex === 1 }"
+            class="nav-link"
             data-bs-toggle="tab"
-            @click="setActiveTab($event)"
             data-tab-index="1"
             href="#kt_builder_header"
             role="tab"
+            @click="setActiveTab($event)"
           >
             Header
           </a>
         </li>
         <li class="nav-item">
           <a
-            class="nav-link"
             :class="{ active: tabIndex === 2 }"
+            class="nav-link"
             data-bs-toggle="tab"
-            @click="setActiveTab($event)"
             data-tab-index="2"
             href="#kt_builder_subheader"
             role="tab"
+            @click="setActiveTab($event)"
           >
             Subheader
           </a>
         </li>
         <li class="nav-item">
           <a
-            class="nav-link"
             :class="{ active: tabIndex === 3 }"
+            class="nav-link"
             data-bs-toggle="tab"
-            @click="setActiveTab($event)"
             data-tab-index="3"
             href="#kt_builder_aside"
             role="tab"
+            @click="setActiveTab($event)"
           >
             Aside
           </a>
         </li>
         <li class="nav-item">
           <a
-            class="nav-link"
             :class="{ active: tabIndex === 4 }"
+            class="nav-link"
             data-bs-toggle="tab"
-            @click="setActiveTab($event)"
             data-tab-index="4"
             href="#kt_builder_content"
             role="tab"
+            @click="setActiveTab($event)"
           >
             Content
           </a>
         </li>
         <li class="nav-item">
           <a
-            class="nav-link"
             :class="{ active: tabIndex === 5 }"
+            class="nav-link"
             data-bs-toggle="tab"
-            @click="setActiveTab($event)"
             data-tab-index="5"
             href="#kt_builder_footer"
             role="tab"
+            @click="setActiveTab($event)"
           >
             Footer
           </a>
@@ -126,14 +126,14 @@
     <!--end::Header-->
 
     <!--begin::Form-->
-    <form class="form" id="kt_layout_builder_form" @submit="submit($event)">
+    <form id="kt_layout_builder_form" class="form" @submit="submit($event)">
       <!--begin::Body-->
       <div class="card-body">
-        <div class="tab-content pt-3" id="kt_tabs">
+        <div id="kt_tabs" class="tab-content pt-3">
           <div
-            class="tab-pane"
-            :class="{ active: tabIndex === 0 }"
             id="kt_builder_main"
+            :class="{ active: tabIndex === 0 }"
+            class="tab-pane"
           >
             <div class="row mb-10">
               <label class="col-lg-3 col-form-label text-lg-end">Loader:</label>
@@ -145,9 +145,9 @@
                   "
                 >
                   <input
+                    v-model="config.loader.display"
                     class="form-check-input"
                     type="checkbox"
-                    v-model="config.loader.display"
                   />
                 </div>
                 <div class="form-text text-muted">Display Page Loader</div>
@@ -156,12 +156,12 @@
 
             <div class="row mb-10">
               <label class="col-lg-3 col-form-label text-lg-end"
-                >Loader Type:</label
+              >Loader Type:</label
               >
               <div class="col-lg-9 col-xl-4">
                 <select
-                  class="form-select form-select-solid"
                   v-model="config.loader.type"
+                  class="form-select form-select-solid"
                 >
                   <option value="default">Spinner</option>
                   <option value="spinner-message">Spinner & Message</option>
@@ -173,19 +173,19 @@
           </div>
 
           <div
-            class="tab-pane"
-            :class="{ active: tabIndex === 1 }"
             id="kt_builder_header"
+            :class="{ active: tabIndex === 1 }"
+            class="tab-pane"
           >
             <div class="row mb-10">
               <label class="col-lg-3 col-form-label text-lg-end"
-                >Fixed Header:</label
+              >Fixed Header:</label
               >
               <div class="col-lg-9 col-xl-4">
-                <input type="hidden" v-model="config.header.fixed.desktop" />
+                <input v-model="config.header.fixed.desktop" type="hidden" />
                 <input
-                  type="hidden"
                   v-model="config.header.fixed.tabletAndMobile"
+                  type="hidden"
                 />
 
                 <label
@@ -195,9 +195,9 @@
                   "
                 >
                   <input
+                    v-model="config.header.fixed.desktop"
                     class="form-check-input"
                     type="checkbox"
-                    v-model="config.header.fixed.desktop"
                   />
                   <span class="form-check-label text-muted">Desktop</span>
                 </label>
@@ -209,12 +209,12 @@
                   "
                 >
                   <input
+                    v-model="config.header.fixed.tabletAndMobile"
                     class="form-check-input"
                     type="checkbox"
-                    v-model="config.header.fixed.tabletAndMobile"
                   />
                   <span class="form-check-label text-muted"
-                    >Tablet & Mobile</span
+                  >Tablet & Mobile</span
                   >
                 </label>
 
@@ -223,12 +223,12 @@
             </div>
             <div class="row mb-10">
               <label class="col-lg-3 col-form-label text-lg-end"
-                >Menu Icon:</label
+              >Menu Icon:</label
               >
               <div class="col-lg-9 col-xl-4">
                 <select
-                  class="form-select form-select-solid"
                   v-model="config.header.menuIcon"
+                  class="form-select form-select-solid"
                 >
                   <option value="svg">SVG Icon</option>
                   <option value="font">Font Icon</option>
@@ -240,8 +240,8 @@
               <label class="col-lg-3 col-form-label text-lg-end">Width:</label>
               <div class="col-lg-9 col-xl-4">
                 <select
-                  class="form-select form-select-solid"
                   v-model="config.header.width"
+                  class="form-select form-select-solid"
                 >
                   <option value="fluid">Fluid</option>
                   <option value="fixed">Fixed</option>
@@ -254,16 +254,16 @@
           </div>
 
           <div
-            class="tab-pane"
-            :class="{ active: tabIndex === 2 }"
             id="kt_builder_subheader"
+            :class="{ active: tabIndex === 2 }"
+            class="tab-pane"
           >
             <div class="row mb-10">
               <label class="col-lg-3 col-form-label text-lg-end"
-                >Display:</label
+              >Display:</label
               >
               <div class="col-lg-9 col-xl-4">
-                <input type="hidden" v-model="config.toolbar.display" />
+                <input v-model="config.toolbar.display" type="hidden" />
                 <div
                   class="
                     form-check form-check-custom form-check-solid form-switch
@@ -271,9 +271,9 @@
                   "
                 >
                   <input
+                    v-model="config.toolbar.display"
                     class="form-check-input"
                     type="checkbox"
-                    v-model="config.toolbar.display"
                     value="true"
                   />
                 </div>
@@ -284,8 +284,8 @@
               <label class="col-lg-3 col-form-label text-lg-end">Width:</label>
               <div class="col-lg-9 col-xl-4">
                 <select
-                  class="form-select form-select-solid"
                   v-model="config.toolbar.width"
+                  class="form-select form-select-solid"
                 >
                   <option value="fluid">Fluid</option>
                   <option value="fixed">Fixed</option>
@@ -298,16 +298,16 @@
           </div>
 
           <div
-            class="tab-pane"
-            :class="{ active: tabIndex === 3 }"
             id="kt_builder_aside"
+            :class="{ active: tabIndex === 3 }"
+            class="tab-pane"
           >
             <div class="row mb-10">
               <label class="col-lg-3 col-form-label text-lg-end">Theme:</label>
               <div class="col-lg-9 col-xl-4">
                 <select
-                  class="form-select form-select-solid"
                   v-model="config.aside.theme"
+                  class="form-select form-select-solid"
                 >
                   <option value="dark">Dark</option>
                   <option value="light">Light</option>
@@ -317,12 +317,12 @@
             </div>
             <div class="row mb-10">
               <label class="col-lg-3 col-form-label text-lg-end"
-                >Menu Icon:</label
+              >Menu Icon:</label
               >
               <div class="col-lg-9 col-xl-4">
                 <select
-                  class="form-select form-select-solid"
                   v-model="config.aside.menuIcon"
+                  class="form-select form-select-solid"
                 >
                   <option value="svg">SVG Icon</option>
                   <option value="font">Font Icon</option>
@@ -332,11 +332,11 @@
             </div>
             <div class="row mb-10">
               <label class="col-lg-3 col-form-label text-lg-end"
-                >Display:</label
+              >Display:</label
               >
               <div class="col-lg-9 col-xl-4">
                 <span class="switch switch-icon">
-                  <input type="hidden" v-model="config.aside.display" />
+                  <input v-model="config.aside.display" type="hidden" />
                   <div
                     class="
                       form-check form-check-custom form-check-solid form-switch
@@ -344,9 +344,9 @@
                     "
                   >
                     <input
+                      v-model="config.aside.display"
                       class="form-check-input"
                       type="checkbox"
-                      v-model="config.aside.display"
                     />
                   </div>
                 </span>
@@ -355,11 +355,11 @@
             </div>
             <div class="row mb-10">
               <label class="col-lg-3 col-form-label text-lg-end"
-                >Minimized:</label
+              >Minimized:</label
               >
               <div class="col-lg-9 col-xl-4">
                 <span class="switch switch-icon">
-                  <input type="hidden" v-model="config.aside.minimized" />
+                  <input v-model="config.aside.minimized" type="hidden" />
                   <div
                     class="
                       form-check form-check-custom form-check-solid form-switch
@@ -367,9 +367,9 @@
                     "
                   >
                     <input
+                      v-model="config.aside.minimized"
                       class="form-check-input"
                       type="checkbox"
-                      v-model="config.aside.minimized"
                     />
                   </div>
                 </span>
@@ -381,16 +381,16 @@
           </div>
 
           <div
-            class="tab-pane"
-            :class="{ active: tabIndex === 4 }"
             id="kt_builder_content"
+            :class="{ active: tabIndex === 4 }"
+            class="tab-pane"
           >
             <div class="row mb-10">
               <label class="col-lg-3 col-form-label text-lg-end">Width:</label>
               <div class="col-lg-9 col-xl-4">
                 <select
-                  class="form-select form-select-solid"
                   v-model="config.content.width"
+                  class="form-select form-select-solid"
                 >
                   <option value="fluid">Fluid</option>
                   <option value="fixed">Fixed</option>
@@ -403,16 +403,16 @@
           </div>
 
           <div
-            class="tab-pane"
-            :class="{ active: tabIndex === 5 }"
             id="kt_builder_footer"
+            :class="{ active: tabIndex === 5 }"
+            class="tab-pane"
           >
             <div class="row mb-10">
               <label class="col-lg-3 col-form-label text-lg-end">Width:</label>
               <div class="col-lg-9 col-xl-4">
                 <select
-                  class="form-select form-select-solid"
                   v-model="config.footer.width"
+                  class="form-select form-select-solid"
                 >
                   <option value="fluid">Fluid</option>
                   <option value="fixed">Fixed</option>
@@ -433,20 +433,20 @@
           <div class="col-lg-3"></div>
           <div class="col-lg-9">
             <input
-              type="hidden"
               id="kt_layout_builder_tab"
               name="layout-builder[tab]"
+              type="hidden"
             />
             <input
-              type="hidden"
               id="kt_layout_builder_action"
               name="layout-builder[action]"
+              type="hidden"
             />
 
             <button
-              type="submit"
               id="kt_layout_builder_preview"
               class="btn btn-primary me-2"
+              type="submit"
             >
               <span class="indicator-label"> Preview </span>
               <span class="indicator-progress">
@@ -458,10 +458,10 @@
             </button>
 
             <button
-              @click="reset($event)"
-              type="button"
               id="kt_layout_builder_reset"
               class="btn btn-active-light btn-color-muted fw-bold"
+              type="button"
+              @click="reset($event)"
             >
               Reset
             </button>
@@ -478,7 +478,7 @@
     <!--begin::Card Body-->
     <div class="card-body p-10 p-lg-15">
       <!--begin::Heading-->
-      <h1 class="anchor fw-bolder mb-5" id="overview">Generated config</h1>
+      <h1 id="overview" class="anchor fw-bolder mb-5">Generated config</h1>
       <!--end::Heading-->
       <div class="py-5">
         This config is used as a <b>{{ themeName }}</b> layout config, you can
@@ -500,7 +500,7 @@ import { setCurrentPageTitle } from "@/core/helpers/breadcrumb";
 export default defineComponent({
   name: "builder",
   components: {
-    CodeHighlighter,
+    CodeHighlighter
   },
   setup() {
     const tabIndex = ref(0);
@@ -550,8 +550,8 @@ export default defineComponent({
       reset,
       setActiveTab,
       submit,
-      themeName,
+      themeName
     };
-  },
+  }
 });
 </script>

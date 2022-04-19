@@ -25,7 +25,9 @@
     </div>
     <!--end::Icon-->
     <!--begin::Description-->
-    <div class="text-gray-600 fw-bold fs-5"><slot></slot></div>
+    <div class="text-gray-600 fw-bold fs-5">
+      <slot></slot>
+    </div>
     <!--end::Description-->
   </div>
   <!--end::Information-->

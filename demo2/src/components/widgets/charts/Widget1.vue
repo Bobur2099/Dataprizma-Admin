@@ -1,6 +1,6 @@
 <template>
   <!--begin::Charts Widget 1-->
-  <div class="card" :class="widgetClasses">
+  <div :class="widgetClasses" class="card">
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <!--begin::Title-->
@@ -15,11 +15,11 @@
       <div class="card-toolbar">
         <!--begin::Menu-->
         <button
-          type="button"
           class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-          data-kt-menu-trigger="click"
-          data-kt-menu-placement="bottom-end"
           data-kt-menu-flip="top-end"
+          data-kt-menu-placement="bottom-end"
+          data-kt-menu-trigger="click"
+          type="button"
         >
           <span class="svg-icon svg-icon-2">
             <inline-svg src="/media/icons/duotune/general/gen024.svg" />
@@ -35,7 +35,7 @@
     <!--begin::Body-->
     <div class="card-body">
       <!--begin::Chart-->
-      <apexchart type="bar" :options="options" :series="series"></apexchart>
+      <apexchart :options="options" :series="series" type="bar"></apexchart>
       <!--end::Chart-->
     </div>
     <!--end::Body-->

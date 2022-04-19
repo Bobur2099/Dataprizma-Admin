@@ -16,15 +16,15 @@ const users: Array<User> = [
     surname: "Surname",
     email: "admin@demo.com",
     password: "demo",
-    token: "mgfi5juf74j",
+    token: "mgfi5juf74j"
   },
   {
     name: "Name",
     surname: "Surname",
     email: "admin2@demo.com",
     password: "demo",
-    token: "fgj8fjdfk43",
-  },
+    token: "fgj8fjdfk43"
+  }
 ];
 
 class MockService {

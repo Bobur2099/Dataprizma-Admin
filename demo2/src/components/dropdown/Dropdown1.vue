@@ -25,9 +25,9 @@
         <!--begin::Input-->
         <div>
           <el-select
+            v-model="data.status"
             class="form-select-solid"
             placeholder="Select option"
-            v-model="data.status"
           >
             <el-option label="Approved" value="1">Approved</el-option>
             <el-option label="Pending" value="2">Pending</el-option>
@@ -54,7 +54,7 @@
               me-5
             "
           >
-            <el-checkbox type="checkbox" value="1" v-model="data.author" />
+            <el-checkbox v-model="data.author" type="checkbox" value="1" />
             <span class="form-check-label"> Author </span>
           </label>
           <!--end::Options-->
@@ -63,7 +63,7 @@
           <label
             class="form-check form-check-sm form-check-custom form-check-solid"
           >
-            <el-checkbox type="checkbox" value="2" v-model="data.customer" />
+            <el-checkbox v-model="data.customer" type="checkbox" value="2" />
             <span class="form-check-label"> Customer </span>
           </label>
           <!--end::Options-->
@@ -89,10 +89,10 @@
           "
         >
           <input
-            class="form-check-input"
-            type="checkbox"
-            name="notifications"
             v-model="data.notifications"
+            class="form-check-input"
+            name="notifications"
+            type="checkbox"
           />
           <label class="form-check-label"> Enabled </label>
         </div>
@@ -103,17 +103,17 @@
       <!--begin::Actions-->
       <div class="d-flex justify-content-end">
         <button
-          type="reset"
           class="btn btn-sm btn-white btn-active-light-primary me-2"
           data-kt-menu-dismiss="true"
+          type="reset"
         >
           Reset
         </button>
 
         <button
-          type="submit"
           class="btn btn-sm btn-primary"
           data-kt-menu-dismiss="true"
+          type="submit"
         >
           Apply
         </button>

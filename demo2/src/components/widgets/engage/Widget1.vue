@@ -1,6 +1,6 @@
 <template>
   <!--begin::Engage Widget 1-->
-  <div class="card" :class="widgetClasses">
+  <div :class="widgetClasses" class="card">
     <!--begin::Body-->
     <div class="card-body pb-0">
       <!--begin::Wrapper-->
@@ -24,10 +24,10 @@
           <!--begin::Action-->
           <div class="text-center py-7">
             <a
-              href="#"
               class="btn btn-primary fs-6 px-6"
-              data-bs-toggle="modal"
               data-bs-target="#kt_modal_create_app"
+              data-bs-toggle="modal"
+              href="#"
               >Get Started</a
             >
           </div>
