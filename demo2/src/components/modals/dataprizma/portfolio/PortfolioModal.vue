@@ -550,6 +550,67 @@
       <!--end::Modal content-->
     </div>
     <!--end::Modal dialog-->
+
+    <!--start::Read modal dialog-->
+    <div
+      v-if="create === 3"
+      class="modal-dialog modal-dialog-centered mw-1000px"
+    >
+      <!--begin::Modal content-->
+      <div class="modal-content">
+        <!--begin::Modal header-->
+        <div class="modal-header">
+          <!--begin::Modal title-->
+          <h2>
+            <span>{{ $t("read") }}</span>
+            {{ $t("service") }}
+            {{ $t("content") }}
+          </h2>
+          <!--end::Modal title-->
+          <!--begin::Close-->
+          <div
+            class="btn btn-sm btn-icon btn-active-color-primary"
+            data-bs-dismiss="modal"
+          >
+            <span class="svg-icon svg-icon-1">
+              <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
+            </span>
+          </div>
+          <!--end::Close-->
+        </div>
+        <!--end::Modal header-->
+
+        <!--begin::Modal body-->
+        <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+          <!--begin::Form-->
+          <div v-for="(item, index) in datas" :key="index">
+            <!--begin::Label-->
+            <label
+              class="fw-bold form-label mb-2"
+              style="font-size: 20px"
+              v-if="
+                index !== 'file' && index !== 'id' && index !== 'uploadPath'
+              "
+            >
+              {{ index }}
+            </label>
+            <!--end::Label-->
+            <div
+              v-if="
+                index !== 'file' && index !== 'id' && index !== 'uploadPath'
+              "
+              style="font-size: 18px; margin-bottom: 16px"
+            >
+              {{ datas[index] }}
+            </div>
+          </div>
+          <!--end::Form-->
+        </div>
+        <!--end::Modal body-->
+      </div>
+      <!--end::Modal content-->
+    </div>
+    <!--end::Read modal dialog-->
   </div>
   <!--end::Modal - New Card-->
 </template>
@@ -586,11 +647,26 @@ export default defineComponent({
       updateClientNameEn: "",
       updateStartDate: "",
       updateEndDate: "",
+      datas: {
+        headerUz: "",
+        headerRu: "",
+        headerEn: "",
+        textUz: "",
+        textRu: "",
+        textEn: "",
+        budget: "",
+        location: "",
+        clientNameUz: "",
+        clientNameRu: "",
+        clientNameEn: "",
+        startDate: "",
+        endDate: "",
+      },
       responseError: 200,
       error: 0,
     };
   },
-  props: ["updateId", "create"],
+  props: ["updateId", "create", "openModal"],
   components: {
     ErrorMessage,
     Field,
@@ -633,19 +709,32 @@ export default defineComponent({
         startDate[2] + "-" + startDate[1] + "-" + startDate[0];
       let updateEndDate = endDate[2] + "-" + endDate[1] + "-" + endDate[0];
 
-      this.updateBudget = portfolio_item.budget;
-      this.updateClientNameEn = portfolio_item.clientNameEn;
-      this.updateClientNameRu = portfolio_item.clientNameRu;
-      this.updateClientNameUz = portfolio_item.clientNameUz;
-      this.updateEndDate = updateEndDate;
-      this.updateHeaderEn = portfolio_item.headerEn;
-      this.updateHeaderRu = portfolio_item.headerRu;
       this.updateHeaderUz = portfolio_item.headerUz;
-      this.updateLocation = portfolio_item.location;
-      this.updateStartDate = updateStartDate;
-      this.updateTextEn = portfolio_item.textEn;
-      this.updateTextRu = portfolio_item.textRu;
+      this.datas.headerUz = portfolio_item.headerUz;
+      this.updateHeaderRu = portfolio_item.headerRu;
+      this.datas.headerRu = portfolio_item.headerRu;
+      this.updateHeaderEn = portfolio_item.headerEn;
+      this.datas.headerEn = portfolio_item.headerEn;
       this.updateTextUz = portfolio_item.textUz;
+      this.datas.textUz = portfolio_item.textUz;
+      this.updateTextRu = portfolio_item.textRu;
+      this.datas.textRu = portfolio_item.textRu;
+      this.updateTextEn = portfolio_item.textEn;
+      this.datas.textEn = portfolio_item.textEn;
+      this.updateBudget = portfolio_item.budget;
+      this.datas.budget = portfolio_item.budget;
+      this.updateLocation = portfolio_item.location;
+      this.datas.location = portfolio_item.location;
+      this.updateClientNameUz = portfolio_item.clientNameUz;
+      this.datas.clientNameUz = portfolio_item.clientNameUz;
+      this.updateClientNameRu = portfolio_item.clientNameRu;
+      this.datas.clientNameRu = portfolio_item.clientNameRu;
+      this.updateClientNameEn = portfolio_item.clientNameEn;
+      this.datas.clientNameEn = portfolio_item.clientNameEn;
+      this.updateStartDate = updateStartDate;
+      this.datas.startDate = portfolio_item.startDate;
+      this.updateEndDate = updateEndDate;
+      this.datas.endDate = portfolio_item.startDate;
     },
     create(newValue) {
       newValue;
@@ -702,6 +791,9 @@ export default defineComponent({
           } else {
             this.$emit("table-load");
           }
+        })
+        .catch((err) => {
+          this.responseError = err.response.status;
         });
     },
     deleteItem(id) {
@@ -887,7 +979,7 @@ export default defineComponent({
         const responseError = instance?.data.responseError;
 
         if (responseError === 500) {
-          errorAlert("Too much text was given to input");
+          errorAlert("Invalid data was given");
         } else if (responseError === 401) {
           errorAlert("You are not authorized", true);
         }

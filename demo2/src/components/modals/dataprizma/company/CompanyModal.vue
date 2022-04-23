@@ -395,10 +395,11 @@ export default defineComponent({
       updateMapX: "",
       updateMapY: "",
       responseError: 200,
+      responseErrorObject: {},
       error: 0,
     };
   },
-  props: ["updateId", "create"],
+  props: ["updateId", "create", "openModal"],
   components: {
     ErrorMessage,
     Field,
@@ -490,6 +491,10 @@ export default defineComponent({
           } else {
             this.$emit("table-load");
           }
+        })
+        .catch((err) => {
+          this.responseError = err.response.status;
+          this.responseErrorObject = Object(err.response);
         });
     },
     deleteItem(id) {
@@ -516,6 +521,9 @@ export default defineComponent({
         "x",
         "y",
       ];
+
+      this.responseError = 200;
+      this.responseErrorObject = {};
 
       let datas = new FormData();
       datas.append(keys[0], this.updateFile[0]);
@@ -650,12 +658,15 @@ export default defineComponent({
         const error = instance?.data.error;
         const create = instance?.props.create;
         const responseError = instance?.data.responseError;
+        const responseErrorObject = instance?.data.responseErrorObject;
 
         if (responseError === 500) {
-          errorAlert("Too much text was given to input");
+          errorAlert("Invalid data was given");
         } else if (responseError === 401) {
           errorAlert("You are not authorized", true);
         }
+
+        console.log(responseErrorObject);
 
         if (text !== "cancel" && responseError === 200) {
           if (error === 0) {

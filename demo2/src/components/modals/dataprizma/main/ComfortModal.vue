@@ -393,7 +393,7 @@ export default defineComponent({
       error: 0,
     };
   },
-  props: ["updateId", "create"],
+  props: ["updateId", "create", "openModal"],
   components: {
     ErrorMessage,
     Field,
@@ -483,6 +483,9 @@ export default defineComponent({
           } else {
             this.$emit("table-load");
           }
+        })
+        .catch((err) => {
+          this.responseError = err.response.status;
         });
     },
     deleteItem(id) {
@@ -641,7 +644,7 @@ export default defineComponent({
         const responseError = instance?.data.responseError;
 
         if (responseError === 500) {
-          errorAlert("Too much text was given to input");
+          errorAlert("Invalid data was given");
         } else if (responseError === 401) {
           errorAlert("You are not authorized", true);
         }

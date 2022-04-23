@@ -25,8 +25,8 @@
       <!--begin::Input group-->
       <div class="fv-row mb-10">
         <label class="form-label fw-bolder text-gray-900 fs-6">{{
-            $t("email")
-          }}</label>
+          $t("email")
+        }}</label>
         <Field
           autocomplete="off"
           class="form-control form-control-solid"
@@ -62,9 +62,8 @@
         <router-link
           class="btn btn-lg btn-light-primary fw-bolder"
           to="/sign-in"
-        >{{ $t("cancel") }}
-        </router-link
-        >
+          >{{ $t("cancel") }}
+        </router-link>
       </div>
       <!--end::Actions-->
     </Form>
@@ -88,7 +87,7 @@ export default defineComponent({
   components: {
     Field,
     Form,
-    ErrorMessage
+    ErrorMessage,
   },
   setup() {
     const store = useStore();
@@ -111,23 +110,23 @@ export default defineComponent({
     const countries = {
       en: {
         flag: "/media/flags/united-states.svg",
-        name: "English"
+        name: "English",
       },
       uz: {
         flag: "media/flags/uzbekistan.svg",
-        name: "Uzbek"
+        name: "Uzbek",
       },
       ru: {
         flag: "media/flags/russia.svg",
-        name: "Russian"
-      }
+        name: "Russian",
+      },
     };
 
     const submitButton = ref<HTMLElement | null>(null);
 
     //Create form validation object
     const forgotPassword = Yup.object().shape({
-      email: Yup.string().email().required().label("Email")
+      email: Yup.string().email().required().label("Email"),
     });
 
     //Form submit function
@@ -144,7 +143,7 @@ export default defineComponent({
         values.to = values.email;
         delete values.email;
         values.config = {
-          headers: { "content-type": "multipart/form-data" }
+          headers: { "content-type": "multipart/form-data" },
         };
         store
           .dispatch(Actions.FORGOT_PASSWORD, values)
@@ -155,9 +154,9 @@ export default defineComponent({
               buttonsStyling: false,
               confirmButtonText: "OK",
               customClass: {
-                confirmButton: "btn fw-bold btn-light-primary"
-              }
-            }).then(function() {
+                confirmButton: "btn fw-bold btn-light-primary",
+              },
+            }).then(function () {
               // Go to page after successfully login
               // router.push({ name: "sign-in" });
             });
@@ -165,13 +164,14 @@ export default defineComponent({
           .catch(() => {
             // Alert then login failed
             Swal.fire({
-              text: store.getters.getErrors[0],
+              // text: store.getters.getErrors[0],
+              text: translate("bad_request"),
               icon: "error",
               buttonsStyling: false,
               confirmButtonText: translate("try_again"),
               customClass: {
-                confirmButton: "btn fw-bold btn-light-danger"
-              }
+                confirmButton: "btn fw-bold btn-light-danger",
+              },
             });
           });
 
@@ -198,8 +198,8 @@ export default defineComponent({
       submitButton,
       currentLanguage,
       currentLangugeLocale,
-      setLang
+      setLang,
     };
-  }
+  },
 });
 </script>

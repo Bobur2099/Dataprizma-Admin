@@ -943,6 +943,67 @@
       <!--end::Modal content-->
     </div>
     <!--end::Modal dialog-->
+
+    <!--start::Read modal dialog-->
+    <div
+      v-if="create === 3"
+      class="modal-dialog modal-dialog-centered mw-1000px"
+    >
+      <!--begin::Modal content-->
+      <div class="modal-content">
+        <!--begin::Modal header-->
+        <div class="modal-header">
+          <!--begin::Modal title-->
+          <h2>
+            <span>{{ $t("read") }}</span>
+            {{ $t("service") }}
+            {{ $t("content") }}
+          </h2>
+          <!--end::Modal title-->
+          <!--begin::Close-->
+          <div
+            class="btn btn-sm btn-icon btn-active-color-primary"
+            data-bs-dismiss="modal"
+          >
+            <span class="svg-icon svg-icon-1">
+              <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
+            </span>
+          </div>
+          <!--end::Close-->
+        </div>
+        <!--end::Modal header-->
+
+        <!--begin::Modal body-->
+        <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+          <!--begin::Form-->
+          <div v-for="(item, index) in datas" :key="index">
+            <!--begin::Label-->
+            <label
+              class="fw-bold form-label mb-2"
+              style="font-size: 20px"
+              v-if="
+                index !== 'file' && index !== 'id' && index !== 'uploadPath'
+              "
+            >
+              {{ index }}
+            </label>
+            <!--end::Label-->
+            <div
+              v-if="
+                index !== 'file' && index !== 'id' && index !== 'uploadPath'
+              "
+              style="font-size: 18px; margin-bottom: 16px"
+            >
+              {{ datas[index] }}
+            </div>
+          </div>
+          <!--end::Form-->
+        </div>
+        <!--end::Modal body-->
+      </div>
+      <!--end::Modal content-->
+    </div>
+    <!--end::Read modal dialog-->
   </div>
   <!--end::Modal - New Card-->
 </template>
@@ -993,11 +1054,40 @@ export default defineComponent({
       updateTextThirdUz: "",
       updateTextThirdRu: "",
       updateTextThirdEn: "",
+      datas: {
+        headerUz: "",
+        headerRu: "",
+        headerEn: "",
+        primaryUz: "",
+        primaryRu: "",
+        primaryEn: "",
+        textUz: "",
+        textRu: "",
+        textEn: "",
+        sphereText1Uz: "",
+        sphereText1Ru: "",
+        sphereText1En: "",
+        sphereText2Uz: "",
+        sphereText2Ru: "",
+        sphereText2En: "",
+        sphereText3Uz: "",
+        sphereText3Ru: "",
+        sphereText3En: "",
+        textFirstUz: "",
+        textFirstRu: "",
+        textFirstEn: "",
+        textSecondUz: "",
+        textSecondRu: "",
+        textSecondEn: "",
+        textThirdUz: "",
+        textThirdRu: "",
+        textThirdEn: "",
+      },
       responseError: 200,
       error: 0,
     };
   },
-  props: ["updateId", "create"],
+  props: ["updateId", "create", "openModal"],
   components: {
     ErrorMessage,
     Field,
@@ -1046,33 +1136,68 @@ export default defineComponent({
           break;
         }
       }
-      this.updateHeaderEn = service_item.headerEn;
-      this.updateHeaderRu = service_item.headerRu;
       this.updateHeaderUz = service_item.headerUz;
-      this.updatePrimaryEn = service_item.primaryEn;
-      this.updatePrimaryRu = service_item.primaryRu;
+      this.datas.headerUz = service_item.headerUz;
+      this.updateHeaderRu = service_item.headerRu;
+      this.datas.headerRu = service_item.headerRu;
+      this.updateHeaderEn = service_item.headerEn;
+      this.datas.headerEn = service_item.headerEn;
+
       this.updatePrimaryUz = service_item.primaryUz;
-      this.updateSphereText1En = service_item.sphereText1En;
-      this.updateSphereText1Ru = service_item.sphereText1Ru;
-      this.updateSphereText1Uz = service_item.sphereText1Uz;
-      this.updateSphereText2En = service_item.sphereText2En;
-      this.updateSphereText2Ru = service_item.sphereText2Ru;
-      this.updateSphereText2Uz = service_item.sphereText2Uz;
-      this.updateSphereText3En = service_item.sphereText3En;
-      this.updateSphereText3Ru = service_item.sphereText3Ru;
-      this.updateSphereText3Uz = service_item.sphereText3Uz;
-      this.updateTextEn = service_item.textEn;
-      this.updateTextFirstEn = service_item.textFirstEn;
-      this.updateTextFirstRu = service_item.textFirstRu;
-      this.updateTextFirstUz = service_item.textFirstUz;
-      this.updateTextRu = service_item.textRu;
-      this.updateTextSecondEn = service_item.textSecondEn;
-      this.updateTextSecondRu = service_item.textSecondRu;
-      this.updateTextSecondUz = service_item.textSecondUz;
-      this.updateTextThirdEn = service_item.textThirdEn;
-      this.updateTextThirdRu = service_item.textThirdRu;
-      this.updateTextThirdUz = service_item.textThirdUz;
+      this.datas.primaryUz = service_item.primaryUz;
+      this.updatePrimaryRu = service_item.primaryRu;
+      this.datas.primaryRu = service_item.primaryRu;
+      this.updatePrimaryEn = service_item.primaryEn;
+      this.datas.primaryEn = service_item.primaryEn;
+
       this.updateTextUz = service_item.textUz;
+      this.datas.textUz = service_item.textUz;
+      this.updateTextRu = service_item.textRu;
+      this.datas.textRu = service_item.textRu;
+      this.updateTextEn = service_item.textEn;
+      this.datas.textEn = service_item.textEn;
+
+      this.updateSphereText1Uz = service_item.sphereText1Uz;
+      this.datas.sphereText1Uz = service_item.sphereText1Uz;
+      this.updateSphereText1Ru = service_item.sphereText1Ru;
+      this.datas.sphereText1Ru = service_item.sphereText1Ru;
+      this.updateSphereText1En = service_item.sphereText1En;
+      this.datas.sphereText1En = service_item.sphereText1En;
+
+      this.updateSphereText2Uz = service_item.sphereText2Uz;
+      this.datas.sphereText2Uz = service_item.sphereText2Uz;
+      this.updateSphereText2Ru = service_item.sphereText2Ru;
+      this.datas.sphereText2Ru = service_item.sphereText2Ru;
+      this.updateSphereText2En = service_item.sphereText2En;
+      this.datas.sphereText2En = service_item.sphereText2En;
+
+      this.updateSphereText3Uz = service_item.sphereText3Uz;
+      this.datas.sphereText3Uz = service_item.sphereText3Uz;
+      this.updateSphereText3Ru = service_item.sphereText3Ru;
+      this.datas.sphereText3Ru = service_item.sphereText3Ru;
+      this.updateSphereText3En = service_item.sphereText3En;
+      this.datas.sphereText3En = service_item.sphereText3En;
+
+      this.updateTextFirstUz = service_item.textFirstUz;
+      this.datas.textFirstUz = service_item.textFirstUz;
+      this.updateTextFirstRu = service_item.textFirstRu;
+      this.datas.textFirstRu = service_item.textFirstRu;
+      this.updateTextFirstEn = service_item.textFirstEn;
+      this.datas.textFirstEn = service_item.textFirstEn;
+
+      this.updateTextSecondUz = service_item.textSecondUz;
+      this.datas.textSecondUz = service_item.textSecondUz;
+      this.updateTextSecondRu = service_item.textSecondRu;
+      this.datas.textSecondRu = service_item.textSecondRu;
+      this.updateTextSecondEn = service_item.textSecondEn;
+      this.datas.textSecondEn = service_item.textSecondEn;
+
+      this.updateTextThirdUz = service_item.textThirdUz;
+      this.datas.textThirdUz = service_item.textThirdUz;
+      this.updateTextThirdRu = service_item.textThirdRu;
+      this.datas.textThirdRu = service_item.textThirdRu;
+      this.updateTextThirdEn = service_item.textThirdEn;
+      this.datas.textThirdEn = service_item.textThirdEn;
     },
     create(newValue) {
       newValue;
@@ -1129,6 +1254,9 @@ export default defineComponent({
           } else {
             this.$emit("table-load");
           }
+        })
+        .catch((err) => {
+          this.responseError = err.response.status;
         });
     },
     deleteItem(id) {
@@ -1350,7 +1478,7 @@ export default defineComponent({
         const responseError = instance?.data.responseError;
 
         if (responseError === 500) {
-          errorAlert("Too much text was given to input");
+          errorAlert("Invalid data was given");
         } else if (responseError === 401) {
           errorAlert("You are not authorized", true);
         }

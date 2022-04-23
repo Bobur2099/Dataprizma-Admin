@@ -21,6 +21,7 @@
       :create="create"
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
+      v-bind:open-modal="openModal"
     ></PortfolioModal>
     <!--    end::Update User-->
 
@@ -99,16 +100,16 @@
               </th>
               <th class="min-w-150px">{{ $t("image") }}</th>
               <th class="min-w-140px">{{ $t("header_uz") }}</th>
-              <th class="min-w-140px">{{ $t("header_ru") }}</th>
-              <th class="min-w-140px">{{ $t("header_en") }}</th>
+              <!--&lt;!&ndash;              <th class="min-w-140px">{{ $t("header_ru") }}</th>&ndash;&gt;-->
+              <!--&lt;!&ndash;              <th class="min-w-140px">{{ $t("header_en") }}</th>&ndash;&gt;-->
               <th class="min-w-140px">{{ $t("text_uz") }}</th>
-              <th class="min-w-140px">{{ $t("text_ru") }}</th>
-              <th class="min-w-140px">{{ $t("text_en") }}</th>
+              <!--              <th class="min-w-140px">{{ $t("text_ru") }}</th>-->
+              <!--              <th class="min-w-140px">{{ $t("text_en") }}</th>-->
               <th class="min-w-140px">{{ $t("budget") }}</th>
               <th class="min-w-140px">{{ $t("location") }}</th>
               <th class="min-w-140px">{{ $t("client_name_uz") }}</th>
-              <th class="min-w-140px">{{ $t("client_name_ru") }}</th>
-              <th class="min-w-140px">{{ $t("client_name_en") }}</th>
+              <!--              <th class="min-w-140px">{{ $t("client_name_ru") }}</th>-->
+              <!--              <th class="min-w-140px">{{ $t("client_name_en") }}</th>-->
               <th class="min-w-140px">{{ $t("start_date") }}</th>
               <th class="min-w-140px">{{ $t("end_date") }}</th>
               <th class="min-w-100px text-end">{{ $t("actions") }}</th>
@@ -173,21 +174,21 @@
                   >
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.headerRu }}</a
-                  >
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.headerRu }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.headerEn }}</a
-                  >
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.headerEn }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
                 <td>
                   <a
@@ -197,21 +198,21 @@
                   >
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.textRu }}</a
-                  >
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.textRu }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.textEn }}</a
-                  >
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.textEn }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
                 <td>
                   <a
@@ -237,21 +238,21 @@
                   >
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.clientNameRu }}</a
-                  >
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.clientNameRu }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.clientNameEn }}</a
-                  >
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.clientNameEn }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
                 <td>
                   <a
@@ -282,6 +283,24 @@
                   <!--                      />-->
                   <!--                    </span>-->
                   <!--                  </a>-->
+
+                  <a
+                    class="
+                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                      me-1
+                    "
+                    @click="
+                      fillUpdateInputs(item.id);
+                      PortfolioModal();
+                      create = 3;
+                    "
+                  >
+                    <span class="svg-icon svg-icon-2x">
+                      <inline-svg
+                        src="/media/icons/duotune/general/gen057.svg"
+                      />
+                    </span>
+                  </a>
 
                   <a
                     class="
@@ -369,6 +388,7 @@ export default defineComponent({
       text: "",
       updateId: -1,
       create: 1,
+      openModal: true,
       // deleteId: 0,
       // deleteIndex: 0,
     };
@@ -399,6 +419,7 @@ export default defineComponent({
       this.updateId = id;
     },
     PortfolioModal() {
+      this.openModal = !this.openModal;
       let Element: HTMLElement = document.querySelector(
         ".modal-view button"
       ) as HTMLElement;

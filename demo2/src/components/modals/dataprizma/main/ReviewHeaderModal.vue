@@ -444,6 +444,67 @@
       <!--end::Modal content-->
     </div>
     <!--end::Modal dialog-->
+
+    <!--start::Read modal dialog-->
+    <div
+      v-if="create === 3"
+      class="modal-dialog modal-dialog-centered mw-1000px"
+    >
+      <!--begin::Modal content-->
+      <div class="modal-content">
+        <!--begin::Modal header-->
+        <div class="modal-header">
+          <!--begin::Modal title-->
+          <h2>
+            <span>{{ $t("read") }}</span>
+            {{ $t("review_header") }}
+            {{ $t("content") }}
+          </h2>
+          <!--end::Modal title-->
+          <!--begin::Close-->
+          <div
+            class="btn btn-sm btn-icon btn-active-color-primary"
+            data-bs-dismiss="modal"
+          >
+            <span class="svg-icon svg-icon-1">
+              <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
+            </span>
+          </div>
+          <!--end::Close-->
+        </div>
+        <!--end::Modal header-->
+
+        <!--begin::Modal body-->
+        <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+          <!--begin::Form-->
+          <div v-for="(item, index) in datas" :key="index">
+            <!--begin::Label-->
+            <label
+              class="fw-bold form-label mb-2"
+              style="font-size: 20px"
+              v-if="
+                index !== 'file' && index !== 'id' && index !== 'uploadPath'
+              "
+            >
+              {{ index }}
+            </label>
+            <!--end::Label-->
+            <div
+              v-if="
+                index !== 'file' && index !== 'id' && index !== 'uploadPath'
+              "
+              style="font-size: 18px; margin-bottom: 16px"
+            >
+              {{ datas[index] }}
+            </div>
+          </div>
+          <!--end::Form-->
+        </div>
+        <!--end::Modal body-->
+      </div>
+      <!--end::Modal content-->
+    </div>
+    <!--end::Read modal dialog-->
   </div>
   <!--end::Modal - New Card-->
 </template>
@@ -476,11 +537,22 @@ export default defineComponent({
       updateParagraphUz: "",
       updateParagraphRu: "",
       updateParagraphEn: "",
+      datas: {
+        headerUz: "",
+        headerRu: "",
+        headerEn: "",
+        paragraphUz: "",
+        paragraphRu: "",
+        paragraphEn: "",
+        topicUz: "",
+        topicRu: "",
+        topicEn: "",
+      },
       responseError: 200,
       error: 0,
     };
   },
-  props: ["updateId", "create"],
+  props: ["updateId", "create", "openModal"],
   components: {
     ErrorMessage,
     Field,
@@ -513,15 +585,24 @@ export default defineComponent({
           break;
         }
       }
-      this.updateHeaderEn = review_header_item.headerEn;
-      this.updateHeaderRu = review_header_item.headerRu;
       this.updateHeaderUz = review_header_item.headerUz;
-      this.updateParagraphEn = review_header_item.paragraphEn;
-      this.updateParagraphRu = review_header_item.paragraphRu;
+      this.datas.headerUz = review_header_item.headerUz;
+      this.updateHeaderRu = review_header_item.headerRu;
+      this.datas.headerRu = review_header_item.headerRu;
+      this.updateHeaderEn = review_header_item.headerEn;
+      this.datas.headerEn = review_header_item.headerEn;
       this.updateParagraphUz = review_header_item.paragraphUz;
-      this.updateTopicEn = review_header_item.topicEn;
-      this.updateTopicRu = review_header_item.topicRu;
+      this.datas.paragraphUz = review_header_item.paragraphUz;
+      this.updateParagraphRu = review_header_item.paragraphRu;
+      this.datas.paragraphRu = review_header_item.paragraphRu;
+      this.updateParagraphEn = review_header_item.paragraphEn;
+      this.datas.paragraphEn = review_header_item.paragraphEn;
       this.updateTopicUz = review_header_item.topicUz;
+      this.datas.topicUz = review_header_item.topicUz;
+      this.updateTopicRu = review_header_item.topicRu;
+      this.datas.topicRu = review_header_item.topicRu;
+      this.updateTopicEn = review_header_item.topicEn;
+      this.datas.topicEn = review_header_item.topicEn;
     },
     create(newValue) {
       newValue;
@@ -578,6 +659,9 @@ export default defineComponent({
           } else {
             this.$emit("table-load");
           }
+        })
+        .catch((err) => {
+          this.responseError = err.response.status;
         });
     },
     deleteItem(id) {
@@ -745,7 +829,7 @@ export default defineComponent({
         const responseError = instance?.data.responseError;
 
         if (responseError === 500) {
-          errorAlert("Too much text was given to input");
+          errorAlert("Invalid data was given");
         } else if (responseError === 401) {
           errorAlert("You are not authorized", true);
         }

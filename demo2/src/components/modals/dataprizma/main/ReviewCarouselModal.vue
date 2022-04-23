@@ -444,6 +444,67 @@
       <!--end::Modal content-->
     </div>
     <!--end::Modal dialog-->
+
+    <!--start::Read modal dialog-->
+    <div
+      v-if="create === 3"
+      class="modal-dialog modal-dialog-centered mw-1000px"
+    >
+      <!--begin::Modal content-->
+      <div class="modal-content">
+        <!--begin::Modal header-->
+        <div class="modal-header">
+          <!--begin::Modal title-->
+          <h2>
+            <span>{{ $t("read") }}</span>
+            {{ $t("review_carousel") }}
+            {{ $t("content") }}
+          </h2>
+          <!--end::Modal title-->
+          <!--begin::Close-->
+          <div
+            class="btn btn-sm btn-icon btn-active-color-primary"
+            data-bs-dismiss="modal"
+          >
+            <span class="svg-icon svg-icon-1">
+              <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
+            </span>
+          </div>
+          <!--end::Close-->
+        </div>
+        <!--end::Modal header-->
+
+        <!--begin::Modal body-->
+        <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+          <!--begin::Form-->
+          <div v-for="(item, index) in datas" :key="index">
+            <!--begin::Label-->
+            <label
+              class="fw-bold form-label mb-2"
+              style="font-size: 20px"
+              v-if="
+                index !== 'file' && index !== 'id' && index !== 'uploadPath'
+              "
+            >
+              {{ index }}
+            </label>
+            <!--end::Label-->
+            <div
+              v-if="
+                index !== 'file' && index !== 'id' && index !== 'uploadPath'
+              "
+              style="font-size: 18px; margin-bottom: 16px"
+            >
+              {{ datas[index] }}
+            </div>
+          </div>
+          <!--end::Form-->
+        </div>
+        <!--end::Modal body-->
+      </div>
+      <!--end::Modal content-->
+    </div>
+    <!--end::Read modal dialog-->
   </div>
   <!--end::Modal - New Card-->
 </template>
@@ -476,11 +537,22 @@ export default defineComponent({
       updateTextUz: "",
       updateTextRu: "",
       updateTextEn: "",
+      datas: {
+        authorUz: "",
+        authorRu: "",
+        authorEn: "",
+        positionUz: "",
+        positionRu: "",
+        positionEn: "",
+        textUz: "",
+        textRu: "",
+        textEn: "",
+      },
       responseError: 200,
       error: 0,
     };
   },
-  props: ["updateId", "create"],
+  props: ["updateId", "create", "openModal"],
   components: {
     ErrorMessage,
     Field,
@@ -513,15 +585,24 @@ export default defineComponent({
           break;
         }
       }
-      this.updateAuthorEn = review_carousel_item.authorEn;
-      this.updateAuthorRu = review_carousel_item.authorRu;
       this.updateAuthorUz = review_carousel_item.authorUz;
-      this.updatePositionEn = review_carousel_item.positionEn;
-      this.updatePositionRu = review_carousel_item.positionRu;
+      this.datas.authorUz = review_carousel_item.authorUz;
+      this.updateAuthorRu = review_carousel_item.authorRu;
+      this.datas.authorRu = review_carousel_item.authorRu;
+      this.updateAuthorEn = review_carousel_item.authorEn;
+      this.datas.authorEn = review_carousel_item.authorEn;
       this.updatePositionUz = review_carousel_item.positionUz;
-      this.updateTextEn = review_carousel_item.textEn;
-      this.updateTextRu = review_carousel_item.textRu;
+      this.datas.positionUz = review_carousel_item.positionUz;
+      this.updatePositionRu = review_carousel_item.positionRu;
+      this.datas.positionRu = review_carousel_item.positionRu;
+      this.updatePositionEn = review_carousel_item.positionEn;
+      this.datas.positionEn = review_carousel_item.positionEn;
       this.updateTextUz = review_carousel_item.textUz;
+      this.datas.textUz = review_carousel_item.textUz;
+      this.updateTextRu = review_carousel_item.textRu;
+      this.datas.textRu = review_carousel_item.textRu;
+      this.updateTextEn = review_carousel_item.textEn;
+      this.datas.textEn = review_carousel_item.textEn;
     },
     create(newValue) {
       newValue;
@@ -578,6 +659,9 @@ export default defineComponent({
           } else {
             this.$emit("table-load");
           }
+        })
+        .catch((err) => {
+          this.responseError = err.response.status;
         });
     },
     deleteItem(id) {
@@ -745,7 +829,7 @@ export default defineComponent({
         const responseError = instance?.data.responseError;
 
         if (responseError === 500) {
-          errorAlert("Too much text was given to input");
+          errorAlert("Invalid data was given");
         } else if (responseError === 401) {
           errorAlert("You are not authorized", true);
         }

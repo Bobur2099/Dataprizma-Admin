@@ -21,6 +21,7 @@
       :create="create"
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
+      v-bind:open-modal="openModal"
     ></ComfortModal>
     <!--    end::Update User-->
 
@@ -351,6 +352,7 @@ export default defineComponent({
       text: "",
       updateId: -1,
       create: 1,
+      openModal: true,
       // deleteId: 0,
       // deleteIndex: 0,
     };
@@ -381,6 +383,7 @@ export default defineComponent({
       this.updateId = id;
     },
     ComfortModal() {
+      this.openModal = !this.openModal;
       let Element: HTMLElement = document.querySelector(
         ".modal-view button"
       ) as HTMLElement;

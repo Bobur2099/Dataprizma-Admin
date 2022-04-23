@@ -101,6 +101,7 @@
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset create-user-reset"
                 type="reset"
+                @click="clearInputs()"
               >
                 {{ $t("discard") }}
               </button>
@@ -308,6 +309,9 @@ export default defineComponent({
           }
         });
     },
+    clearInputs() {
+      this.name = "";
+    },
     createItem(datas) {
       axios
         .post(`role/create`, datas, {
@@ -336,6 +340,9 @@ export default defineComponent({
           } else {
             this.$emit("table-load");
           }
+        })
+        .catch((err) => {
+          this.responseError = err.response.status;
         });
     },
     deleteItem(id) {
@@ -463,7 +470,7 @@ export default defineComponent({
         const responseError = instance?.data.responseError;
 
         if (responseError === 500) {
-          errorAlert("Too much text was given to input");
+          errorAlert("Invalid data was given");
         } else if (responseError === 401) {
           errorAlert("You are not authorized", true);
         }

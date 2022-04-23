@@ -155,9 +155,10 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                id="kt_modal_new_card"
+                id="kt_modal_clear"
                 class="btn btn-white me-3 reset"
                 type="reset"
+                @click="clearInputs()"
               >
                 {{ $t("discard") }}
               </button>
@@ -298,8 +299,6 @@ export default defineComponent({
   name: "about-modal",
   data: function () {
     return {
-      name: "",
-      code: "",
       token: JSON.parse(String(localStorage.getItem("userData")))["token"],
       updateFile: new File([new Blob()], ""),
       updateTextUz: "",
@@ -309,7 +308,7 @@ export default defineComponent({
       error: 0,
     };
   },
-  props: ["updateId", "create"],
+  props: ["updateId", "create", "openModal"],
   components: {
     ErrorMessage,
     Field,
@@ -317,30 +316,13 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
-      const about_items = JSON.parse(Object(localStorage.getItem("about")));
-      let about_item = {
-        uploadPath: "",
-        paragraphUz: "",
-        paragraphRu: "",
-        paragraphEn: "",
-      };
-      for (const item of about_items) {
-        if (item.id === newValue) {
-          about_item = Object(item);
-          for (let property in about_item) {
-            if (about_item[property] === null) {
-              about_item[property] = "";
-            }
-          }
-          break;
-        }
-      }
-      this.updateTextUz = about_item.paragraphUz;
-      this.updateTextRu = about_item.paragraphRu;
-      this.updateTextEn = about_item.paragraphEn;
+      this.autocompleteFields(newValue);
     },
     create(newValue) {
       newValue;
+    },
+    openModal(newValue) {
+      this.autocompleteFields(this.updateId);
     },
   },
   methods: {
@@ -363,6 +345,34 @@ export default defineComponent({
           file.name.endsWith(".png") ||
           file.name.endsWith(".svg"))
       );
+    },
+    autocompleteFields(newValue) {
+      const about_items = JSON.parse(Object(localStorage.getItem("about")));
+      let about_item = {
+        uploadPath: "",
+        paragraphUz: "",
+        paragraphRu: "",
+        paragraphEn: "",
+      };
+      for (const item of about_items) {
+        if (item.id === newValue) {
+          about_item = Object(item);
+          for (let property in about_item) {
+            if (about_item[property] === null) {
+              about_item[property] = "";
+            }
+          }
+          break;
+        }
+      }
+      this.updateTextUz = about_item.paragraphUz;
+      this.updateTextRu = about_item.paragraphRu;
+      this.updateTextEn = about_item.paragraphEn;
+    },
+    clearInputs() {
+      this.updateTextUz = "";
+      this.updateTextRu = "";
+      this.updateTextEn = "";
     },
     createItem(datas) {
       axios
@@ -394,6 +404,9 @@ export default defineComponent({
           } else {
             this.$emit("table-load");
           }
+        })
+        .catch((err) => {
+          this.responseError = err.response.status;
         });
     },
     deleteItem(id) {
@@ -547,7 +560,7 @@ export default defineComponent({
         const responseError = instance?.data.responseError;
 
         if (responseError === 500) {
-          errorAlert("Too much text was given to input");
+          errorAlert("Invalid data was given");
         } else if (responseError === 401) {
           errorAlert("You are not authorized", true);
         }

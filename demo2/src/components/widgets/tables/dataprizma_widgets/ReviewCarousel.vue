@@ -21,6 +21,7 @@
       :create="create"
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
+      v-bind:open-modal="openModal"
     ></ReviewCarouselModal>
     <!--    end::Update User-->
 
@@ -99,14 +100,14 @@
               </th>
               <th class="min-w-150px">{{ $t("image") }}</th>
               <th class="min-w-150px">{{ $t("author_uz") }}</th>
-              <th class="min-w-150px">{{ $t("author_ru") }}</th>
-              <th class="min-w-150px">{{ $t("author_en") }}</th>
+              <!--              <th class="min-w-150px">{{ $t("author_ru") }}</th>-->
+              <!--              <th class="min-w-150px">{{ $t("author_en") }}</th>-->
               <th class="min-w-150px">{{ $t("position_uz") }}</th>
-              <th class="min-w-150px">{{ $t("position_ru") }}</th>
-              <th class="min-w-150px">{{ $t("position_en") }}</th>
+              <!--              <th class="min-w-150px">{{ $t("position_ru") }}</th>-->
+              <!--              <th class="min-w-150px">{{ $t("position_en") }}</th>-->
               <th class="min-w-150px">{{ $t("text_uz") }}</th>
-              <th class="min-w-150px">{{ $t("text_ru") }}</th>
-              <th class="min-w-150px">{{ $t("text_en") }}</th>
+              <!--              <th class="min-w-150px">{{ $t("text_ru") }}</th>-->
+              <!--              <th class="min-w-150px">{{ $t("text_en") }}</th>-->
               <th class="min-w-100px text-end">{{ $t("actions") }}</th>
             </tr>
           </thead>
@@ -172,27 +173,27 @@
                   <!--                  }}</span>-->
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.authorRu }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.companySkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.authorRu }}</a-->
+                <!--                  >-->
+                <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                <!--                    item.companySkills-->
+                <!--                  }}</span>-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.authorEn }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.companySkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.authorEn }}</a-->
+                <!--                  >-->
+                <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                <!--                    item.companySkills-->
+                <!--                  }}</span>-->
+                <!--                </td>-->
 
                 <td>
                   <a
@@ -205,27 +206,27 @@
                   <!--                  }}</span>-->
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.positionRu }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.companySkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.positionRu }}</a-->
+                <!--                  >-->
+                <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                <!--                    item.companySkills-->
+                <!--                  }}</span>-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.positionEn }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.companySkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.positionEn }}</a-->
+                <!--                  >-->
+                <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                <!--                    item.companySkills-->
+                <!--                  }}</span>-->
+                <!--                </td>-->
 
                 <td>
                   <a
@@ -238,27 +239,27 @@
                   <!--                  }}</span>-->
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.textRu }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.companySkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.textRu }}</a-->
+                <!--                  >-->
+                <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                <!--                    item.companySkills-->
+                <!--                  }}</span>-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.textEn }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.companySkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.textEn }}</a-->
+                <!--                  >-->
+                <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                <!--                    item.companySkills-->
+                <!--                  }}</span>-->
+                <!--                </td>-->
 
                 <!--                <td class="text-end">-->
                 <!--                  <div class="d-flex flex-column w-100 me-2">-->
@@ -300,6 +301,24 @@
                   <!--                      />-->
                   <!--                    </span>-->
                   <!--                  </a>-->
+
+                  <a
+                    class="
+                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                      me-1
+                    "
+                    @click="
+                      fillUpdateInputs(item.id);
+                      ReviewCarouselModal();
+                      create = 3;
+                    "
+                  >
+                    <span class="svg-icon svg-icon-2x">
+                      <inline-svg
+                        src="/media/icons/duotune/general/gen057.svg"
+                      />
+                    </span>
+                  </a>
 
                   <a
                     class="
@@ -387,6 +406,7 @@ export default defineComponent({
       text: "",
       updateId: -1,
       create: 1,
+      openModal: true,
       // deleteId: 0,
       // deleteIndex: 0,
     };
@@ -417,6 +437,7 @@ export default defineComponent({
       this.updateId = id;
     },
     ReviewCarouselModal() {
+      this.openModal = !this.openModal;
       let Element: HTMLElement = document.querySelector(
         ".modal-view button"
       ) as HTMLElement;

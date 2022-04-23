@@ -17,7 +17,7 @@
           <h2>
             <span v-if="create === 1"> {{ $t("create") }}</span
             ><span v-if="create === 0"> {{ $t("update") }}</span>
-            {{ $t("create") }} {{ $t("main") }}
+            {{ $t("advertise") }}
             {{ $t("content") }}
           </h2>
           <!--end::Modal title-->
@@ -444,6 +444,7 @@
     </div>
     <!--end::Modal dialog-->
 
+    <!--start::Modal dialog-->
     <div
       v-if="create === 2"
       class="modal-dialog modal-dialog-centered mw-1000px"
@@ -524,6 +525,67 @@
       <!--end::Modal content-->
     </div>
     <!--end::Modal dialog-->
+
+    <!--start::Read modal dialog-->
+    <div
+      v-if="create === 3"
+      class="modal-dialog modal-dialog-centered mw-1000px"
+    >
+      <!--begin::Modal content-->
+      <div class="modal-content">
+        <!--begin::Modal header-->
+        <div class="modal-header">
+          <!--begin::Modal title-->
+          <h2>
+            <span>{{ $t("read") }}</span>
+            {{ $t("advertise") }}
+            {{ $t("content") }}
+          </h2>
+          <!--end::Modal title-->
+          <!--begin::Close-->
+          <div
+            class="btn btn-sm btn-icon btn-active-color-primary"
+            data-bs-dismiss="modal"
+          >
+            <span class="svg-icon svg-icon-1">
+              <inline-svg src="/media/icons/duotune/arrows/arr061.svg" />
+            </span>
+          </div>
+          <!--end::Close-->
+        </div>
+        <!--end::Modal header-->
+
+        <!--begin::Modal body-->
+        <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+          <!--begin::Form-->
+          <div v-for="(item, index) in datas" :key="index">
+            <!--begin::Label-->
+            <label
+              class="fw-bold form-label mb-2"
+              style="font-size: 20px"
+              v-if="
+                index !== 'file' && index !== 'id' && index !== 'uploadPath'
+              "
+            >
+              {{ index }}
+            </label>
+            <!--end::Label-->
+            <div
+              v-if="
+                index !== 'file' && index !== 'id' && index !== 'uploadPath'
+              "
+              style="font-size: 18px; margin-bottom: 16px"
+            >
+              {{ datas[index] }}
+            </div>
+          </div>
+          <!--end::Form-->
+        </div>
+        <!--end::Modal body-->
+      </div>
+      <!--end::Modal content-->
+    </div>
+    <!--end::Read modal dialog-->
   </div>
   <!--end::Modal - New Card-->
 </template>
@@ -560,10 +622,24 @@ export default defineComponent({
       updatePrimaryTextRu: "",
       updatePrimaryTextEn: "",
       responseError: 200,
+      datas: {
+        headerEn: "",
+        headerRu: "",
+        headerUz: "",
+        paragraphEn: "",
+        paragraphRu: "",
+        paragraphUz: "",
+        primaryTextEn: "",
+        primaryTextRu: "",
+        primaryTextUz: "",
+        topicEn: "",
+        topicRu: "",
+        topicUz: "",
+      },
       error: 0,
     };
   },
-  props: ["updateId", "create"],
+  props: ["updateId", "create", "openModal"],
   components: {
     ErrorMessage,
     Field,
@@ -599,18 +675,30 @@ export default defineComponent({
           break;
         }
       }
-      this.updateHeaderEn = advertise_item.headerEn;
-      this.updateHeaderRu = advertise_item.headerRu;
       this.updateHeaderUz = advertise_item.headerUz;
-      this.updateParagraphEn = advertise_item.paragraphEn;
-      this.updateParagraphRu = advertise_item.paragraphRu;
+      this.datas.headerUz = advertise_item.headerUz;
+      this.updateHeaderRu = advertise_item.headerRu;
+      this.datas.headerRu = advertise_item.headerRu;
+      this.updateHeaderEn = advertise_item.headerEn;
+      this.datas.headerEn = advertise_item.headerEn;
       this.updateParagraphUz = advertise_item.paragraphUz;
-      this.updatePrimaryTextEn = advertise_item.primaryTextEn;
-      this.updatePrimaryTextRu = advertise_item.primaryTextRu;
+      this.datas.paragraphUz = advertise_item.paragraphUz;
+      this.updateParagraphRu = advertise_item.paragraphRu;
+      this.datas.paragraphRu = advertise_item.paragraphRu;
+      this.updateParagraphEn = advertise_item.paragraphEn;
+      this.datas.paragraphEn = advertise_item.paragraphEn;
       this.updatePrimaryTextUz = advertise_item.primaryTextUz;
-      this.updateTopicEn = advertise_item.topicEn;
-      this.updateTopicRu = advertise_item.topicRu;
+      this.datas.primaryTextUz = advertise_item.primaryTextUz;
+      this.updatePrimaryTextRu = advertise_item.primaryTextRu;
+      this.datas.primaryTextRu = advertise_item.primaryTextRu;
+      this.updatePrimaryTextEn = advertise_item.primaryTextEn;
+      this.datas.primaryTextEn = advertise_item.primaryTextEn;
       this.updateTopicUz = advertise_item.topicUz;
+      this.datas.topicUz = advertise_item.topicUz;
+      this.updateTopicRu = advertise_item.topicRu;
+      this.datas.topicRu = advertise_item.topicRu;
+      this.updateTopicEn = advertise_item.topicEn;
+      this.datas.topicEn = advertise_item.topicEn;
     },
     create(newValue) {
       newValue;
@@ -667,6 +755,9 @@ export default defineComponent({
           } else {
             this.$emit("table-load");
           }
+        })
+        .catch((err) => {
+          this.responseError = err.response.status;
         });
     },
     deleteItem(id) {
@@ -843,7 +934,7 @@ export default defineComponent({
         const responseError = instance?.data.responseError;
 
         if (responseError === 500) {
-          errorAlert("Too much text was given to input");
+          errorAlert("Invalid data was given");
         } else if (responseError === 401) {
           errorAlert("You are not authorized", true);
         }

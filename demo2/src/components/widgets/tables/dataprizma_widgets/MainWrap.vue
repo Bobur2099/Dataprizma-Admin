@@ -12,6 +12,7 @@
       :create="create"
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
+      v-bind:open-modal="openModal"
     ></MainWrapModal>
     <!--    end::Main-Wrap Modal-->
 
@@ -275,6 +276,7 @@ export default defineComponent({
       text: "",
       updateId: -1,
       create: 1,
+      openModal: true,
       // deleteId: 0,
       // deleteIndex: 0,
     };
@@ -303,6 +305,7 @@ export default defineComponent({
       this.updateId = id;
     },
     MainWrapModal() {
+      this.openModal = !this.openModal;
       let Element: HTMLElement = document.querySelector(
         ".modal-view button"
       ) as HTMLElement;

@@ -21,6 +21,7 @@
       :create="create"
       v-bind:update-id="updateId"
       v-on:table-load="tableData()"
+      v-bind:open-modal="openModal"
     ></ServiceModal>
     <!--    end::Update User-->
 
@@ -99,32 +100,32 @@
               </th>
               <th class="min-w-100px">{{ $t("image") }}</th>
               <th class="min-w-100px">{{ $t("header_uz") }}</th>
-              <th class="min-w-100px">{{ $t("header_ru") }}</th>
-              <th class="min-w-100px">{{ $t("header_en") }}</th>
+              <!--              <th class="min-w-100px">{{ $t("header_ru") }}</th>-->
+              <!--              <th class="min-w-100px">{{ $t("header_en") }}</th>-->
               <th class="min-w-100px">{{ $t("primary_text_uz") }}</th>
-              <th class="min-w-100px">{{ $t("primary_text_ru") }}</th>
-              <th class="min-w-100px">{{ $t("primary_text_en") }}</th>
+              <!--              <th class="min-w-100px">{{ $t("primary_text_ru") }}</th>-->
+              <!--              <th class="min-w-100px">{{ $t("primary_text_en") }}</th>-->
               <th class="min-w-100px">{{ $t("text_uz") }}</th>
-              <th class="min-w-100px">{{ $t("text_ru") }}</th>
-              <th class="min-w-100px">{{ $t("text_en") }}</th>
+              <!--              <th class="min-w-100px">{{ $t("text_ru") }}</th>-->
+              <!--              <th class="min-w-100px">{{ $t("text_en") }}</th>-->
               <th class="min-w-100px">{{ $t("sphere_text_1_uz") }}</th>
-              <th class="min-w-100px">{{ $t("sphere_text_1_ru") }}</th>
-              <th class="min-w-100px">{{ $t("sphere_text_1_en") }}</th>
+              <!--              <th class="min-w-100px">{{ $t("sphere_text_1_ru") }}</th>-->
+              <!--              <th class="min-w-100px">{{ $t("sphere_text_1_en") }}</th>-->
               <th class="min-w-100px">{{ $t("sphere_text_2_uz") }}</th>
-              <th class="min-w-100px">{{ $t("sphere_text_2_ru") }}</th>
-              <th class="min-w-100px">{{ $t("sphere_text_2_en") }}</th>
+              <!--              <th class="min-w-100px">{{ $t("sphere_text_2_ru") }}</th>-->
+              <!--              <th class="min-w-100px">{{ $t("sphere_text_2_en") }}</th>-->
               <th class="min-w-100px">{{ $t("sphere_text_3_uz") }}</th>
-              <th class="min-w-100px">{{ $t("sphere_text_3_ru") }}</th>
-              <th class="min-w-100px">{{ $t("sphere_text_3_en") }}</th>
+              <!--              <th class="min-w-100px">{{ $t("sphere_text_3_ru") }}</th>-->
+              <!--              <th class="min-w-100px">{{ $t("sphere_text_3_en") }}</th>-->
               <th class="min-w-100px">{{ $t("text_1_uz") }}</th>
-              <th class="min-w-100px">{{ $t("text_1_ru") }}</th>
-              <th class="min-w-100px">{{ $t("text_1_en") }}</th>
+              <!--              <th class="min-w-100px">{{ $t("text_1_ru") }}</th>-->
+              <!--              <th class="min-w-100px">{{ $t("text_1_en") }}</th>-->
               <th class="min-w-100px">{{ $t("text_2_uz") }}</th>
-              <th class="min-w-100px">{{ $t("text_2_ru") }}</th>
-              <th class="min-w-100px">{{ $t("text_2_en") }}</th>
+              <!--              <th class="min-w-100px">{{ $t("text_2_ru") }}</th>-->
+              <!--              <th class="min-w-100px">{{ $t("text_2_en") }}</th>-->
               <th class="min-w-100px">{{ $t("text_3_uz") }}</th>
-              <th class="min-w-100px">{{ $t("text_3_ru") }}</th>
-              <th class="min-w-100px">{{ $t("text_3_en") }}</th>
+              <!--              <th class="min-w-100px">{{ $t("text_3_ru") }}</th>-->
+              <!--              <th class="min-w-100px">{{ $t("text_3_en") }}</th>-->
               <th class="min-w-100px text-end">{{ $t("actions") }}</th>
             </tr>
           </thead>
@@ -190,27 +191,25 @@
                   <!--                  }}</span>-->
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.headerRu }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.headerRu }}</a-->
+                <!--                  >-->
+                <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
+                <!--                    item.ServiceSkills-->
+                <!--                  }}</span>-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.headerEn }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.headerEn }}</a-->
+                <!--                  >-->
+
+                <!--                </td>-->
 
                 <td>
                   <a
@@ -220,21 +219,21 @@
                   >
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.primaryRu }}</a
-                  >
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.primaryRu }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.primaryEn }}</a
-                  >
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.primaryEn }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
                 <td>
                   <a
@@ -242,32 +241,23 @@
                     href="#"
                     >{{ item.textUz }}</a
                   >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.textRu }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.textRu }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.textEn }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.textEn }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
                 <td>
                   <a
@@ -275,32 +265,23 @@
                     href="#"
                     >{{ item.sphereText1Uz }}</a
                   >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.sphereText1Ru }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.sphereText1Ru }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.sphereText1En }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.sphereText1En }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
                 <td>
                   <a
@@ -308,32 +289,23 @@
                     href="#"
                     >{{ item.sphereText2Uz }}</a
                   >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.sphereText2Ru }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.sphereText2Ru }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.sphereText2En }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.sphereText2En }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
                 <td>
                   <a
@@ -341,32 +313,23 @@
                     href="#"
                     >{{ item.sphereText3Uz }}</a
                   >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.sphereText3Ru }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.sphereText3Ru }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.sphereText3En }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.sphereText3En }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
                 <td>
                   <a
@@ -374,32 +337,23 @@
                     href="#"
                     >{{ item.textFirstUz }}</a
                   >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.textFirstRu }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.textFirstRu }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.textFirstEn }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.textFirstEn }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
                 <td>
                   <a
@@ -407,32 +361,23 @@
                     href="#"
                     >{{ item.textSecondUz }}</a
                   >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.textSecondRu }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.textSecondRu }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.textSecondEn }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.textSecondEn }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
                 <td>
                   <a
@@ -440,32 +385,23 @@
                     href="#"
                     >{{ item.textThirdUz }}</a
                   >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
                 </td>
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.textThirdRu }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.textThirdRu }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.textThirdEn }}</a
-                  >
-                  <!--                  <span class="text-muted fw-bold text-muted d-block fs-7">{{-->
-                  <!--                    item.ServiceSkills-->
-                  <!--                  }}</span>-->
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.textThirdEn }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
                 <!--                <td class="text-end">-->
                 <!--                  <div class="d-flex flex-column w-100 me-2">-->
@@ -507,6 +443,24 @@
                   <!--                      />-->
                   <!--                    </span>-->
                   <!--                  </a>-->
+
+                  <a
+                    class="
+                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                      me-1
+                    "
+                    @click="
+                      fillUpdateInputs(item.id);
+                      ServiceModal();
+                      create = 3;
+                    "
+                  >
+                    <span class="svg-icon svg-icon-2x">
+                      <inline-svg
+                        src="/media/icons/duotune/general/gen057.svg"
+                      />
+                    </span>
+                  </a>
 
                   <a
                     class="
@@ -594,6 +548,7 @@ export default defineComponent({
       text: "",
       updateId: -1,
       create: 1,
+      openModal: true,
       // deleteId: 0,
       // deleteIndex: 0,
     };
@@ -624,6 +579,7 @@ export default defineComponent({
       this.updateId = id;
     },
     ServiceModal() {
+      this.openModal = !this.openModal;
       let Element: HTMLElement = document.querySelector(
         ".modal-view button"
       ) as HTMLElement;

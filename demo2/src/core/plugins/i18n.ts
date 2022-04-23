@@ -49,6 +49,7 @@ const messages = {
     new_role: "Yangi ro'l",
     map_x: "X cordinatasi",
     map_y: "Y cordinatasi",
+    bad_request: "Noto'g'ri so'rov",
 
     //start:Pages
     home: "Asosiy sahifa",
@@ -194,6 +195,7 @@ const messages = {
     new_role: "Новая роль",
     map_x: "X координата",
     map_y: "Y координата",
+    bad_request: "Запрос не был отправлен",
 
     //start:Pages
     home: "Главнаяя",
@@ -401,6 +403,7 @@ const messages = {
     new_role: "New role",
     map_x: "X coordinate",
     map_y: "Y coordinate",
+    bad_request: "Bad request",
 
     //start:Pages
     home: "Home",

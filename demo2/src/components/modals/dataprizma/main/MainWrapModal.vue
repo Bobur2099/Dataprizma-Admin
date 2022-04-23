@@ -38,7 +38,7 @@
         <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
           <!--begin::Form-->
           <Form
-            id="kt_modal_new_card_form"
+            id="kt_modal_create_update"
             :validation-schema="validationSchema"
             class="form row"
             @submit="submit"
@@ -82,7 +82,7 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextUz"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid modal-input"
                   name="textUz"
                   type="text"
                 />
@@ -110,7 +110,7 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextRu"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid modal-input"
                   name="textRu"
                   type="text"
                 />
@@ -138,7 +138,7 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextEn"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid modal-input"
                   name="textEn"
                   id="required"
                   type="text"
@@ -157,9 +157,9 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                id="kt_modal_new_card"
+                id="kt_modal_discard"
                 class="btn btn-white me-3 reset"
-                type="reset"
+                @click="clearInputs()"
               >
                 {{ $t("discard") }}
               </button>
@@ -222,10 +222,9 @@
         <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
           <!--begin::Form-->
           <Form
-            id="kt_modal_new_card_form"
+            id="kt_modal_delete"
             :validation-schema="validationSchema"
             class="form"
-            @submit="submit"
           >
             <!--begin::Actions-->
             <div class="text-center pt-15">
@@ -324,7 +323,7 @@ export default defineComponent({
       error: 0,
     };
   },
-  props: ["updateId", "create"],
+  props: ["updateId", "create", "openModal"],
   components: {
     ErrorMessage,
     Field,
@@ -332,6 +331,39 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
+      this.autocompleteFields(newValue);
+    },
+    create(newValue) {
+      if (this.create === 1) {
+        this.clearInputs();
+      }
+    },
+    openModal(newValue) {
+      this.autocompleteFields(this.updateId);
+    },
+  },
+  methods: {
+    fileChosen(e) {
+      this.updateFile = e.target.files;
+      const formCleaner = document.querySelectorAll(".reset")[0];
+
+      function func() {
+        e.target.value = "";
+        formCleaner.removeEventListener("click", func);
+      }
+
+      formCleaner.addEventListener("click", func);
+    },
+    isImage(file) {
+      return (
+        file !== undefined &&
+        (file.name.endsWith(".jpg") ||
+          file.name.endsWith(".jpeg") ||
+          file.name.endsWith(".png") ||
+          file.name.endsWith(".svg"))
+      );
+    },
+    autocompleteFields(newValue) {
       const main_wrap_items = JSON.parse(
         Object(localStorage.getItem("main-wrap"))
       );
@@ -355,30 +387,10 @@ export default defineComponent({
       this.updateTextRu = main_wrap_item.textRu;
       this.updateTextUz = main_wrap_item.textUz;
     },
-    create(newValue) {
-      newValue;
-    },
-  },
-  methods: {
-    fileChosen(e) {
-      this.updateFile = e.target.files;
-      const formCleaner = document.querySelectorAll(".reset")[0];
-
-      function func() {
-        e.target.value = "";
-        formCleaner.removeEventListener("click", func);
-      }
-
-      formCleaner.addEventListener("click", func);
-    },
-    isImage(file) {
-      return (
-        file !== undefined &&
-        (file.name.endsWith(".jpg") ||
-          file.name.endsWith(".jpeg") ||
-          file.name.endsWith(".png") ||
-          file.name.endsWith(".svg"))
-      );
+    clearInputs() {
+      this.updateTextEn = "";
+      this.updateTextRu = "";
+      this.updateTextUz = "";
     },
     createItem(datas) {
       axios
@@ -532,7 +544,7 @@ export default defineComponent({
             confirmButton: "btn btn-primary",
           },
         }).then(() => {
-          hideModal(newCardModalRef.value);
+          // hideModal(newCardModalRef.value);
         });
       }
 
@@ -560,7 +572,7 @@ export default defineComponent({
       if (text === "cancel") {
         hideModal(newCardModalRef.value);
         submitButtonRef.value.disabled = false;
-        submitButtonRef.value?.removeAttribute("data-kt-indicator");
+        // submitButtonRef.value?.removeAttribute("data-kt-indicator");
       }
 
       setTimeout(() => {
@@ -574,7 +586,7 @@ export default defineComponent({
         const responseError = instance?.data.responseError;
 
         if (responseError === 500) {
-          errorAlert("Too much text was given to input");
+          errorAlert("Invalid data was given");
         } else if (responseError === 401) {
           errorAlert("You are not authorized", true);
         }
