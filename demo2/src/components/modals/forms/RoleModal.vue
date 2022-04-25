@@ -100,7 +100,6 @@
               <button
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset create-user-reset"
-                type="reset"
                 @click="clearInputs()"
               >
                 {{ $t("discard") }}
@@ -242,7 +241,7 @@ export default defineComponent({
       error: 0,
     };
   },
-  props: ["updateId", "create"],
+  props: ["updateId", "create", "openModal"],
   components: {
     ErrorMessage,
     Field,
@@ -250,25 +249,13 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
-      const role_items = JSON.parse(Object(localStorage.getItem("roles")));
-      let role_item = {
-        name: "",
-      };
-      for (const item of role_items) {
-        if (item.id === newValue) {
-          role_item = Object(item);
-          for (let property in role_item) {
-            if (role_item[property] === null) {
-              role_item[property] = "";
-            }
-          }
-          break;
-        }
-      }
-      this.name = role_item.name;
+      this.autocompleteFields(newValue);
     },
     create(newValue) {
       newValue;
+    },
+    openModal(newValue) {
+      this.autocompleteFields(this.updateId);
     },
   },
   methods: {
@@ -308,6 +295,24 @@ export default defineComponent({
             this.roleDatas = response.data;
           }
         });
+    },
+    autocompleteFields(newValue) {
+      const role_items = JSON.parse(Object(localStorage.getItem("roles")));
+      let role_item = {
+        name: "",
+      };
+      for (const item of role_items) {
+        if (item.id === newValue) {
+          role_item = Object(item);
+          for (let property in role_item) {
+            if (role_item[property] === null) {
+              role_item[property] = "";
+            }
+          }
+          break;
+        }
+      }
+      this.name = role_item.name;
     },
     clearInputs() {
       this.name = "";

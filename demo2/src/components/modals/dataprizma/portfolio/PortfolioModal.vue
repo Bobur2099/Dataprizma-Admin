@@ -17,7 +17,7 @@
           <h2>
             <span v-if="create == 1"> {{ $t("create") }}</span
             ><span v-if="create == 0"> {{ $t("update") }}</span>
-            {{ $t("portfolio") }} {{ $t("content") }}
+            {{ $t("portfolio") }}
           </h2>
           <!--end::Modal title-->
 
@@ -436,7 +436,7 @@
               <button
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
-                type="reset"
+                @click="clearInputs()"
               >
                 {{ $t("discard") }}
               </button>
@@ -563,8 +563,7 @@
           <!--begin::Modal title-->
           <h2>
             <span>{{ $t("read") }}</span>
-            {{ $t("service") }}
-            {{ $t("content") }}
+            {{ $t("portfolio") }}
           </h2>
           <!--end::Modal title-->
           <!--begin::Close-->
@@ -674,6 +673,37 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
+      this.autocompleteFields(newValue);
+    },
+    create(newValue) {
+      newValue;
+    },
+    openModal(newValue) {
+      this.autocompleteFields(this.updateId);
+    },
+  },
+  methods: {
+    fileChosen(e) {
+      this.updateFile = e.target.files;
+      const formCleaner = document.querySelectorAll(".reset")[0];
+
+      function func() {
+        e.target.value = "";
+        formCleaner.removeEventListener("click", func);
+      }
+
+      formCleaner.addEventListener("click", func);
+    },
+    isImage(file) {
+      return (
+        file !== undefined &&
+        (file.name.endsWith(".jpg") ||
+          file.name.endsWith(".jpeg") ||
+          file.name.endsWith(".png") ||
+          file.name.endsWith(".svg"))
+      );
+    },
+    autocompleteFields(newValue) {
       const portfolio_items = JSON.parse(
         Object(localStorage.getItem("portfolio"))
       );
@@ -736,30 +766,20 @@ export default defineComponent({
       this.updateEndDate = updateEndDate;
       this.datas.endDate = portfolio_item.startDate;
     },
-    create(newValue) {
-      newValue;
-    },
-  },
-  methods: {
-    fileChosen(e) {
-      this.updateFile = e.target.files;
-      const formCleaner = document.querySelectorAll(".reset")[0];
-
-      function func() {
-        e.target.value = "";
-        formCleaner.removeEventListener("click", func);
-      }
-
-      formCleaner.addEventListener("click", func);
-    },
-    isImage(file) {
-      return (
-        file !== undefined &&
-        (file.name.endsWith(".jpg") ||
-          file.name.endsWith(".jpeg") ||
-          file.name.endsWith(".png") ||
-          file.name.endsWith(".svg"))
-      );
+    clearInputs() {
+      this.updateHeaderUz = "";
+      this.updateHeaderRu = "";
+      this.updateHeaderEn = "";
+      this.updateTextUz = "";
+      this.updateTextRu = "";
+      this.updateTextEn = "";
+      this.updateBudget = "";
+      this.updateLocation = "";
+      this.updateClientNameUz = "";
+      this.updateClientNameRu = "";
+      this.updateClientNameEn = "";
+      this.updateStartDate = "";
+      this.updateEndDate = "";
     },
     createItem(datas) {
       axios

@@ -15,9 +15,9 @@
         <div class="modal-header">
           <!--begin::Modal title-->
           <h2>
-            <span v-if="create == 1">{{ $t("create") }}</span
-            ><span v-if="create == 0">{{ $t("update") }}</span>
-            {{ $t("main_wrap") }} {{ $t("content") }}
+            <span v-if="create === 1">{{ $t("create") }}</span
+            ><span v-if="create === 0">{{ $t("update") }}</span>
+            {{ $t("main_wrap") }}
           </h2>
           <!--end::Modal title-->
 

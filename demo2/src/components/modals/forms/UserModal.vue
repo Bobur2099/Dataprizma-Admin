@@ -131,7 +131,7 @@
               <button
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset create-user-reset"
-                type="reset"
+                @click="clearInputs()"
               >
                 {{ $t("discard") }}
               </button>
@@ -273,7 +273,7 @@ export default defineComponent({
       error: 0,
     };
   },
-  props: ["updateId", "create"],
+  props: ["updateId", "create", "openModal"],
   components: {
     ErrorMessage,
     Field,
@@ -281,33 +281,13 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
-      const user_items = JSON.parse(Object(localStorage.getItem("users")));
-      let user_item = {
-        email: "",
-        password: "",
-        roleId: "",
-        empty: true,
-      };
-      for (const item of user_items) {
-        if (item.id === newValue) {
-          user_item = Object(item);
-          for (let property in user_item) {
-            if (user_item[property] === null) {
-              user_item[property] = "";
-            }
-          }
-          break;
-        }
-      }
-      this.email = user_item.email;
-      this.password = user_item.password;
-      this.roleId = Number(user_item.roleId);
-      if (user_item.empty) {
-        this.roleId = -1;
-      }
+      this.autocompleteFields(newValue);
     },
     create(newValue) {
       newValue;
+    },
+    openModal(newValue) {
+      this.autocompleteFields(this.updateId);
     },
   },
   methods: {
@@ -347,6 +327,37 @@ export default defineComponent({
             this.roleDatas = response.data;
           }
         });
+    },
+    autocompleteFields(newValue) {
+      const user_items = JSON.parse(Object(localStorage.getItem("users")));
+      let user_item = {
+        email: "",
+        password: "",
+        roleId: "",
+        empty: true,
+      };
+      for (const item of user_items) {
+        if (item.id === newValue) {
+          user_item = Object(item);
+          for (let property in user_item) {
+            if (user_item[property] === null) {
+              user_item[property] = "";
+            }
+          }
+          break;
+        }
+      }
+      this.email = user_item.email;
+      this.password = user_item.password;
+      this.roleId = Number(user_item.roleId);
+      if (user_item.empty) {
+        this.roleId = -1;
+      }
+    },
+    clearInputs() {
+      this.email = "";
+      this.password = "";
+      this.roleId = -1;
     },
     createItem(datas) {
       axios

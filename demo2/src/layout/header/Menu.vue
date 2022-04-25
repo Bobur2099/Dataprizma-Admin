@@ -46,8 +46,8 @@
                   @click="navigate"
                 >
                   <span class="menu-title">{{
-                      translate(menuItem.heading)
-                    }}</span>
+                    translate(menuItem.heading)
+                  }}</span>
                 </a>
               </router-link>
             </div>
@@ -101,8 +101,8 @@
                     </span>
                   </span>
                   <span class="menu-title">{{
-                      translate(menuItem.sectionTitle)
-                    }}</span>
+                    translate(menuItem.sectionTitle)
+                  }}</span>
                   <span class="menu-arrow"></span>
                 </span>
                 <div
@@ -130,8 +130,8 @@
                           <span class="bullet bullet-dot"></span>
                         </span>
                         <span class="menu-title">{{
-                            translate(menuItem1.sectionTitle)
-                          }}</span>
+                          translate(menuItem1.sectionTitle)
+                        }}</span>
                         <span class="menu-arrow"></span>
                       </span>
                       <div
@@ -158,8 +158,8 @@
                                 <span class="bullet bullet-dot"></span>
                               </span>
                               <span class="menu-title">{{
-                                  translate(menuItem2.heading)
-                                }}</span>
+                                translate(menuItem2.heading)
+                              }}</span>
                             </router-link>
                           </div>
                         </template>
@@ -171,8 +171,8 @@
                           <span class="bullet bullet-dot"></span>
                         </span>
                         <span class="menu-title">{{
-                            translate(menuItem1.heading)
-                          }}</span>
+                          translate(menuItem1.heading)
+                        }}</span>
                       </router-link>
                     </div>
                   </template>
@@ -188,8 +188,8 @@
                     </span>
                   </span>
                   <span class="menu-title">{{
-                      translate(menuItem.heading)
-                    }}</span>
+                    translate(menuItem.heading)
+                  }}</span>
                 </router-link>
               </div>
             </template>
@@ -477,9 +477,9 @@
 
 <style lang="scss" scoped>
 .header-fixed:not([data-kt-sticky-header="on"])
-.menu-item
-> a
-> .menu-link.active {
+  .menu-item
+  > a
+  > .menu-link.active {
   transition: color 0.2s ease, background-color 0.2s ease;
   background-color: rgba(255, 255, 255, 0.1);
   color: #fff;
@@ -543,8 +543,8 @@ export default defineComponent({
       headerMenuIcons,
       MainMenuConfig,
       translate,
-      version
+      version,
     };
-  }
+  },
 });
 </script>

@@ -19,10 +19,10 @@ class ApiService {
   public static init(app: App<Element>) {
     ApiService.vueInstance = app;
     ApiService.vueInstance.use(VueAxios, axios);
-    // ApiService.vueInstance.axios.defaults.baseURL =
-    //   "http://siteapi.dataprizma.uz/api/v1/";
     ApiService.vueInstance.axios.defaults.baseURL =
-      "http://localhost:8084/api/v1/";
+      "http://siteapi.dataprizma.uz/api/v1/";
+    // ApiService.vueInstance.axios.defaults.baseURL =
+    //   "http://localhost:8084/api/v1/";
   }
 
   /**

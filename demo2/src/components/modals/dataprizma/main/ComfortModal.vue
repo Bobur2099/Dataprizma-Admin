@@ -17,7 +17,7 @@
           <h2>
             <span v-if="create === 1"> {{ $t("create") }}</span
             ><span v-if="create === 0"> {{ $t("update") }}</span>
-            {{ $t("comfort") }} {{ $t("main") }} {{ $t("content") }}
+            {{ $t("comfort") }}
           </h2>
           <!--end::Modal title-->
 
@@ -174,6 +174,12 @@
                   name="textUz"
                   type="text"
                 />
+                <!--                <textarea-->
+                <!--                  class="form-control form-control-solid"-->
+                <!--                  v-model="updateTextUz"-->
+                <!--                  name="textUz"-->
+                <!--                  style="height: 250px"-->
+                <!--                ></textarea>-->
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textUz" />
@@ -246,7 +252,7 @@
               <button
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
-                type="reset"
+                @click="clearInputs"
               >
                 {{ $t("discard") }}
               </button>
@@ -401,6 +407,45 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
+      this.autocompleteFields(newValue);
+    },
+    create(newValue) {
+      newValue;
+    },
+    openModal(newValue) {
+      this.autocompleteFields(this.updateId);
+    },
+  },
+  methods: {
+    fileChosen(e) {
+      this.updateFile = e.target.files;
+      const formCleaner = document.querySelectorAll(".reset")[0];
+
+      function func() {
+        e.target.value = "";
+        formCleaner.removeEventListener("click", func);
+      }
+
+      formCleaner.addEventListener("click", func);
+    },
+    isImage(file) {
+      return (
+        file !== undefined &&
+        (file.name.endsWith(".jpg") ||
+          file.name.endsWith(".jpeg") ||
+          file.name.endsWith(".png") ||
+          file.name.endsWith(".svg"))
+      );
+    },
+    clearInputs() {
+      this.updateHeaderEn = "";
+      this.updateHeaderRu = "";
+      this.updateHeaderUz = "";
+      this.updateTextEn = "";
+      this.updateTextRu = "";
+      this.updateTextUz = "";
+    },
+    autocompleteFields(newValue) {
       const comfort_items = JSON.parse(Object(localStorage.getItem("comfort")));
       let comfort_item = {
         headerEn: "",
@@ -427,31 +472,6 @@ export default defineComponent({
       this.updateTextEn = comfort_item.textEn;
       this.updateTextRu = comfort_item.textRu;
       this.updateTextUz = comfort_item.textUz;
-    },
-    create(newValue) {
-      newValue;
-    },
-  },
-  methods: {
-    fileChosen(e) {
-      this.updateFile = e.target.files;
-      const formCleaner = document.querySelectorAll(".reset")[0];
-
-      function func() {
-        e.target.value = "";
-        formCleaner.removeEventListener("click", func);
-      }
-
-      formCleaner.addEventListener("click", func);
-    },
-    isImage(file) {
-      return (
-        file !== undefined &&
-        (file.name.endsWith(".jpg") ||
-          file.name.endsWith(".jpeg") ||
-          file.name.endsWith(".png") ||
-          file.name.endsWith(".svg"))
-      );
     },
     createItem(datas) {
       axios

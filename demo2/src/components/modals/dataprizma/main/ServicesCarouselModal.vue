@@ -17,8 +17,7 @@
           <h2>
             <span v-if="create === 1"> {{ $t("create") }}</span
             ><span v-if="create === 0"> {{ $t("update") }}</span>
-            {{ $t("service") }} {{ $t("carousel") }} {{ $t("main") }}
-            {{ $t("content") }}
+            {{ $t("service") }} {{ $t("carousel") }}
           </h2>
           <!--end::Modal title-->
 
@@ -246,7 +245,7 @@
               <button
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
-                type="reset"
+                @click="clearInputs"
               >
                 {{ $t("discard") }}
               </button>
@@ -401,6 +400,37 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
+      this.autocompleteFields(newValue);
+    },
+    create(newValue) {
+      newValue;
+    },
+    openModal(newValue) {
+      this.autocompleteFields(this.updateId);
+    },
+  },
+  methods: {
+    fileChosen(e) {
+      this.updateFile = e.target.files;
+      const formCleaner = document.querySelectorAll(".reset")[0];
+
+      function func() {
+        e.target.value = "";
+        formCleaner.removeEventListener("click", func);
+      }
+
+      formCleaner.addEventListener("click", func);
+    },
+    isImage(file) {
+      return (
+        file !== undefined &&
+        (file.name.endsWith(".jpg") ||
+          file.name.endsWith(".jpeg") ||
+          file.name.endsWith(".png") ||
+          file.name.endsWith(".svg"))
+      );
+    },
+    autocompleteFields(newValue) {
       const service_carousel_items = JSON.parse(
         Object(localStorage.getItem("serCarousel"))
       );
@@ -430,30 +460,13 @@ export default defineComponent({
       this.updateTextRu = service_carousel_item.textRu;
       this.updateTextUz = service_carousel_item.textUz;
     },
-    create(newValue) {
-      newValue;
-    },
-  },
-  methods: {
-    fileChosen(e) {
-      this.updateFile = e.target.files;
-      const formCleaner = document.querySelectorAll(".reset")[0];
-
-      function func() {
-        e.target.value = "";
-        formCleaner.removeEventListener("click", func);
-      }
-
-      formCleaner.addEventListener("click", func);
-    },
-    isImage(file) {
-      return (
-        file !== undefined &&
-        (file.name.endsWith(".jpg") ||
-          file.name.endsWith(".jpeg") ||
-          file.name.endsWith(".png") ||
-          file.name.endsWith(".svg"))
-      );
+    clearInputs() {
+      this.updateHeaderEn = "";
+      this.updateHeaderRu = "";
+      this.updateHeaderUz = "";
+      this.updateTextEn = "";
+      this.updateTextRu = "";
+      this.updateTextUz = "";
     },
     createItem(datas) {
       axios

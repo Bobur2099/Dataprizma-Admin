@@ -17,8 +17,7 @@
           <h2>
             <span v-if="create === 1"> {{ $t("create") }}</span
             ><span v-if="create === 0"> {{ $t("update") }}</span>
-            {{ $t("review") }} {{ $t("carousel") }} {{ $t("main") }}
-            {{ $t("content") }}
+            {{ $t("review") }} {{ $t("carousel") }}
           </h2>
           <!--end::Modal title-->
 
@@ -330,7 +329,7 @@
               <button
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
-                type="reset"
+                @click="clearInputs()"
               >
                 {{ $t("discard") }}
               </button>
@@ -458,7 +457,6 @@
           <h2>
             <span>{{ $t("read") }}</span>
             {{ $t("review_carousel") }}
-            {{ $t("content") }}
           </h2>
           <!--end::Modal title-->
           <!--begin::Close-->
@@ -560,6 +558,37 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
+      this.autocompleteFields(newValue);
+    },
+    create(newValue) {
+      newValue;
+    },
+    openModal(newValue) {
+      this.autocompleteFields(this.updateId);
+    },
+  },
+  methods: {
+    fileChosen(e) {
+      this.updateFile = e.target.files;
+      const formCleaner = document.querySelectorAll(".reset")[0];
+
+      function func() {
+        e.target.value = "";
+        formCleaner.removeEventListener("click", func);
+      }
+
+      formCleaner.addEventListener("click", func);
+    },
+    isImage(file) {
+      return (
+        file !== undefined &&
+        (file.name.endsWith(".jpg") ||
+          file.name.endsWith(".jpeg") ||
+          file.name.endsWith(".png") ||
+          file.name.endsWith(".svg"))
+      );
+    },
+    autocompleteFields(newValue) {
       const review_carousel_items = JSON.parse(
         Object(localStorage.getItem("revCarousel"))
       );
@@ -604,30 +633,16 @@ export default defineComponent({
       this.updateTextEn = review_carousel_item.textEn;
       this.datas.textEn = review_carousel_item.textEn;
     },
-    create(newValue) {
-      newValue;
-    },
-  },
-  methods: {
-    fileChosen(e) {
-      this.updateFile = e.target.files;
-      const formCleaner = document.querySelectorAll(".reset")[0];
-
-      function func() {
-        e.target.value = "";
-        formCleaner.removeEventListener("click", func);
-      }
-
-      formCleaner.addEventListener("click", func);
-    },
-    isImage(file) {
-      return (
-        file !== undefined &&
-        (file.name.endsWith(".jpg") ||
-          file.name.endsWith(".jpeg") ||
-          file.name.endsWith(".png") ||
-          file.name.endsWith(".svg"))
-      );
+    clearInputs() {
+      this.updateAuthorUz = "";
+      this.updateAuthorRu = "";
+      this.updateAuthorEn = "";
+      this.updatePositionUz = "";
+      this.updatePositionRu = "";
+      this.updatePositionEn = "";
+      this.updateTextUz = "";
+      this.updateTextRu = "";
+      this.updateTextEn = "";
     },
     createItem(datas) {
       axios

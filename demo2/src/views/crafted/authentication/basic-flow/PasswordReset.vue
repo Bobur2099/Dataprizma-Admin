@@ -81,6 +81,7 @@ import * as Yup from "yup";
 import { Actions } from "@/store/enums/StoreEnums";
 import Swal from "sweetalert2/dist/sweetalert2.min.js";
 import { useI18n } from "vue-i18n";
+import { setLocale } from "yup";
 
 export default defineComponent({
   name: "password-reset",
@@ -107,6 +108,12 @@ export default defineComponent({
       ? (localStorage.getItem("lang") as string)
       : "en";
 
+    setLocale({
+      mixed: {
+        required: i18n.t("forms_validation_required"),
+      },
+    });
+
     const countries = {
       en: {
         flag: "/media/flags/united-states.svg",
@@ -126,7 +133,7 @@ export default defineComponent({
 
     //Create form validation object
     const forgotPassword = Yup.object().shape({
-      email: Yup.string().email().required().label("Email"),
+      email: Yup.string().email().required(),
     });
 
     //Form submit function

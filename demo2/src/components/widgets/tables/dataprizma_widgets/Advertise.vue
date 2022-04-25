@@ -41,9 +41,9 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bolder fs-3 mb-1"
-          >{{ $t("advertise") }} {{ $t("section") }} {{ $t("items") }}</span
-        >
+        <span class="card-label fw-bolder fs-3 mb-1">{{
+          $t("advertise")
+        }}</span>
 
         <!--        <span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>-->
       </h3>

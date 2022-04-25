@@ -122,6 +122,7 @@ const messages = {
 
     //start:Actions
     create: "Yaratish",
+    read: "O'qish",
     update: "Yangilash",
     delete: "O'chirish",
     //end:Actions
@@ -145,8 +146,9 @@ const messages = {
     //end:Widgets
 
     //start:Forms
-    forms_validation_required: "Buni to'ldirish shart",
-    forms_validation_file: "File is required",
+    forms_validation_required: "Maydonni to'ldirish shart",
+    forms_validation_file: "Fayl talab qilinadi",
+    forms_validation_email: "Haqiqiy elektron pochta bo'lishi kerak",
     //end:Forms
   },
   ru: {
@@ -188,7 +190,7 @@ const messages = {
     code: "Код",
     add_new_role: "Добавить новую роль",
     add_new_member: "Добавить нового пользователя",
-    role: "Привелегия",
+    role: "Привелегию",
     choose_the_role: "Выберите роль",
     new_member: "Навый пользователь",
     member: "Пользователя",
@@ -268,6 +270,7 @@ const messages = {
 
     //start:Actions
     create: "Создать",
+    read: "Чтение",
     update: "Изменить",
     delete: "Удалить",
     //end:Actions
@@ -291,8 +294,9 @@ const messages = {
     //end:Widgets
 
     //start:Forms
-    forms_validation_required: "Buni to'ldirish shart",
-    forms_validation_file: "File is required",
+    forms_validation_required: "Это поле обязательное",
+    forms_validation_file: "Файл обязательный",
+    forms_validation_email: "Электронная почта должна быть действительной",
     //end:Forms
   },
   en: {
@@ -476,6 +480,7 @@ const messages = {
 
     //start:Actions
     create: "Create",
+    read: "Read",
     update: "Update",
     delete: "Delete",
     //end:Actions
@@ -502,6 +507,7 @@ const messages = {
     //start:Forms
     forms_validation_required: "This field is required",
     forms_validation_file: "File is required",
+    forms_validation_email: "Email must be a valid email",
     //end:Forms
   },
   es: {

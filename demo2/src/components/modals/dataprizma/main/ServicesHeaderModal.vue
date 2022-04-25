@@ -17,8 +17,7 @@
           <h2>
             <span v-if="create === 1">{{ $t("create") }}</span
             ><span v-if="create === 0">{{ $t("update") }}</span>
-            {{ $t("service") }} {{ $t("header") }} {{ $t("main") }}
-            {{ $t("content") }}
+            {{ $t("service") }} {{ $t("header") }}
           </h2>
           <!--end::Modal title-->
 
@@ -217,7 +216,7 @@
               <button
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
-                type="reset"
+                @click="clearInputs"
               >
                 {{ $t("discard") }}
               </button>
@@ -371,6 +370,17 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
+      this.autocompleteFields(newValue);
+    },
+    create(newValue) {
+      newValue;
+    },
+    openModal(newValue) {
+      this.autocompleteFields(this.updateId);
+    },
+  },
+  methods: {
+    autocompleteFields(newValue) {
       const service_header_items = JSON.parse(
         Object(localStorage.getItem("servicesHeader"))
       );
@@ -400,11 +410,14 @@ export default defineComponent({
       this.updateTopicRu = service_header_item.topicRu;
       this.updateTopicUz = service_header_item.topicUz;
     },
-    create(newValue) {
-      newValue;
+    clearInputs() {
+      this.updateHeaderEn = "";
+      this.updateHeaderRu = "";
+      this.updateHeaderUz = "";
+      this.updateTopicEn = "";
+      this.updateTopicRu = "";
+      this.updateTopicUz = "";
     },
-  },
-  methods: {
     createItem(datas) {
       axios
         .post(`services/create`, datas, {

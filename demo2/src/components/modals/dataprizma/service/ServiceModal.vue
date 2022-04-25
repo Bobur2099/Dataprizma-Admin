@@ -16,8 +16,8 @@
           <!--begin::Modal title-->
           <h2>
             <span v-if="create === 1"> {{ $t("create") }}</span
-            ><span v-if="create === 0"> {{ $t("update") }}</span> Dataprizma
-            {{ $t("service") }} {{ $t("content") }}
+            ><span v-if="create === 0"> {{ $t("update") }}</span>
+            {{ $t("service") }}
           </h2>
           <!--end::Modal title-->
 
@@ -829,7 +829,7 @@
               <button
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
-                type="reset"
+                @click="clearInputs()"
               >
                 {{ $t("discard") }}
               </button>
@@ -957,7 +957,6 @@
           <h2>
             <span>{{ $t("read") }}</span>
             {{ $t("service") }}
-            {{ $t("content") }}
           </h2>
           <!--end::Modal title-->
           <!--begin::Close-->
@@ -1095,6 +1094,37 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
+      this.autocompleteFields(newValue);
+    },
+    create(newValue) {
+      newValue;
+    },
+    openModal(newValue) {
+      this.autocompleteFields(this.updateId);
+    },
+  },
+  methods: {
+    fileChosen(e) {
+      this.updateFile = e.target.files;
+      const formCleaner = document.querySelectorAll(".reset")[0];
+
+      function func() {
+        e.target.value = "";
+        formCleaner.removeEventListener("click", func);
+      }
+
+      formCleaner.addEventListener("click", func);
+    },
+    isImage(file) {
+      return (
+        file !== undefined &&
+        (file.name.endsWith(".jpg") ||
+          file.name.endsWith(".jpeg") ||
+          file.name.endsWith(".png") ||
+          file.name.endsWith(".svg"))
+      );
+    },
+    autocompleteFields(newValue) {
       const service_items = JSON.parse(Object(localStorage.getItem("service")));
       let service_item = {
         headerEn: "",
@@ -1199,30 +1229,42 @@ export default defineComponent({
       this.updateTextThirdEn = service_item.textThirdEn;
       this.datas.textThirdEn = service_item.textThirdEn;
     },
-    create(newValue) {
-      newValue;
-    },
-  },
-  methods: {
-    fileChosen(e) {
-      this.updateFile = e.target.files;
-      const formCleaner = document.querySelectorAll(".reset")[0];
+    clearInputs() {
+      this.updateHeaderUz = "";
+      this.updateHeaderRu = "";
+      this.updateHeaderEn = "";
 
-      function func() {
-        e.target.value = "";
-        formCleaner.removeEventListener("click", func);
-      }
+      this.updatePrimaryUz = "";
+      this.updatePrimaryRu = "";
+      this.updatePrimaryEn = "";
 
-      formCleaner.addEventListener("click", func);
-    },
-    isImage(file) {
-      return (
-        file !== undefined &&
-        (file.name.endsWith(".jpg") ||
-          file.name.endsWith(".jpeg") ||
-          file.name.endsWith(".png") ||
-          file.name.endsWith(".svg"))
-      );
+      this.updateTextUz = "";
+      this.updateTextRu = "";
+      this.updateTextEn = "";
+
+      this.updateSphereText1Uz = "";
+      this.updateSphereText1Ru = "";
+      this.updateSphereText1En = "";
+
+      this.updateSphereText2Uz = "";
+      this.updateSphereText2Ru = "";
+      this.updateSphereText2En = "";
+
+      this.updateSphereText3Uz = "";
+      this.updateSphereText3Ru = "";
+      this.updateSphereText3En = "";
+
+      this.updateTextFirstUz = "";
+      this.updateTextFirstRu = "";
+      this.updateTextFirstEn = "";
+
+      this.updateTextSecondUz = "";
+      this.updateTextSecondRu = "";
+      this.updateTextSecondEn = "";
+
+      this.updateTextThirdUz = "";
+      this.updateTextThirdRu = "";
+      this.updateTextThirdEn = "";
     },
     createItem(datas) {
       axios

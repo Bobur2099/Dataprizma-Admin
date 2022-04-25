@@ -42,7 +42,7 @@
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
         <span class="card-label fw-bolder fs-3 mb-1">
-          {{ $t("portfolio") }} {{ $t("page") }} {{ $t("items") }}</span
+          {{ $t("portfolio") }}</span
         >
 
         <!--        <span class="text-muted mt-1 fw-bold fs-7">Over 500 members</span>-->
@@ -102,7 +102,7 @@
               <th class="min-w-140px">{{ $t("header_uz") }}</th>
               <!--&lt;!&ndash;              <th class="min-w-140px">{{ $t("header_ru") }}</th>&ndash;&gt;-->
               <!--&lt;!&ndash;              <th class="min-w-140px">{{ $t("header_en") }}</th>&ndash;&gt;-->
-              <th class="min-w-140px">{{ $t("text_uz") }}</th>
+              <!--              <th class="min-w-140px">{{ $t("text_uz") }}</th>-->
               <!--              <th class="min-w-140px">{{ $t("text_ru") }}</th>-->
               <!--              <th class="min-w-140px">{{ $t("text_en") }}</th>-->
               <th class="min-w-140px">{{ $t("budget") }}</th>
@@ -190,13 +190,13 @@
                 <!--                  >-->
                 <!--                </td>-->
 
-                <td>
-                  <a
-                    class="text-dark fw-bolder text-hover-primary d-block fs-6"
-                    href="#"
-                    >{{ item.textUz }}</a
-                  >
-                </td>
+                <!--                <td>-->
+                <!--                  <a-->
+                <!--                    class="text-dark fw-bolder text-hover-primary d-block fs-6"-->
+                <!--                    href="#"-->
+                <!--                    >{{ item.textUz }}</a-->
+                <!--                  >-->
+                <!--                </td>-->
 
                 <!--                <td>-->
                 <!--                  <a-->

@@ -16,8 +16,8 @@
           <!--begin::Modal title-->
           <h2>
             <span v-if="create == 1"> {{ $t("create") }}</span
-            ><span v-if="create == 0"> {{ $t("update") }}</span> Dataprizma
-            {{ $t("about") }} {{ $t("content") }}
+            ><span v-if="create == 0"> {{ $t("update") }}</span>
+            {{ $t("about") }}
           </h2>
           <!--end::Modal title-->
 

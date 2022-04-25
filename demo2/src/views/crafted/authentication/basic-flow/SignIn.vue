@@ -223,6 +223,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import requests from "@/request/dataprizma_request_links/request_links";
 import { useI18n } from "vue-i18n";
+import { setLocale } from "yup";
 
 export default defineComponent({
   name: "sign-in",
@@ -264,6 +265,15 @@ export default defineComponent({
       ? (localStorage.getItem("lang") as string)
       : "en";
 
+    setLocale({
+      mixed: {
+        required: i18n.t("forms_validation_required"),
+      },
+      string: {
+        email: i18n.t("forms_validation_email"),
+      },
+    });
+
     const countries = {
       en: {
         flag: "media/flags/united-states.svg",
@@ -300,8 +310,10 @@ export default defineComponent({
 
     //Create form validation object
     const login = Yup.object().shape({
-      email: Yup.string().email().required().label("Email"),
-      password: Yup.string().min(4).required().label("Password"),
+      email: Yup.string()
+        .email(i18n.t("forms_validation_email"))
+        .required(i18n.t("forms_validation_required")),
+      password: Yup.string().required(i18n.t("forms_validation_required")),
     });
 
     //Form submit function
@@ -384,6 +396,7 @@ export default defineComponent({
     const setLang = (lang) => {
       localStorage.setItem("lang", lang);
       i18n.locale.value = lang;
+      location.reload();
     };
 
     const currentLanguage = (lang) => {

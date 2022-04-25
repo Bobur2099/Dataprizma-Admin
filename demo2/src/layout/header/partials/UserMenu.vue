@@ -35,8 +35,8 @@
           <!--            >-->
           <!--          </div>-->
           <a class="fw-bold text-muted text-hover-primary fs-7" href="#">{{
-              email
-            }}</a>
+            email
+          }}</a>
         </div>
         <!--end::Username-->
       </div>
@@ -372,7 +372,7 @@ export default defineComponent({
   components: {},
   data() {
     return {
-      email: ""
+      email: "",
     };
   },
   mounted() {
@@ -394,32 +394,32 @@ export default defineComponent({
     const countries = {
       en: {
         flag: "/media/flags/united-states.svg",
-        name: "English"
+        name: "English",
       },
       es: {
         flag: "media/flags/spain.svg",
-        name: "Spanish"
+        name: "Spanish",
       },
       de: {
         flag: "media/flags/germany.svg",
-        name: "German"
+        name: "German",
       },
       ja: {
         flag: "media/flags/japan.svg",
-        name: "Japanese"
+        name: "Japanese",
       },
       fr: {
         flag: "media/flags/france.svg",
-        name: "French"
+        name: "French",
       },
       uz: {
         flag: "/media/flags/uzbekistan.svg",
-        name: "O'zbek"
+        name: "O'zbek",
       },
       ru: {
         flag: "/media/flags/russia.svg",
-        name: "Русский"
-      }
+        name: "Русский",
+      },
     };
 
     const signOut = () => {
@@ -431,6 +431,7 @@ export default defineComponent({
     const setLang = (lang) => {
       localStorage.setItem("lang", lang);
       i18n.locale.value = lang;
+      location.reload();
     };
 
     const currentLanguage = (lang) => {
@@ -446,8 +447,8 @@ export default defineComponent({
       setLang,
       currentLanguage,
       currentLangugeLocale,
-      countries
+      countries,
     };
-  }
+  },
 });
 </script>

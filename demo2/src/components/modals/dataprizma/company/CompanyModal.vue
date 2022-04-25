@@ -16,8 +16,8 @@
           <!--begin::Modal title-->
           <h2>
             <span v-if="create === 1"> {{ $t("create") }}</span
-            ><span v-if="create === 0"> {{ $t("update") }}</span> Dataprizma
-            {{ $t("company") }} {{ $t("content") }}
+            ><span v-if="create === 0"> {{ $t("update") }}</span>
+            {{ $t("company") }}
           </h2>
           <!--end::Modal title-->
 
@@ -242,7 +242,7 @@
               <button
                 id="kt_modal_new_card"
                 class="btn btn-white me-3 reset"
-                type="reset"
+                @click="clearInputs()"
               >
                 {{ $t("discard") }}
               </button>
@@ -407,6 +407,37 @@ export default defineComponent({
   },
   watch: {
     updateId(newValue) {
+      this.autocompleteFields(newValue);
+    },
+    create(newValue) {
+      newValue;
+    },
+    openModal(newValue) {
+      this.autocompleteFields(this.updateId);
+    },
+  },
+  methods: {
+    fileChosen(e) {
+      this.updateFile = e.target.files;
+      const formCleaner = document.querySelectorAll(".reset")[0];
+
+      function func() {
+        e.target.value = "";
+        formCleaner.removeEventListener("click", func);
+      }
+
+      formCleaner.addEventListener("click", func);
+    },
+    isImage(file) {
+      return (
+        file !== undefined &&
+        (file.name.endsWith(".jpg") ||
+          file.name.endsWith(".jpeg") ||
+          file.name.endsWith(".png") ||
+          file.name.endsWith(".svg"))
+      );
+    },
+    autocompleteFields(newValue) {
       const company_items = JSON.parse(Object(localStorage.getItem("company")));
       let company_item = {
         email: "",
@@ -436,30 +467,14 @@ export default defineComponent({
       this.updateMapX = company_item.x;
       this.updateMapY = company_item.y;
     },
-    create(newValue) {
-      newValue;
-    },
-  },
-  methods: {
-    fileChosen(e) {
-      this.updateFile = e.target.files;
-      const formCleaner = document.querySelectorAll(".reset")[0];
-
-      function func() {
-        e.target.value = "";
-        formCleaner.removeEventListener("click", func);
-      }
-
-      formCleaner.addEventListener("click", func);
-    },
-    isImage(file) {
-      return (
-        file !== undefined &&
-        (file.name.endsWith(".jpg") ||
-          file.name.endsWith(".jpeg") ||
-          file.name.endsWith(".png") ||
-          file.name.endsWith(".svg"))
-      );
+    clearInputs() {
+      this.updateEmail = "";
+      this.updatePhone = "";
+      this.updateAddressUz = "";
+      this.updateAddressRu = "";
+      this.updateAddressEn = "";
+      this.updateMapX = "";
+      this.updateMapY = "";
     },
     createItem(datas) {
       axios
@@ -587,6 +602,9 @@ export default defineComponent({
     setLocale({
       mixed: {
         required: i18n.t("forms_validation_required"),
+      },
+      string: {
+        email: i18n.t("forms_validation_email"),
       },
     });
 
