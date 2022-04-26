@@ -249,10 +249,14 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateParagraphUz"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="paragraphUz"
                   type="text"
-                />
+                /><textarea
+                  class="form-control form-control-solid"
+                  v-model="updateParagraphUz"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="paragraphUz" />
@@ -277,10 +281,14 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateParagraphRu"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="paragraphRu"
                   type="text"
-                />
+                /><textarea
+                  class="form-control form-control-solid"
+                  v-model="updateParagraphRu"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="paragraphRu" />
@@ -305,10 +313,14 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateParagraphEn"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="paragraphEn"
                   type="text"
-                />
+                /><textarea
+                  class="form-control form-control-solid"
+                  v-model="updateParagraphEn"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="paragraphEn" />
@@ -333,10 +345,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updatePrimaryTextUz"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="primaryTextUz"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updatePrimaryTextUz"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="primaryTextUz" />
@@ -361,10 +378,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updatePrimaryTextRu"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="primaryTextRu"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updatePrimaryTextRu"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="primaryTextRu" />
@@ -389,10 +411,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updatePrimaryTextEn"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="primaryTextEn"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updatePrimaryTextEn"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="primaryTextEn" />
@@ -565,7 +592,7 @@
                 index !== 'file' && index !== 'id' && index !== 'uploadPath'
               "
             >
-              {{ index }}
+              {{ $t(index) }}
             </label>
             <!--end::Label-->
             <div
@@ -986,3 +1013,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+textarea {
+  height: 250px;
+  resize: none;
+}
+</style>

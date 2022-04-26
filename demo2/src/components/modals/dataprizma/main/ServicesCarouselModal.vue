@@ -169,10 +169,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextUz"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textUz"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextUz"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textUz" />
@@ -197,10 +202,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextRu"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textRu"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextRu"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textRu" />
@@ -225,10 +235,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextEn"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textEn"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextEn"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textEn" />
@@ -693,3 +708,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+textarea {
+  height: 250px;
+  resize: none;
+}
+</style>

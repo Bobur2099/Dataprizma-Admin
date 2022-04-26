@@ -165,10 +165,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updatePrimaryUz"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="primaryUz"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updatePrimaryUz"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="primaryUz" />
@@ -193,10 +198,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updatePrimaryRu"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="primaryRu"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updatePrimaryRu"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="primaryRu" />
@@ -221,10 +231,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updatePrimaryEn"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="primaryEn"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updatePrimaryEn"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="primaryEn" />
@@ -249,10 +264,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextUz"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textUz"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextUz"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textUz" />
@@ -277,10 +297,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextRu"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textRu"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextRu"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textRu" />
@@ -305,10 +330,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextEn"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textEn"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextEn"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textEn" />
@@ -333,10 +363,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateSphereText1Uz"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="sphereText1Uz"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateSphereText1Uz"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="sphereText1Uz" />
@@ -361,10 +396,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateSphereText1Ru"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="sphereText1Ru"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateSphereText1Ru"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="sphereText1Ru" />
@@ -389,10 +429,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateSphereText1En"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="sphereText1En"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateSphereText1En"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="sphereText1En" />
@@ -417,10 +462,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateSphereText2Uz"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="sphereText2Uz"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateSphereText2Uz"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="sphereText2Uz" />
@@ -445,10 +495,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateSphereText2Ru"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="sphereText2Ru"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateSphereText2Ru"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="sphereText2Ru" />
@@ -473,10 +528,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateSphereText2En"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="sphereText2En"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateSphereText2En"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="sphereText2En" />
@@ -501,10 +561,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateSphereText3Uz"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="sphereText3Uz"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateSphereText3Uz"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="sphereText3Uz" />
@@ -529,10 +594,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateSphereText3Ru"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="sphereText3Ru"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateSphereText3Ru"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="sphereText3Ru" />
@@ -557,10 +627,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateSphereText3En"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="sphereText3En"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateSphereText3En"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="sphereText3En" />
@@ -585,10 +660,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextFirstUz"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textFirstUz"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextFirstUz"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textFirstUz" />
@@ -613,10 +693,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextFirstRu"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textFirstRu"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextFirstRu"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textFirstRu" />
@@ -641,10 +726,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextFirstEn"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textFirstEn"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextFirstEn"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textFirstEn" />
@@ -669,10 +759,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextSecondUz"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textSecondUz"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextSecondUz"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textSecondUz" />
@@ -697,10 +792,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextSecondRu"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textSecondRu"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextSecondRu"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textSecondRu" />
@@ -725,10 +825,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextSecondEn"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textSecondEn"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextSecondEn"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textSecondEn" />
@@ -753,10 +858,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextThirdUz"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textThirdUz"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextThirdUz"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textThirdUz" />
@@ -781,10 +891,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextThirdRu"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textThirdRu"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextThirdRu"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textThirdRu" />
@@ -809,10 +924,15 @@
                 <!--begin::Input-->
                 <Field
                   v-model="updateTextThirdEn"
-                  class="form-control form-control-solid"
+                  class="form-control form-control-solid d-none"
                   name="textThirdEn"
                   type="text"
                 />
+                <textarea
+                  class="form-control form-control-solid"
+                  v-model="updateTextThirdEn"
+                  name="textUz"
+                ></textarea>
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
                     <ErrorMessage name="textThirdEn" />
@@ -1554,3 +1674,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+textarea {
+  height: 250px;
+  resize: none;
+}
+</style>
