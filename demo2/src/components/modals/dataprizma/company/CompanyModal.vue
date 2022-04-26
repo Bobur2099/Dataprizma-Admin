@@ -683,8 +683,6 @@ export default defineComponent({
           errorAlert("You are not authorized", true);
         }
 
-        console.log(responseErrorObject);
-
         if (text !== "cancel" && responseError === 200) {
           if (error === 0) {
             if (create === 1) {
