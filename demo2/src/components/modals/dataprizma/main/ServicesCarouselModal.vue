@@ -258,14 +258,6 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                id="kt_modal_new_card"
-                class="btn btn-white me-3 reset"
-                @click="clearInputs"
-              >
-                {{ $t("discard") }}
-              </button>
-
-              <button
                 id="kt_modal_new_card_submit"
                 ref="submitButtonRef"
                 class="btn btn-primary"
@@ -282,6 +274,14 @@
                     class="spinner-border spinner-border-sm align-middle ms-2"
                   ></span>
                 </span>
+              </button>
+
+              <button
+                id="kt_modal_new_card"
+                class="btn btn-white me-3 reset"
+                @click="clearInputs"
+              >
+                {{ $t("discard") }}
               </button>
             </div>
             <!--end::Actions-->

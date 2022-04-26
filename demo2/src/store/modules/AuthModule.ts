@@ -120,12 +120,12 @@ export default class AuthModule extends VuexModule implements UserAuthInfo {
     return new Promise<void>((resolve, reject) => {
       ApiService.vueInstance.axios.defaults.baseURL =
         request_links.dataprizma[0];
-      const config = payload.config;
-      delete payload.config;
       const formData = new FormData();
       formData.append("to", payload.to);
       axios
-        .post("password/send-email", formData, config)
+        .post("password/send-email", formData, {
+          headers: { "content-type": "multipart/form-data" },
+        })
         .then(({ data }) => {
           this.context.commit(Mutations.SET_AUTH, data);
           resolve();

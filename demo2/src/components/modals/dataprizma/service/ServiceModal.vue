@@ -947,14 +947,6 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                id="kt_modal_new_card"
-                class="btn btn-white me-3 reset"
-                @click="clearInputs()"
-              >
-                {{ $t("discard") }}
-              </button>
-
-              <button
                 id="kt_modal_new_card_submit"
                 ref="submitButtonRef"
                 class="btn btn-primary"
@@ -971,6 +963,14 @@
                     class="spinner-border spinner-border-sm align-middle ms-2"
                   ></span>
                 </span>
+              </button>
+
+              <button
+                id="kt_modal_new_card"
+                class="btn btn-white me-3 reset"
+                @click="clearInputs()"
+              >
+                {{ $t("discard") }}
               </button>
             </div>
             <!--end::Actions-->
@@ -1104,7 +1104,7 @@
                 index !== 'file' && index !== 'id' && index !== 'uploadPath'
               "
             >
-              {{ index }}
+              {{ $t(translatedWords[index]) }}
             </label>
             <!--end::Label-->
             <div
@@ -1201,6 +1201,35 @@ export default defineComponent({
         textThirdUz: "",
         textThirdRu: "",
         textThirdEn: "",
+      },
+      translatedWords: {
+        headerUz: "header_uz",
+        headerRu: "header_ru",
+        headerEn: "header_en",
+        primaryUz: "paragraph_uz",
+        primaryRu: "paragraph_ru",
+        primaryEn: "paragraph_en",
+        textUz: "text_uz",
+        textRu: "text_ru",
+        textEn: "text_en",
+        sphereText1Uz: "sphere_text_1_uz",
+        sphereText1Ru: "sphere_text_1_ru",
+        sphereText1En: "sphere_text_1_en",
+        sphereText2Uz: "sphere_text_2_uz",
+        sphereText2Ru: "sphere_text_2_ru",
+        sphereText2En: "sphere_text_2_en",
+        sphereText3Uz: "sphere_text_3_uz",
+        sphereText3Ru: "sphere_text_3_ru",
+        sphereText3En: "sphere_text_3_en",
+        textFirstUz: "text_1_uz",
+        textFirstRu: "text_1_ru",
+        textFirstEn: "text_1_en",
+        textSecondUz: "text_2_uz",
+        textSecondRu: "text_2_ru",
+        textSecondEn: "text_2_en",
+        textThirdUz: "text_3_uz",
+        textThirdRu: "text_3_ru",
+        textThirdEn: "text_3_en",
       },
       responseError: 200,
       error: 0,

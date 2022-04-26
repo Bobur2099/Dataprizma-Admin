@@ -342,14 +342,6 @@
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
-                id="kt_modal_new_card"
-                class="btn btn-white me-3 reset"
-                @click="clearInputs()"
-              >
-                {{ $t("discard") }}
-              </button>
-
-              <button
                 id="kt_modal_new_card_submit"
                 ref="submitButtonRef"
                 class="btn btn-primary"
@@ -366,6 +358,14 @@
                     class="spinner-border spinner-border-sm align-middle ms-2"
                   ></span>
                 </span>
+              </button>
+
+              <button
+                id="kt_modal_new_card"
+                class="btn btn-white me-3 reset"
+                @click="clearInputs()"
+              >
+                {{ $t("discard") }}
               </button>
             </div>
             <!--end::Actions-->
@@ -499,7 +499,7 @@
                 index !== 'file' && index !== 'id' && index !== 'uploadPath'
               "
             >
-              {{ index }}
+              {{ $t(translatedWords[index]) }}
             </label>
             <!--end::Label-->
             <div
@@ -560,6 +560,17 @@ export default defineComponent({
         textUz: "",
         textRu: "",
         textEn: "",
+      },
+      translatedWords: {
+        authorUz: "author_uz",
+        authorRu: "author_ru",
+        authorEn: "author_en",
+        positionUz: "position_uz",
+        positionRu: "position_ru",
+        positionEn: "position_en",
+        textUz: "text_uz",
+        textRu: "text_ru",
+        textEn: "text_en",
       },
       responseError: 200,
       error: 0,

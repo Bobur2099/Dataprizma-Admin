@@ -149,9 +149,6 @@ export default defineComponent({
         // Send login request
         values.to = values.email;
         delete values.email;
-        values.config = {
-          headers: { "content-type": "multipart/form-data" },
-        };
         store
           .dispatch(Actions.FORGOT_PASSWORD, values)
           .then(() => {
