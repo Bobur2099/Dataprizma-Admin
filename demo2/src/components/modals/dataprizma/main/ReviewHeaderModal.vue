@@ -499,7 +499,7 @@
                 index !== 'file' && index !== 'id' && index !== 'uploadPath'
               "
             >
-              {{ index }}
+              {{ $t(translatedWords[index]) }}
             </label>
             <!--end::Label-->
             <div
@@ -560,6 +560,17 @@ export default defineComponent({
         topicUz: "",
         topicRu: "",
         topicEn: "",
+      },
+      translatedWords: {
+        headerUz: "header_uz",
+        headerRu: "header_ru",
+        headerEn: "header_en",
+        paragraphUz: "paragraph_uz",
+        paragraphRu: "paragraph_ru",
+        paragraphEn: "paragraph_en",
+        topicUz: "topic_uz",
+        topicRu: "topic_ru",
+        topicEn: "topic_en",
       },
       responseError: 200,
       error: 0,
