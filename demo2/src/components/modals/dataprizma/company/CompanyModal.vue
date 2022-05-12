@@ -237,6 +237,8 @@
             </div>
             <!--end::Input group-->
 
+            <Map style="height: 500px"></Map>
+
             <!--begin::Actions-->
             <div class="text-center pt-15">
               <button
@@ -369,6 +371,7 @@ import axios from "axios";
 import requests from "@/request/dataprizma_request_links/request_links";
 import { useI18n } from "vue-i18n";
 import { setLocale } from "yup";
+import Map from "../../../Map.vue";
 
 // interface CardData {
 //   nameOnCard: string;
@@ -403,6 +406,7 @@ export default defineComponent({
     ErrorMessage,
     Field,
     Form,
+    Map,
   },
   watch: {
     updateId(newValue) {
